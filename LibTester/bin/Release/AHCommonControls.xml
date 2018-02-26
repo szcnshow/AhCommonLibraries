@@ -1,0 +1,2623 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AHCommonControls</name>
+    </assembly>
+    <members>
+        <member name="T:Ai.Hong.Charts.PointSharp">
+            <summary>
+            数据点形状
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Pyramid">
+            <summary>
+            棱锥体
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Cube">
+            <summary>
+            正方体
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Sphere">
+             <summary>
+            球体 
+             </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Square">
+            <summary>
+            正方形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Circle">
+            <summary>
+            圆形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Diamond">
+            <summary>
+            菱形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Triangle">
+            <summary>
+            三角形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Cross">
+            <summary>
+            十字形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Star4">
+            <summary>
+            四星形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Star5">
+            <summary>
+            五星形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Star6">
+            <summary>
+            六星形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.PointSharp.Star10">
+            <summary>
+            十星形
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.PointData">
+            <summary>
+            数据点的结构
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.PointData.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.SolidColorBrush,System.Boolean,Ai.Hong.Charts.PointSharp)">
+            <summary>
+            创建图像点数据
+            </summary>
+            <param name="name">名称</param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="size">大小</param>
+            <param name="color">颜色</param>
+            <param name="solid">是否填充</param>
+            <param name="shape">形状</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.PointData.CreatePointDatas(System.Double[],System.Double[],System.Double,System.Windows.Media.SolidColorBrush,System.String[],System.Double[],System.Boolean,Ai.Hong.Charts.PointSharp)">
+            <summary>
+            构建2D或者3D图形数据点
+            </summary>
+            <param name="xAxis">X轴</param>
+            <param name="yAxis">Y轴</param>
+            <param name="size">大小</param>
+            <param name="color">颜色</param>
+            <param name="names">名称</param>
+            <param name="zAxis">Z轴</param>
+            <param name="solid">是否填充</param>
+            <param name="shape">图形形状</param>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.name">
+            <summary>
+            数据点名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.centerX">
+            <summary>
+            中心点X坐标
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.centerY">
+            <summary>
+            中心点Y坐标
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.centerZ">
+            <summary>
+            中心点Z坐标
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.size">
+            <summary>
+            点的大小（边长，半径）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.pointSharp">
+            <summary>
+            点的形状
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.color">
+            <summary>
+            点的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.winformColor">
+            <summary>
+            Winform颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.solid">
+            <summary>
+            是否填充
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.isSelected">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.PointData.key">
+            <summary>
+            key
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.GraphicOperatePanel">
+            <summary>
+            GraphicOperatePanel.xaml 的交互逻辑
+            </summary>
+            <summary>
+            GraphicOperatePanel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.ButtonSizeProperty">
+            <summary>
+            按钮大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.ButtonColorProperty">
+            <summary>
+            按钮颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.OrientationProperty">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.MouseOnColorProperty">
+            <summary>
+            MouseOn颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.CheckedColorProperty">
+            <summary>
+            选中颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.DisabledColorProperty">
+            <summary>
+            Disabled颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.ButtonMarginProperty">
+            <summary>
+            按钮Margin
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.ButtonCheckedEvent">
+            <summary>
+            按钮选中
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.ButtonClickedEvent">
+            <summary>
+            按钮点击
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.ColorChangedEvent">
+            <summary>
+            颜色改变
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicOperatePanel.allButtons">
+            <summary>
+            所有按钮
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.Button_Checked(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Radio按钮消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.Button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            按钮点击消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.GetRadioButtons">
+            <summary>
+            获取所有Radio按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.GetClickButtons">
+            <summary>
+            获取所有按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.EnableButton(System.String,System.Boolean)">
+            <summary>
+            Enable/Disable按钮
+            </summary>
+            <param name="buttonName">按钮名称</param>
+            <param name="enabled"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.CheckButton(System.String)">
+            <summary>
+            选中按钮
+            </summary>
+            <param name="buttonName">按钮名称</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.VisibleButton(System.String,System.Boolean)">
+            <summary>
+            选中按钮
+            </summary>
+            <param name="buttonName">按钮名称</param>
+            <param name="visible">是否可见</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.GetAllButtons">
+            <summary>
+            获取所有按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicOperatePanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicOperatePanel.ButtonSize">
+            <summary>
+            按钮大小
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicOperatePanel.ButtonColor">
+            <summary>
+            按钮颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicOperatePanel.Orientation">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicOperatePanel.MouseOnColor">
+            <summary>
+            MouseOn颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicOperatePanel.CheckedColor">
+            <summary>
+            选中颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicOperatePanel.DisabledColor">
+            <summary>
+            Disabled颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicOperatePanel.ButtonMargin">
+            <summary>
+            按钮Margin
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.GraphicOperatePanel.ButtonChecked">
+            <summary>
+            按钮选中
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.GraphicOperatePanel.ButtonClicked">
+            <summary>
+            按钮点击
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.GraphicOperatePanel.ColorChanged">
+            <summary>
+            颜色改变
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.Point2DChart">
+            <summary>
+            PredictResultChart.xaml 的交互逻辑
+            </summary>
+            <summary>
+            Point2DChart
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.Point2DChart.areaName">
+            <summary>
+            图形区域名称
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.Point2DChart.mainArea">
+            <summary>
+            图形区域
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.Point2DChart.mainChart">
+            <summary>
+            图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.Point2DChart.unselColor">
+            <summary>
+            正常显示颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.Point2DChart.selColor">
+            <summary>
+            选中显示颜色
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.#ctor">
+            <summary>
+            2D图像控件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.AddPoints(System.Collections.Generic.IList{Ai.Hong.Charts.PointData})">
+            <summary>
+            添加图形数据点
+            </summary>
+            <param name="datas"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.AddPoint(Ai.Hong.Charts.PointData)">
+            <summary>
+            增加数据点
+            </summary>
+            <param name="data">数据点数据</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.RemovePoints(System.Collections.Generic.IList{System.Guid})">
+            <summary>
+            移除图像数据点
+            </summary>
+            <param name="IDs">数据点的ID</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.ClearChart">
+            <summary>
+            清除图像
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.AdjustChartAxis(System.Windows.Forms.DataVisualization.Charting.Series)">
+            <summary>
+            调整图像的坐标
+            </summary>
+            <param name="sr">图像</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.GetMaxAxisValue(System.Double,System.Double,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            计算图像的坐标轴的最大最小值和步长
+            </summary>
+            <param name="minValue">显示数据的最小值</param>
+            <param name="maxValue">显示数据的最大值</param>
+            <param name="axisMin">返回坐标轴的最小值</param>
+            <param name="axisMax">返回坐标轴的最大值</param>
+            <param name="axisStep">返回坐标轴的步长</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.ExchangeValueWhenInverted(System.Double@,System.Double@)">
+            <summary>
+            按照大小交换数据
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.resultChart_DoubleClick(System.Object,System.EventArgs)">
+            <summary>
+            双击鼠标选择或者取消选择Point
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.Point2DChart.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.SpectrumChart">
+            <summary>
+            UserControl1.xaml 的交互逻辑
+            </summary>
+            <summary>
+            SpectrumChart
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.graphicFiles">
+            <summary>
+            所有图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.selectedFiles">
+            <summary>
+            选中的图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.myController">
+            <summary>
+            图形控制器
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.xAxs">
+            <summary>
+            自定义的X轴
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.operatePanel">
+            <summary>
+            操作按钮面板
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.operateButtons">
+            <summary>
+            所有操作按钮
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.ItemSelectedEvent">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.ColorChangedEvent">
+            <summary>
+            颜色改变消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.ItemHiddenEvent">
+            <summary>
+            图形隐藏消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.SelectedItemProperty">
+            <summary>
+            当前选择项
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.SelectedItemsProperty">
+            <summary>
+            选中项列表
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.LineWidthProperty">
+            <summary>
+            正常图形的线宽
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.SelectedLineWidthProperty">
+            <summary>
+            选中的图形线宽
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.selectSensitiyProperty">
+            <summary>
+            图像选择的敏感度
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.strColors">
+            <summary>
+            预定义的颜色（More为自定义)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.InitContextMenu">
+            <summary>
+            初始化菜单
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.ContextMenu_Opened(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Context Menu菜单显示消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AddSubColorMenu(System.Windows.Controls.MenuItem,System.String)">
+            <summary>
+            添加颜色菜单
+            </summary>
+            <param name="parentMenu"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.GetDisplayColor(System.Int32)">
+            <summary>
+            获取序号对应的颜色
+            </summary>
+            <param name="index">序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.ContextMenu_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            菜单消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.LoadCustomCursor(System.String)">
+            <summary>
+            加载光标
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.InitChart">
+            <summary>
+            设置显示坐标
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.leftButtonDown">
+            <summary>
+            鼠标左键按下的相应信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SeriesInRectangle(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            获取矩形选择框内的图形
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.spectrumChart_MouseDoubleClick(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            鼠标双击消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetChartLineWidth(System.Collections.Generic.List{Ai.Hong.Charts.SpectrumChart.GraphicInfo},System.Double)">
+            <summary>
+            设置图形线宽
+            </summary>
+            <param name="items"></param>
+            <param name="linewidth"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AddNewSelectedItems(System.Collections.Generic.List{System.Guid},System.Boolean)">
+            <summary>
+            添加到选择图形列表
+            </summary>
+            <param name="selItems">新添加的图形</param>
+            <param name="clear">清除以前的图形</param>
+            <returns>是否需要刷新</returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.RealAddToChart(Ai.Hong.Charts.SpectrumChart.GraphicInfo)">
+            <summary>
+            实际添加光谱图形到Chart
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.FindChildByName(System.Windows.Controls.ItemsControl,System.String)">
+            <summary>
+            通过名称查找ItemsControl包含的子节点
+            </summary>
+            <param name="currentNode">当前结点</param>
+            <param name="name">查找的名称</param>
+            <returns>找到的节点</returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemCaption(Ai.Hong.Charts.SpectrumChart.chartMenuItems,System.String)">
+            <summary>
+            修改弹出菜单的名称
+            </summary>
+            <param name="item">菜单项</param>
+            <param name="caption">菜单名称</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemVisible(Ai.Hong.Charts.SpectrumChart.chartMenuItems,System.Boolean)">
+            <summary>
+            隐藏或者显示弹出菜单
+            </summary>
+            <param name="item">菜单项</param>
+            <param name="visible">True=显示, False=隐藏</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemEnable(Ai.Hong.Charts.SpectrumChart.chartMenuItems,System.Boolean)">
+            <summary>
+            Enable弹出菜单
+            </summary>
+            <param name="item">菜单项</param>
+            <param name="enable">Tru, False</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AddChart(System.Double[],System.Double[],System.Windows.Media.SolidColorBrush,System.Guid,System.String,System.String)">
+            <summary>
+            添加图形
+            </summary>
+            <param name="xDatas">x轴数据</param>
+            <param name="yDatas">y轴数据</param>
+            <param name="color">显示颜色</param>
+            <param name="key">文件标识</param>
+            <param name="label">图形名称</param>
+            <param name="labelFormat">数据显示格式</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AdjustAxisValue">
+            <summary>
+            设置X轴和Y轴的最大最小值
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.RemoveChart(System.Guid)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="key">光谱的ID</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.RemoveCharts(System.Collections.Generic.IList{System.Guid})">
+            <summary>
+            删除文件
+            </summary>
+            <param name="keys">光谱的ID</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.RemoveAllChart">
+            <summary>
+            删除所有光谱
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.ChangeColor(System.Guid,System.Windows.Media.SolidColorBrush)">
+            <summary>
+            设置新的显示颜色
+            </summary>
+            <param name="key">替换的对象</param>
+            <param name="newcolor">显示颜色</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.ChangeColor(System.Collections.Generic.List{System.Guid},System.Windows.Media.SolidColorBrush)">
+            <summary>
+            设置新的显示颜色
+            </summary>
+            <param name="keys">替换的对象</param>
+            <param name="newcolor">显示颜色</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.Refresh">
+            <summary>
+            刷新图像
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.RedrawItem(System.Guid,System.Double[],System.Double[])">
+            <summary>
+            重置图形的数据
+            </summary>
+            <param name="key"></param>
+            <param name="xDatas"></param>
+            <param name="yDatas"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetGraphicOperatePanel(Ai.Hong.Charts.GraphicOperatePanel)">
+            <summary>
+            设置图形操作按钮面板
+            </summary>
+            <param name="panel">图形操作按钮面板</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.OperatePanelChartColor_Changed(System.Object,System.Windows.RoutedPropertyChangedEventArgs{System.Windows.Media.SolidColorBrush})">
+            <summary>
+            按钮面板的颜色改变消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.operatePanel_ButtonClicked(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            操作按钮的按钮Click消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.operatePanel_ButtonChecked(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            操作按钮的RadioButton选中消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.GetDisplayChartsCount">
+            <summary>
+            获取显示图形的数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.GetDisplayCharts">
+            <summary>
+            获取所有显示的图形
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.SpectrumChart.ItemSelected">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.SpectrumChart.ColorChanged">
+            <summary>
+            颜色改变消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.SpectrumChart.ItemHidden">
+            <summary>
+            图形隐藏消息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.SelectedItem">
+            <summary>
+            当前选择项
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.SelectedItems">
+            <summary>
+            选中项列表
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.LineWidth">
+            <summary>
+            正常图形的线宽
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.SelectedLineWidth">
+            <summary>
+            选中的图形线宽
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.selectSensitiy">
+            <summary>
+            图像选择的敏感度
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.SpectrumChart.GraphicInfo">
+            <summary>
+            图形属性
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.GraphicInfo.chart">
+            <summary>
+            光谱图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.GraphicInfo.key">
+            <summary>
+            光谱ID
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.GraphicInfo.CreateChart(System.Double[],System.Double[],System.Windows.Media.SolidColorBrush,System.Double,System.String)">
+            <summary>
+            创建Chart图像
+            </summary>
+            <param name="xDatas">x轴数据</param>
+            <param name="yDatas">y轴数据</param>
+            <param name="color">颜色</param>
+            <param name="lineWidth">线宽</param>
+            <param name="labelFormat">数据显示格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.GraphicInfo.#ctor(System.Double[],System.Double[],System.Windows.Media.SolidColorBrush,System.Double,System.Guid,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="xDatas">X轴数据</param>
+            <param name="yDatas">Y轴数据</param>
+            <param name="color">显示颜色</param>
+            <param name="lineWidth">图形线宽</param>
+            <param name="key">Key</param>
+            <param name="labelName">图形名称</param>
+            <param name="labelFormat">数据显示格式</param>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.GraphicInfo.chartColor">
+            <summary>
+            图形颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.GraphicInfo.name">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.GraphicInfo.offset">
+            <summary>
+            图形显示位移（Y轴)
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.SpectrumChart.ColorChangedArg">
+            <summary>
+            颜色改变消息参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.ColorChangedArg.color">
+            <summary>
+            当前显示的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.ColorChangedArg.items">
+            <summary>
+            选中的图形
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.SpectrumChart.chartMenuItems">
+            <summary>
+            弹出菜单项
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Select">
+            <summary>
+            选择
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Zoom">
+            <summary>
+            缩放的主菜单
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.zoomIn">
+            <summary>
+            放大
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.zoomOut">
+            <summary>
+            缩小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.resetXY">
+            <summary>
+            重置XY
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.resetY">
+            <summary>
+            重置Y
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Pan">
+            <summary>
+            移动
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Display">
+            <summary>
+            显示的主菜单
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Colors">
+            <summary>
+            修改颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Hide">
+            <summary>
+            隐藏图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.showGridLine">
+            <summary>
+            显示网格
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.showInformation">
+            <summary>
+            显示信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.peakPick">
+            <summary>
+            标志峰位的主菜单
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.upPeakPick">
+            <summary>
+            向上的峰位
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.downPeakPick">
+            <summary>
+            向下的峰位
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.Common.CommonMethod">
+            <summary>
+            通用功能
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.Common.CommonMethod.preDefineColors">
+            <summary>
+            预定义的颜色（More为自定义)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.CommonMethod.RemoveDataGridItems(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            移除DataGrid中的选定项
+            </summary>
+            <param name="allItems"></param>
+            <param name="removeItems"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.CommonMethod.GetDataGridContent(System.Windows.Controls.DataGrid)">
+            <summary>
+            获取Datagrid中的内容
+            </summary>
+            <param name="dataGrid">DataGrid</param>
+            <returns>以行为主的内容</returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.CommonMethod.GetLogicalChildCollection``1(System.Object)">
+            <summary>
+            获取控件中的所有子控件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.CommonMethod.GetLogicalChildCollection``1(System.Windows.DependencyObject,System.Collections.Generic.List{``0})">
+            <summary>
+            获取下属指定类型的控件
+            </summary>
+            <typeparam name="T">控件类型</typeparam>
+            <param name="parent">父控件</param>
+            <param name="logicalCollection">子控件</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.CommonMethod.CombineStringContents(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            组合字符串列表
+            </summary>
+            <param name="contents">字符串列表</param>
+            <param name="spliter">分割符</param>
+            <returns>组合后的字符串列表</returns>
+        </member>
+        <member name="T:Ai.Hong.Controls.Common.DataGridPlus">
+            <summary>
+            WPF DataGrid控件扩展方法 
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.DataGridPlus.GetCell(System.Windows.Controls.DataGrid,System.Int32,System.Int32)">
+            <summary>
+            获取DataGrid控件单元格
+            </summary>
+            <param name="dataGrid">DataGrid控件</param>
+            <param name="rowIndex">单元格所在的行号</param>
+            <param name="columnIndex">单元格所在的列号</param>
+            <returns>指定的单元格</returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.DataGridPlus.GetRow(System.Windows.Controls.DataGrid,System.Int32)">
+            <summary>
+            获取DataGrid的行
+            </summary>
+            <param name="dataGrid">DataGrid控件</param>
+            <param name="rowIndex">DataGrid行号</param>
+            <returns>指定的行号</returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.DataGridPlus.GetVisualChild``1(System.Windows.Media.Visual)">
+            <summary>
+            获取父可视对象中第一个指定类型的子可视对象
+            </summary>
+            <typeparam name="T">可视对象类型</typeparam>
+            <param name="parent">父可视对象</param>
+            <returns>第一个指定类型的子可视对象</returns>
+        </member>
+        <member name="T:Ai.Hong.Controls.Common.ColorChartDisplayInfo">
+            <summary>
+            带颜色选择的DataGrid列表框的基本类
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.Common.ColorChartDisplayInfo.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.ColorChartDisplayInfo.GetDisplayColor(System.Int32)">
+            <summary>
+            获取显示颜色
+            </summary>
+            <param name="index">颜色列表中的序号</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.ColorChartDisplayInfo.DoProperChange(System.String)">
+            <summary>
+            属性变化消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.Common.ColorChartDisplayInfo.dataDisplayFormat">
+            <summary>
+            数据显示格式（小数位数）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.ColorChartDisplayInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.ColorChartDisplayInfo.#ctor(System.String,System.Double[],System.Double[],System.Windows.Media.Brush,System.String)">
+            <summary>
+            初始化图形数据
+            </summary>
+            <param name="name">数据显示名称</param>
+            <param name="xDatas">X轴值</param>
+            <param name="yDatas">Y轴值</param>
+            <param name="color">数据颜色</param>
+            <param name="dataDisplayFormat">小数的显示格式</param>
+        </member>
+        <member name="E:Ai.Hong.Controls.Common.ColorChartDisplayInfo.PropertyChanged">
+            <summary>
+            属性变化消息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.isChecked">
+            <summary>
+            是否显示光谱图
+            </summary> 
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.name">
+            <summary>
+            数据显示名称
+            </summary> 
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.isSelected">
+            <summary>
+            是否在列表中选中
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.rowColor">
+            <summary>
+            数据行显示颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.color">
+            <summary>
+            显示颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.thisItem">
+            <summary>
+            当前数据，用于绑定
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.xDatas">
+            <summary>
+            X数据
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.yDatas">
+            <summary>
+            Y数据
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.key">
+            <summary>
+            当前数据的KEY
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.tag">
+            <summary>
+            附加的变量,通常用于查找
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.addInfoTitles">
+            <summary>
+            附加信息名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.ColorChartDisplayInfo.addInfoValues">
+            <summary>
+            附加信息内容
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.Common.TrueIsVisibilityConvert">
+            <summary>
+            Checked与Visibility之间的转换, True=Visible, False=Collapsed
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.TrueIsVisibilityConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.TrueIsVisibilityConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Controls.Common.FalseIsVisibilityConvert">
+            <summary>
+            False与Visibility之间的转换, False=Visible, True=Collapsed
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.FalseIsVisibilityConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.FalseIsVisibilityConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Controls.Common.WaitProcessParameter">
+            <summary>
+            长时间操作函数运行参数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.WaitProcessParameter.DoProperChange(System.String)">
+            <summary>
+            属性变化消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.Common.WaitProcessParameter.PropertyChanged">
+            <summary>
+            属性变化消息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.WaitProcessParameter.message">
+            <summary>
+            显示信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.WaitProcessParameter.maximum">
+            <summary>
+            滚动条最大值
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.WaitProcessParameter.curValue">
+            <summary>
+            滚动条当前值
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.WaitProcessParameter.cancel">
+            <summary>
+            是否为用户取消
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.WaitProcessParameter.sucessed">
+            <summary>
+            是否操作成功
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.WaitProcessParameter.threadParameter">
+            <summary>
+            线程运行参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.Common.WaitProcessParameter.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.ColorPicker">
+            <summary>
+            颜色选择弹出菜单
+            </summary>
+            <summary>
+            ColorPicker
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ColorPicker.selectedBursh">
+            <summary>
+            选中的颜色
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ColorPicker.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ColorPicker.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.FlattenSelectColorList">
+            <summary>
+            附带颜色、选择的列表
+            </summary>
+            <summary>
+            FlattenSelectColorList
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FlattenSelectColorList.ItemSelectedEvent">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FlattenSelectColorList.ItemRemovedEvent">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FlattenSelectColorList.AllRemovedEvent">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FlattenSelectColorList.spectrumFileList">
+            <summary>
+            显示内容列表
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FlattenSelectColorList.colorChangeFromHeader">
+            <summary>
+            从列表头来的颜色变化消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FlattenSelectColorList.selectChangeFromChart">
+            <summary>
+            从图形显示控件来的选中消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.spectrumFileList_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            文件列表变化消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.SetGridData(System.Collections.ObjectModel.ObservableCollection{Ai.Hong.Controls.Common.ColorChartDisplayInfo})">
+            <summary>
+            设置列表显示内容
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.SetGraphicChart(Ai.Hong.Charts.SpectrumChart)">
+            <summary>
+            设置列表的光谱图形显示控件
+            </summary>
+            <param name="chart"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.newGraphicChart_ItemHidden(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            光谱图形隐藏消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.newGraphicChart_ItemSelected(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            光谱图形选中消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.SetPropertyChangeEventtemp(Ai.Hong.Controls.Common.ColorChartDisplayInfo)">
+            <summary>
+            设置一个新增项的属性变更通知消息
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.spectrumData_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            显示或者隐藏光谱图形
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.RemoveDataGridItems(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            移除DataGrid中的选定项
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.RemoveSelected">
+            <summary>
+            移除列表中选择的光谱文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.AddNewDataBinding(System.String[],System.String[],System.Boolean)">
+            <summary>
+            增加列表中的列，并且所有的列都是只读的
+            </summary>
+            <param name="titles">列头的名称</param>
+            <param name="values">列的绑定变量名称</param>
+            <param name="isReadOnly">是否可以编辑</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.RemoveDataBinding(System.String[])">
+            <summary>
+            移除绑定数据列
+            </summary>
+            <param name="titles">数据列名称</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.InsertDataColumn(System.Windows.Controls.DataGridColumn,System.Int32)">
+            <summary>
+            插入一列数据
+            </summary>
+            <param name="column">列数据</param>
+            <param name="index">插入位置,位置错误，将在最后添加</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.VisibleDataColumn(System.Int32,System.Boolean)">
+            <summary>
+            显示隐藏一列数据
+            </summary>
+            <param name="index">列号</param>
+            <param name="visible">True=显示，False=隐藏</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.VisibleDataColumn(System.String,System.Boolean)">
+            <summary>
+            显示隐藏一列数据
+            </summary>
+            <param name="headerTitle">标题</param>
+            <param name="visible">True=显示，False=隐藏</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.SetDataBindingStringFormat(System.String[],System.String[])">
+            <summary>
+            设置绑定字段的显示格式
+            </summary>
+            <param name="titles">字段名称</param>
+            <param name="stringFormats">字段格式</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.gridSpectrum_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            列表选择变更消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.GetDataGrid">
+            <summary>
+            用于设置特殊的列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.SelectItem(Ai.Hong.Controls.Common.ColorChartDisplayInfo)">
+            <summary>
+            选中一个Item,并自动将其滚动到可见区域
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.GetSelectedItems">
+            <summary>
+            获取列表中的选择项
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.visibleChecker_Checked(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            标题上的选择框消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.GetFocusItem">
+            <summary>
+            获取当前焦点项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.colorBorder_MouseRightButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            选择新的颜色来设置
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.colorPop_Closed(System.Object,System.EventArgs)">
+            <summary>
+            修改显示颜色窗口关闭
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.Refresh">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.RefreshItem(Ai.Hong.Controls.Common.ColorChartDisplayInfo,System.Boolean)">
+            <summary>
+            刷新一个项
+            </summary>
+            <param name="item"></param>
+            <param name="refreshRightNow">是否立即刷新图形</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.RefreshGraphic">
+            <summary>
+            刷新图形
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.headerRemoveItem_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            移除列表中的选中项目
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.CellRemoveItem_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            移除列表中的当前项目
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.GetUnderDataGrid">
+            <summary>
+            获取底层的Datagrid
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.SetItemColor(System.Windows.Media.SolidColorBrush,System.Collections.Generic.IList{Ai.Hong.Controls.Common.ColorChartDisplayInfo})">
+            <summary>
+            修改谱图的显示颜色
+            </summary>
+            <param name="color">目标颜色</param>
+            <param name="items">需要修改的谱图列表，如果为NULL，表示修改当前选中谱图</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FlattenSelectColorList.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.FlattenSelectColorList.ItemSelected">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.FlattenSelectColorList.ItemRemoved">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.FlattenSelectColorList.AllRemoved">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.PorcessWaitWindow">
+            <summary>
+            长时间操作等待窗口
+            </summary>
+            <summary>
+            PorcessWaitWindow
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.PorcessWaitWindow.threadParameter">
+            <summary>
+            现场运行参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.PorcessWaitWindow.processRoutine">
+            <summary>
+            操作函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.#ctor(Ai.Hong.Controls.PorcessWaitWindow.ProcessRoutineDelegate,System.String,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            操作等待窗口
+            </summary>
+            <param name="routine">操作调用</param>
+            <param name="title">提示</param>
+            <param name="canCancel">是否用户可以取消</param>
+            <param name="IsIndeterminate">是否为连续模式</param>
+            <param name="parameter">运行参数(线程自己解析)</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.dlgPorcessWaiting_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            如果还在操作，不能关闭窗口
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.timer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            刷新操作状态
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.Window_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            窗口启动后立即开始工作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.StartThread">
+            <summary>
+            开始操作
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.btnCancel_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            取消操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.ProcessFailed">
+            <summary>
+            判断处理是否失败
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.GetErrorMessage">
+            <summary>
+            获取错误信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.PorcessWaitWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.PorcessWaitWindow.ProcessRoutineDelegate">
+            <summary>
+            长时间操作函数
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.dlgPorcessWaiting">
+            <summary>
+            长时间操作等待窗口
+            </summary>
+            <summary>
+            dlgPorcessWaiting
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.dlgPorcessWaiting.processRoutine">
+            <summary>
+            操作函数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.dlgPorcessWaiting.message">
+            <summary>
+            操作过程的提示
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.dlgPorcessWaiting.maxvalue">
+            <summary>
+            滚动条最大值
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.dlgPorcessWaiting.curvalue">
+            <summary>
+            滚动条当前值
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.dlgPorcessWaiting.userCanceled">
+            <summary>
+            用户取消操作
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.dlgPorcessWaiting.threadParameter">
+            <summary>
+            现场参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.dlgPorcessWaiting.refreshRate">
+            <summary>
+            刷新频率
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.dlgPorcessWaiting.#ctor(Ai.Hong.Controls.dlgPorcessWaiting.ProcessRoutineDelegate,System.String,System.Boolean,System.Boolean,System.Double,System.Object)">
+            <summary>
+            操作等待窗口
+            </summary>
+            <param name="routine">操作调用</param>
+            <param name="title">提示</param>
+            <param name="canCancel">是否用户可以取消</param>
+            <param name="IsIndeterminate">是否为连续模式</param>
+            <param name="refreshRate">刷新频率</param>
+            <param name="threadParameter">运行参数(线程自己解析)</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.dlgPorcessWaiting.dlgPorcessWaiting_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            如果还在操作，不能关闭窗口
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.dlgPorcessWaiting.timer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            刷新操作状态
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.dlgPorcessWaiting.Window_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            窗口启动后立即开始工作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.dlgPorcessWaiting.StartThread">
+            <summary>
+            开始操作
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.dlgPorcessWaiting.btnCancel_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            取消操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.dlgPorcessWaiting.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.dlgPorcessWaiting.ProcessRoutineDelegate">
+            <summary>
+            长时间操作函数
+            </summary>
+            <param name="message">操作提示</param>
+            <param name="maxvalue">滚动条最大值</param>
+            <param name="curvalue">滚动条当前值</param>
+            <param name="cancel">是否取消操作</param>
+            <param name="sucessed">操作是否成功</param>
+            <param name="threadParameter">线程运行参数</param>
+        </member>
+        <member name="T:Ai.Hong.Controls.FileOperatePanel">
+            <summary>
+            GraphicOperatePanel.xaml 的交互逻辑
+            </summary>
+            <summary>
+            FileOperatePanel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.ButtonSizeProperty">
+            <summary>
+            按钮大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.ButtonColorProperty">
+            <summary>
+            按钮颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.OrientationProperty">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.MouseOnColorProperty">
+            <summary>
+            MouseOn颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.CheckedColorProperty">
+            <summary>
+            选中颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.DisabledColorProperty">
+            <summary>
+            Disabled颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.ButtonMarginProperty">
+            <summary>
+            按钮Margin
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.ButtonCheckedEvent">
+            <summary>
+            按钮选中
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.ButtonClickedEvent">
+            <summary>
+            按钮点击
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.FileOperatePanel.allButtons">
+            <summary>
+            所有按钮
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FileOperatePanel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FileOperatePanel.Button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            按钮点击消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FileOperatePanel.EnableButton(System.String,System.Boolean)">
+            <summary>
+            Enable/Disable按钮
+            </summary>
+            <param name="buttonName">按钮名称</param>
+            <param name="enabled"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FileOperatePanel.VisibleButton(System.String,System.Boolean)">
+            <summary>
+            设置按钮可见状态
+            </summary>
+            <param name="buttonName">按钮名称</param>
+            <param name="visible">是否可见</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.FileOperatePanel.GetAllButtons">
+            <summary>
+            获取所有按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.FileOperatePanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.FileOperatePanel.ButtonSize">
+            <summary>
+            按钮大小
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.FileOperatePanel.ButtonColor">
+            <summary>
+            按钮颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.FileOperatePanel.Orientation">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.FileOperatePanel.MouseOnColor">
+            <summary>
+            MouseOn颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.FileOperatePanel.CheckedColor">
+            <summary>
+            选中颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.FileOperatePanel.DisabledColor">
+            <summary>
+            Disabled颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.FileOperatePanel.ButtonMargin">
+            <summary>
+            按钮Margin
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.FileOperatePanel.ButtonChecked">
+            <summary>
+            按钮选中
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.FileOperatePanel.ButtonClicked">
+            <summary>
+            按钮点击
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.OkCancelPanel">
+            <summary>
+            OkCancelPanel.xaml 的交互逻辑
+            </summary>
+            <summary>
+            OkCancelPanel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.OkCancelPanel.OKEvent">
+            <summary>
+            OK Clicked Event
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.OkCancelPanel.CancelEvent">
+            <summary>
+            Cancel Clicked Event
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.OkCancelPanel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.OkCancelPanel.SetOKButtonEnabled(System.Boolean)">
+            <summary>
+            设置OK按钮状态
+            </summary>
+            <param name="isEnabled"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.OkCancelPanel.SetCancelButtonEnabled(System.Boolean)">
+            <summary>
+            设置Cancel按钮状态
+            </summary>
+            <param name="isEnabled"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.OkCancelPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.OkCancelPanel.OKClicked">
+            <summary>
+            OK Clicked Event
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.OkCancelPanel.CancelClicked">
+            <summary>
+            Cancel Clicked Event
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.ImageCheckBox">
+            <summary>
+            矢量图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ImageCheckBox.CheckedImageProperty">
+            <summary>
+            选中图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ImageCheckBox.UncheckedImageProperty">
+            <summary>
+            未选中图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ImageCheckBox.TextProperty">
+            <summary>
+            显示的文本
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ImageCheckBox.OnInitialized(System.EventArgs)">
+            <summary>
+            控件初始化
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.ImageCheckBox.InitTemplate">
+            <summary>
+            初始化Template
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ImageCheckBox.InitContent">
+            <summary>
+            初始化显示模板
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ImageCheckBox.OnPropertyChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            属性变化消息
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Ai.Hong.Controls.ImageCheckBox.CheckedImage">
+            <summary>
+            选中图形
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ImageCheckBox.UncheckedImage">
+            <summary>
+            未选中图形
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ImageCheckBox.Text">
+            <summary>
+            显示的文本
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.SelectColorList">
+            <summary>
+            附带颜色、选择的列表
+            </summary>
+            <summary>
+            SelectColorList
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.SelectColorList.ItemSelectedEvent">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.SelectColorList.ItemRemovedEvent">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.SelectColorList.AllRemovedEvent">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.SelectColorList.spectrumFileList">
+            <summary>
+            显示内容列表
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.SelectColorList.colorChangeFromHeader">
+            <summary>
+            从列表头来的颜色变化消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.SelectColorList.selectChangeFromChart">
+            <summary>
+            从图形显示控件来的选中消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.spectrumFileList_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            文件列表变化消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.SetGridData(System.Collections.ObjectModel.ObservableCollection{Ai.Hong.Controls.Common.ColorChartDisplayInfo})">
+            <summary>
+            设置列表显示内容
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.SetGraphicChart(Ai.Hong.Charts.SpectrumChart)">
+            <summary>
+            设置列表的光谱图形显示控件
+            </summary>
+            <param name="chart"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.newGraphicChart_ItemHidden(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            光谱图形隐藏消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.newGraphicChart_ItemSelected(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            光谱图形选中消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.SetPropertyChangeEventtemp(Ai.Hong.Controls.Common.ColorChartDisplayInfo)">
+            <summary>
+            设置一个新增项的属性变更通知消息
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.spectrumData_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            显示或者隐藏光谱图形
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.RemoveDataGridItems(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            移除DataGrid中的选定项
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.RemoveSelected">
+            <summary>
+            移除列表中选择的光谱文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.AddNewDataBinding(System.String[],System.String[],System.Boolean)">
+            <summary>
+            增加列表中的列，并且所有的列都是只读的
+            </summary>
+            <param name="titles">列头的名称</param>
+            <param name="values">列的绑定变量名称</param>
+            <param name="isReadOnly">是否可以编辑</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.RemoveDataBinding(System.String[])">
+            <summary>
+            移除绑定数据列
+            </summary>
+            <param name="titles">数据列名称</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.InsertDataColumn(System.Windows.Controls.DataGridColumn,System.Int32)">
+            <summary>
+            插入一列数据
+            </summary>
+            <param name="column">列数据</param>
+            <param name="index">插入位置,位置错误，将在最后添加</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.VisibleDataColumn(System.Int32,System.Boolean)">
+            <summary>
+            显示隐藏一列数据
+            </summary>
+            <param name="index">列号</param>
+            <param name="visible">True=显示，False=隐藏</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.VisibleDataColumn(System.String,System.Boolean)">
+            <summary>
+            显示隐藏一列数据
+            </summary>
+            <param name="headerTitle">标题</param>
+            <param name="visible">True=显示，False=隐藏</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.SetDataBindingStringFormat(System.String[],System.String[])">
+            <summary>
+            设置绑定字段的显示格式
+            </summary>
+            <param name="titles">字段名称</param>
+            <param name="stringFormats">字段格式</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.gridSpectrum_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            列表选择变更消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.GetDataGrid">
+            <summary>
+            用于设置特殊的列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.SelectItem(Ai.Hong.Controls.Common.ColorChartDisplayInfo)">
+            <summary>
+            选中一个Item,并自动将其滚动到可见区域
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.GetSelectedItems">
+            <summary>
+            获取列表中的选择项
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.visibleChecker_Checked(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            标题上的选择框消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.GetFocusItem">
+            <summary>
+            获取当前焦点项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.colorBorder_MouseRightButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            选择新的颜色来设置
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.colorPop_Closed(System.Object,System.EventArgs)">
+            <summary>
+            修改显示颜色窗口关闭
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.Refresh">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.RefreshItem(Ai.Hong.Controls.Common.ColorChartDisplayInfo,System.Boolean)">
+            <summary>
+            刷新一个项
+            </summary>
+            <param name="item"></param>
+            <param name="refreshRightNow">是否立即刷新图形</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.RefreshGraphic">
+            <summary>
+            刷新图形
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.headerRemoveItem_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            移除列表中的选中项目
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.CellRemoveItem_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            移除列表中的当前项目
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.GetUnderDataGrid">
+            <summary>
+            获取底层的Datagrid
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.SetItemColor(System.Windows.Media.SolidColorBrush,System.Collections.Generic.IList{Ai.Hong.Controls.Common.ColorChartDisplayInfo})">
+            <summary>
+            修改谱图的显示颜色
+            </summary>
+            <param name="color">目标颜色</param>
+            <param name="items">需要修改的谱图列表，如果为NULL，表示修改当前选中谱图</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.SelectColorList.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.SelectColorList.ItemSelected">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.SelectColorList.ItemRemoved">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.SelectColorList.AllRemoved">
+            <summary>
+            列表移除消息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.simpleInputWindow">
+            <summary>
+            simpleInputWindow.xaml 的交互逻辑
+            </summary>
+            <summary>
+            simpleInputWindow
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.simpleInputWindow.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="title">窗口标题</param>
+            <param name="orgText">原有字符串</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.simpleInputWindow.InputedText">
+            <summary>
+            获取录入的字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.simpleInputWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.TextBoxAndButton">
+            <summary>
+            TextBoxAndButton.xaml 的交互逻辑
+            </summary>
+            <summary>
+            TextBoxAndButton
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.TextBoxAndButton.TextPropertyProperty">
+            <summary>
+            输入内容
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.TextBoxAndButton.BrowseClickedEvent">
+            <summary>
+            按钮消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TextBoxAndButton.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TextBoxAndButton.btnBrowse_Clicked(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            按钮消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.TextBoxAndButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.TextBoxAndButton.TextProperty">
+            <summary>
+            输入内容
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.TextBoxAndButton.BrowseClicked">
+            <summary>
+            按钮消息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.VectorImage">
+            <summary>
+            矢量图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImage.DrawColorProperty">
+            <summary>
+            显示颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImage.VectorSourceProperty">
+            <summary>
+            矢量图形（DrawingGroup）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorImage.OnInitialized(System.EventArgs)">
+            <summary>
+            控件初始化
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorImage.InitTemplate">
+            <summary>
+            初始化显示模板
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorImage.UpdateChildrenColor(System.Windows.Media.DrawingGroup,System.Windows.Media.SolidColorBrush)">
+            <summary>
+            设置一个DrawingGroup的颜色
+            </summary>
+            <param name="parent">DrawingGroup</param>
+            <param name="brush">颜色</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorImage.SetImageBrush(System.Windows.Media.DrawingImage,System.Windows.Media.SolidColorBrush)">
+            <summary>
+            设置图形颜色
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorImage.OnPropertyChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            属性变化消息
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImage.DrawColor">
+            <summary>
+            显示颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImage.VectorSource">
+            <summary>
+            矢量图形（DrawingGroup）
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.VectorImageButton">
+            <summary>
+            ImageToolButton.xaml 的交互逻辑
+            </summary>
+            <summary>
+            VectorImageButton
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.TextProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.VectorGeometryProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ImageWidthProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ImageHeightProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ImageMarginProperty">
+            <summary>
+            图片的空白
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.CornerRadiusProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ContentPaddingProperty">
+            <summary>
+            内容Padding
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.TextMarginProperty">
+            <summary>
+            文字的空白
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.SelectedColorProperty">
+            <summary>
+            鼠标上去的颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.SelectedBorderProperty">
+            <summary>
+            鼠标上去的边框颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.UnselectedColorProperty">
+            <summary>
+            鼠标没上去的颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.UnselectedBorderProperty">
+            <summary>
+            鼠标没上去的边框颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ImageColorProperty">
+            <summary>
+            正常图形颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ImageSelectedColorProperty">
+            <summary>
+            选中图形颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ImageDisabledColorProperty">
+            <summary>
+            图形无效颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.OrientationProperty">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.KeepSelectedProperty">
+            <summary>
+            是否保持选中状态
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorImageButton.ClickedEvent">
+            <summary>
+            按钮选择消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorImageButton.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorImageButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.Text">
+            <summary>
+            按钮的文字
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.VectorGeometry">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.ImageWidth">
+            <summary>
+            按钮的图片的宽度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.ImageHeight">
+            <summary>
+            按钮的图片的高度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.ImageMargin">
+            <summary>
+            图片的空白
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.CornerRadius">
+            <summary>
+            按钮的图片的宽度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.ContentPadding">
+            <summary>
+            内容Padding
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.TextMargin">
+            <summary>
+            文字的空白
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.SelectedColor">
+            <summary>
+            鼠标上去的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.SelectedBorder">
+            <summary>
+            鼠标上去的边框颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.UnselectedColor">
+            <summary>
+            鼠标没上去的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.UnselectedBorder">
+            <summary>
+            鼠标没上去的边框颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.ImageColor">
+            <summary>
+            正常图形颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.ImageSelectedColor">
+            <summary>
+            选中图形颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.ImageDisabledColor">
+            <summary>
+            图形无效颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.Orientation">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorImageButton.KeepSelected">
+            <summary>
+            是否保持选中状态
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.VectorImageButton.Clicked">
+            <summary>
+            按钮选择消息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.VerticalConvert">
+            <summary>
+            Orientation值与VerticalAlignment之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VerticalConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            转换
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.VerticalConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            回转
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Controls.HorizontalConvert">
+            <summary>
+            Orientation值与VerticalAlignment之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.HorizontalConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            转换
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.HorizontalConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            回转
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Controls.TestControl">
+            <summary>
+            TestControl.xaml 的交互逻辑
+            </summary>
+            <summary>
+            TestControl
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TestControl.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TestControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.ControlAddOnBase">
+            <summary>
+            Interaction logic for ControlAddOnBase.xaml
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.IWindowExt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.IWindowExt.Source">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.IWindowExt.ParentDlg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.IFileDlgExt">
+            <summary>
+            IFileDlgExt
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.IFileDlgExt.EventFileNameChanged">
+            <summary>
+            EventFileNameChanged
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.IFileDlgExt.EventFolderNameChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.IFileDlgExt.EventFilterChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.IFileDlgExt.FileDlgStartLocation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.IFileDlgExt.FileDlgOkCaption">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.IFileDlgExt.FileDlgEnableOkBtn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.IFileDlgExt.FixedSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.IFileDlgExt.FileDlgDefaultViewMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.FileDialogExt`1.EmbededWndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
+            <summary>
+            WndProc for the custom child window
+            </summary>
+            <param name="hwnd"></param>
+            <param name="msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <param name="handled"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

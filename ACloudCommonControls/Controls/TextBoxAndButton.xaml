@@ -27,9 +27,7 @@
         <vec:VectorImageButton x:Name="btnBrowse" VectorGeometry="{DynamicResource SearchGeometry}" 
                                        ImageWidth="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}" 
                                        ImageHeight="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}" 
-                                       TextMargin="0" SelectedBorder="Transparent" SelectedColor="Goldenrod"
-                                       Width="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}" 
-                                        Height="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}"    
+                                       TextMargin="0" SelectedBorder="Black" SelectedColor="Gray" ImageSelectedColor="White"                               
                                        Grid.Column="1" Margin="5,0,0,0" Clicked="btnBrowse_Clicked"/>
     </Grid>
 </UserControl>

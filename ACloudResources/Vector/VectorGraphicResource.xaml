@@ -947,4 +947,21 @@
         </DrawingGroup.Children>
     </DrawingGroup>
 
+    <!--圆角矩形开始-->
+    <DrawingGroup x:Key="RoundRectStart">
+        <DrawingGroup.Children>
+            <GeometryDrawing Brush="#FFF44336" Geometry="F1 M 26.684,29.9532L 3.33547,29.9532C 1.50093,29.9532 -2.0021e-009,28.4572 -2.0021e-009,26.6286L -2.0021e-009,3.35586C -2.0021e-009,1.52727 1.50093,0.0312138 3.33547,0.0312138L 26.684,0.0312138C 28.5186,0.0312138 30.0195,1.52727 30.0195,3.35586L 30.0195,26.6286C 30.0195,28.4572 28.5186,29.9532 26.684,29.9532 Z "/>
+            <GeometryDrawing Geometry="F1 M 20.847,14.9922L 11.6743,8.34296L 11.6743,21.6416L 20.847,14.9922 Z ">
+                <GeometryDrawing.Brush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1.0,1.0">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </GeometryDrawing.Brush>
+            </GeometryDrawing>
+        </DrawingGroup.Children>
+    </DrawingGroup>
+
 </ResourceDictionary>

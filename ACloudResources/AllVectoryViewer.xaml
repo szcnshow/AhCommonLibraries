@@ -111,5 +111,6 @@
         <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundRightArrow}" VectorText="RoundRightArrow"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundUpArrow}" VectorText="RoundUpArrow"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundBoxAdd}" VectorText="RoundBoxAdd"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundRectStart}" VectorText="RoundRectStart"/>
     </UniformGrid>
 </UserControl>

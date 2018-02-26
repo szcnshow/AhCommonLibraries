@@ -3,3 +3,9 @@ D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\Dll Output\Release\A
 D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\Dll Output\Release\AHCommonMethod.pdb
 D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\CommonLibrary\obj\Release\AHCommonMethod.dll
 D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\CommonLibrary\obj\Release\AHCommonMethod.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonMethod.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonMethod.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonMethod.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\CommonLibrary\obj\Release\CommonMethod.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\CommonLibrary\obj\Release\AHCommonMethod.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\CommonLibrary\obj\Release\AHCommonMethod.pdb

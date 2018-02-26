@@ -95,7 +95,6 @@ namespace Ai.Hong.Controls
                         {
                             if (draw.Brush != null && !(draw.Brush is SolidColorBrush))     //如果有其它方式的Brush，不用设置颜色
                                 continue;
-
                             draw.Brush = brush == null ? Brushes.Black : brush;
                         }
                     }

@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="Ai.Hong.CommonResources.AllVectoryViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:vectrl="clr-namespace:Ai.Hong.CommonResources"
+             d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AHCommonResources;component/Vector/VectorGraphicResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UniformGrid Rows="15" Columns="10">
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ArrowCursorGeometry}" VectorText="ArrowCursor"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ZoomOutGeometry}" VectorText="ZoomOut"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ZoomInGeometry}" VectorText="ZoomIn"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SizeAllGeometry}" VectorText="SizeAll"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource YAxisSizeGeometry}" VectorText="YAxisSize"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource UpPeakPickGeometry}" VectorText="UpPeakPick"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DownPeakPickGeometry}" VectorText="DownPeakPick"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ColorPanelGeometry}" VectorText="ColorPanel"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SelectedCircleGeometry}" VectorText="SelectedCircle"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource CircleGeometry}" VectorText="Circle"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource HandMoveGeometry}" VectorText="HandMove"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource HideWithEyeGeometry}" VectorText="HideWithEye"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource GridShowHideGeometry}" VectorText="GridShowHide"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource QuestionArrowGeometry}" VectorText="QuestionArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DeviceWithWaveGeometry}" VectorText="DeviceWithWave"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DeleteGeometry}" VectorText="Delete"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ModifyGeometry}" VectorText="Modify"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileOpenGeometry}" VectorText="FileOpen"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileSaveAllGeometry}" VectorText="FileSaveAll"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileSaveAsGeometry}" VectorText="FileSaveAs"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileImportGeometry}" VectorText="FileImport"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileExportGeometry}" VectorText="FileExport"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileUndoGeometry}" VectorText="FileUndo"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileSaveGeometry}" VectorText="FileSave"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileCloseGeometry}" VectorText="FileClose"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FileCloseAllGeometry}" VectorText="FileCloseAll"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource EyeOpenGeometry}" VectorText="EyeOpen"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource UserGroupGeometry}" VectorText="UserGroup"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SingleUserGeometry}" VectorText="SingleUser"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DatabasGeometry}" VectorText="Databas"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ModelGeometry}" VectorText="Model"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ProductGeometry}" VectorText="Product"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource TaskGeometry}" VectorText="Task"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DynamicCheckGeometry}" VectorText="DynamicCheck"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource HealthCheckGeometry}" VectorText="HealthCheck"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource TaskCheckGeometry}" VectorText="TaskCheck"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource MeasurementGeometry}" VectorText="Measurement"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ResultGeometry}" VectorText="Result"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource QueryResultGeometry}" VectorText="QueryResult"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource NameChardGeometry}" VectorText="NameChard"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource OnlineResultGeometry}" VectorText="OnlineResult"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource BarStatisticGeometry}" VectorText="BarStatistic"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource OfflineResultGeometry}" VectorText="OfflineResult"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource PreferenceCheckGeometry}" VectorText="PreferenceCheck"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DataAnalyteGeometry}" VectorText="DataAnalyte"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource TaskApproveGeometry}" VectorText="TaskApprove"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SamplingGeometry}" VectorText="Sampling"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ManagementGeomery}" VectorText="Management"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DataListGeometry}" VectorText="DataList"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource NailFixedGeometry}" VectorText="NailFixed"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource NailReleasedGeometry}" VectorText="NailReleased"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DeviceConnectedGeometry}" VectorText="DeviceConnected"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DeviceDisconnectedGeometry}" VectorText="DeviceDisconnected"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DeviceOfflineGeometry}" VectorText="DeviceOffline"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SearchGeometry}" VectorText="Search"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource CloseWindowGeometry}" VectorText="CloseWindow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource RotateRefreshGeometry}" VectorText="RotateRefresh"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SpectrumStandardizeGemometry}" VectorText="SpectrumStandardize"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SpectrumAverageGemometry}" VectorText="SpectrumAverage"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SpectrumDerviateGeometry}" VectorText="Derviate"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SpectrumSubLineGeometry}" VectorText="SubLine"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SpectrumNormalizeGeometry}" VectorText="Normalize"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SpectrumMSCProcessGeometry}" VectorText="SpectrumMSC"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SpectrumSNVProcessGeometry}" VectorText="SpectrumSNV"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource OKWithCircelGeometry}" VectorText="OKWithCircel"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource CancelWithCircelGeometry}" VectorText="CancelWithCircel"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource InfoWithCircelGeometry}" VectorText="InfoWithCircel"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource EditWithPenGeometry}" VectorText="EditWithPen"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource QuantBalanceGeometry}" VectorText="QuantBalance"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource EmptyTriangleGeometry}" VectorText="EmptyTriangle"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SolidTriangleGeometry}" VectorText="SolidTriangle"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource MoreArrowGeometry}" VectorText="MoreArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecPQResultGeometry}" VectorText="VspecPQResult"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecInstrumentGeometry}" VectorText="VspecInstrument"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecModelGeometry}" VectorText="VspecModel"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecDatabseGeometry}" VectorText="VspecDatabse"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecNormalScanGeometry}" VectorText="VspecNormalScan"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecProductQueryGeometry}" VectorText="VspecProductQuery"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecProductScanGeometry}" VectorText="VspecProductScan"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecProductGeometry}" VectorText="VspecProduct"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecReportGeometry}" VectorText="VspecReport"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecPQCheckGeometry}" VectorText="VspecPQCheck"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecDeviceOnlineGeometry}" VectorText="VspecDeviceOnline"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource VspecDeviceOfflineGeometry}" VectorText="VspecDeviceOffline"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource UnitConvertGeometry}" VectorText="UnitConvert"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource CorrectCoerGeometry}" VectorText="CorrectCoer"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ScanSample}" VectorText="ScanSample"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ScanBackground}" VectorText="ScanBackground"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource ParameterSetup}" VectorText="ParameterSetup"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource DownEmptyArrow}" VectorText="DownEmptyArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource UpEmptyArrow}" VectorText="UpEmptyArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundDownArrow}" VectorText="RoundDownArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundLeftArrow}" VectorText="RoundLeftArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundRightArrow}" VectorText="RoundRightArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundUpArrow}" VectorText="RoundUpArrow"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundBoxAdd}" VectorText="RoundBoxAdd"/>
+    </UniformGrid>
+</UserControl>

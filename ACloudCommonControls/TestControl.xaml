@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Ai.Hong.Controls.TestControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:Ai.Hong.Controls"
+             xmlns:comm="clr-namespace:Ai.Hong.Controls.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AHCommonResources;component/Vector/VectorGraphicResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="ContextMenu">
+
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ctrl:FileOperatePanel Width="200" ButtonSize="20"/>
+    </Grid>
+</UserControl>

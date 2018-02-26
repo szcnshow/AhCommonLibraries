@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Editor version="1.0">
+   <File absPath="F:\软件开发\学习\Matlab开发\advanceID-Matlab" lastWrittenTime="1418353743701" name="axisrange.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="F:\软件开发\学习\Matlab开发\advanceID-Matlab" lastWrittenTime="1418957180046" name="baseline.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="F:\软件开发\学习\Matlab开发\advanceID-Matlab" lastWrittenTime="1422523138299" name="AdvancedId.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="F:\软件开发\CommonLibrary\Matlab Algorithm\Pls" lastWrittenTime="1429758819871" name="predict.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="F:\软件开发\CommonLibrary\Matlab Algorithm\Pls" lastWrittenTime="1429760723910" name="pls.m">
+      <CodeFolds version="1.0">
+         <FoldType name="help-comments">
+            <Fold endOffset="129" startOffset="57" state="collapsed"/>
+         </FoldType>
+      </CodeFolds>
+   </File>
+   <File absPath="F:\temp\testpls" lastWrittenTime="1429768849083" name="pls_debug.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="F:\软件开发\CommonLibrary\Matlab Algorithm\Pls150423" lastWrittenTime="1429768991593" name="algorithm_predict_eig_develop.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="F:\软件开发\CommonLibrary\Matlab Algorithm\Pls150423" lastWrittenTime="1429769577273" name="algorithm_pls_eig_with_nipalpls.m">
+      <CodeFolds version="1.0">
+         <FoldType name="function">
+            <Fold endOffset="4682" startOffset="3109" state="collapsed"/>
+            <Fold endOffset="6272" startOffset="4755" state="collapsed"/>
+         </FoldType>
+      </CodeFolds>
+   </File>
+</Editor>

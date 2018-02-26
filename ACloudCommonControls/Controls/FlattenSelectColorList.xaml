@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Ai.Hong.Controls.FlattenSelectColorList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rescomm="clr-namespace:Ai.Hong.Common.Convert;assembly=AHCommonMethod"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="200">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <rescomm:TrueIsVisibilityConvert x:Key="trueConv"/>
+            <rescomm:FalseIsVisibilityConvert x:Key="falseConv"/>
+            <Style TargetType="CheckBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="CheckBox">
+                            <Border Padding="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="14" Visibility="{Binding Path=IsChecked,Mode=OneWay, Converter={StaticResource trueConv},RelativeSource={x:Static RelativeSource.TemplatedParent}}">
+                                        <Image.Source>
+                                            <DrawingImage>
+                                                <DrawingImage.Drawing>
+                                                    <DrawingGroup>
+                                                        <DrawingGroup.Children>
+                                                            <GeometryDrawing Brush="{Binding Path=Foreground,Mode=OneWay,RelativeSource={x:Static RelativeSource.TemplatedParent} }" 
+                                                                             Geometry="F1 M 15,6.10352e-005C 6.71565,6.10352e-005 -1.60559e-006,6.71576 -1.60559e-006,15.0001C -1.60559e-006,23.2844 6.71565,30.0001 15,30.0001C 23.2843,30.0001 30,23.2844 30,15.0001C 30,6.71576 23.2843,6.10352e-005 15,6.10352e-005 Z M 15,3.78009C 21.1869,3.78009 26.22,8.81311 26.22,15.0001C 26.22,21.187 21.1869,26.22 15,26.22C 8.81306,26.22 3.78,21.187 3.78,15.0001C 3.78,8.81311 8.81306,3.78009 15,3.78009 Z "/>
+                                                            <GeometryDrawing Brush="{Binding Path=Foreground,Mode=OneWay,RelativeSource={x:Static RelativeSource.TemplatedParent}}"  
+                                                                             Geometry="F1 M 15.0562,10.2376C 17.935,10.2376 20.2687,12.5714 20.2687,15.4501C 20.2687,18.3289 17.935,20.6626 15.0562,20.6626C 12.1774,20.6626 9.84371,18.3289 9.84371,15.4501C 9.84371,12.5714 12.1774,10.2376 15.0562,10.2376 Z "/>
+                                                        </DrawingGroup.Children>
+                                                    </DrawingGroup>
+                                                </DrawingImage.Drawing>
+                                            </DrawingImage>
+                                        </Image.Source>
+                                    </Image>
+                                    <Image Width="14" Visibility="{Binding Path=IsChecked,Mode=OneWay, Converter={StaticResource falseConv},RelativeSource={x:Static RelativeSource.TemplatedParent}}">
+                                        <Image.Source>
+                                            <DrawingImage>
+                                                <DrawingImage.Drawing>
+                                                    <DrawingGroup>
+                                                        <DrawingGroup.Children>
+                                                            <GeometryDrawing Brush="{Binding Path=Foreground,Mode=OneWay,RelativeSource={x:Static RelativeSource.TemplatedParent} }"
+                                                                Geometry="F1 M 9,16C 5.14,16 2,12.86 2,9C 2,5.14001 5.14,2 9,2C 12.86,2 16,5.14001 16,9C 16,12.86 12.86,16 9,16 Z M 9,0C 4.02934,0 0,4.02933 0,9C 0,13.9707 4.02934,18 9,18C 13.9707,18 18,13.9707 18,9C 18,4.02933 13.9707,0 9,0 Z "/>
+                                                        </DrawingGroup.Children>
+                                                    </DrawingGroup>
+                                                </DrawingImage.Drawing>
+                                            </DrawingImage>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="DataGridCell" x:Key="ActiveCellStyle">
+                <Setter Property="Foreground" Value="{Binding Path=rowColor,Mode=OneWay}"/>
+            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AHCommonControls;component/Styles/DefaultThemeStyle.xaml"/>
+                <ResourceDictionary Source="/AHCommonControls;component/Styles/DatagridStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid Name="gridSpectrum" Grid.Row="0" AutoGenerateColumns="False" CanUserAddRows="False" 
+                  SelectionChanged="gridSpectrum_SelectionChanged" Style="{DynamicResource queryResultDataGridStyle}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn CanUserResize="False" CanUserSort="False">
+                    <DataGridTemplateColumn.Header>
+                        <Image Name="checkImage" Height="12" ToolTip="Show/Hide Selected Items" MouseLeftButtonDown="checkImage_MouseLeftButtonDown" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Image.Source>
+                                <DrawingImage>
+                                    <DrawingImage.Drawing>
+                                        <DrawingGroup>
+                                            <DrawingGroup.Children>
+                                                <GeometryDrawing Brush="#FF1E2E3A" Geometry="F1 M 23.6275,14.2846C 24.2716,12.9929 24.6362,11.5384 24.6362,9.9996C 24.6362,8.46432 24.2736,7.01419 23.6327,5.72447C 25.5739,7.38431 27.0158,9.14111 27.6737,10.0004C 27.0158,10.8616 25.5727,12.6224 23.6275,14.2846 Z M 2.32716,9.99881C 2.98503,9.13796 4.42807,7.37681 6.37328,5.7154C 5.72921,7.0063 5.36461,8.46157 5.36461,9.9996C 5.36461,11.5345 5.72724,12.9858 6.36855,14.2755C 4.42688,12.6157 2.98463,10.8581 2.32716,9.99881 Z M 15.0004,17.7383C 10.7332,17.7383 7.26134,14.2669 7.26134,9.9996C 7.26134,5.73235 10.7332,2.26092 15.0004,2.26092C 19.2673,2.26092 22.7391,5.73235 22.7391,9.9996C 22.7391,14.2669 19.2673,17.7383 15.0004,17.7383 Z M 29.6335,9.46393C 29.369,9.07725 23.0572,-1.52588e-005 15.0004,-1.52588e-005C 6.94324,-1.52588e-005 0.63185,9.07725 0.366971,9.46393L 1.58091e-006,9.9996L 0.366971,10.5361C 0.63185,10.9227 6.94324,20 15.0004,20C 23.0572,20 29.369,10.9227 29.6335,10.5361L 30.0012,9.9996L 29.6335,9.46393 Z "/>
+                                                <GeometryDrawing Brush="#FF1E2E3A" Geometry="F1 M 15.0005,6.71919C 13.1885,6.71919 11.7198,8.18824 11.7198,9.99944C 11.7198,11.8118 13.1885,13.2801 15.0005,13.2801C 16.8121,13.2801 18.2807,11.8118 18.2807,9.99944C 18.2807,8.18824 16.8121,6.71919 15.0005,6.71919 Z "/>
+                                            </DrawingGroup.Children>
+                                        </DrawingGroup>
+                                    </DrawingImage.Drawing>
+                                </DrawingImage>
+                            </Image.Source>
+                        </Image>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox 
+                                      IsChecked="{Binding Path=isChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                      HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                      Foreground="{Binding Path=color,Mode=OneWay}"  MouseRightButtonDown="colorBorder_MouseRightButtonDown"
+                                      Tag="{Binding Path=thisItem, Mode=OneWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn CanUserResize="False" CanUserSort="True" Header="文件名" Binding="{Binding Path=name,Mode=OneWay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

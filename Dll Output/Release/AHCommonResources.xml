@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AHCommonResources</name>
+    </assembly>
+    <members>
+        <member name="T:Ai.Hong.CommonResources.AllVectoryViewer">
+            <summary>
+            AllVectoryViewer.xaml 的交互逻辑
+            </summary>
+            <summary>
+            AllVectoryViewer
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.AllVectoryViewer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.AllVectoryViewer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.VectorImageInfo">
+            <summary>
+            VectorImageInfo.xaml 的交互逻辑
+            </summary>
+            <summary>
+            VectorImageInfo
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.VectorImageInfo.VectorSourceProperty">
+            <summary>
+            矢量图形（DrawingGroup）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.VectorImageInfo.VectorTextProperty">
+            <summary>
+            矢量图形名称
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.VectorImageInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.VectorImageInfo.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.CommonResources.VectorImageInfo.VectorSource">
+            <summary>
+            矢量图形（DrawingGroup）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.CommonResources.VectorImageInfo.VectorText">
+            <summary>
+            矢量图形名称
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

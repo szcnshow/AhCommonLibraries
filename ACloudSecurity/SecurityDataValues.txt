@@ -1,0 +1,7 @@
+﻿FILEFORMAT_SPC = 0x4B
+FILEFORMAT_OPUS = 0xFEFE0A0A
+FILEFORMAT_SPA = 0x1E
+NIR_THERMO = 0x636E6542
+ALGORITHM_PLS = (UInt32)sizeof(double), //=sizeof(double) PLS
+ALGORITHM_STANDARD = (UInt32)21,		//=21，最大窗口大小, 21	仪器标准化
+ALGORITHM_PREPROCESS = (UInt32)2,		//=2，光谱预处理，最小光谱数据的行数

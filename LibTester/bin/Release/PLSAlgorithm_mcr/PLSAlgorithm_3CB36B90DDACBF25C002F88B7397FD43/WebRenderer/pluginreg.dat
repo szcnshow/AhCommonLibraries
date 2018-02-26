@@ -1,0 +1,329 @@
+Generated File. Do not edit.
+
+[HEADER]
+Version|0.08|$
+
+[PLUGINS]
+C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AIR\nppdf32.dll|$
+|$
+1417588280000|1|5|$
+Adobe PDF Plug-In For Firefox and Netscape 11.0.10|$
+Adobe Acrobat|$
+7
+0|application/pdf|Acrobat Portable Document Format|pdf|$
+1|application/vnd.adobe.pdfxml|Adobe PDF in XML Format|pdfxml|$
+2|application/vnd.adobe.x-mars|Adobe PDF in XML Format|mars|$
+3|application/vnd.fdf|Acrobat Forms Data Format|fdf|$
+4|application/vnd.adobe.xfdf|XML Version of Acrobat Forms Data Format|xfdf|$
+5|application/vnd.adobe.xdp+xml| Acrobat XML Data Package|xdp|$
+6|application/vnd.adobe.xfd+xml|Adobe FormFlow99 Data File|xfd|$
+C:\Program Files (x86)\Thunder Network\Thunder\Data\npxunlei1.0.0.2.dll|$
+|$
+1387174726417|1|5|$
+Xunlei scriptability Plugin|$
+XunLei Plugin|$
+2
+0|application/np_xunlei_plugin|np_xunlei_plugin|*|$
+1|application/np_xunlei_plugin.2|||$
+C:\Program Files (x86)\Common Files\Thunder Network\KanKan\npDapCtrl.3.1.0.8.(720).dll|$
+|$
+1359116158000|1|5|$
+Thunder DapCtrl NPAPI Plugin|$
+Thunder DapCtrl NPAPI Plugin|$
+1
+0|application/x-thunder-dapctrl|Thunder DapCtrl Plugin|*|$
+C:\Program Files (x86)\Google\Update\1.3.26.9\npGoogleUpdate3.dll|$
+|$
+1423148533225|1|5|$
+Google Update|$
+Google Update|$
+2
+0|application/x-vnd.google.update3webcontrol.3|||$
+1|application/x-vnd.google.oneclickctrl.9|||$
+C:\Program Files (x86)\QQMailPlugin\nptxftnWebKit.dll|$
+|$
+1365408134000|1|5|$
+Tencent FTN plug-in|$
+Tencent FTN plug-in|$
+1
+0|application/txftn-webkit|nptxftn||$
+C:\Program Files (x86)\QQMailPlugin\npQQMailWebKit.dll|$
+|$
+1366877940000|1|5|$
+QQMail plugin for WebKit #1.0.0.22|$
+QQMail Plugin|$
+2
+0|application/x-tencent-qmail-webkit|QQMailPlugin for webkit||$
+1|application/x-tencent-qmail|QQMailPlugin for webkit||$
+C:\Program Files (x86)\Common Files\Tencent\TXSSO\1.2.3.15\Bin\npSSOAxCtrlForPTLogin.dll|$
+|$
+1423818886000|1|5|$
+QQ QuickLogin Helper|$
+Tencent SSO Platform|$
+1
+0|application/nptxsso|TXSSO||$
+C:\Program Files (x86)\Tencent\QzoneMusic\npQzoneMusic.dll|$
+|$
+1409378120000|1|5|$
+QQMusic|$
+QQMusic|$
+1
+0|application/tecent-qzonemusic-plugin|This plug-in is transfers of QzoneMusic when opening Qzone in a web page with Firefox.|rts|$
+C:\Program Files (x86)\Tencent\Qzone\npQQPhotoDrawEx.dll|$
+|$
+1376385610000|1|5|$
+npQQPhotoDrawEx Module|$
+npQQPhotoDrawEx|$
+1
+0|application/tencent-qqphotodrawex2-plugin||rts|$
+C:\Program Files (x86)\Common Files\Tencent\QQMiniDL\60\Browser\npXFMiniDLPlugin.dll|$
+|$
+1398413128000|1|5|$
+QQMiniDL Plugin|$
+QQMiniDL Plugin|$
+1
+0|application/npxf-qqminidl|npXFPlug|dll|$
+C:\Program Files (x86)\Common Files\Tencent\Npchrome\npactivex.dll|$
+|$
+1427781970601|1|5|$
+Tencent QQ CPHelper plugin for Chrome|$
+Tencent QQ|$
+1
+0|application/qscall-plugin|DLL|dll|$
+C:\Program Files (x86)\Common Files\Tencent\QQPhoneManager\2.0.201.3192\npQQPhoneManagerExt.dll|$
+|$
+1386389536000|1|5|$
+QQPhoneManager Onekey-Install plug-in for Android Phones|$
+应用宝|$
+1
+0|application/qqphonemanagerplugin|QQPhoneManager|dll|$
+C:\Program Files (x86)\Microsoft Silverlight\5.1.30514.0\npctrl.dll|$
+|$
+1399994222000|1|5|$
+5.1.30514.0|$
+Silverlight Plug-In|$
+2
+0|application/x-silverlight|npctrl|scr|$
+1|application/x-silverlight-2|||$
+C:\Program Files (x86)\McAfee\Supportability\MVT\NPMVTPlugin.dll|$
+|$
+1360048996000|1|5|$
+McAfee Virtual Technician plugin|$
+McAfee Virtual Technician|$
+2
+0|application/x-mvt|McAfee Virtual Technician Plugin||$
+1|application/x-mvt70|||$
+c:\PROGRA~2\mcafee\msc\npMcSnFFPl.dll|$
+|$
+1363171348000|1|5|$
+McAfee MSC FF plugin DLL|$
+McAfee SecurityCenter|$
+1
+0|application/x-mfe-ipt|||$
+C:\Program Files (x86)\Google\Google Earth\plugin\npgeplugin.dll|$
+|$
+1381174441923|1|5|$
+GEPlugin|$
+Google Earth Plugin|$
+1
+0|application/geplugin|GEPlugin||$
+C:\Windows\system32\npSecEditCtl.BOC.x86.dll|$
+|$
+1382076960000|1|5|$
+CFCA SecEditCtl 1.0 for Firefox, Chrome, Safari and Opera|$
+CFCA npSecEditCtl.BOC.x86 1.0|$
+1
+0|application/npSecEditCtl.BOC.x86|CFCA SecEditCtl 1.0|dll|$
+C:\Windows\Downloaded Program Files\333324777\npxbdsetup.dll|$
+|$
+1355131946000|1|5|$
+BaiduSetUp Plugin|$
+BaiduSetUp Plugin|$
+1
+0|application/baidusetup-activex|ActiveX|ocx|$
+C:\Users\aihong\AppData\Roaming\baidu\BaiduMiniDownloader\1.0.1.2\npBDDLPlug.dll|$
+|$
+1392863672000|1|5|$
+BaiduMiniDL NPAPI plugin|$
+百度极速下载助手|$
+1
+0|application/np-bddownload|npBDDLPlug.dll||$
+C:\Windows\system32\itruscert\NPComBrg701.dll|$
+|$
+1311580152000|1|5|$
+iTrusPTA&XEnroll hwPTA,IEnroll,UKeyInstalls for FireFox,version=1.0.0.2|$
+iTrusChina iTrusPTA,XEnroll,iEnroll,hwPTA,UKeyInstalls Firefox Plugin|$
+6
+0|application/PTA.iTrusPTA.Version.1|PTA|*|$
+1|application/CEnroll.CEnroll.Version.1|CEnroll||$
+2|application/Itrusenroll.CertEnroll.Version.1|IEnroll||$
+3|application/HwPTA.iTrusHwPTA|hwPTA||$
+4|application/HwWDkey.installWDkey|hwWDkey||$
+5|application/HwEpass2001.InstallEpass2001|HwEpass2001||$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npaliedit.dll|$
+|$
+1404391014000|1|1|$
+npaliedit|$
+Alipay security control|$
+1
+0|application/aliedit|npaliedit| |$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npalidcp.dll|$
+|$
+1404391014000|1|1|$
+npalidcp|$
+Alipay webmod control|$
+1
+0|application/alidcp|npalidcp| |$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npalicdo64.dll|$
+|$
+1427099718000|1|1|$
+npalicdo|$
+npalicdo plugin|$
+1
+0|application/npalicdo|npalicdo|dll|$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npAliSecCtrl.dll|$
+|$
+1427099720000|1|1|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npAlipaydhc64.dll|$
+|$
+1427099720000|1|1|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\Adobe\Reader 11.0\Reader\browser\nppdf32.dll|$
+|$
+1417588280000|1|13|$
+Adobe PDF Plug-In For Firefox and Netscape 11.0.10|$
+Adobe Acrobat|$
+7
+0|application/pdf|Acrobat Portable Document Format|pdf|$
+1|application/vnd.adobe.pdfxml|Adobe PDF in XML Format|pdfxml|$
+2|application/vnd.adobe.x-mars|Adobe PDF in XML Format|mars|$
+3|application/vnd.fdf|Acrobat Forms Data Format|fdf|$
+4|application/vnd.adobe.xfdf|XML Version of Acrobat Forms Data Format|xfdf|$
+5|application/vnd.adobe.xdp+xml| Acrobat XML Data Package|xdp|$
+6|application/vnd.adobe.xfd+xml|Adobe FormFlow99 Data File|xfd|$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npalicdo.dll|$
+|$
+1427099716000|1|9|$
+npalicdo|$
+npalicdo plugin|$
+1
+0|application/npalicdo|npalicdo|dll|$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npAlipaydhc.dll|$
+|$
+1427099718000|1|9|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\5.3.0.3807\npAliSecCtrl64.dll|$
+|$
+1427099720000|1|9|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\5.0.0.3597\npalicdo64.dll|$
+|$
+1417661764000|1|13|$
+npalicdo|$
+npalicdo plugin|$
+1
+0|application/npalicdo|npalicdo|dll|$
+C:\Program Files (x86)\alipay\aliedit\5.0.0.3597\npAlipaydhc64.dll|$
+|$
+1417661766000|1|13|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\5.0.0.3597\npAliSecCtrl64.dll|$
+|$
+1417661768000|1|13|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.6.0.3481\npAlipaydhc.dll|$
+|$
+1416362852000|1|13|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.6.0.3481\npAliSecCtrl64.dll|$
+|$
+1416362856000|1|13|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.3.0.3375\npAlipaydhc64.dll|$
+|$
+1408612832000|1|13|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.3.0.3375\npAliSecCtrl.dll|$
+|$
+1408612834000|1|13|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.4.0.3419\npAliSecCtrl64.dll|$
+|$
+1411887266000|1|13|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.4.0.3419\npAlipaydhc64.dll|$
+|$
+1411887264000|1|13|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.6.0.3602\npAliSecCtrl.dll|$
+|$
+1417771630000|1|13|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\4.6.0.3602\npAlipaydhc.dll|$
+|$
+1417771628000|1|13|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\5.1.0.3754\npAliSecCtrl.dll|$
+|$
+1421228438000|1|13|$
+Alipay Security Control|$
+Alipay Security Control 3|$
+1
+0|application/x-alisecctrl-plugin|npAliSecCtrl.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\5.1.0.3754\npAlipaydhc.dll|$
+|$
+1421228436000|1|13|$
+Alipay Internet Health Control|$
+Alipay Security Payment Client Suit|$
+1
+0|application/x-aliinethealth-plugin|npAliInetHealth.dll|*|$
+C:\Program Files (x86)\alipay\aliedit\5.1.0.3754\npalicdo64.dll|$
+|$
+1421228434000|1|13|$
+npalicdo|$
+npalicdo plugin|$
+1
+0|application/npalicdo|npalicdo|dll|$

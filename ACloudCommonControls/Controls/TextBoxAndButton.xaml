@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Ai.Hong.Controls.TextBoxAndButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vec="clr-namespace:Ai.Hong.Controls"
+             mc:Ignorable="d" 
+             Name="txtboxAndBtn"
+             d:DesignHeight="25" d:DesignWidth="100">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AHCommonResources;component/Vector/VectorGraphicResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="txtValue" Text="{Binding ElementName=txtboxAndBtn, Path=TextProperty, Mode=TwoWay}" 
+                 IsReadOnly="True" VerticalAlignment="Center"
+                 Background="{Binding ElementName=txtboxAndBtn,Path=Background,Mode=OneWay}"
+                 Foreground="{Binding ElementName=txtboxAndBtn,Path=Foreground,Mode=OneWay}"
+                 />
+        <vec:VectorImageButton x:Name="btnBrowse" VectorGeometry="{DynamicResource SearchGeometry}" 
+                                       ImageWidth="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}" 
+                                       ImageHeight="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}" 
+                                       TextMargin="0" SelectedBorder="Transparent" SelectedColor="Goldenrod"
+                                       Width="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}" 
+                                        Height="{Binding ElementName=txtboxAndBtn,Path=FontSize,Mode=OneWay}"    
+                                       Grid.Column="1" Margin="5,0,0,0" Clicked="btnBrowse_Clicked"/>
+    </Grid>
+</UserControl>

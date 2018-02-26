@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Chm">
+    <PropertyGroup>
+        <Name>NirNet</Name>
+        <TopicStyle>vs2005</TopicStyle>
+        <LanguageId>2052</LanguageId>
+    </PropertyGroup>
+    <ItemGroup>
+        <Dlls Include="F:\软件开发\模型算法软件\C# Project\ACloudFileFormat\bin\Release\ACloudFileFormat.dll" />
+        <Dlls Include="F:\软件开发\模型算法软件\C# Project\ACloudPLSAlgorithm\bin\Release\ACloudAlgorithm.dll" />
+        <Dlls Include="F:\软件开发\模型算法软件\C# Project\ACloudPLSAlgorithm\bin\Release\CommonLibrary.dll" />
+        <Dlls Include="F:\软件开发\模型算法软件\C# Project\ACloudSecurity\bin\Release\ACloudSecurity.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudAnalyte.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudCommonControls.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudQuantModel.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudResources.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\BrukerInstrument.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\EftirQuantModel.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\FTNirInterface.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ModelTypeLib.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\OminicQuantModel.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\OpusQuantModel.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\PrismQuantModel.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\SampleInfoCodeRule.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\SpectrumAlgorithm.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ThermoInstrument.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\VspecCloudClient.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\VspecCloudInterface.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\VspecCloudService.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\VspecInstrument.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\VspecSpectrumObject.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudServiceCallback.dll" />
+        <Dlls Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudServiceCallbackClient.dll" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudAlgorithm.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudFileFormat.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ACloudSecurity.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\CommonLibrary.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\MahApps.Metro.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\Microsoft.Office.Interop.Excel.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ModelTypeLib.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\office.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\ThermoInstrument.xml" />
+        <Comments Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\VspecCloudService.xml" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\alglibnet2.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\DTPicker.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\Ionic.Zip.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\MahApps.Metro.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\OxyPlot.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\OxyPlot.Wpf.dll" />
+        <Dependents Include="F:\软件开发\模型算法软件\C# Project\nzy3d-api\bin\Release\nzy3d-api.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\HtmlAgilityPack.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\AdornedControl.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\IBM.Data.DB2.EntityFramework.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\Microsoft.Office.Interop.Excel.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\Microsoft.Vbe.Interop.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\Newtonsoft.Json.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\System.Windows.Controls.Input.Toolkit.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\System.Windows.Controls.Layout.Toolkit.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\System.Windows.Interactivity.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\WpfAnimatedGif.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\WPFToolkit.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\Xceed.Wpf.Toolkit.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\zlibwapi64.dll" />
+        <Dependents Include="F:\软件开发\VspecNirCloud\CloudManager\bin\Release\Zmy.WPF.Controls.dll" />
+    </ItemGroup>
+    <Import Project="$(DXROOT)\Examples\Generic\generic.targets" />
+</Project>

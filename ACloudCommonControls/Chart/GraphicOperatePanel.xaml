@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="Ai.Hong.Charts.GraphicOperatePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vImg ="clr-namespace:Ai.Hong.Controls"
+             Name="toolbarOperate"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="900">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AHCommonResources;component/Vector/VectorGraphicResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="btnStyle" TargetType="Button">
+                <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Margin" Value="{Binding Path=ButtonMargin, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="{Binding Path=MouseOnColor,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Foreground" Value="{Binding Path=DisabledColor,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="btnToggleStyle" TargetType="RadioButton" > 
+                <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                <Setter Property="Margin" Value="{Binding Path=ButtonMargin, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="{Binding Path=MouseOnColor,ElementName=toolbarOperate,Mode=OneWay}"/>
+                    </Trigger>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter Property="Foreground" Value="{Binding Path=CheckedColor, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Foreground" Value="{Binding Path=DisabledColor,ElementName=toolbarOperate,Mode=OneWay}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="imgStyle" TargetType="Image">
+                <Setter Property="Width" Value="{Binding Path=ButtonSize,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Height" Value="{Binding Path=ButtonSize,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+            </Style>
+            <Style x:Key="VecImgStyle" TargetType="vImg:VectorImage">
+                <!--<Setter Property="Width" Value="{Binding Path=ButtonSize,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Height" Value="{Binding Path=ButtonSize,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>-->
+                <Setter Property="Width" Value="{Binding Path=ButtonSize,ElementName=toolbarOperate,Mode=OneWay}"/>
+                <Setter Property="Height" Value="{Binding Path=ButtonSize,ElementName=toolbarOperate,Mode=OneWay}"/>
+                <Setter Property="DrawColor" Value="{Binding Path=ButtonColor,ElementName=toolbarOperate,Mode=OneWay}"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}">
+            <ToolBar>
+                <RadioButton Style="{StaticResource btnToggleStyle}" Name="btnSelect"  Checked="Button_Checked" Unchecked="Button_Checked">
+                    <vImg:VectorImage VectorSource="{StaticResource ArrowCursorGeometry}" Style="{StaticResource VecImgStyle}" />
+                </RadioButton>
+                <RadioButton Style="{StaticResource btnToggleStyle}" Name="btnMove" Checked="Button_Checked" Unchecked="Button_Checked">
+                    <vImg:VectorImage VectorSource="{StaticResource HandMoveGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </RadioButton>
+                <RadioButton Style="{StaticResource btnToggleStyle}" Name="btnZoomIn" Checked="Button_Checked" Unchecked="Button_Checked">
+                    <vImg:VectorImage VectorSource="{StaticResource ZoomInGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </RadioButton>
+                <Button Style="{StaticResource btnStyle}" Name="btnZoomOut" Click="Button_Click">
+                    <vImg:VectorImage VectorSource="{StaticResource ZoomOutGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnSizeAll" Click="Button_Click">
+                    <vImg:VectorImage VectorSource="{StaticResource SizeAllGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnSizeYAxis" Click="Button_Click">
+                    <vImg:VectorImage VectorSource="{StaticResource YAxisSizeGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </Button>
+                <RadioButton Style="{StaticResource btnToggleStyle}" Name="btnInformation" Checked="Button_Checked" Unchecked="Button_Checked">
+                    <vImg:VectorImage VectorSource="{StaticResource QuestionArrowGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </RadioButton>
+                <Button Style="{StaticResource btnStyle}" Name="btnColor" Click="Button_Click">
+                    <vImg:VectorImage VectorSource="{StaticResource ColorPanelGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnHide" Click="Button_Click">
+                    <vImg:VectorImage VectorSource="{StaticResource HideWithEyeGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnGridShow" Click="Button_Click">
+                    <vImg:VectorImage VectorSource="{StaticResource GridShowHideGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </Button>
+                <RadioButton Style="{StaticResource btnToggleStyle}" Name="btnUpPeakPick" Checked="Button_Checked" Unchecked="Button_Checked">
+                    <vImg:VectorImage VectorSource="{StaticResource UpPeakPickGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </RadioButton>
+                <RadioButton Style="{StaticResource btnToggleStyle}" Name="btnDownPeakPick" Checked="Button_Checked" Unchecked="Button_Checked">
+                    <vImg:VectorImage VectorSource="{StaticResource DownPeakPickGeometry}" Style="{StaticResource VecImgStyle}"/>
+                </RadioButton>
+            </ToolBar>
+        </ToolBarTray>
+    </Grid>
+</UserControl>

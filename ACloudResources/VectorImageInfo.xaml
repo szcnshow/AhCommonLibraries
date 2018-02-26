@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Ai.Hong.CommonResources.VectorImageInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Name="thisCtrl"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="50">
+    <StackPanel Orientation="Vertical">
+        <Image Width="24" Height="24">
+            <Image.Source>
+                <DrawingImage Drawing="{Binding Path=VectorSource, ElementName=thisCtrl, Mode=OneWay}"/>
+            </Image.Source>
+        </Image>
+        <TextBlock Text="{Binding Path=VectorText, ElementName=thisCtrl, Mode=OneWay}" HorizontalAlignment="Center"/>
+    </StackPanel>
+</UserControl>

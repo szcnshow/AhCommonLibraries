@@ -1,0 +1,18 @@
+﻿<Window x:Class="Ai.Hong.Controls.simpleInputWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:btn="clr-namespace:Ai.Hong.Controls"
+             mc:Ignorable="d" 
+             Height="110" Width="300" WindowStartupLocation="CenterOwner"
+        >
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Name="txtInput" Margin="0,5" TextAlignment="Center" KeyDown="txtInput_KeyDown"/>
+        <btn:OkCancelPanel Grid.Row="1" x:Name="btnOkCancel" Margin="0,5,0,0" OKClicked="btnOkCancel_OKClicked" CancelClicked="btnOkCancel_CancelClicked"/>
+    </Grid>
+</Window>

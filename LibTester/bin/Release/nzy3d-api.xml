@@ -1,0 +1,3724 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nzy3d-api</name>
+    </assembly>
+    <members>
+        <member name="M:nzy3D.Chart.Chart.initializeScene(System.Boolean)">
+            <summary>
+                Provides a concrete scene. This method shoud be overriden to inject a custom scene,
+            which may rely on several views, and could enhance manipulation of scene graph.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Chart.Chart.addController(nzy3D.Chart.Controllers.Camera.AbstractCameraController)">
+            <summary>
+            Add a <see cref="T:nzy3D.Chart.Controllers.Camera.AbstractCameraController"/> to this <see cref="T:nzy3D.Chart.Chart"/>.
+            Warning: the <see cref="T:nzy3D.Chart.Chart"/> is not the owner of the controller. Disposing
+            the chart thus just unregisters the controllers, but does not handle
+            stopping and disposing controllers.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.View.Scene">
+             <summary>
+             A Scene holds a <see cref="P:nzy3D.Plot3D.Rendering.View.Scene.Graph"/> to be rendered by a list
+             <see cref="T:nzy3D.Plot3D.Rendering.View.View"/>s.
+            
+             The creation of Views is not of user concern, since it is handled
+             during the registration of the Scene by a <see cref="T:nzy3D.Plot3D.Rendering.Canvas.ICanvas"/>.
+             The newView() is thus Friend because it is supposed to be called
+             by a Canvas3d or a View only.
+            
+             The Scene is called by the <see cref="!:Renderer3d"/> to provide the effective
+             (Friend) GL2 calls for initialization (List and Texture loading),
+             clearing of window, and current view rendering.
+            
+             @author Martin Pernollet
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Dispose">
+            <summary>
+            Handles disposing of the Graph as well as all views pointing to this Graph.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Add(System.Collections.Generic.List{nzy3D.Plot3D.Primitives.AbstractDrawable})">
+            <summary>
+            Add a list of drawable to the scene
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Add(nzy3D.Plot3D.Primitives.AbstractDrawable)">
+            <summary>
+            Add a drawable to the scene
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Add(nzy3D.Plot3D.Primitives.AbstractDrawable,System.Boolean)">
+            <summary>
+            Add a drawable to the scene and refresh on demand.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Remove(nzy3D.Plot3D.Primitives.AbstractDrawable)">
+            <summary>
+            Remove a drawable from the scene
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Remove(nzy3D.Plot3D.Primitives.AbstractDrawable,System.Boolean)">
+            <summary>
+            Remove a drawable from the scene and refresh on demand.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Add(nzy3D.Plot3D.Rendering.Lights.Light)">
+            <summary>
+            Add a light to the scene
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.Remove(nzy3D.Plot3D.Rendering.Lights.Light)">
+            <summary>
+            Remove a light from the scene
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.newView(nzy3D.Plot3D.Rendering.Canvas.ICanvas,nzy3D.Plot3D.Rendering.Canvas.Quality)">
+            <summary>
+            Instantiate a View attached to the given Canvas, and return its reference
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Scene.ToString">
+            <summary>
+            Return the scene graph string representation
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Scene.Graph">
+            <summary>
+            Get/Set the scene graph attached to this scene
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Scene.LightSet">
+            <summary>
+            Get/Set the light set attached to this scene
+            </summary>
+        </member>
+        <member name="T:nzy3D.Chart.ChartView">
+            <summary>
+            A <see cref="T:nzy3D.Chart.ChartView"/> allows displaying a 3d scene on the left,
+            and a set of <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>'s <see cref="T:nzy3D.Plot3D.Rendering.Legends.Legend"/> on the right.
+            @author Martin Pernollet
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.View.lookToBox(nzy3D.Maths.BoundingBox3d)">
+            <summary>
+            Set the surrounding AxeBox dimensions and the Camera target, and the
+            colorbar range.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.View.updateBounds">
+            <summary>
+            Set the bounds of the view according to the current BoundMode, and orders a Camera.shoot().
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.View.updateBoundsForceUpdate(System.Boolean)">
+            <summary>
+            Update the bounds according to the scene graph whatever is the current
+            BoundMode, and orders a shoot() if refresh is True
+            </summary>
+            <param name="refresh">Wether to order a shoot() or not.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.View.Squarify">
+             <summary>
+             Return a 3d scaling factor that allows scaling the scene into a square
+             box, according to the current ViewBoundMode.
+             <p/>
+             If the scene bounds are Infinite, NaN or zero, for a given dimension, the
+             scaler will be set to 1 on the given dimension.
+            
+             @return a scaling factor for each dimension.
+             </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.View.Init">
+            <summary>
+            The init function specifies general GL settings that impact the rendering
+            quality and performance (computation speed).
+            <p/>
+            The rendering settings are set by the Quality instance given in
+            the constructor parameters.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.View.RenderOverlay(nzy3D.Plot3D.Rendering.View.ViewPort)">
+             <summary>
+             Renders all provided Tooltips and Renderer2ds on top of
+             the scene.
+            
+             Due to the behaviour of the Overlay implementation, Java2d
+             geometries must be drawn relative to the Chart's
+             IScreenCanvas, BUT will then be stretched to fit in the
+             Camera's viewport. This bug is very important to consider, since
+             the Camera's viewport may not occupy the full IScreenCanvas.
+             Indeed, when View is not maximized (like the default behaviour), the
+             viewport remains square and centered in the canvas, meaning the Overlay
+             won't cover the full canvas area.
+            
+             In other words, the following piece of code draws a border around the
+             View, and not around the complete chart canvas, although queried
+             to occupy chart canvas dimensions:
+            
+             g2d.drawRect(1, 1, chart.getCanvas().getRendererWidth()-2,
+             chart.getCanvas().getRendererHeight()-2);
+            
+             renderOverlay() must be called while the OpenGL2 context for the
+             drawable is current, and after the OpenGL2 scene has been rendered.
+             </summary>
+             <param name="viewport"></param>
+             <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.View.Bounds">
+            <summary>
+            Get the <see cref="T:nzy3D.Plot3D.Primitives.Axes.AxeBox"/>'s bounds
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.View.ViewMode">
+            <summary>
+            Set the ViewPositionMode applied to this view.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.View.CameraMode">
+            <summary>
+            Get the projection of this view, either CameraMode.ORTHOGONAL or CameraMode.PERSPECTIVE.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.View.BoundMode">
+            <summary>
+            Select between an automatic bounding (that allows fitting the entire scene graph), or a custom bounding.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.View.BoundManual">
+            <summary>
+            Set a manual bounding box and switch the bounding mode to
+            ViewBoundMode.MANUAL, meaning that any call to updateBounds()
+            will update view bounds to the current bounds.
+            </summary>
+            <value></value>
+            <remarks>The camero.shoot is not called in this case</remarks>
+        </member>
+        <member name="M:nzy3D.Chart.ChartView.Render">
+            <summary>
+            Set the camera held by this view, and draw the scene graph.
+            Performs all transformations of eye, target coordinates to adapt the camera settings
+            to the scaled scene.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Events.Mouse.IMouseListener.MouseClicked(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when the mouse button has been clicked (pressed and released) on a component.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Events.Mouse.IMouseListener.MousePressed(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when a mouse button has been pressed on a component. 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Events.Mouse.IMouseListener.MouseReleased(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when a mouse button has been released on a component. 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Events.Mouse.IMouseListener.MouseDoubleClicked(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when a mouse button has been double clicked. 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Events.Mouse.IMouseMotionListener.MouseMoved(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when the mouse cursor has been moved onto a component but no buttons have been pushed.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Events.Mouse.IMouseWheelListener.MouseWheelMoved(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when a mouse button is pressed on a component and then dragged.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Chart.Controllers.Mouse.Camera.CameraMouseController.addSlaveThreadController(nzy3D.Chart.Controllers.Thread.Camera.CameraThreadController)">
+            <summary>
+            Remove existing threadcontroller (if existing) and add the one passed in parameters as controller.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Chart.Controllers.Mouse.Camera.CameraMouseController.MousePressed(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Handles toggle between mouse rotation/auto rotation: double-click starts the animated
+            rotation, while simple click stops it.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Chart.Controllers.Mouse.Camera.CameraMouseController.MouseDoubleClicked(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Handles toggle between mouse rotation/auto rotation: double-click starts the animated
+            rotation, while simple click stops it.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.Color.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+             Initialize a color with values between 0 and 1 and an alpha channel set to maximum
+            </summary>
+            <param name="r">Red value (between 0 and 1)</param>
+            <param name="g">Green value (between 0 and 1)</param>
+            <param name="b">Blue value (between 0 and 1)</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.Color.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initialize a color with values between 0 and 255 and an alpha channel set to maximum
+            </summary>
+            <param name="r">Red value (between 0 and 255)</param>
+            <param name="g">Green value (between 0 and 255)</param>
+            <param name="b">Blue value (between 0 and 255)</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.Color.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initialize a color with values between 0 and 1
+            </summary>
+            <param name="r">Red value (between 0 and 1)</param>
+            <param name="g">Green value (between 0 and 1)</param>
+            <param name="b">Blue value (between 0 and 1)</param>
+            <param name="a">a value (between 0 and 1)</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Initialize a color with values between 0 and 255
+            </summary>
+            <param name="r">Red value (between 0 and 255)</param>
+            <param name="g">Green value (between 0 and 255)</param>
+            <param name="b">Blue value (between 0 and 255)</param>
+            <param name="a">a value (between 0 and 255)</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.Color.mul(nzy3D.Colors.Color)">
+            <summary>
+            Multiply current color components (including alpha value) by <paramref name="factor"/> color components values and assign value to current color.
+            </summary>
+            <param name="factor">Multiply values.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.Color.ToString">
+            <summary>
+            Returns the string representation of this color, including alpha channel value
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Colors.Color.toHexString">
+            <summary>
+            Returns the hexadecimal representation of this color, without alpha channel value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Colors.IColorMappable.ZMin">
+            <summary>
+            Get/Set the lower value boundary for a <see cref="!:colors.ColorMaps.IColorMap"/>.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Colors.IColorMappable.ZMax">
+            <summary>
+            Get/Set the upper value boundary for a <see cref="!:colors.ColorMaps.IColorMap"/>.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMapper.ToString">
+            <summary>
+            Returns the string representation of this colormapper
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Colors.ColorMapper.Range">
+            <summary>
+            Range representing zmin/zmax values (same as <see cref="P:nzy3D.Colors.ColorMapper.Scale"/> with different object type)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Colors.ColorMapper.Scale">
+            <summary>
+            Scale representing zmin/zmax values (same as <see cref="P:nzy3D.Colors.ColorMapper.Range"/> with different object type)
+            </summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.ColorMapGrayscale">
+            <summary>
+            Creates a new instance of ColorMapGrayscale. 
+             A ColorMapWhiteRed objects provides a color for points standing
+             between a Zmin and Zmax values.
+            
+            The points standing outside these [Zmin;Zmax] boundaries are assigned
+             to the same color than the points standing on the boundaries.
+            
+            The grayscale colormap is a progressive transition from black to white.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.IColorMap">
+            <summary>
+            This interface defines the set of methods that any concrete colormap
+             should define in order to be used by an object implementing the
+             ColorMappable interface.
+            
+            The ColorMappable interface impose to an object to provide a Z-scaling,
+             that is, a minimum and maximum value on the Z axis.
+             These values are used by concrete colormaps in order to set an interval
+             for the possible colors.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.IColorMap.GetColor(nzy3D.Colors.IColorMappable,System.Double,System.Double,System.Double)">
+            <summary>
+            Returns color of a <paramref name="colorable"/> object at given point
+            </summary>
+            <param name="colorable">A <see cref="T:nzy3D.Colors.IColorMappable"/> object.</param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns>Color for the given point</returns>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.IColorMap.GetColor(nzy3D.Colors.IColorMappable,System.Double)">
+            <summary>
+            Returns color of a <paramref name="colorable"/> object at given point
+            </summary>
+            <param name="colorable">A <see cref="T:nzy3D.Colors.IColorMappable"/> object.</param>
+            <param name="v">The variable that is Color-dependent, and can be independent of the coordinates</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.IColorMap.ToString">
+            <summary>
+            Returns the string representation of this color, including alpha channel value
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Colors.ColorMaps.IColorMap.Direction">
+            <summary>
+            Indicates if the colormap use the standard (True) or reverted (False) color direction
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapGrayscale.GetColor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Helper function 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapGrayscale.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.ColorMapHotCold">
+            <summary>
+            Creates a new instance of ColorMapHotCold.
+            
+            A ColorMapHotCold objects provides a color for points standing
+             between a Zmin and Zmax values.
+            
+            The points standing outside these [Zmin;Zmax] boundaries are assigned
+             to the same color than the points standing on the boundaries.
+            
+            The hot-cold colormap is a progressive transition from blue,
+             to white and last, red.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapHotCold.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.ColorMapRainbow">
+            <summary>
+            Same as ColorMapRBG with a nicer name
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapRBG.GetColor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Helper function 
+            Return the influence of a color, by comparing the input value to the color spectrum.
+            
+             The design of a colormap implies defining the influence of each base color
+             (red, green, and blue) over the range of input data.
+             For this reason, the value given to this function is a number between 0 and 1,
+             indicating the position of the input value in the colormap.
+             Any value standing outside of colormap boundaries should have the "maximal" or
+             "minimal" color.
+            
+             Exemple:
+             A rainbow colormap is a progressive transition from blue, to green and red.
+             The mix between these 3 colors, may be expressed by the definition of 3 functions:
+             <code>
+                   blue     green     red
+                 /-------\/-------\/-------\
+                /        /\       /\        \
+               /        /  \     /  \        \
+              /        /    \   /    \        \
+             |----------------|----------------|
+             0               0.5               1
+             </code>
+            
+             In order to get the color of an input value standing between 0 and 1, the user
+             should call:
+            d
+            <code>
+             float blue  = (float) creneau_relatif( rel_value, 0.25, 0.25, 0.75 );
+             float green = (float) creneau_relatif( rel_value, 0.50, 0.25, 0.75 );
+             float red   = (float) creneau_relatif( rel_value, 0.75, 0.25, 0.75 );
+             return new Color4f( red, green, blue, 1.0f );
+             </code>
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapRBG.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapRainbow.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.ColorMapRedAndGreen">
+            <summary>
+            Creates a new instance of ColorMapRedAndGreen. 
+             A ColorMapRedAndGreen objects provides a color for points standing
+             between a Zmin and Zmax values.
+            
+            The points standing outside these [Zmin;Zmax] boundaries are assigned
+             to the same color than the points standing on the boundaries.
+            
+            The red-green colormap is a progressive transition from red to green.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapRedAndGreen.GetColor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Helper function 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapRedAndGreen.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.ColorMapWhiteBlue">
+            <summary>
+            Creates a new instance of ColorMapWhiteBlue. 
+             A ColorMapWhiteGreen objects provides a color for points standing
+             between a Zmin and Zmax values.
+            
+            The points standing outside these [Zmin;Zmax] boundaries are assigned
+             to the same color than the points standing on the boundaries.
+            
+            The white-red colormap is a progressive transition from white to blue.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapWhiteBlue.GetColor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Helper function 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapWhiteBlue.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.ColorMapWhiteGreen">
+            <summary>
+            Creates a new instance of ColorMapWhiteGreen. 
+             A ColorMapWhiteGreen objects provides a color for points standing
+             between a Zmin and Zmax values.
+            
+            The points standing outside these [Zmin;Zmax] boundaries are assigned
+             to the same color than the points standing on the boundaries.
+            
+            The white-red colormap is a progressive transition from white to green.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapWhiteGreen.GetColor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Helper function 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapWhiteGreen.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ColorMaps.ColorMapWhiteRed">
+            <summary>
+            Creates a new instance of ColorMapWhiteRed. 
+             A ColorMapWhiteRed objects provides a color for points standing
+             between a Zmin and Zmax values.
+            
+            The points standing outside these [Zmin;Zmax] boundaries are assigned
+             to the same color than the points standing on the boundaries.
+            
+            The white-red colormap is a progressive transition from white to red.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapWhiteRed.GetColor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Helper function 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Colors.ColorMaps.ColorMapWhiteRed.ToString">
+            <summary>
+            Returns the string representation of this colormap
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.IMultiColorable">
+            <summary>
+            <para>
+            <see cref="T:nzy3D.Colors.IMultiColorable"/> objects may have several colors interpolated between each of
+            their individual points colors.
+            </para>
+            <para> 
+            A <see cref="T:nzy3D.Colors.IMultiColorable"/> object requires a <see cref="!:colors.ColorMapper"/> that defines a strategy
+            for coloring points according to their position.
+            </para>
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Colors.IMultiColorable.ColorMapper">
+            <summary>
+            Get/Set the colormapper that will be used by the Drawable, instead of using precomputed colors
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Colors.ISingleColorable">
+            <summary>
+            <see cref="T:nzy3D.Colors.ISingleColorable"/> objects have a single plain color and a must define a setter for it
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Colors.ISingleColorable.Color">
+            <summary>
+            Get/Set the color
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Events.Keyboard.IKeyListener.KeyTyped(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Invoked when a key has been typed (key pressed in .net). 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Events.Keyboard.IKeyListener.KeyPressed(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Invoked when a key has been pressed (key down in .net).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Events.Keyboard.IKeyListener.KeyReleased(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Invoked when a key has been released (key up in .net).
+            </summary>
+        </member>
+        <member name="T:nzy3D.Maths.Algorithms.Interpolation.Bernstein.BernsteinPolynomial">
+            <summary>
+            Helper class for the spline3d classes in this namespace. Used to compute
+            subdivision points of the curve.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.BernsteinPolynomial.#ctor(System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="res">Resolution : number of subdivision steps between each control point of the spline3d (must be greater than or equal to two)</param>
+        </member>
+        <member name="T:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D">
+            <summary>
+            <para> This is a generic 3D B-Spline class for curves of arbitrary length, control
+             handles and patches are created and joined automatically as described here:
+            http://www.ibiblio.org/e-notes/Splines/Bint.htm">ibiblio.org/e-notes/Splines/Bint.htm
+            </para>
+            <para>
+            Thanks to a bug report by Aaron Meyers (http://universaloscillation.com) the
+            {@linkplain #computeVertices(int)} method has a slightly changed behaviour
+            from version 0014 onwards. In earlier versions erroneous duplicate points
+            would be added near each given control point, which lead to various weird
+            results.
+            </para>
+            <para>
+            The new behaviour of the curve interpolation/computation is described in the
+            docs for the {@linkplain #computeVertices(int)} method below.
+            </para>
+            </summary>
+            <remarks>
+            Version 0014 Added user adjustable curve tightness control
+            Version 0015 Added JAXB annotations and List support for dynamic building of spline
+            </remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.#ctor">
+            <summary>
+            Constructor (default tightness, no control points and no predefined bernstein polynomial)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.#ctor(System.Collections.Generic.List{nzy3D.Maths.Coord3d})">
+            <summary>
+             Constructor (default tightness and no predefined bernstein polynomial)
+            </summary>
+            <param name="rawPoints">List of control point vectors</param>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.#ctor(System.Collections.Generic.List{nzy3D.Maths.Coord3d},nzy3D.Maths.Algorithms.Interpolation.Bernstein.BernsteinPolynomial,System.Double)">
+            <summary>
+             Constructor (default tightness and no predefined bernstein polynomial)
+            </summary>
+            <param name="rawPoints">List of control point vectors</param>
+            <param name="b">Predefined Bernstein polynomial (good for reusing)</param>
+            <param name="tightness">Default curve tightness used for the interpolated vertices</param>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.#ctor(nzy3D.Maths.Coord3d[])">
+            <summary>
+             Constructor (default tightness and no predefined bernstein polynomial)
+            </summary>
+            <param name="rawPoints">Array of control point vectors</param>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.#ctor(nzy3D.Maths.Coord3d[],nzy3D.Maths.Algorithms.Interpolation.Bernstein.BernsteinPolynomial,System.Double)">
+            <summary>
+             Constructor (default tightness and no predefined bernstein polynomial)
+            </summary>
+            <param name="rawPoints">Array of control point vectors</param>
+            <param name="b">Predefined Bernstein polynomial (good for reusing)</param>
+            <param name="tightness">Default curve tightness used for the interpolated vertices</param>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.Add(nzy3D.Maths.Coord3d)">
+            <summary>
+            Adds the given point to the list of control points.
+            </summary>
+            <returns>Itself</returns>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.Add(System.Double,System.Double,System.Double)">
+            <summary>
+            Adds the given point to the list of control points.
+            </summary>
+            <returns>Itself</returns>
+        </member>
+        <member name="P:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.Tightness">
+            <summary>
+            Property to access (read/write) curve tightness used for the interpolated vertices
+            of future curve interpolation calls. Default value is
+            0.25. A value of 0.0 equals linear interpolation between the given curve
+            input points. Curve behaviour for values outside the 0.0 .. 0.5 interval
+            is unspecified and becomes increasingly less intuitive. Negative values
+            are possible too and create interesting results (in some cases).
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.Algorithms.Interpolation.Bernstein.Spline3D.NumPoints">
+            <summary>
+            Returns the number of key points.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.ScaleFinder.getFilteredScale(System.Double[],System.Int32)">
+            <summary>
+            Apply an outlier remover on input data (<see cref="M:nzy3D.Maths.Algorithms.OutlierRemover.getInlierValues(System.Double[],System.Int32)"/>)
+            and retrieve the min and max values of the non-rejected values.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Algorithms.ScaleFinder.getMinMaxScale(System.Double[])">
+            <summary>
+            Simply returns the min and max values of the input array into
+            a Scale object.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Maths.Angle2d">
+            <summary>
+            An Angle2d stores three 2d points, considering the angle is on the second one.
+            An instance may return angle(), cos() and sin()
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Angle2d.sin">
+            <summary>
+            Computes the sinus of the angle
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Angle2d.cos">
+            <summary>
+            Computes the cosinus of the angle
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Angle2d.angle">
+            <summary>
+            Computes the angle
+            </summary>
+        </member>
+        <member name="T:nzy3D.Maths.Angle3d">
+            <summary>
+            An Angle3d stores three 3d points, considering the angle is on the second one.
+            An instance may return angle(), cos() and sin()
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Angle3d.#ctor(nzy3D.Maths.Coord3d,nzy3D.Maths.Coord3d,nzy3D.Maths.Coord3d)">
+            <summary>
+            Create an angle, described by three coordinates.
+            The angle is supposed to be on p2
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Angle3d.sin">
+            <summary>
+            Computes the sinus of the angle
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Angle3d.cos">
+            <summary>
+            Computes the cosinus of the angle
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Angle3d.angle">
+            <summary>
+            Computes an angle between 0 and 2*PI
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Array.toColumnMatrix(System.Double[])">
+            <summary>
+            output(i, 0) = input(i)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Array.toColumnMatrix(System.Single[])">
+            <summary>
+            output(i, 0) = input(i)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Array.toColumnMatrixAsDouble(System.Single[])">
+            <summary>
+            output(i, 0) = input(i)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Array.Find(System.Double[],System.Double)">
+            <summary>
+            output(i, 0) = input(i)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Array.Find(System.Int32[],System.Double)">
+            <summary>
+            output(i, 0) = input(i)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortAscending(System.Int32[])">
+            <summary>
+            Sort input array, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortAscending(System.Single[])">
+            <summary>
+            Sort input array, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortAscending(System.Double[])">
+            <summary>
+            Sort input array, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortAscending(System.DateTime[])">
+            <summary>
+            Sort input array, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortDescending(System.Int32[])">
+            <summary>
+            Sort input array in descending order, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortDescending(System.Single[])">
+            <summary>
+            Sort input array in descending order, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortDescending(System.Double[])">
+            <summary>
+            Sort input array in descending order, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Array.sortDescending(System.DateTime[])">
+            <summary>
+            Sort input array in descending order, and return the final order of initial values.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+            <remarks>Input array is modified and sorted after call to this method.</remarks>
+        </member>
+        <member name="T:nzy3D.Maths.BoundingBox2d">
+            <summary>
+            A BoundingBox2d stores a couple of maximal and minimal limit on
+             each dimension (x, y) in cartesian coordinates. It provides functions for enlarging
+             the box by adding cartesian coordinates or an other
+             BoundingBox2d (that is equivalent to computing the union of the
+             current BoundingBox and another one).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.#ctor">
+            <summary>
+            Initialize a BoundingBox by calling its reset method.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.#ctor(System.Collections.Generic.List{nzy3D.Maths.Coord2d})">
+            <summary>
+            Initialize a BoundingBox by calling its reset method and then adding a set of coordinates
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initialize a BoundingBox with raw values.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.reset">
+            <summary>
+             Initialize the bounding box with Float.MAX_VALUE as minimum
+            value, and -Float.MAX_VALUE as maximum value for each dimension.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.add(System.Double,System.Double)">
+            <summary>
+            Adds an x,y point to the bounding box, and enlarge the bounding
+            box if this points lies outside of it.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.add(nzy3D.Maths.Coord2d)">
+            <summary>
+            Adds a <see cref="T:nzy3D.Maths.Coord2d"/> point to the bounding box, and enlarge the bounding
+            box if this points lies outside of it.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.add(nzy3D.Maths.BoundingBox2d)">
+            <summary>
+            Adds another <see cref="T:nzy3D.Maths.BoundingBox2d"/> to the bounding box, and enlarge the bounding
+            box if its points lies outside of it (i.e. merge other bounding box inside current one)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.getCenter">
+            <summary>
+            Compute and return the center point of the BoundingBox3d
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.getRadius">
+            <summary>
+            Return the radius of the Sphere containing the Bounding Box,
+            i.e., the distance between the center and the point (xmin, ymin).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.scale(nzy3D.Maths.Coord2d)">
+            <summary>
+            Return a copy of the current bounding box after scaling all limits relative to 0,0
+            Scaling does not modify the current bounding box.
+            </summary>
+            <remarks>Current object is not modified, a new one is created.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.contains(nzy3D.Maths.BoundingBox2d)">
+            <summary>
+            Return true if <paramref name="anotherBox"/> is contained in this box.
+            </summary>
+            <remarks>if b1.contains(b2), then b1.intersect(b2) as well.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.contains(nzy3D.Maths.Coord2d)">
+            <summary>
+            Return true if <paramref name="aPoint"/> is contained in this box.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox2d.intersect(nzy3D.Maths.BoundingBox2d)">
+            <summary>
+            Return true if <paramref name="anotherBox"/> intersects with this box.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox2d.xmin">
+            <summary>
+            Bounding box min x value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox2d.xmax">
+            <summary>
+            Bounding box max x value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox2d.ymin">
+            <summary>
+            Bounding box min y value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox2d.ymax">
+            <summary>
+            Bounding box max y value
+            </summary>
+        </member>
+        <member name="T:nzy3D.Maths.BoundingBox3d">
+            <summary>
+            A BoundingBox3d stores a couple of maximal and minimal limit on
+             each dimension (x, y) in cartesian coordinates. It provides functions for enlarging
+             the box by adding cartesian coordinates or an other
+             BoundingBox3d (that is equivalent to computing the union of the
+             current BoundingBox and another one).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.#ctor">
+            <summary>
+            Initialize a BoundingBox by calling its reset method.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.#ctor(System.Collections.Generic.List{nzy3D.Maths.Coord3d})">
+            <summary>
+            Initialize a BoundingBox by calling its reset method and then adding a set of coordinates
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.#ctor(nzy3D.Plot3D.Primitives.Polygon)">
+            <summary>
+            Initialize a BoundingBox by calling its reset method and then adding a set of coordinates from a polygon
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.#ctor(nzy3D.Maths.Coord3d,System.Double)">
+            <summary>
+            Initialize a BoundingBox with given centre and edgeLength (equals in all directions)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.#ctor(nzy3D.Maths.BoundingBox3d)">
+            <summary>
+            Initialize a BoundingBox with another bounding box (i.e. performs a copy)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initialize a BoundingBox with raw values.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.reset">
+            <summary>
+             Initialize the bounding box with Double.MAX_VALUE as minimum
+            value, and Double.MIN_VALUE as maximum value for each dimension.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.valid">
+            <summary>
+            Check if bounding box is valid (i.e. limits are consistents).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.add(System.Double,System.Double,System.Double)">
+            <summary>
+            Adds an x,y,z point to the bounding box, and enlarge the bounding
+            box if this points lies outside of it.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.add(nzy3D.Maths.Coord3d)">
+            <summary>
+            Adds a <see cref="T:nzy3D.Maths.Coord3d"/> point to the bounding box, and enlarge the bounding
+            box if this points lies outside of it.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.add(nzy3D.Plot3D.Primitives.Polygon)">
+            <summary>
+            Adds a set of coordinates from a polygon to the bounding box
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.add(nzy3D.Plot3D.Primitives.Point)">
+            <summary>
+            Adds a point to the bounding box
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.Add(nzy3D.Maths.BoundingBox3d)">
+            <summary>
+            Adds another <see cref="T:nzy3D.Maths.BoundingBox3d"/> to the bounding box, and enlarge the bounding
+            box if its points lies outside of it (i.e. merge other bounding box inside current one)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.getCenter">
+            <summary>
+            Compute and return the center point of the BoundingBox3d
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.getRadius">
+            <summary>
+            Return the radius of the Sphere containing the Bounding Box,
+            i.e., the distance between the center and the point (xmin, ymin, zmin).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.scale(nzy3D.Maths.Coord3d)">
+            <summary>
+            Return a copy of the current bounding box after scaling all limits relative to 0,0,0
+            Scaling does not modify the current bounding box.
+            </summary>
+            <remarks>Current object is not modified, a new one is created.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.shift(nzy3D.Maths.Coord3d)">
+            <summary>
+            Return a copy of the current bounding box after shitfing all limits
+            Shifting does not modify the current bounding box.
+            </summary>
+            <remarks>Current object is not modified, a new one is created.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.margin(System.Double)">
+            <summary>
+            Return a copy of the current bounding box after adding a margin to all limits (positiv to max limits, negativ to min limits)
+            </summary>
+            <remarks>Current object is not modified, a new one is created.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.selfMargin(System.Double)">
+            <summary>
+            Return a copy of the current bounding box after adding a margin to all limits (positiv to max limits, negativ to min limits)
+            </summary>
+            <remarks>Modify current object.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.contains(nzy3D.Maths.BoundingBox3d)">
+            <summary>
+            Return true if <paramref name="anotherBox"/> is contained in this box.
+            </summary>
+            <remarks>if b1.contains(b2), then b1.intersect(b2) as well.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.contains(nzy3D.Maths.Coord3d)">
+            <summary>
+            Return true if <paramref name="aPoint"/> is contained in this box.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.BoundingBox3d.intersect(nzy3D.Maths.BoundingBox3d)">
+            <summary>
+            Return true if <paramref name="anotherBox"/> intersects with this box.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox3d.xmin">
+            <summary>
+            Bounding box min x value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox3d.xmax">
+            <summary>
+            Bounding box max x value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox3d.ymin">
+            <summary>
+            Bounding box min y value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox3d.ymax">
+            <summary>
+            Bounding box max y value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox3d.zmin">
+            <summary>
+            Bounding box min z value
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.BoundingBox3d.zmax">
+            <summary>
+            Bounding box max z value
+            </summary>
+        </member>
+        <member name="T:nzy3D.Maths.Coord2d">
+            <summary>
+            A <see cref="!:maths.Coord2d"/> stores a 2 dimensional coordinate for cartesian (x,y) or
+            polar (a,r) mode, and provide operators allowing to add, substract,
+            multiply and divises coordinate values, as well as computing the distance between
+            two points, and converting polar and cartesian coordinates.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.setvalues(System.Double,System.Double)">
+            <summary>
+            Set all values of Coord2d
+            </summary>
+            <returns>Self</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.add(System.Double)">
+            <summary>
+            Add a value to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="value">Value to add to both coordinates (x and y)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.add(System.Double,System.Double)">
+            <summary>
+            Add values to components of the current <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>.
+            </summary>
+            <param name="xi">x value to add</param>
+            <param name="yi">y value to add</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.add(nzy3D.Maths.Coord2d)">
+            <summary>
+            Add values of another <see cref="T:nzy3D.Maths.Coord2d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to add</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.addSelf(System.Double)">
+            <summary>
+            Add a value to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="value">Value to add to both coordinates (x and y)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.addSelf(System.Double,System.Double)">
+            <summary>
+            Add values to components of the current <see cref="T:nzy3D.Maths.Coord2d"/>.
+            </summary>
+            <param name="xi">x value to add</param>
+            <param name="yi">y value to add</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.addSelf(nzy3D.Maths.Coord2d)">
+            <summary>
+            Add values of another <see cref="T:nzy3D.Maths.Coord2d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to add</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.substract(System.Double)">
+            <summary>
+            Substract a value to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="value">Value to substract to both coordinates (x and y)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.substract(System.Double,System.Double)">
+            <summary>
+            Substract values to components of the current <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>.
+            </summary>
+            <param name="xi">x value to substract</param>
+            <param name="yi">y value to substract</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.substract(nzy3D.Maths.Coord2d)">
+            <summary>
+            Substract values of another <see cref="T:nzy3D.Maths.Coord2d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to substract</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.substractSelf(System.Double)">
+            <summary>
+            Substract a value to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="value">Value to substract to both coordinates (x and y)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.substractSelf(System.Double,System.Double)">
+            <summary>
+            Substract values to components of the current <see cref="T:nzy3D.Maths.Coord2d"/>.
+            </summary>
+            <param name="xi">x value to substract</param>
+            <param name="yi">y value to substract</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.substractSelf(nzy3D.Maths.Coord2d)">
+            <summary>
+            Substract values of another <see cref="T:nzy3D.Maths.Coord2d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to substract</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.multiply(System.Double)">
+            <summary>
+            Multiply all components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by a given value and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="value">Value to multiply both coordinates with (x and y)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.multiply(System.Double,System.Double)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by given values and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>.
+            </summary>
+            <param name="xi">x value to multiply with</param>
+            <param name="yi">y value to multiply with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.multiply(nzy3D.Maths.Coord2d)">
+            <summary>
+            Multiply components of another <see cref="T:nzy3D.Maths.Coord2d"/> with components of the current <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to multiply with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.multiplySelf(System.Double)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord2d"/> with a given value. 
+            </summary>
+            <param name="value">Value to multiply both coordinates with (x and y)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.multiplySelf(System.Double,System.Double)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord2d"/> with given values. 
+            </summary>
+            <param name="xi">x value to multiply with</param>
+            <param name="yi">y value to multiply with</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.multiplySelf(nzy3D.Maths.Coord2d)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord2d"/> with values of another <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to multiply with</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.divide(System.Double)">
+            <summary>
+            Divide all components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by a given value and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="value">Value to multiply both coordinates with (x and y)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.divide(System.Double,System.Double)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by given values and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>.
+            </summary>
+            <param name="xi">x value to divide with</param>
+            <param name="yi">y value to divide with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.divide(nzy3D.Maths.Coord2d)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by components of another <see cref="T:nzy3D.Maths.Coord2d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to divide with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.divideSelf(System.Double)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by a given value. 
+            </summary>
+            <param name="value">Value to divide both coordinates by (x and y)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.divideSelf(System.Double,System.Double)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by given values. 
+            </summary>
+            <param name="xi">x value to divide by</param>
+            <param name="yi">y value to divide by</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.divideSelf(nzy3D.Maths.Coord2d)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord2d"/> by values of another <see cref="T:nzy3D.Maths.Coord2d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to divide by</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.cartesian">
+            <summary>
+            Assuming current coordinate is in polar system, returns a new coordinate in cartesian system
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.polar">
+            <summary>
+            Assuming current coordinate is in cartesian system, returns a new coordinate in polar system
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.fullPolar">
+            <summary>
+            Assuming current coordinate is in cartesian system, returns a new coordinate in polar system
+            with real polar values, i.e. with an angle in the range [0, 2*PI]
+            Source : http://fr.wikipedia.org/wiki/Coordonn%C3%A9es_polaires
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord2d.distance(nzy3D.Maths.Coord2d)">
+            <summary>
+            Compute the distance between two coordinates.
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Maths.Coord3d">
+            <summary>
+            A <see cref="!:maths.Coord3d"/> stores a 3 dimensional coordinate for cartesian (x, y, y) or
+            polar (phi, theta, r) (azimuth, elevation/inclination, radius) mode, and provide operators allowing to add, substract,
+            multiply and divises coordinate values, as well as computing the distance between
+            two points, and converting polar and cartesian coordinates.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.Clone">
+            <summary>
+            Returns a memberwise clone of current object.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.setvalues(System.Double,System.Double,System.Double)">
+            <summary>
+            Set all values of Coord3d
+            </summary>
+            <returns>Self</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.getXY">
+            <summary>
+            Returns the x and y components as 2d coordinate
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.add(System.Double)">
+            <summary>
+            Add a value to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="value">Value to add to all coordinates (x, y, z)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.add(System.Double,System.Double,System.Double)">
+            <summary>
+            Add values to components of the current <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>.
+            </summary>
+            <param name="xi">x value to add</param>
+            <param name="yi">y value to add</param>
+            <param name="zi">z value to add</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.add(nzy3D.Maths.Coord3d)">
+            <summary>
+            Add values of another <see cref="T:nzy3D.Maths.Coord3d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to add</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.addSelf(System.Double)">
+            <summary>
+            Add a value to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="value">Value to add to all coordinates (x, y and z)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.addSelf(System.Double,System.Double,System.Double)">
+            <summary>
+            Add values to components of the current <see cref="T:nzy3D.Maths.Coord3d"/>.
+            </summary>
+            <param name="xi">x value to add</param>
+            <param name="yi">y value to add</param>
+            <param name="zi">z value to add</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.addSelf(nzy3D.Maths.Coord3d)">
+            <summary>
+            Add values of another <see cref="T:nzy3D.Maths.Coord3d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to add</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.substract(System.Double)">
+            <summary>
+            Substract a value to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="value">Value to substract to both coordinates (x, y and z)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.substract(System.Double,System.Double,System.Double)">
+            <summary>
+            Substract values to components of the current <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>.
+            </summary>
+            <param name="xi">x value to substract</param>
+            <param name="yi">y value to substract</param>
+            <param name="zi">z value to substract</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.substract(nzy3D.Maths.Coord3d)">
+            <summary>
+            Substract values of another <see cref="T:nzy3D.Maths.Coord3d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to substract</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.substractSelf(System.Double)">
+            <summary>
+            Substract a value to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="value">Value to substract to both coordinates (x, y and z)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.substractSelf(System.Double,System.Double,System.Double)">
+            <summary>
+            Substract values to components of the current <see cref="T:nzy3D.Maths.Coord3d"/>.
+            </summary>
+            <param name="xi">x value to substract</param>
+            <param name="yi">y value to substract</param>
+            <param name="zi">z value to substract</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.substractSelf(nzy3D.Maths.Coord3d)">
+            <summary>
+            Substract values of another <see cref="T:nzy3D.Maths.Coord3d"/> to all components of the current <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to substract</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.multiply(System.Double)">
+            <summary>
+            Multiply all components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by a given value and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="value">Value to multiply both coordinates with (x, y and z)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.multiply(System.Double,System.Double,System.Double)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by given values and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>.
+            </summary>
+            <param name="xi">x value to multiply with</param>
+            <param name="yi">y value to multiply with</param>
+            <param name="zi">z value to multiply with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.multiply(nzy3D.Maths.Coord3d)">
+            <summary>
+            Multiply components of another <see cref="T:nzy3D.Maths.Coord3d"/> with components of the current <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to multiply with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.multiplySelf(System.Double)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord3d"/> with a given value. 
+            </summary>
+            <param name="value">Value to multiply both coordinates with (x, y and z)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.multiplySelf(System.Double,System.Double,System.Double)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord3d"/> with given values. 
+            </summary>
+            <param name="xi">x value to multiply with</param>
+            <param name="yi">y value to multiply with</param>
+            <param name="zi">z value to multiply with</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.multiplySelf(nzy3D.Maths.Coord3d)">
+            <summary>
+            Multiply components of the current <see cref="T:nzy3D.Maths.Coord3d"/> with values of another <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to multiply with</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.divide(System.Double)">
+            <summary>
+            Divide all components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by a given value and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="value">Value to multiply both coordinates with (x, y and z)</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.divide(System.Double,System.Double,System.Double)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by given values and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>.
+            </summary>
+            <param name="xi">x value to divide with</param>
+            <param name="yi">y value to divide with</param>
+            <param name="zi">z value to divide with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.divide(nzy3D.Maths.Coord3d)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by components of another <see cref="T:nzy3D.Maths.Coord3d"/> and return the result
+            in a new <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to divide with</param>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.divideSelf(System.Double)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by a given value. 
+            </summary>
+            <param name="value">Value to divide both coordinates by (x, y and z)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.divideSelf(System.Double,System.Double,System.Double)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by given values. 
+            </summary>
+            <param name="xi">x value to divide by</param>
+            <param name="yi">y value to divide by</param>
+            <param name="zi">z value to divide by</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.divideSelf(nzy3D.Maths.Coord3d)">
+            <summary>
+            Divide components of the current <see cref="T:nzy3D.Maths.Coord3d"/> by values of another <see cref="T:nzy3D.Maths.Coord3d"/>. 
+            </summary>
+            <param name="coord">Coordinate with values to divide by</param>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.negative">
+            <summary>
+            Returns a new coordinate equal to the negation of current one
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.cartesian">
+            <summary>
+            Assuming current coordinate is in polar system, returns a new coordinate in cartesian system
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.polar">
+            <summary>
+            Assuming current coordinate is in cartesian system, returns a new coordinate in polar system
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.distance(nzy3D.Maths.Coord3d)">
+            <summary>
+            Compute the distance between two coordinates.
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.magSquared">
+            <summary>
+            Returns the squared distance of coordinates ( x * x + y * y + z * z )
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.dot(nzy3D.Maths.Coord3d)">
+            <summary>
+            Returns the dot product of current coordinate with another coordinate
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.normalizeTo(System.Double)">
+            <summary>
+            Assuming current coordinate is in cartesian system, returns a new coordinate in polar system
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Coord3d.interpolateTo(nzy3D.Maths.Coord3d,System.Double)">
+            <summary>
+            Assuming current coordinate is in cartesian system, returns a new coordinate in polar system
+            </summary>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="T:nzy3D.Maths.Coordinates">
+            <summary>
+            A simple utility class for storing a list of x, y, and z coordinates as
+            arrays of float values.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Grid.getBounds">
+            <summary>
+            Computed and returns the bound of datas in the grid (x,y,z)
+            </summary>
+            <returns></returns>
+            <remarks>BoundingBox is recomputed each time the function is called, in contrary to nzy3D where it is kept in a dangerous cache.</remarks>
+        </member>
+        <member name="T:nzy3D.Maths.Mapper">
+            <summary>
+            A Mapper provides an abstract definition of a function that allows
+            getting a Z value according to a pair of (X,Y) coordinates.
+            It moreover provide the service of gathering input and computed output
+            into a  <see cref="T:nzy3D.Maths.Coordinates"/> object, that provides arrays of
+            X,Y, and Z coordinates as float values.
+            <see cref="T:nzy3D.Maths.Mapper"/> is deprecated. One should use <see cref="!:plot3D.builder.Mapper"/> instead
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Mapper.getZ(System.Double[0:,0:])">
+            <summary>
+            Return an array of Z values according to the implemented function
+            that provides an output according to an array of (X,Y) coordinates
+            </summary>
+            <param name="xy">Input array of (X,Y) coordinates. First dimension can be any length (equal to the number of coordinates). Second dimension must be of length 2.</param>
+            <returns>Array of Z values for each (X,Y) coordinate</returns>
+        </member>
+        <member name="M:nzy3D.Maths.Mapper.getZ(System.Double[])">
+            <summary>
+            Return a Z value according to the implemented function
+            that provides an output according to an (X,Y) coordinate
+            </summary>
+            <param name="xy">One (X,Y) coordinate</param>
+            <returns>Z value for (X,Y) coordinate</returns>
+        </member>
+        <member name="M:nzy3D.Maths.Mapper.getCoordinates(System.Double[0:,0:])">
+            <summary>
+            Return a structure containing X, Y, and Z coordinates as arrays of double.
+            </summary>
+            <param name="xy">Input array of (X,Y) coordinates as array of double. First dimension can be any length (equal to the number of coordinates). Second dimension must be of length 2.</param>
+        </member>
+        <member name="M:nzy3D.Maths.Mapper.getCoordinates(System.Single[0:,0:])">
+            <summary>
+            Return a structure containing X, Y, and Z coordinates as arrays of double.
+            </summary>
+            <param name="xy">Input array of (X,Y) coordinates as array of single. First dimension can be any length (equal to the number of coordinates). Second dimension must be of length 2.</param>
+        </member>
+        <member name="M:nzy3D.Maths.Mapper.getCoordinates(System.Double[])">
+            <summary>
+             Return a structure containing X, Y, and Z coordinates as arrays of double.
+            </summary>
+            <param name="xy">A single coordinate point. Dimension must be equal to 2.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Mapper.getCoordinates(System.Single[])">
+            <summary>
+             Return a structure containing X, Y, and Z coordinates as arrays of double.
+            </summary>
+            <param name="xy">A single coordinate point. Dimension must be equal to 2.</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Scale.add(System.Double)">
+            <summary>
+            Add a value to min and max values of the scale
+            </summary>
+            <param name="value">Value to add</param>
+            <returns>New scale with added value to min &amp; max</returns>
+            <remarks>Current object is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Scale.Contains(System.Double)">
+            <summary>
+            Return True if value is inside [Min;Max]
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Scale.valid">
+            <summary>
+            Returns True if Min &lt;= Max
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.MinId(System.Double[])">
+            <summary>
+            Returns the index (zero-based) where the minimal value stands
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.MinId(System.Single[])">
+            <summary>
+            Returns the index (zero-based) where the minimal value stands
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.MinId(System.Int32[])">
+            <summary>
+            Returns the index (zero-based) where the minimal value stands
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.MaxId(System.Int32[])">
+            <summary>
+            Returns the index (zero-based) where the maximal value stands
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.Mad(System.Double[])">
+            <summary>
+            Computes the mad statistic, that is the median of all distances to the median of input
+            values.
+            </summary>
+            <returns>Mad statistics</returns>
+            <remarks>If the input array is empty, the output value is Double.NaN</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.Std(System.Double[])">
+            <summary>
+            Computes the standard deviation of an array of doubles.
+            </summary>
+            <returns>Standard deviation</returns>
+            <remarks>If the input array is empty, the output value is Double.NaN</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.Variance(System.Double[])">
+            <summary>
+            Compute the variance of an array of doubles. This function normalizes the
+            output by N-1 if N > 1, where N is the sample size.
+            This is an unbiased estimator of the variance of the population
+            For N=1, the output is 0.
+            </summary>
+            <remarks>If the input array is empty, the output value is Double.NaN</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.Quantile(System.Double[],System.Double[],System.Boolean)">
+            <summary>
+            Computes the quantiles of an array of doubles. This method assumes the array
+            has at least one element.
+            </summary>
+            <param name="values">Input array</param>
+            <param name="levels">A list of levels that must belong to [0;100]</param>
+            <param name="interpolated">If True, computes an interpolation of quantile when required quantile is not an exact vector id.
+            If False, the quantile is not interpolated but nearest value is returned</param>
+            <returns>The quantiles</returns>
+            <remarks>Throws an IllegalArgumentException if a level is out of the [0;100] bounds. Return 0 if input array is empty.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.Quantile(System.Double[],System.Double[])">
+            <summary>
+            Computes the quantiles of an array of doubles. This method assumes the array
+            has at least one element. Interpolation of quantile is performed when required quantile is not an exact vector id.
+            </summary>
+            <param name="values">Input array</param>
+            <param name="levels">A list of levels that must belong to [0;100]</param>
+            <returns>The quantiles</returns>
+            <remarks>This is only a helper function for Statistics.Quantile(values, levels, True). Throws an IllegalArgumentException if a level is out of the [0;100] bounds. Return 0 if input array is empty.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Statistics.Median(System.Double[],System.Boolean)">
+            <summary>
+            Computes the median value of an array of doubles.
+            </summary>
+            <param name="values">Input array</param>
+            <param name="interpolated">If True, computes an interpolation of median when required, i.e. if median is not an exact vector id.
+            If False, the median is not interpolated but nearest value is returned (either higher or lower value)</param>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.num2str(System.Char,System.Double,System.Int32)">
+            <summary>
+            Convert a number into a string.
+            </summary>
+            <param name="parseMode">Output format
+            C or c : Currency. <paramref name="precision"/> parameters provides the number of decimal digits (after comma).
+            D or d : Decimal (integer digits with optional negativ sign). <paramref name="precision"/> parameters provides the minimum number of digits (before comma, zeros will be added when required).
+            E or e : Exponential notation. <paramref name="precision"/> parameters provides the number of digits after comma.
+            F or f : Integral and decimal digits with optional negative sign. <paramref name="precision"/> parameters provides the number of decimal digits (after comma).
+            G or g : The most compact of either fixed-point or scientific notation. <paramref name="precision"/> parameters provides the number of significant digits.
+            N or n : Integral and decimal digits, group separators, and a decimal separator with optional negative sign. <paramref name="precision"/> parameters provides the number of decimal digits (after comma).
+            P or p : Number multiplied by 100 and displayed with a percent symbol. <paramref name="precision"/> parameters provides the number of decimal digits (after comma).
+            </param>
+            <param name="num">Number to convert to string</param>
+            <param name="precision">Number of digits (meaning depends on <paramref name="parseMode"/> value)</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.num2str(System.Char,System.Double)">
+            <summary>
+            Same as other <see cref="M:nzy3D.Maths.Utils.num2str(System.Char,System.Double,System.Int32)"/> but without precision.
+            </summary>
+            <param name="parseMode"></param>
+            <param name="num"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.num2str(System.Double,System.Int32)">
+            <summary>
+            Same as other <see cref="M:nzy3D.Maths.Utils.num2str(System.Char,System.Double,System.Int32)"/> but without parseMode (g by default).
+            </summary>
+            <param name="num"></param>
+            <param name="precision"></param>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.num2str(System.Double)">
+            <summary>
+            Same as other <see cref="M:nzy3D.Maths.Utils.num2str(System.Char,System.Double,System.Int32)"/> but without parseMode (g by default) nor precision.
+            </summary>
+            <param name="num"></param>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.abs(System.Double[])">
+            <summary>
+            Return the absolute values of an array of doubles
+            </summary>
+            <remarks>Current array is not modified</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.sum(System.Double[])">
+            <summary>
+            Computes the sum of an array of doubles. NaN values are ignored during the computation
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.sum(System.Int32[])">
+            <summary>
+            Computes the sum of an array of integers. 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.vector(System.Double,System.Double,System.Int32)">
+            <summary>
+            Generate a vector of doubles containing regular increasing values from min to max, with
+            nstep steps (including min and max value).
+            </summary>
+            <param name="min">Min value</param>
+            <param name="max">Max value</param>
+            <param name="nstep">Number of steps (including min and max values)</param>
+            <returns></returns>
+            <remarks>Algorithm ensure first and last values of array are equal to min and max value without any rounding error.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.vector(System.Double,System.Double)">
+            <summary>
+            Generate a vector of doubles containing regular increasing values from min to max, with an offset of 1.
+            </summary>
+            <param name="min">Min value</param>
+            <param name="max">Max value</param>
+            <returns></returns>
+            <remarks>Algorithm ensure first and last values of array are equal to min and max value without any rounding error.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.vector(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generate a vector of integers containing regular increasing values from min to max, with
+            nstep steps (including min and max value).
+            </summary>
+            <param name="min">Min value</param>
+            <param name="max">Max value</param>
+            <param name="nstep">Number of steps (including min and max values)</param>
+            <returns></returns>
+            <remarks>Algorithm ensure first and last values of array are equal to min and max value without any rounding error.</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Utils.vector(System.Int32,System.Int32)">
+            <summary>
+            Generate a vector of integers containing regular increasing values from min to max, with an offset of 1.
+            </summary>
+            <param name="min">Min value</param>
+            <param name="max">Max value</param>
+            <returns></returns>
+            <remarks>Algorithm ensure first and last values of array are equal to min and max value without any rounding error.</remarks>
+        </member>
+        <member name="T:nzy3D.Maths.Vector2d">
+            <summary>
+            Storage for a 2 dimensional vector defined by two points.
+            Provide the vector function that returns the vector
+            as a Coord3d, as well as dot product and norm.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Vector2d.vector">
+            <summary>
+            Return the vector (sizes) induced by this set of coordinates
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Vector2d.dot(nzy3D.Maths.Vector2d)">
+            <summary>
+            Compute the dot product between the current and given vector
+            </summary>
+        </member>
+        <member name="T:nzy3D.Maths.Vector3d">
+            <summary>
+            Storage for a 3 dimensional vector defined by two points.
+            Provide the vector function that returns the vector
+            as a Coord3d, as well as dot product and norm.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Vector3d.dot(nzy3D.Maths.Vector3d)">
+            <summary>
+            Compute the dot product between and current and given vector.
+            </summary>
+            <remarks>Remind that the dot product is 0 if vectors are perpendicular</remarks>
+        </member>
+        <member name="M:nzy3D.Maths.Vector3d.cross(nzy3D.Maths.Vector3d)">
+            <summary>
+            Computes the vectorial product of the current and the given vector.
+            The result is a vector defined as a Coord3d, that is perpendicular to
+            the plan induced by current vector and vector V.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Vector3d.norm">
+            <summary>
+            Compute the norm of this vector.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Maths.Vector3d.distance(nzy3D.Maths.Coord3d)">
+            <summary>
+            Compute the distance between two coordinates.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Maths.Vector3d.vector">
+            <summary>
+            Return the vector induced by this set of coordinates
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Concrete.BufferedImageMapper">
+            <summary>
+            Mapper which reads height information from the grayscale
+            values of a BufferedImage, normalized to range [0..1].
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Mapper.f(System.Double,System.Double)">
+            <summary>
+            Function to map. For a given x/y point, computes z value
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Mapper.f(System.Double[],System.Double[])">
+            <summary>
+            Default implementation providing iterative calls to f(x,y)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Mapper.f(System.Double[0:,0:])">
+            <summary>
+            Default implementation providing iterative calls to f(x,y)
+            </summary>
+            <param name="xy">Array whose second dimension must be equal to two</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Mapper.fAsSingle(System.Double[],System.Double[])">
+            <summary>
+            Default implementation providing iterative calls to f(x,y)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Mapper.fAsSingle(System.Single[],System.Single[])">
+            <summary>
+            Default implementation providing iterative calls to f(x,y)
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Mapper.fAsSingle(System.Double[0:,0:])">
+            <summary>
+            Default implementation providing iterative calls to f(x,y)
+            </summary>
+            <param name="xy">Array whose second dimension must be equal to two</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Mapper.fAsSingle(System.Single[0:,0:])">
+            <summary>
+            Default implementation providing iterative calls to f(x,y)
+            </summary>
+            <param name="xy">Array whose second dimension must be equal to two</param>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Concrete.OrthonormalTessellator">
+             <summary>
+             The <see cref="T:nzy3D.Plot3D.Builder.Concrete.OrthonormalTessellator"/> checks that coordinates are lying on an orthormal grid,
+             and is able to provide a <see cref="T:nzy3D.Plot3D.Primitives.AbstractComposite"/> made of <see cref="T:nzy3D.Plot3D.Primitives.Polygon"/>s built according to this grid
+            
+             On this model, one input coordinate is represented by one <see cref="T:nzy3D.Plot3D.Primitives.Polygon"/>, for which each point is
+             a mean point between two grid ticks:
+            
+              ^                           ^
+              |                           |
+              -   +   +   +               -   +   +   +
+              |                           |     *---*
+              -   +   o   +        &gt;&gt;     -   + | o | +
+              |                           |     *---*
+              -   +   +   +               -   +   +   +
+              |                           |
+              |---|---|---|--&gt;            |---|---|---|--&gt;
+            
+            
+              In this figure, the representation of a coordinate ("o" on the left) is a polygon
+              made of mean points ("*" on the right) that require the existence of four surrounding
+              points (the "o" and the three "+")
+            
+             @author Martin Pernollet
+             </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.OrthonormalTessellator.find(System.Single[],System.Single[],System.Single,System.Single)">
+            <summary>
+            Search in a couple of array a combination of values vx and vy.
+            Positions xi and yi are returned in findxi and findyj class variables
+            Function returns true if the couple of data may be retrieved,
+            false otherwise (in this case, findxi and findyj remain unchanged).
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Concrete.SimpleObjectGenerator">
+            <summary>
+            构造简单三维物体 艾宏
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.SimpleObjectGenerator.BuildPyramid(System.Double,System.Double,System.Double,System.Double,nzy3D.Colors.Color)">
+            <summary>
+            构造三角椎体（确认中心点和边长）
+            </summary>
+            <param name="centerX">中心点X</param>
+            <param name="centerY">中心点Y</param>
+            <param name="centerZ">中心点Z</param>
+            <param name="length">边长</param>
+            <param name="rgb">颜色</param>
+            <returns></returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.SimpleObjectGenerator.BuildCubic(System.Double,System.Double,System.Double,System.Double,nzy3D.Colors.Color)">
+            <summary>
+            构造立方体
+            </summary>
+            <param name="centerX">中心点X</param>
+            <param name="centerY">中心点Y</param>
+            <param name="centerZ">中心点Z</param>
+            <param name="length">边长</param>
+            <param name="rgb">颜色</param>
+            <returns></returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.SimpleObjectGenerator.BuildSphere(System.Double,System.Double,System.Double,System.Double,System.Int32,nzy3D.Colors.Color)">
+            <summary>
+            构造球体
+            x=rsinθcosφ
+            y=rsinθsinφ
+            z=rcosθ
+            </summary>
+            <param name="centerX">中心点X</param>
+            <param name="centerY">中心点Y</param>
+            <param name="centerZ">中心点Z</param>
+            <param name="length">半径</param>
+            <param name="step">8分之一圆切分多少次</param>
+            <param name="rgb">颜色</param>
+            <returns></returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.RingExtrapolator.extrapolate(System.Int32)">
+            <summary>
+            Add extrapolated points on the grid. If the grid is too small for extrapolation, the arrays
+            are maximized
+            </summary>
+            <param name="n"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.RingTessellator.getInterpolatedRingPolygons">
+            <summary>
+            Load data standing on an orthonormal grid.
+            <br/>
+            Each input point (i.e. the association of x(i), y(j), z(i)(j)) will be
+            represented by a polygon centered on this point. The default coordinates
+            of this polygon will be:
+            <ul>
+            <li>x(i-1), y(j+1), z(i-1)(j+1)</li>
+            <li>x(i-1), y(j-1), z(i-1)(j-1)</li>
+            <li>x(i+1), y(j-1), z(i+1)(j-1)</li>
+            <li>x(i+1), y(j+1), z(i+1)(j+1)</li>
+            </ul>
+            There are thus three types of polygons:
+            <ul>
+            <li>those that stand completely inside the ringMin and ringMax radius and
+            that have the previous coordinates.</li>
+            <li>those that stand completely outside the ringMin and ringMax radius and
+            that won't be added to the list of polygons.</li>
+            <li>those that have some points in and some points out of the ringMin and
+            ringMax radius. These polygons are recomputed so that "out" points are replaced
+            by two points that make the smooth contour. According to the number of "out"
+            points, the modified polygon will gather 3, 4, or 5 points.</li>
+            </ul>
+            <br/>
+            As a consequence, it is suggested to provide data ranging outside of ringMin
+            and ringMax, in order to be sure to have a perfect round surface.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.RingTessellator.isInside(nzy3D.Plot3D.Primitives.Point[],System.Single[],System.Single,System.Single)">
+            <summary>
+            Indicates which point lies inside and outside the given min and max radius.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Concrete.RingTessellator.findPoint(nzy3D.Plot3D.Primitives.Point,nzy3D.Plot3D.Primitives.Point,System.Single)">
+            <summary>
+            Return a point that is the intersection between a segment and a circle
+            Throws ArithmeticException if points do not stand on an squared (orthonormal) grid.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox">
+            <summary>
+            BoundingBox represents a horizontal bounding rectangle defined by its lower left
+            and upper right point. This is usually used as a rough approximation of the
+            bounded geometry
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.#ctor">
+            <summary>
+            Creates an empty bounding box
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox)">
+            <summary>
+            Copy constructor
+            </summary>
+            <param name="other">The other boundingbox</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a bounding box given the extent
+            </summary>
+            <param name="minx">minimum x coordinate</param>
+            <param name="maxx">maximum x coordinate</param>
+            <param name="miny">minimum y coordinate</param>
+            <param name="maxy">maximum y coordinate</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Create a bounding box between lowerLeft and upperRight
+            </summary>
+            <param name="lowerLeft">Lower left point of the box</param>
+            <param name="upperRight">Upper right point of the box</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.init(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initialize a BoundingBox for a region defined by two points (can be any corner of the region)
+            </summary>
+            <param name="x1">The first x-value</param>
+            <param name="x2">The second x-value</param>
+            <param name="y1">The first y-value</param>
+            <param name="y2">The second y-value</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.setToNull">
+            <summary>
+            Makes this BoundingBox a "null" envelope, that is, the envelope
+             of the empty geometry.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.contains(nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox)">
+            <summary>
+            Tests if the other BoundingBox lies wholely inside this BoundingBox
+            </summary>
+            <param name="other">The BoundingBox to check</param>
+            <returns>True if this BoundingBox contains the other BoundingBox, False otherwise</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.UnionWith(nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox)">
+            <summary>
+            Unify the BoundingBoxes of this and the other BoundingBox
+            </summary>
+            <param name="other">Another BoundingBox</param>
+            <returns>The union of the two BoundingBoxes</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.isNull">
+            <summary>
+            true if this BoundingBox is uninitialized
+                 or is the envelope of the empty geometry.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.minX">
+            <summary>
+            Minimum x value of bounding box
+            </summary>
+            <returns>Minimum x value of bounding box</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.maxX">
+            <summary>
+            Maximum xvalue of bounding box
+            </summary>
+            <returns>Maximum x value of bounding box</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.minY">
+            <summary>
+            Minimum y value of bounding box
+            </summary>
+            <returns>Minimum y value of bounding box</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.maxY">
+            <summary>
+            Maximum y value of bounding box
+            </summary>
+            <returns>Maximum y value of bounding box</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.Width">
+            <summary>
+            Width of bounding box
+            </summary>
+            <returns>Width of bounding box</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.Height">
+            <summary>
+            Height of bounding box
+            </summary>
+            <returns>Height of bounding box</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.MinPoint">
+            <summary>
+            Minimum coordinate of bounding box
+            </summary>
+            <returns>Minimum coordinate of bounding box</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox.MaxPoint">
+            <summary>
+            Maximum coordinate of bounding box
+            </summary>
+            <returns>Maximum coordinate of bounding box</returns>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Delaunay.Jdt.Circle_dt">
+            <summary>
+            This class represents a 3D simple circle used by the Delaunay Triangulation class
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Circle_dt.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,System.Double)">
+            <summary>
+            Constructs a new Circle_dt.
+            </summary>
+            <param name="c">Center of the circle.</param>
+            <param name="r">Radius of the circle.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Circle_dt.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Circle_dt)">
+            <summary>
+            Copy Constructor. Creates a new Circle with same properties of <paramref name="circle"/>
+            </summary>
+            <param name="circle">Circle to clone.</param>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Circle_dt.Center">
+            <summary>
+            Gets the center of the circle.
+            </summary>
+            <returns>The center of the circle.</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Circle_dt.Radius">
+            <summary>
+            Gets the radius of the circle.
+            </summary>
+            <returns>The radius of the circle.</returns>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation">
+             <summary>
+             This class represents a Delaunay Triangulation. The class was written for a
+             large scale triangulation (1000 - 200,000 vertices). The application main use
+             is 3D surface (terrain) presentation. 
+             The class main properties are the following:
+             - fast point location. (O(n^0.5)), practical runtime is often very fast. 
+             - handles degenerate cases and none general position input (ignores duplicate
+             points). 
+             - save &amp; load from\to text file in TSIN format. 
+             - 3D support: including z value approximation.
+             - standard java (1.5 generic) iterators for the vertices and triangles. 
+             - smart iterator to only the updated triangles - for terrain simplification 
+             
+            
+             Testing (done in early 2005): Platform java 1.5.02 windows XP (SP2), AMD
+             laptop 1.6G sempron CPU 512MB RAM. Constructing a triangulation of 100,000
+             vertices takes ~ 10 seconds. point location of 100,000 points on a
+             triangulation of 100,000 vertices takes ~ 5 seconds.
+            
+             Note: constructing a triangulation with 200,000 vertices and more requires
+             extending java heap size (otherwise an exception will be thrown).
+            
+             Bugs: if U find a bug or U have an idea as for how to improve the code,
+             please send me an email to: benmo@ariel.ac.il
+            
+             @author Boaz Ben Moshe 5/11/05 
+                     The project uses some ideas presented in the VoroGuide project,
+                     written by Klasse f?r Kreise (1996-1997), For the original applet
+                     see: http://www.pi6.fernuni-hagen.de/GeomLab/VoroGlide/.
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.Size">
+            <summary>
+            Returns he number of vertices in this triangulation.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.TrianglesSize">
+            <summary>
+            Returns the number of triangles in the triangulation, including infinite faces
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.Find(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            finds the triangle the query point falls in, note if out-side of this
+            triangulation a half plane triangle will be returned (see contains), the
+            search has expected time of O(n^0.5), and it starts form a fixed triangle
+            (me.startTriangle).
+            </summary>
+            <param name="p">Query point</param>
+            <returns>The triangle that point <paramref name="p"/> is in.</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.Find(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt)">
+            <summary>
+            finds the triangle the query point falls in, note if out-side of this
+            triangulation a half plane triangle will be returned (see contains). the
+            search starts from the the start triangle
+            </summary>
+            <param name="p">Query point</param>
+            <param name="start">The triangle the search starts at.</param>
+            <returns>The triangle that point <paramref name="p"/> is in.</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.findnext1(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt)">
+            <summary>
+            assumes v is NOT an halfplane! returns the next triangle for find.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.findnext2(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt)">
+            <summary>
+            assumes v is an halfplane! - returns another (none halfplane) triangle 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.contains(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Search for p within current triangulation
+            </summary>
+            <param name="p">Query point</param>
+            <returns>Return true if p is within current triangulation (in its 2D convex hull).</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.contains(System.Double,System.Double)">
+            <summary>
+            Search for x/y point within current triangulation
+            </summary>
+            <param name="x">Query point x coordinate</param>
+            <param name="y">Query point y coordinate</param>
+            <returns>Return true if x/y is within current triangulation (in its 2D convex hull).</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.z(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Return point with x/y and updated Z value (z value is as given by the triangulation)
+            </summary>
+            <param name="p">Query point (x/y=</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.z(System.Double,System.Double)">
+            <summary>
+            Return point with x/y and updated Z value (z value is as given by the triangulation)
+            </summary>
+            <param name="x">Query point x coordinate</param>
+            <param name="y">Query point y coordinate</param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.trianglesIterator">
+            <summary>
+            computes the current set of all triangles and return an iterator to them.
+            </summary>
+            <returns>An iterator to the current set of all triangles</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.verticesIterator">
+            <summary>
+            Returns an iterator to the set of points composing this triangulation
+            </summary>
+            <returns>An iterator to the set of points composing this triangulation</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.IndexData(System.Int32,System.Int32)">
+            <summary>
+            Index the triangulation using a grid index
+            </summary>
+            <param name="xCellCount">number of grid cells in a row</param>
+            <param name="yCellCount">number of grid cells in a column</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.RemoveIndex">
+            <summary>
+            Remove any existing spatial indexing
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.ModeCounter">
+            <summary>
+            Returns the changes counter for this triangulation
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.BoundingBox">
+            <summary>
+            Returns the bounding rectange between the minimum and maximum coordinates
+            </summary>
+            <returns>The bounding rectange between the minimum and maximum coordinates</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.MinBoundingBox">
+            <summary>
+            Returns the min point of the bounding box of this triangulation
+            </summary>
+            <returns>The min point of the bounding box of this triangulation</returns>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation.MaxBoundingBox">
+            <summary>
+            Returns the max point of the bounding box of this triangulation
+            </summary>
+            <returns>The max point of the bounding box of this triangulation</returns>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex">
+             <summary>
+             Grid Index is a simple spatial index for fast point/triangle location.
+             The idea is to divide a predefined geographic extent into equal sized
+             cell matrix (tiles). Every cell will be associated with a triangle which lies inside.
+             Therfore, one can easily locate a triangle in close proximity of the required
+             point by searching from the point's cell triangle. If the triangulation is
+             more or less uniform and bound in space, this index is very effective,
+             roughly recuing the searched triangles by square(xCellCount * yCellCount),
+             as only the triangles inside the cell are searched.
+            
+             The index takes xCellCount * yCellCount capacity. While more cells allow
+             faster searches, even a small grid is helpfull.
+            
+             This implementation holds the cells in a memory matrix, but such a grid can
+             be easily mapped to a DB table or file where it is usually used for it's fullest.
+            
+             Note that the index is geographically bound - only the region given in the
+             c'tor is indexed. Added Triangles outside the indexed region will cause rebuilding of
+             the whole index. Since triangulation is mostly always used for static raster data,
+             and usually is never updated outside the initial zone (only refininf existing triangles)
+             this is never an issue in real life.
+             </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.indexDelaunay">
+            <summary> The triangulation of the index </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.x_size">
+            <summary> Horizontal geographic size of a cell index </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.y_size">
+            <summary> Vertical  geographic size of a cell index </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.indexRegion">
+            <summary> The indexed geographic size </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.grid">
+            <summary> A division of indexRegion to a cell matrix, where each cell holds a triangle which lies in it </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation,System.Int32,System.Int32)">
+            <summary>
+            Constructs a grid index holding the triangles of a delaunay triangulation.
+            This version uses the bounding box of the triangulation as the region to index.
+            </summary>
+            <param name="delaunay">delaunay triangulation to index</param>
+            <param name="xCellCount">number of grid cells in a row</param>
+            <param name="yCellCount">number of grid cells in a column</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Delaunay_Triangulation,System.Int32,System.Int32,nzy3D.Plot3D.Builder.Delaunay.Jdt.BoundingBox)">
+            <summary>
+            Constructs a grid index holding the triangles of a delaunay triangulation.
+            The grid will be made of (xCellCount * yCellCount) cells.
+            The smaller the cells the less triangles that fall in them, whuch means better
+            indexing, but also more cells in the index, which mean more storage.
+            The smaller the indexed region is, the smaller the cells can be and still
+            maintain the same capacity, but adding geometries outside the initial region
+            will invalidate the index !
+            </summary>
+            <param name="delaunay">delaunay triangulation to index</param>
+            <param name="xCellCount">number of grid cells in a row</param>
+            <param name="yCellCount">number of grid cells in a column</param>
+            <param name="region">geographic region to index</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.findCellTriangleOf(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Finds a triangle near the given point
+            </summary>
+            <param name="point">a query point</param>
+            <returns>a triangle at the same cell of the point</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.updateIndex(System.Collections.Generic.IEnumerator{nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt})">
+            <summary>
+            Updates the grid index to reflect changes to the triangulation. Note that added
+            triangles outside the indexed region will force to recompute the whole index
+            with the enlarged region
+            </summary>
+            <param name="updatedTriangles">Changed triangles of the triangulation. This may be added triangles,
+             removed triangles or both. All that matter is that they cover the
+             changed area.
+            </param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.updateCellValues(System.Int32,System.Int32,System.Int32,System.Int32,nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt)">
+            <summary>
+            Go over each grid cell and locate a triangle in it to be the cell's
+            starting search triangle. Since we only pass between adjacent cells
+            we can search from the last triangle found and not from the start.
+            Add triangles for each column cells
+            </summary>
+            <param name="startXCell"></param>
+            <param name="startYCell"></param>
+            <param name="lastXCell"></param>
+            <param name="lastYCell"></param>
+            <param name="startTriangle"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.findValidTriangle(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Finds a valid (existing) trinagle adjacent to a given invalid cell
+            </summary>
+            <param name="minInvalidCell">minimum bounding box invalid cell</param>
+            <returns>a valid triangle adjacent to the invalid cell</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.getCellOf(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Locates the grid cell point covering the given coordinat
+            </summary>
+            <param name="coordinate">World coordinate to locate</param>
+            <returns>Cell covering the coordinate</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.GridIndex.middleOfCell(System.Int32,System.Int32)">
+            <summary>
+            Create a point at the center of a cell
+            </summary>
+            <param name="x_index">Horizontal cell index</param>
+            <param name="y_index">Vertical cell index</param>
+            <returns>Point at the center of the cell at (x_index, y_index)</returns>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt">
+            <summary>
+            This class represents a 3D point, with some simple geometric methods (pointLineTest).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt.#ctor">
+            <summary>
+            Default Constructor. Constructs a 3D point at (0,0,0).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructs a 3D point at (x,y,z)
+            </summary>
+            <param name="x">x coordinates</param>
+            <param name="y">y coordinates</param>
+            <param name="z">z coordinates</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt.#ctor(System.Double,System.Double)">
+            <summary>
+            Constructs a 3D point at (x,y,0)
+            </summary>
+            <param name="x">x coordinates</param>
+            <param name="y">y coordinates</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Simple copy constructor
+            </summary>
+            <param name="p">Another point</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt.pointLineTest(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+             tests the relation between current point (as a 2D [x,y] point) and a 2D
+            segment a,b (the Z values are ignored), returns one of the following:
+            LEFT, RIGHT, INFRONTOFA, BEHINDB, ONSEGMENT, ISERROR
+            </summary>
+            <param name="a">The first point of the segment</param>
+            <param name="b">The second point of the segment</param>
+            <returns>The value (flag) of the relation between this point and the a,b line-segment.</returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt">
+            <summary>
+            This class represents a 3D triangle in a Triangulation
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Constructs a triangle form 3 point - store it in counterclockwised order.
+            A should be before B and B before C in counterclockwise order.
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <param name="C"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.#ctor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Creates a half plane using the segment (A,B).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.nextNeighbor(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt,nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt)">
+            <summary>
+            Returns the neighbors that shares the given corner and is not the previous triangle.
+            </summary>
+            <param name="p">The given corner.</param>
+            <param name="prevTriangle">The previous triangle.</param>
+            <returns>The neighbors that shares the given corner and is not the previous triangle.</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.contains(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Determines if this triangle contains the point p.
+            </summary>
+            <param name="p">The query point</param>
+            <returns>True if p is not null and is inside this triangle</returns>
+            <remarks>Note: on boundary is considered inside</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.contains_BoundaryIsOutside(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Determines if this triangle contains the point p.
+            </summary>
+            <param name="p">The query point</param>
+            <returns>True if p is not null and is inside this triangle</returns>
+            <remarks>Note: on boundary is considered outside</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.isCorner(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            Checks if the given point is a corner of this triangle.
+            </summary>
+            <param name="p">The given point.</param>
+            <returns>True if the given point is a corner of this triangle.</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.z_value(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            compute the Z value for the X, Y values of q.
+            Assume current triangle represent a plane --> q does NOT need to be contained in this triangle.
+            </summary>
+            <param name="q">A x/y point.</param>
+            <returns></returns>
+            <remarks>Current triangle must not be a halfplane.</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.z(System.Double,System.Double)">
+            <summary>
+            Compute the Z value for the X, Y values 
+            Assume current triangle represent a plane --> q does NOT need to be contained in this triangle.
+            </summary>
+            <returns></returns>
+            <remarks>Current triangle must not be a halfplane.</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.z(nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt)">
+            <summary>
+            compute the Z value for the X, Y values of q.
+            Assume current triangle represent a plane --&gt; q does NOT need to be contained in this triangle.
+            </summary>
+            <param name="q">A x/y point.</param>
+            <returns>A new <see cref="T:nzy3D.Plot3D.Builder.Delaunay.Jdt.Point_dt"/> with same x/y than <paramref name="q"/> and computed z value</returns>
+            <remarks>Current triangle must not be a halfplane.</remarks>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.isHalfplane">
+            <summary>
+            Returns true if this triangle is actually a half plane
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.mark">
+            <summary>
+            tag - for bfs algorithms
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.p1">
+            <summary>
+            Returns the first vertex of this triangle.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.p2">
+            <summary>
+            Returns the second vertex of this triangle.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.p3">
+            <summary>
+            Returns the third vertex of this triangle.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.next_12">
+            <summary>
+            Returns the consecutive triangle which shares this triangle p1,p2 edge.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.next_23">
+            <summary>
+            Returns the consecutive triangle which shares this triangle p2,p3 edge.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.next_31">
+            <summary>
+            Returns the consecutive triangle which shares this triangle p3,p1 edge.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Builder.Delaunay.Jdt.Triangle_dt.BoundingBox">
+            <summary>
+            The bounding rectange between the minimum and maximum coordinates of the triangle.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Builder.Delaunay.OrthonormalCoordinateValidator.MakeCoordinatesUnique(System.Single[])">
+            <summary>
+            Compute a sorted array from input, with a unique occurrence of each
+            value. Note: any NaN value will be ignored and won't appear in the output
+            array.
+            </summary>
+            <param name="data">Input array</param>
+            <returns>A sorted array containing only one occurrence of each input value, without NaN</returns>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.AbstractComposite">
+             <summary>
+             A Composite gathers several Drawable and provides default methods
+             for rendering them all in one call.
+            
+             @author Martin Pernollet
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.AbstractWireframeable">
+             <summary>
+             An <see cref="T:nzy3D.Plot3D.Primitives.AbstractWireframeable"/> {@link AbstractWireframeable} is an <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>
+             that has a wireframe mode for display.
+            
+             Defining an object as Wireframeable means this object may have a wireframe
+             mode status (on/off), a wireframe color, and a wireframe width.
+             As a consequence of being wireframeable, a 3d object may have his faces
+             displayed or not by setFaceDisplayed().
+             </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.AbstractDrawable">
+             <summary>
+             A <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> defines objects that may be rendered into an OpenGL
+             context provided by a <see cref="T:nzy3D.Plot3D.Rendering.Canvas.ICanvas"/>.
+             <br/>
+             A <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> must basically provide a rendering function called draw()
+             that receives a reference to a GL2 and a GLU context. It may also
+             use a reference to a Camera in order to implement specific behaviors
+             according to the Camera position.
+             <br/>
+             A <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> provides services for setting the transformation factor
+             that is used inside the draw function, as well as a getter of the
+             object's BoundingBox3d. Note that the BoundingBox must be set by
+             a concrete descendant of a <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>.
+             <br/>
+             A good practice is to define a setData function for initializing a <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>
+             and building its polygons. Since each class may have its own inputs, setData
+             is not part of the interface but should be used as a convention.
+             When not defining a setData function, a <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> may have its data loaded by
+             an "add(Drawable)" function.
+             <br/>
+             Note: A <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> may last provide the information whether it is displayed or not,
+             according to a rendering into the FeedBack buffer. This is currently supported
+             specifically for the <see cref="T:nzy3D.Plot3D.Primitives.Axes.AxeBox"/> object but could be extended with some few more
+             algorithm for referencing all GL2 polygons.
+            
+             @author Martin Pernollet
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractDrawable.ToString">
+            <summary>
+            Returns the string representation of this object
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractDrawable.Transform">
+            <summary>
+            Get / Set object's transformation that is applied at the
+            beginning of a call to "draw()"
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractDrawable.Bounds">
+            <summary>
+            Return the BoundingBox of this object
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractDrawable.Barycentre">
+            <summary>
+            Return the barycentre of this object, which is
+            computed as the center of its bounding box. If the bounding
+            box is not available, the returned value is <see cref="F:nzy3D.Maths.Coord3d.INVALID"/>
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractDrawable.Displayed">
+            <summary>
+            Get / Set the display status of this object
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractWireframeable.WireframeColor">
+            <summary>
+            Get/Set the wireframe color
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractWireframeable.WireframeWidth">
+            <summary>
+            Get/Set the wireframe width
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractWireframeable.WireframeDisplayed">
+            <summary>
+            Get/Set the wireframe display status
+            </summary>
+            <value>on (true) / off (false)</value>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractWireframeable.FaceDisplayed">
+            <summary>
+            Get/Set the face display status
+            </summary>
+            <value>on (true) / off (false)</value>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.Add(System.Collections.Generic.List{nzy3D.Plot3D.Primitives.AbstractDrawable})">
+            <summary>
+            Remove all drawables stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.Add(System.Collections.Generic.IEnumerable{nzy3D.Plot3D.Primitives.AbstractDrawable})">
+            <summary>
+            Remove all drawables stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.Clear">
+            <summary>
+            Clear the list of drawables stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.Add(nzy3D.Plot3D.Primitives.AbstractDrawable)">
+            <summary>
+            Add a Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.Remove(nzy3D.Plot3D.Primitives.AbstractDrawable)">
+            <summary>
+            Remove a Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.GetDrawable(System.Int32)">
+            <summary>
+            Get a Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.Draw(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            Delegate rendering iteratively to all Drawable of this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.AbstractComposite.ToString">
+            <summary>
+            Returns the string representation of this composite
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractComposite.GetDrawables">
+            <summary>
+            Get an enumerator through the list of drawabless stored by this composite.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractComposite.Size">
+            <summary>
+            Return the number of Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractComposite.Transform">
+            <summary>
+            Return the transform that was affected to this composite.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractComposite.Bounds">
+            <summary>
+            Creates and return a BoundingBox3d that embed all available Drawable bounds
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.AbstractComposite.DetailedToString">
+            <summary>
+            Get / Set the property.
+            When to true, the <see cref="!:CompileableComposite.toString"/> method will give the detail of each element
+            of this composite object in a tree like layout.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Axes.AxeBase">
+            <summary>
+            An AxeBase provide a simple 3-segment object which is configured by
+            a BoundingBox.
+            @author Martin Pernollet
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBase.#ctor">
+            <summary>
+            Create a simple axe centered on (0,0,0), with a dimension of 1.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBase.#ctor(nzy3D.Maths.BoundingBox3d)">
+            <summary>
+            Create a simple axe centered on (box.xmin, box.ymin, box.zmin)
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.CompileableComposite">
+             <summary>
+             A <see cref="T:nzy3D.Plot3D.Primitives.CompileableComposite"/> allows storage and subsequent faster execution of individual
+             contained instances drawing routines in an OpenGL display list.
+            
+             Compiling the object take the time needed to render it as a standard <see cref="T:nzy3D.Plot3D.Primitives.AbstractComposite"/>,
+             and rendering it once it is compiled seems to take roughly half the time up to now.
+             Since compilation occurs during a <see cref="M:nzy3D.Plot3D.Primitives.CompileableComposite.Draw(nzy3D.Plot3D.Rendering.View.Camera)"/>, the first call to <see cref="M:nzy3D.Plot3D.Primitives.CompileableComposite.Draw(nzy3D.Plot3D.Rendering.View.Camera)"/> is supposed
+             to be 1.5x longer than a standard <see cref="T:nzy3D.Plot3D.Primitives.AbstractComposite"/>, while all next cycles would be 0.5x
+             longer.
+            
+             Compilation occurs when the content or the display attributes of this Composite changes
+             (then all add(), remove(), setColor(), setWireFrameDisplayed(), etc). One can also force
+             rebuilding the object by calling recompile();
+            
+             IMPORTANT: for the moment, <see cref="T:nzy3D.Plot3D.Primitives.CompileableComposite"/> should not be use in a charts using a
+             <see cref="T:nzy3D.Plot3D.Rendering.Canvas.Quality"/> superior to Intermediate, in other word, you should not desire to have alpha
+             enabled in your scene. Indeed, alpha requires ordering of polygons each time the viewpoint changes,
+             which would require to recompile the object.
+            
+             @author Nils Hoffmann
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Recompile">
+            <summary>
+            Force the object to be rebuilt and stored as a display list at the next call to draw(). 
+            </summary>
+            <remarks>This operation does not rebuilt the object, but only marks it as "to be rebuilt" for new call to draw().</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Draw(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            Reset the object if required, compile the object if it is not compiled,
+            and execute actual rendering. 
+            </summary>
+            <param name="cam">Camera to draw for.</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Compile(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            If you call compile, the display list will be regenerated. 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.NullifyChildrenTransforms">
+            <summary>
+            When a drawable has a null transform, no transform is applied at draw(...). 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Add(System.Collections.Generic.List{nzy3D.Plot3D.Primitives.AbstractDrawable})">
+            <summary>
+            Add all drawables stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Add(System.Collections.Generic.IEnumerable{nzy3D.Plot3D.Primitives.AbstractDrawable})">
+            <summary>
+            Remove all drawables stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Clear">
+            <summary>
+            Clear the list of drawables stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Add(nzy3D.Plot3D.Primitives.AbstractDrawable)">
+            <summary>
+            Add a Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.Remove(nzy3D.Plot3D.Primitives.AbstractDrawable)">
+            <summary>
+            Remove a Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.GetDrawable(System.Int32)">
+            <summary>
+            Get a Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.CompileableComposite.ToString">
+            <summary>
+            Returns the string representation of this composite
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.CompileableComposite.GetDrawables">
+            <summary>
+            Get an enumerator through the list of drawabless stored by this composite.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.CompileableComposite.Size">
+            <summary>
+            Return the number of Drawable stored by this composite.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.CompileableComposite.DetailedToString">
+            <summary>
+            Get / Set the property.
+            When to true, the <see cref="!:CompileableComposite.toString"/> method will give the detail of each element
+            of this composite object in a tree like layout.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Axes.AxeBox">
+            <summary>
+            The AxeBox displays a box with front face invisible and ticks labels.
+            @author Martin Pernollet
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBox.drawCube(OpenTK.Graphics.RenderingMode)">
+            <summary>
+            Make all GL2 calls allowing to build a cube with 6 separate quads.
+            Each quad is indexed from 0.0f to 5.0f using glPassThrough,
+            and may be traced in feedback mode when mode=<see cref="F:OpenTK.Graphics.RenderingMode.Feedback"/>
+            </summary> 
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBox.drawGridOnQuad(System.Int32)">
+            <summary>
+            Draw a grid on the desired quad.
+            </summary>
+            <param name="quad">Quad number, from 0 to 5</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBox.findClosestXaxe(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            Selects the closest displayable X axe from camera
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBox.findClosestYaxe(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            Selects the closest displayable Y axe from camera
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBox.findClosestZaxe(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            Selects the closest displayable Z axe from camera
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBox.getHiddenQuads(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            Computes the visibility of each cube face.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.AxeBox.print3DcolorVertex(System.Int32,System.Int32,System.Single[])">
+            <summary>
+            Print out parameters of a gl call in 3dColor mode
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.Axes.Layout.AxeBoxLayout.MainColor">
+            <summary>
+            Main axe box color.
+            </summary>
+            <value>Color to use</value>
+            <returns>Main axe box color</returns>
+            <remarks>When modified, grid and x/y/z ticks colors are also set to same color and quad color is set to negative of color</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Axes.Layout.Providers.SmartTickProvider.generateTicks(System.Single,System.Single,System.Int32)">
+            <summary>
+            Compute the ticks placements automatically between values min and max.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Axes.Layout.Renderers.DateTickRenderer">
+            <summary>
+            Force number to be represented with a given number of decimals
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Axes.Layout.Renderers.DefaultDecimalTickRenderer">
+            <summary>
+            Force number to be represented with a given number of decimals
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Axes.Layout.Renderers.FixedDecimalTickRenderer">
+            <summary>
+            Force number to be represented with a given number of decimals
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Axes.Layout.Renderers.ScientificNotationTickRenderer">
+            <summary>
+            Formats 1000 to '1.0e3'
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Axes.Layout.Renderers.TickLabelMap">
+            <summary>
+            An <see cref="T:nzy3D.Plot3D.Primitives.Axes.Layout.Renderers.ITickRenderer"/> that can store a list of labels for given axis values.
+            </summary>
+            <author>Martin Pernollet</author>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Parallelepiped">
+             <summary>
+             A Parallelepiped is a parallelepiped rectangle that is Drawable
+             and Wireframeable.
+             A future version of Rectangle3d should consider it as a Composite3d.
+            
+             This class has been implemented for debugging purpose and inconsistency
+             of its input w.r.t other primitives should not be considered
+             (no setData function).
+            
+             @author Martin Pernollet
+             </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.Parallelepiped.Transform">
+            <summary>
+            Return the transform that was affected to this composite.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Point">
+            <summary>
+            A Point3d is a storage for a Coord3d and a Color that represents
+            a drawable 3d point.
+            <br/>
+            The Point3d is used for:
+            <ul>
+            <li>adding a Point3d to a <see cref="T:nzy3D.Plot3D.Rendering.Scene.Graph"/>.</li>
+            <li>providing to other primitives (e.g. <see cref="T:nzy3D.Plot3D.Primitives.Polygon"/>)
+            a way to associate a coordinate and a color.</li>
+            </ul>
+            <br/>
+            A Point3d is defined by the following methods:
+            <ul>
+            <li>setData() defines the point's position</li>
+            <li>setColor() defines the point's color</li>
+            <li>setWidth() defines the point's width</li>
+            </ul>
+            @author Martin Pernollet
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Point.#ctor">
+            <summary>
+            Initialize a point at the origin, with a white color and a width of 1.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Point.#ctor(nzy3D.Maths.Coord3d)">
+            <summary>
+            Initialize a point at <paramref name="xyz"/> coordinate, with a white color and a width of 1.
+            </summary>
+            <param name="xyz">Point coordinates</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Point.#ctor(nzy3D.Maths.Coord3d,nzy3D.Colors.Color)">
+            <summary>
+            Initialize a point at <paramref name="xyz"/> coordinate, with a <paramref name="rgb"/> color and a width of 1.
+            </summary>
+            <param name="xyz">Point coordinates</param>
+            <param name="rgb">Point color</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Point.#ctor(nzy3D.Maths.Coord3d,nzy3D.Colors.Color,System.Single)">
+            <summary>
+            Initialize a point at <paramref name="xyz"/> coordinate, with a <paramref name="rgb"/> color and a width of <paramref name="width"/>.
+            </summary>
+            <param name="xyz">Point coordinates</param>
+            <param name="rgb">Point color</param>
+            <param name="width">Point width</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Polygon.Add(nzy3D.Plot3D.Primitives.Point)">
+            <summary>
+            Add a point to the polygon
+            </summary>
+            <param name="point">Point to add</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Primitives.Polygon.SetPolygonOffsetFillEnable(nzy3D.Plot3D.Primitives.AbstractComposite,System.Boolean)">
+            <summary>
+            A utility to change polygon offset fill status of a <see cref="T:nzy3D.Plot3D.Primitives.AbstractComposite"/> containing <see cref="T:nzy3D.Plot3D.Primitives.Polygon"/>s.
+            </summary>
+            <param name="composite"></param>
+            <param name="polygonOffsetFillEnable">status to apply to all polygons contained in composite (and recursively to child composites)</param>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.Polygon.Barycentre">
+            <summary>
+            Return the barycentre of this object, which is
+            computed as the center of its bounding box. If the bounding
+            box is not available, the returned value is <see cref="F:nzy3D.Maths.Coord3d.INVALID"/>
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Primitives.Polygon.PolygonOffsetFillEnable">
+            <summary>
+            Get/Set offset fill enable mode, which let a polygon with a wireframe render cleanly without weird
+            depth incertainty between face and border.
+            Default value is true.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Primitives.Shape">
+            <summary>
+            Allows building custom shapes defined by an {@link ArrayList} of {@link Polygon}s.
+            Such {@link ArrayList} must be defined by the user.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Canvas.ICanvas.ForceRepaint">
+            <summary>
+            Invoked when a user requires the Canvas to be repainted (e.g. a non 3d layer has changed).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Canvas.ICanvas.Screenshot">
+            <summary>
+            Returns an image with the current renderer's size.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Canvas.ICanvas.Dispose">
+            <summary>
+            Performs all required cleanup when destroying a Canvas.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.Canvas.ICanvas.View">
+            <summary>
+            Returns a reference to the held view.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.Canvas.ICanvas.RendererWidth">
+            <summary>
+            Returns the renderer's width, i.e. the display width.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.Canvas.ICanvas.RendererHeight">
+            <summary>
+            Returns the renderer's height, i.e. the display height.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.Canvas.Quality">
+             <summary>
+             Provides a structure for setting the rendering quality, i.e., the tradeoff
+             between computation speed, and graphic quality. Following mode have an impact
+             on the way the {@link View} makes its GL2 initialization.
+             The {@link Quality} may also activate an {@link AbstractOrderingStrategy} algorithm
+             that enables clean alpha results.
+            
+             Fastest:
+             - No transparency, no color shading, just handle depth buffer.
+            
+             Intermediate:
+             - include Fastest mode abilities
+             - Color shading, mainly usefull to have interpolated colors on polygons.
+            
+             Advanced:
+             - include Intermediate mode abilities
+             - Transparency (GL2 alpha blending + polygon ordering in scene graph)
+            
+             Nicest:
+             - include Advanced mode abilities
+             - Anti aliasing on wires
+            
+            
+             Toggling rendering model: one may either choose to have a repaint-on-demand
+             or repaint-continuously model. Setting isAnimated(false) will desactivate a
+             the {@link Animator} updating the choosen {@link ICanvas} implementation.
+            
+             setAutoSwapBuffer(false) will equaly configure the {@link ICanvas}.
+            
+             @author Martin Pernollet
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.Canvas.Quality.Nicest">
+            <summary>
+            Enables alpha, color interpolation and antialiasing on lines, points, and polygons.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.Canvas.Quality.Advanced">
+            <summary>
+            Enables alpha and color interpolation.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.Canvas.Quality.Intermediate">
+            <summary>
+            Enables color interpolation.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.Canvas.Quality.Fastest">
+            <summary>
+            Minimal quality to allow fastest rendering (no alpha, interpolation or antialiasing).
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.Legends.Legend">
+             <summary>
+             A <see cref="T:nzy3D.Plot3D.Rendering.Legends.Legend"/> represent information concerning a <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> that may be
+             displayed as a metadata in the <see cref="T:nzy3D.Chart.ChartView"/>.
+            
+             The constructor of a <see cref="T:nzy3D.Plot3D.Rendering.Legends.Legend"/> registers itself as listener of its
+             parent <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>, and unregister itself when it is disposed.
+            
+             When defining a concrete <see cref="T:nzy3D.Plot3D.Rendering.Legends.Legend"/>, one should:
+             <ul>
+             <li>override the {@link toImage(int width, int height)} method, that defines the picture representation.</li>
+             <li>override the {@link drawableChanged(DrawableChangedEvent e)} method, that must select events that actually triggers an image update.</li>
+             </ul>
+            
+             Last, a <see cref="T:nzy3D.Plot3D.Rendering.Legends.Legend"/> optimizes rendering by :
+             <ul>
+             <li>storing current image dimension,</li>
+             <li>computing a new image only if the required <see cref="T:nzy3D.Plot3D.Rendering.Legends.Legend"/> dimensions changed.</li>
+             </ul>
+            
+             @author Martin Pernollet
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.View.AbstractViewport">
+             <summary>
+             A <see cref="T:nzy3D.Plot3D.Rendering.View.AbstractViewport"/> describes an element that occupies the whole
+             rendering <see cref="T:nzy3D.Plot3D.Rendering.Canvas.ICanvas"/> or only a vertical slice of it.
+            
+             The {@link AbstractViewport} also provides a utility function for debugging the slices, that is
+             the ability to display a 10*10 grid for checking the space occupied by the actual
+             viewport definition.
+            
+             @author Martin Pernollet
+             </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.AbstractViewport.SetViewPort(System.Int32,System.Int32)">
+            <summary>
+            Set the view port (size of the renderer).
+            </summary>
+            <param name="width">the width of the target window</param>
+            <param name="height">the height of the target window</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.AbstractViewport.SetViewPort(System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            Set the view port (size of the renderer).
+            </summary>
+            <param name="width">the width of the target window</param>
+            <param name="height">the height of the target window</param>
+            <param name="left">the width's ratio where this subscreen starts in the target window</param>
+            <param name="right">the width's ratio where this subscreen stops in the target window</param>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.AbstractViewport.SetViewPort(nzy3D.Plot3D.Rendering.View.ViewPort)">
+            <summary>
+            Set the view port (size of the renderer).
+            </summary>
+            <param name="viewport">Viewport</param>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.AbstractViewport.StretchToFill">
+            <summary>
+            Set the status of the stretching mode (activated or not). Stretching consist in
+            displaying the projection into the full screen slice (i.e. viewport).
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.ImageViewport.Render">
+            <summary>
+            Renders the picture into the window, according to the viewport settings.
+            If the picture is bigger than the viewport, it is simply centered in it,
+            otherwise, it is scaled in order to fit into the viewport.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.ImageViewport.MinimumSize">
+            <summary>
+            Return the minimum size for this graphic.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.ImageViewport.PreferedSize">
+            <summary>
+            Return the prefered size for this graphic.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Legends.Legend.UpdateImage">
+            <summary>
+            Recompute the picture, using last used dimensions.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Lights.Light.#ctor(System.Int32)">
+            <summary>
+            Initialise a new light
+            </summary>
+            <param name="id">Light Id in rangle [0,7]</param>
+            <remarks>Light will be enabled and represented on the scene by default</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Lights.Light.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initialise a new light
+            </summary>
+            <param name="id">Light Id in rangle [0,7]</param>
+            <param name="representationDisplayed">If true, light is represented on the scene by a square</param>
+            <remarks>Light will be enabled by default</remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Lights.Light.#ctor(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Initialise a new light
+            </summary>
+            <param name="id">Light Id in rangle [0,7]</param>
+            <param name="enabled">IF true, light is enabled ?</param>
+            <param name="representationDisplayed">If true, light is represented on the scene by a square</param>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.Lights.Light.RepresentationDisplayed">
+            <summary>
+            Indicates if a square is drawn to show the light position. 
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Lights.LightSet.Enable">
+            <summary>
+            Enable lighting only if at least one light is present in light set
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Lights.LightSet.Enable(System.Boolean)">
+            <summary>
+            Enable lighting.
+            </summary>
+            <param name="onlyIfAtLeastOneLight">If True, lighting is enabled only if at leat one light is present in light set. If False, lighting is always enabled.</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Lights.LightSet.initLight">
+            <summary>
+            Initialize the lightset
+            </summary>
+            <remarks>Original source : http://www.sjbaker.org/steve/omniv/opengl_lighting.html</remarks>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.Ordering.BarycentreOrderingStrategy">
+             <summary>
+             The <see cref="T:nzy3D.Plot3D.Rendering.Ordering.BarycentreOrderingStrategy"/> compare two <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>s by computing
+             their respective distances to the <see cref="T:nzy3D.Plot3D.Rendering.View.Camera"/>, which must be referenced prior to any
+             comparison.
+            
+             @author Martin Pernollet
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.Ordering.DefaultOrderingStrategy">
+            <summary>
+            The <see cref="T:nzy3D.Plot3D.Rendering.Ordering.DefaultOrderingStrategy"/> let drawables be displayed in their original order
+            @author Martin Pernollet
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Scene.Decomposition.GetDecomposition(nzy3D.Plot3D.Primitives.AbstractComposite)">
+            <summary>
+            Recursively expand all monotype Drawables from the given Composite
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.Scene.Graph">
+             <summary>
+             The scene's <see cref="T:nzy3D.Plot3D.Rendering.Scene.Graph"/> basically stores the scene content and facilitate objects control
+            
+             The graph may decompose all <see cref="T:nzy3D.Plot3D.Primitives.AbstractComposite"/> into a list of their <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>s primitives
+             if constructor is called with parameters enabling sorting.
+            
+             The list of primitives is ordered using either the provided <see cref="T:nzy3D.Plot3D.Rendering.Ordering.DefaultOrderingStrategy"/>
+             or an other specified <see cref="T:nzy3D.Plot3D.Rendering.Ordering.AbstractOrderingStrategy"/>. Sorting is usefull for handling transparency
+             properly.
+            
+             The <see cref="T:nzy3D.Plot3D.Rendering.Scene.Graph"/> maintains a reference to its mother <see cref="N:nzy3D.Plot3D.Rendering.Scene"/> in order to
+             inform the <see cref="N:nzy3D.Plot3D.Rendering.View"/>s when its content has change and that repainting is required.
+            
+             The add() method allows adding a <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> to the scene Graph and updates
+             all views' viewpoint in order to target the center of the scene.
+            
+             @author Martin Pernollet
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Scene.Graph.Project(nzy3D.Plot3D.Rendering.View.Camera)">
+            <summary>
+            Update all interactive <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/> projections
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Scene.Graph.hasLengends">
+            <summary>
+            Returns the number of components with displayed legend
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.Scene.Graph.ToString">
+            <summary>
+            Print out information concerning all Drawable of this composite
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.Scene.Graph.Transform">
+            <summary>
+            Get/Set the transformation of this Graph
+            When set, transforming is delegated iteratively to all Drawable of this graph.*/
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.Scene.Graph.Legends">
+            <summary>
+            Return the list of available <see cref="T:nzy3D.Plot3D.Primitives.AbstractDrawable"/>'s  displayed <see cref="T:nzy3D.Plot3D.Rendering.Legends.Legend"/>
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.View.Camera">
+             <summary>
+             A  <see cref="T:nzy3D.Plot3D.Rendering.View.Camera"/> provides an easy control on the view and target points
+             in a cartesian coordinate system.
+            
+             The <see cref="T:nzy3D.Plot3D.Rendering.View.Camera"/> handles the following services:
+             <ul>
+             <li>allows setting perspective/orthogonal rendering mode through <see cref="T:nzy3D.Plot3D.Rendering.View.Modes.CameraMode"/>.</li>
+             <li>selects the appropriate clipping planes according to a given target box.</li>
+             <li>ensure the modelview matrix is always available for GL2 calls related to anything else than projection.</li>
+             <li>methods to convert screen coordinates into 3d coordinates and vice-versa</li>
+             </ul>
+            
+             @author Martin Pernollet
+            
+             </summary>
+             <remarks></remarks>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.side(nzy3D.Maths.Coord3d)">
+            <summary>
+            Return true if the given point is on the left of the vector eye->target.
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ScreenToModel(nzy3D.Maths.Coord3d)">
+            <summary>
+            Transform a 2d screen coordinate into a 3d coordinate.
+            The z component of the screen coordinate indicates a depth value between the
+            near and far clipping plane of the {@link Camera}.
+            </summary>
+            <param name="screen">2D screen coordinate</param>
+            <returns>3D model coordinate</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ModelToScreen(nzy3D.Maths.Coord3d)">
+            <summary>
+            Transform a 3d point coordinate into its screen position.
+            </summary>
+            <param name="point">3D model coordinate</param>
+            <returns>2D screen coordinate</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ModelToScreen(nzy3D.Maths.Coord3d[])">
+            <summary>
+            Transform a set of 3d points coordinates into their screen positions.
+            </summary>
+            <param name="points">3D model coordinates</param>
+            <returns>2D screen coordinates</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ModelToScreen(nzy3D.Maths.Coord3d[0:,0:])">
+            <summary>
+            Transform a set of 3d points coordinates into their screen positions.
+            </summary>
+            <param name="points">3D model coordinates</param>
+            <returns>2D screen coordinates</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ModelToScreen(System.Collections.Generic.List{nzy3D.Maths.Coord3d})">
+            <summary>
+            Transform a set of 3d points coordinates into their screen positions.
+            </summary>
+            <param name="points">3D model coordinates</param>
+            <returns>2D screen coordinates</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ModelToScreen(nzy3D.Maths.PolygonArray)">
+            <summary>
+            Transform a polygon array of model coordinates into a polygon array of screen coordinates.
+            </summary>
+            <param name="polygon">Polygon array of model coordinates</param>
+            <returns>Polygon array of screen coordinates</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ModelToScreen(nzy3D.Maths.Grid)">
+            <summary>
+            Transform a grid of model coordinates into a grid of screen coordinates.
+            </summary>
+            <param name="grid">Grid of model coordinates</param>
+            <returns>Grid of screen coordinates</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.ModelToScreen(nzy3D.Maths.PolygonArray[0:,0:])">
+            <summary>
+            Transform a two dimensionnal array of polygon arrays of model coordinates into a two dimensionnal array of polygon arrays of screen coordinates.
+            </summary>
+            <param name="polygons">Two dimensionnal array of polygon arrays of model coordinates</param>
+            <returns>Two dimensionnal array of polygon array of screen coordinates</returns>
+        </member>
+        <member name="M:nzy3D.Plot3D.Rendering.View.Camera.shoot(nzy3D.Plot3D.Rendering.View.Modes.CameraMode)">
+            <summary>
+            Sets the projection, and the mapping of 3d environement to 2d screen.
+            The projection must be either Camera.PERSPECTIVE or Camera.ORTHOGONAL.
+            <br/>
+            Finally calls the GL2 function LookAt, according to the stored
+            eye, target, up and scale values.
+            <br/>
+            Note that the Camera set by itselft the MatrixMode to model view
+            at the end of a shoot().
+            </summary>
+            <param name="projection">Project mode</param>
+            <remarks></remarks>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Camera.Eye">
+            <summary>
+            Eye position
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Camera.Target">
+            <summary>
+            Target point of the camera
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Camera.Up">
+            <summary>
+            Top of the camera
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Camera.RenderingSphereRadius">
+            <summary>
+            Get/Set the radius of the sphere that will be contained into the rendered view.
+            When the radius is set, as a side effect, the "far" clipping plane is modified according to the eye-target distance, as well as
+            the position of the "near" clipping plane.
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Camera.Near">
+            <summary>
+            Return the position of the "near" clipping plane
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Camera.Far">
+            <summary>
+            Return the position of the "far" clipping plane
+            </summary>
+        </member>
+        <member name="P:nzy3D.Plot3D.Rendering.View.Camera.FailOnException">
+            <summary>
+            Wether to raise or not an exception when an error occurs.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.View.Modes.ViewBoundMode">
+            <summary>
+            Indicates a bounding mode
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.View.Modes.ViewBoundMode.AUTO_FIT">
+            <summary>
+            Automatically fits to the scene graph bounds.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.View.Modes.ViewBoundMode.MANUAL">
+            <summary>
+            Fits the view to the manual bounds.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.View.Modes.ViewPositionMode">
+            <summary>
+            Allows to apply a restriction on the degree of freedom that is
+            let on the View control.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.View.Modes.ViewPositionMode.TOP">
+            <summary>
+            Enforce view point on top of the scene.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.View.Modes.ViewPositionMode.PROFILE">
+            <summary>
+            Enforce view point on profile of the scene.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Rendering.View.Modes.ViewPositionMode.FREE">
+            <summary>
+            No enforcement of view point: let the user freely turn around the scene.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Rendering.View.Renderer3D">
+            <summary>
+            
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:nzy3D.Plot3D.Text.Align.Halign">
+            <summary>
+            Provides constants for defining the horizontal alignment of a
+            <see cref="T:nzy3D.Plot3D.Text.Renderers.TextBillboardRenderer"/>, w.r.t. its position.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Halign.LEFT">
+            <summary>
+            Left horizontal alignment.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Halign.RIGHT">
+            <summary>
+            Right horizontal alignment.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Halign.CENTER">
+            <summary>
+            Centered horizontal alignment.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Halign.DEFAULT">
+            <summary>
+            Default horizontal alignment.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Text.Align.Valign">
+            <summary>
+            Provides constants for defining the horizontal alignment of a
+            <see cref="T:nzy3D.Plot3D.Text.Renderers.TextBillboardRenderer"/>, w.r.t. its position.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Valign.TOP">
+            <summary>
+            Top vertical  alignment.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Valign.GROUND">
+            <summary>
+            Ground vertical  alignment.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Valign.CENTER">
+            <summary>
+            Centered vertical  alignment.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Valign.BOTTOM">
+            <summary>
+            Bottom vertical  alignment.
+            </summary>
+        </member>
+        <member name="F:nzy3D.Plot3D.Text.Align.Valign.DEFAULT">
+            <summary>
+            Default vertical  alignment.
+            </summary>
+        </member>
+        <member name="T:nzy3D.Plot3D.Text.Renderers.TextBillboardRenderer">
+            <summary>
+            A <see cref="T:nzy3D.Plot3D.Text.Renderers.TextBillboardRenderer"/> allows writing 2d text always facing the Camera of a 3d Scene.
+            <br/>
+            TextBillboard provides the pixel definition of all characters of
+            the ASCII alphabet. A default bitmap (plain rectangle)
+            is provided for unrecognized characters
+            (those that do not have an ASCII code).
+            The bitmap library is static, and thus no overhead is
+            generated by the use of several instances of TextBillboard.
+            <br/>
+            It is however not necessary to have an instance of TextBillboard
+            for each drawn string.
+            <br/>
+            <code>
+            String s          = new String("2d text in 3d Scene");<br/>
+            TextBillboard txt = new TextBillboard();<br/>
+            BoundingBox3d box;<br/>
+            <br/>
+            txt.drawText(gl, s, Coord3d.ORIGIN, Halign.LEFT, Valign.GROUND, Color.BLACK);<br/>
+            box = txt.drawText(gl, glu, cam, s, Coord3d.ORIGIN, Halign.LEFT, Valign.GROUND, Color.BLACK);<br/>
+            </code>
+            <br/>
+            <b>Layout constants</b>
+            <br/>
+            As demonstrated in the previous example, the <see cref="T:nzy3D.Plot3D.Text.Renderers.TextBillboardRenderer"/>  handles
+            vertical and horizontal layout of text according to the given text coordinate.
+            <br/>
+            The following picture illustrates the text layout when using
+            the various layout constants
+            <img src="plot3d/primitives/doc-files/TextBillboardBillboard-1.gif"/>
+            @author Martin Pernollet
+            </summary>
+        </member>
+        <member name="M:nzy3D.Plot3D.Transform.Transform.ToString">
+            <summary>
+            Returns the string representation
+            </summary>
+        </member>
+    </members>
+</doc>

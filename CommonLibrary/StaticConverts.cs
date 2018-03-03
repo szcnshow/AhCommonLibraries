@@ -715,4 +715,84 @@ namespace Ai.Hong.Common.Convert
             throw new NotImplementedException();
         }
     }
+
+    /// <summary>
+    /// 日期格式与字符串yyyy-MM-dd之间的转换
+    /// </summary>
+    [ValueConversion(typeof(DateTime), typeof(String))]
+    public class DateConverter : IValueConverter      //将日期转换到字符串yyyy-MM-dd
+    {
+        /// <summary>
+        /// Datetime ==> string
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            DateTime date = (DateTime)value;
+            return date.ToString("yyyy-MM-dd");
+        }
+
+        /// <summary>
+        /// String ==> datetime
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            string strValue = value as string;
+            DateTime resultDateTime;
+            if (DateTime.TryParse(strValue, out resultDateTime))
+            {
+                return resultDateTime;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+    /// <summary>
+    /// 时间格式与字符串HH:mm:ss之间的转换
+    /// </summary>
+    [ValueConversion(typeof(DateTime), typeof(String))]
+    public class TimeConverter : IValueConverter      //将时间转换到字符串HH:mm:ss
+    {
+        /// <summary>
+        /// Datetime ==> string
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            DateTime date = (DateTime)value;
+            return date.ToString("HH:mm:ss");
+        }
+
+        /// <summary>
+        /// String ==> datetime
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            string strValue = value as string;
+            DateTime resultDateTime;
+            if (DateTime.TryParse(strValue, out resultDateTime))
+            {
+                return resultDateTime;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
 }

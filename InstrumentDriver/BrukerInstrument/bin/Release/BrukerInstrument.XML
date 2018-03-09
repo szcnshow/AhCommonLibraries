@@ -1,0 +1,661 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BrukerInstrument</name>
+    </assembly>
+    <members>
+        <member name="F:BrukerInstrument.BrukerInstrument.baseObj">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.GetError">
+            <summary>
+            返回当前执行的错误
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.SetIPAddress(System.String)">
+            <summary>
+            设置仪器的IP地址（需要在最开始调用)
+            </summary>
+            <param name="ipAddress">IP地址</param>
+            <returns>True = Bruker仪器</returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.Disconnect">
+            <summary>
+            断开仪器连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.GetInstrumentInfo">
+            <summary>
+            获取仪器序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.ReadScanPara(System.String)">
+            <summary>
+            获取扫描参数
+            </summary>
+            <param name="iniPath">配置文件路径</param>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改配置文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.LoadXPM(System.String)">
+            <summary>
+            加载配置文件XPM
+            </summary>
+            <param name="path">配置文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.MoveWheel(System.Int32,System.String)">
+            <summary>
+            移动转轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="sampleFile">样品光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.GetLaserWavelength">
+            <summary>
+            获取激光波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.SetLaserWavelength(System.Double,System.Double,System.Double@)">
+            <summary>
+            写入激光波数到仪器
+            </summary>
+            <param name="waveNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.CalculateAbs(System.String,System.String)">
+            <summary>
+            计算吸收谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.CalculateTrans(System.String,System.String)">
+            <summary>
+            计算透射谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.IsBurkerInstrument(System.String,System.String@,System.String@)">
+            <summary>
+            通过网页判断是不是Burker仪器，并获取仪器的序列号
+            </summary>
+            <param name="commPort">仪器IP地址</param>
+            <param name="serialNo">输出：序列号</param>
+            <returns>True:是Bruker仪器</returns>
+        </member>
+        <member name="M:BrukerInstrument.BrukerInstrument.MakeCompatiable(System.String,System.String)">
+            <summary>
+            光谱兼容处理
+            </summary>
+            <param name="sourceFile">需要处理的光谱</param>
+            <param name="destFile">标准光谱</param>
+            <returns></returns>
+        </member>
+        <member name="F:BrukerInstrument.Types.InstrumentTypeBase.baseObj">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BrukerInstrument.Types.InstrumentTypeBase.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:BrukerInstrument.Types.InstrumentTypeBase.IpAddress">
+            <summary>
+            matrix 仪器IP地址
+            </summary>
+        </member>
+        <member name="F:BrukerInstrument.Types.InstrumentTypeBase.IsConnected">
+            <summary>
+            是否连接仪器
+            </summary>
+        </member>
+        <member name="F:BrukerInstrument.Types.InstrumentTypeBase.instrumentModel">
+            <summary>
+            仪器型号
+            </summary>
+        </member>
+        <member name="F:BrukerInstrument.Types.InstrumentTypeBase.serialNumber">
+            <summary>
+            仪器序列号
+            </summary>
+        </member>
+        <member name="F:BrukerInstrument.Types.InstrumentTypeBase.thisLock">
+            <summary>
+            互斥对象，防止同时操作
+            </summary>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.GetError">
+            <summary>
+            返回当前执行的错误
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.Connect">
+            <summary>
+            连接仪器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.Disconnect">
+            <summary>
+            断开仪器连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.SetIPAddress(System.String)">
+            <summary>
+            设置仪器的IP地址（需要在最开始调用)
+            </summary>
+            <param name="ipAddress">IP地址</param>
+            <returns>True = Bruker仪器</returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.SetAllowUnsafeHeaderParsing">
+            <summary>
+            允许不安全的文件头解析
+            </summary>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.IsBurkerInstrument(System.String,System.String@,System.String@)">
+            <summary>
+            通过网页判断是不是Burker仪器，并获取仪器的序列号
+            </summary>
+            <param name="commPort">仪器IP地址</param>
+            <param name="serialNo">输出：序列号</param>
+            <returns>True:是Bruker仪器</returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.DownloadWebPage(System.String)">
+            <summary>
+            下载网页为String
+            </summary>
+            <param name="Url">网址</param>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.InitInstrumentObject(System.String)">
+            <summary>
+            初始化仪器操作接口
+            </summary>
+            <param name="ins"></param>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.GetSerialNumber">
+            <summary>
+            获取仪器序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.CalculateAbs(System.String,System.String)">
+            <summary>
+            计算吸收谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.CalculateTrans(System.String,System.String)">
+            <summary>
+            计算透射谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.LoadFile(System.String)">
+            <summary>
+            加载光谱文件到OPUS
+            </summary>
+            <param name="fileName">光谱文件名</param>
+            <param name="fileDirectory">光谱文件夹</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.UnLoadFile(System.String)">
+            <summary>
+            从OPUS卸载光谱文件
+            </summary>
+            <param name="path">光谱路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.LoadXPM(System.String)">
+            <summary>
+            加载配置文件XPM
+            </summary>
+            <param name="path">配置文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.GetLaserWavelength">
+            <summary>
+            获取激光波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.SetLaserWavelength(System.Double,System.Double,System.Double@)">
+            <summary>
+            写入激光波数到仪器
+            </summary>
+            <param name="waveNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.MoveWheel(System.Int32,System.String)">
+            <summary>
+            移动转轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="sampleFile">样品光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.MakeCompatiable(System.String,System.String)">
+            <summary>
+            光谱兼容处理
+            </summary>
+            <param name="sourceFile">需要处理的光谱</param>
+            <param name="destFile">标准光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改配置文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.ReadScanPara(System.String)">
+            <summary>
+            获取扫描参数
+            </summary>
+            <param name="iniPath">配置文件路径</param>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.GetLaserWavelengthDataaaa(System.String,System.Double,System.Double)">
+            <summary>
+            获取激光矫正光谱
+            </summary>
+            <param name="filename">文件名</param>
+            <param name="firstX">校正范围</param>
+            <param name="lastX">校正范围</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.GetOpusSettingPath">
+            <summary>
+            获取OPUS配置文件路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.InstrumentTypeBase.Ping(System.String)">
+            <summary>
+            获取并Ping IP地址  确定仪器是否连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.GetLaserWavelength">
+            <summary>
+            获取激光波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.SetLaserWavelength(System.Double,System.Double,System.Double@)">
+            <summary>
+            写入激光波数到仪器
+            </summary>
+            <param name="waveNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.MoveWheel(System.Int32,System.String)">
+            <summary>
+            移动转轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="sampleFile">样品光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.SaveFileByCommand(System.String)">
+            <summary>
+            用Command保存OPUS中的文件
+            </summary>
+            <param name="opusFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.LoadFileByCommand(System.String)">
+            <summary>
+            通过Command加载文件
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>加载到OPUS中的文件名</returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.UnloadFileByCommand(System.String)">
+            <summary>
+            通过OPUS Command卸载文件
+            </summary>
+            <param name="opusFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.MakeCompatiable(System.String,System.String)">
+            <summary>
+            光谱兼容处理
+            </summary>
+            <param name="sourceFile">需要处理的光谱</param>
+            <param name="destFile">标准光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.SpectrumStandardizingFit(Ai.Hong.CommonLibrary.SpecFileFormatDouble,System.Double,System.Double,System.Double,System.Double[]@)">
+            <summary>
+            用新的参数拟合光谱
+            </summary>
+            <param name="fileData">原有光谱文件数据</param>
+            <param name="xDatas">拟合后的X轴数据</param>
+            <returns>拟合后的Y轴数据</returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改配置文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Matrix_I.ReadScanPara(System.String)">
+            <summary>
+            获取扫描参数
+            </summary>
+            <param name="iniPath">配置文件路径</param>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.GetLaserWavelength">
+            <summary>
+            获取激光波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.SetLaserWavelength(System.Double,System.Double,System.Double@)">
+            <summary>
+            写入激光波数到仪器
+            </summary>
+            <param name="waveNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.MoveWheel(System.Int32,System.String)">
+            <summary>
+            移动转轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="sampleFile">样品光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.SaveFileByCommand(System.String)">
+            <summary>
+            用Command保存OPUS中的文件
+            </summary>
+            <param name="opusFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.LoadFileByCommand(System.String)">
+            <summary>
+            通过Command加载文件
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>加载到OPUS中的文件名</returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.UnloadFileByCommand(System.String)">
+            <summary>
+            通过OPUS Command卸载文件
+            </summary>
+            <param name="opusFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.MakeCompatiable(System.String,System.String)">
+            <summary>
+            光谱兼容处理
+            </summary>
+            <param name="sourceFile">需要处理的光谱</param>
+            <param name="destFile">标准光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.SpectrumStandardizingFit(Ai.Hong.CommonLibrary.SpecFileFormatDouble,System.Double,System.Double,System.Double,System.Double[]@)">
+            <summary>
+            用新的参数拟合光谱
+            </summary>
+            <param name="fileData">原有光谱文件数据</param>
+            <param name="xDatas">拟合后的X轴数据</param>
+            <returns>拟合后的Y轴数据</returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改配置文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.MPA.ReadScanPara(System.String)">
+            <summary>
+            获取扫描参数
+            </summary>
+            <param name="iniPath">配置文件路径</param>
+        </member>
+        <member name="P:BrukerInstrument.Types.MPA.background">
+            <summary>
+            记录背景光谱  用作读取激光波数 （仅用于读取激光波数校正）
+            </summary>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.GetLaserWavelength">
+            <summary>
+            获取激光波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.MoveWheel(System.Int32,System.String)">
+            <summary>
+            移动转轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品光谱
+            </summary>
+            <param name="scanMethodFile">XPM文件路径</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="sampleFile">样品光谱存储路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.SetLaserWavelength(System.Double,System.Double,System.Double@)">
+            <summary>
+            写入激光波数到仪器
+            </summary>
+            <param name="waveNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.SaveFileByCommand(System.String)">
+            <summary>
+            用Command保存OPUS中的文件
+            </summary>
+            <param name="opusFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.LoadFileByCommand(System.String)">
+            <summary>
+            通过Command加载文件
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>加载到OPUS中的文件名</returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.UnloadFileByCommand(System.String)">
+            <summary>
+            通过OPUS Command卸载文件
+            </summary>
+            <param name="opusFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.MakeCompatiable(System.String,System.String)">
+            <summary>
+            光谱兼容处理
+            </summary>
+            <param name="sourceFile">需要处理的光谱</param>
+            <param name="destFile">标准光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改配置文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BrukerInstrument.Types.Tango.ReadScanPara(System.String)">
+            <summary>
+            获取扫描参数
+            </summary>
+            <param name="iniPath">配置文件路径</param>
+        </member>
+        <member name="T:BrukerInstrument.Web">
+            <summary>
+            Web.xaml 的交互逻辑
+            </summary>
+            <summary>
+            Web
+            </summary>
+        </member>
+        <member name="F:BrukerInstrument.Web.Temperature">
+            <summary>
+            Scanner Block Temperature [°C]
+            </summary>
+        </member>
+        <member name="M:BrukerInstrument.Web.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

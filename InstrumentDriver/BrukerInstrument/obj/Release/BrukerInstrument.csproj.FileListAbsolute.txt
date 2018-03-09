@@ -1,0 +1,163 @@
+E:\Project\VspecNirCloud\BrukerInstrument\bin\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+E:\Project\VspecNirCloud\BrukerInstrument\bin\Release\CommonLibrary.dll
+E:\Project\VspecNirCloud\BrukerInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud\BrukerInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\Web.baml
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\Web.g.cs
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+E:\Project\VspecNirCloud\BrukerInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+E:\Project\新建文件夹\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+E:\Project\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\alglibnet2.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\Ionic.Zip.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudSecurity.xml
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\ACloudFileFormat.xml
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csprojResolveAssemblyReference.cache
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\Interop.OpusCMD334.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.csproj.ResolveComReference.cache
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\Web.baml
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\Web.g.cs
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument_MarkupCompile.cache
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.g.resources
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\obj\Release\BrukerInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\BrukerInstrument.XML
+F:\软件开发\VspecNirCloud\InstrumentDriver\BrukerInstrument\bin\Release\FTNirInterface.xml

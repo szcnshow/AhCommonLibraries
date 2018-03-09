@@ -1,0 +1,136 @@
+F:\软件开发\VspecNirCloud\ThermoInstrument\bin\Release\ThermoInstrument.dll
+F:\软件开发\VspecNirCloud\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+F:\软件开发\VspecNirCloud\ThermoInstrument\bin\Release\FTNirInterface.dll
+F:\软件开发\VspecNirCloud\ThermoInstrument\bin\Release\FTNirInterface.pdb
+F:\软件开发\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+F:\软件开发\VspecNirCloud\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+F:\软件开发\VspecNirCloud\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+F:\软件开发\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+F:\软件开发\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.dll
+F:\软件开发\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+F:\软件开发\VspecNirCloud\ThermoInstrument\bin\Release\CommonLibrary.dll
+F:\软件开发\VspecNirCloud\ThermoInstrument\bin\Release\Ionic.Zip.dll
+F:\软件开发\VspecNirCloud\ThermoInstrument\bin\Release\CommonLibrary.pdb
+E:\Project\VspecNirCloud\ThermoInstrument\bin\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+E:\Project\VspecNirCloud\ThermoInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud\ThermoInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+E:\Project\VspecNirCloud\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+E:\Project\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.XML
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\CommonLibrary.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.XML
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\CommonLibrary.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.dll
+E:\Project\新建文件夹\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.XML
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.XML
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.XML
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.dll
+E:\Project\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.XML
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ThermoInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\Ionic.Zip.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudFileFormat.xml
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\ACloudSecurity.xml
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csprojResolveAssemblyReference.cache
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmnicComLib.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\Interop.OmTalk.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.csproj.ResolveComReference.cache
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\obj\Release\ThermoInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\ThermoInstrument\bin\Release\FTNirInterface.xml

@@ -68,6 +68,12 @@
     <Grid>
         <DataGrid Name="gridSpectrum" Grid.Row="0" AutoGenerateColumns="False" CanUserAddRows="False" 
                   SelectionChanged="gridSpectrum_SelectionChanged" Style="{DynamicResource queryResultDataGridStyle}">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="IsSelected" Value="{Binding Mode=TwoWay, Path=isSelected, UpdateSourceTrigger=PropertyChanged}"/>
+                    <!--<Setter Property="Background" Value="{Binding rowColor, Mode=OneWay}"/>-->
+                </Style>
+            </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTemplateColumn CanUserResize="False" CanUserSort="False">
                     <DataGridTemplateColumn.Header>

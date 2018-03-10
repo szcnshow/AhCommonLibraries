@@ -1,0 +1,915 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ACloudSecurity</name>
+    </assembly>
+    <members>
+        <member name="T:ACloudSecurity.enumDataType">
+            <summary>
+            授权数据类型
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.FILEFORMAT">
+            <summary>
+            文件格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.ALGORITHM">
+            <summary>
+            算法
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.NIR">
+            <summary>
+            近红外
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.IR">
+            <summary>
+            中红外
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.RAMAN">
+            <summary>
+            拉曼
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.GC">
+            <summary>
+            气相
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.LC">
+            <summary>
+            液相
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.SOFTWARE">
+            <summary>
+            软件
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumDataType.STRENTRY">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:ACloudSecurity.enumFileFormat">
+            <summary>
+            支持的数据文件格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.SPC">
+            <summary>
+            SPC格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.OPUS">
+            <summary>
+            OPUS格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.SPA">
+            <summary>
+            SPA格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.DX">
+            <summary>
+            DX格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.SP">
+            <summary>
+            SP格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.MAT">
+            <summary>
+            MATLAB格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.CSV">
+            <summary>
+            CSV格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.EXCEL">
+            <summary>
+            EXCEL格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.PLSCOEF">
+            <summary>
+            PLS系数格式
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFileFormat.STANDCOEF">
+            <summary>
+            标准化系数格式
+            </summary>
+        </member>
+        <member name="T:ACloudSecurity.enumFactory">
+            <summary>
+            支持的仪器厂商
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.VSPEC">
+            <summary>
+            VSPEC仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.BRUKER">
+            <summary>
+            BRUKER仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.THERMO">
+            <summary>
+            THERMO仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.PE">
+            <summary>
+            PE仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.FOSS">
+            <summary>
+            FOSS仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.ABB">
+            <summary>
+            ABB仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.OCEAN">
+            <summary>
+            OCEAN仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.PERTEN">
+            <summary>
+            PERTEN仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.METROHM">
+            <summary>
+            METROHM仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.BWTEK">
+            <summary>
+            BWTEK仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.ENWAVE">
+            <summary>
+            ENWAVE仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.FPI">
+            <summary>
+            聚光仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.WCYT">
+            <summary>
+            伟创英图仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.BFRL">
+            <summary>
+            北分瑞利仪器
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumFactory.NDC">
+            <summary>
+            NDC仪器
+            </summary>
+        </member>
+        <member name="T:ACloudSecurity.enumAlogrithm">
+            <summary>
+            算法列表
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.ACLOUD_PLS">
+            <summary>
+            ACloud PLS
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.ACLOUD_STANDARD">
+            <summary>
+            ACloud仪器标准化
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.ACLOUD_PREPROCESS">
+            <summary>
+            ACloud光谱预处理
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.ACLOUD_PCA">
+            <summary>
+            ACloud PCA
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.PLS_VSPEC">
+            <summary>
+            VSPEC PLS
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.PLS_BRUKER">
+            <summary>
+            BRUKER PLS
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.PLS_THERMO">
+            <summary>
+            THERMO PLS
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumAlogrithm.PLS_PE">
+            <summary>
+            PE PLS
+            </summary>
+        </member>
+        <member name="T:ACloudSecurity.enumErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.OK">
+            <summary>
+            正确
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.Parameter">
+            <summary>
+            参数错误
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.Memory">
+            <summary>
+            内存错误
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.Key">
+            <summary>
+            密码错误
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.Format">
+            <summary>
+            文件格式错误
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.RegData">
+            <summary>
+            读取注册表错误
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.Finger">
+            <summary>
+            硬件码错误
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.OutDate">
+            <summary>
+            授权超时
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumErrorCode.NotAuthor">
+            <summary>
+            没有授权
+            </summary>
+        </member>
+        <member name="T:ACloudSecurity.enumSoftware">
+            <summary>
+            授权软件列表
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.NIR_ACLOUD_SERVER">
+            <summary>
+            ACloud服务器版本
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.NIR_ACLOUD_STANDALONE">
+            <summary>
+            ACloud本地版本
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.NIR_ACLOUD_DISTRIBUT">
+            <summary>
+            ACloud分布式版本
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.NIR_REDRY_ONLINE">
+            <summary>
+            复烤近红外在线
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.RAMAN_RFDI">
+            <summary>
+            注射液快检
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.RAMAN_ONLINE">
+            <summary>
+            拉曼在线
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.IR_FASTIDENT">
+            <summary>
+            环保快检
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.MODEL_PLS">
+            <summary>
+            PLS建模软件
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.MODEL_IDENT">
+            <summary>
+            IDENT建模软件
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.INST_STANDARD">
+            <summary>
+            仪器标准化软件
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumSoftware.FILE_CONVERTOR">
+            <summary>
+            文件转换软件
+            </summary>
+        </member>
+        <member name="T:ACloudSecurity.enumEncryptKeyType">
+            <summary>
+            加密类型
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.NO_ENCRYPT">
+            <summary>
+            不需要加密
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.EXTERNAL_ENCRYPT">
+            <summary>
+            外部加密
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.NIR_PLS_MODEL_1">
+            <summary>
+            NIR PLS Model1
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.NIR_PLS_MODEL_2">
+            <summary>
+            NIR PLS Model2
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.NIR_CAL_COEF_1">
+            <summary>
+            NIR Calibrate Coefficient1
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.NIR_CAL_COEF_2">
+            <summary>
+            NIR Calibrate Coefficient2
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.RAMAN_PLS_MODEL_1">
+            <summary>
+            RAMAN PLS Model1
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.RAMAN_PLS_MODEL_2">
+            <summary>
+            RAMAN PLS Model2
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.RAMAN_IDENT_MODEL_1">
+            <summary>
+            RAMAN Identify Model1
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.enumEncryptKeyType.RAMAN_IDENT_MODEL_2">
+            <summary>
+            RAMAN Identify Model2
+            </summary>
+        </member>
+        <member name="T:ACloudSecurity.Security">
+            <summary>
+            授权加密接口
+            </summary>
+        </member>
+        <member name="F:ACloudSecurity.Security.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetDeviceFinger32(System.Int32,System.Int32@)">
+            <summary>
+            获取硬件码
+            </summary>
+            <param name="copysize">一个硬件码的长度</param>
+            <param name="outDataSize">输出数据长度</param>
+            <returns>三个硬件码的组合(XXXX-YYYY-ZZZZ)</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightFinger32(System.Byte[],System.Int32)">
+            <summary>
+            是否为正确的硬件码（在DLL里面获取硬件码）
+            </summary>
+            <param name="fileData">密码文件</param>
+            <param name="fileSize">密码文件长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.PublicEncryptData32(System.Byte[],System.Int32,System.String,System.Int32@)">
+            <summary>
+            通过密码加密数据
+            </summary>
+            <param name="dataToEncrypt">明文数据</param>
+            <param name="lenData">数据长度</param>
+            <param name="encryptKey">密码</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>加密数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.PrivateDecryptData32(System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            通过密码文件解码数据
+            </summary>
+            <param name="encryptoedData">密文数据</param>
+            <param name="lenData">密文数据长度</param>
+            <param name="keyData">密码</param>
+            <param name="lenKeyData">密码长度</param>
+            <param name="outDataSize">解码后的明文数据长度</param>
+            <returns>明文数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.PublicDecryptData32(System.Byte[],System.Int32,System.String,System.Int32@)">
+            <summary>
+            通过密码解码数据
+            </summary>
+            <param name="encryptoedData">密文数据</param>
+            <param name="lenData">密文数据长度</param>
+            <param name="decryptKey">密码</param>
+            <param name="outDataSize">解码后的明文数据长度</param>
+            <returns>明文数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.WriteToRegister32(System.Byte[],System.UInt32)">
+            <summary>
+            将授权数据写入注册表
+            </summary>
+            <param name="writeData">授权数据</param>
+            <param name="dataSize">数据长度</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseValue32(System.UInt32,System.UInt32,System.UInt32@)">
+            <summary>
+            获取授权码中的预定义值
+            </summary>
+            <param name="mainType">主类型</param>
+            <param name="subType">子类型</param>
+            <param name="dataValue">预定义值</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseErrorCode32">
+            <summary>
+            获取错误信息
+            </summary>
+            <returns>enumErrorCode</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.DecryptDataByLicenseKey32(System.Byte[],System.UInt32,System.UInt32,System.UInt32@)">
+            <summary>
+            使用授权数据内置密码解密数据
+            </summary>
+            <param name="dataToDecrypty">需要解码的数据</param>
+            <param name="lenData">数据长度</param>
+            <param name="keyType">密码类型</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>解码后的数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.EncryptDataByLicenseKey32(System.Byte[],System.UInt32,System.UInt32,System.UInt32@)">
+            <summary>
+            使用授权数据内置密码加密数据
+            </summary>
+            <param name="dataToEncrypt">需要解码的数据</param>
+            <param name="lenData">数据长度</param>
+            <param name="keyType">密码类型</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>解码后的数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.RefreshLicense32">
+            <summary>
+            刷新授权码
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightLicense32">
+            <summary>
+            是否为本机授权码
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseGuid32(System.Guid@)">
+            <summary>
+            获取授权码中的注册码
+            </summary>
+            <param name="ID">输出：注册码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUser32(System.UInt32@)">
+            <summary>
+            获取授权码中的用户名
+            </summary>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的用户名</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetAllLicense32(System.UInt32@)">
+            <summary>
+            获取所有授权信息
+            </summary>
+            <param name="outDataSize">输出：数据长度(DWORD)</param>
+            <returns>授权信息DWORD</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUnit32(System.UInt32@)">
+            <summary>
+            获取授权码中的注册单位
+            </summary>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的注册单位</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightLicenseFromData32(System.Byte[],System.UInt32)">
+            <summary>
+            是否为本机授权码
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseGuidFromData32(System.Byte[],System.UInt32,System.Guid@)">
+            <summary>
+            获取授权码中的注册码
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+            <param name="ID">输出：注册码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUserFromData32(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            获取授权码中的用户名
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的用户名</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUnitFromData32(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            获取授权码中的注册单位
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的注册单位</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetDeviceFinger64(System.Int32,System.Int32@)">
+            <summary>
+            获取硬件码
+            </summary>
+            <param name="copysize">一个硬件码的长度</param>
+            <param name="outDataSize">输出数据长度</param>
+            <returns>三个硬件码的组合(XXXX-YYYY-ZZZZ)</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightFinger64(System.Byte[],System.Int32)">
+            <summary>
+            是否为正确的硬件码（在DLL里面获取硬件码）
+            </summary>
+            <param name="fileData">密码文件</param>
+            <param name="fileSize">密码文件长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.RefreshLicense64">
+            <summary>
+            刷新授权码
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.PublicEncryptData64(System.Byte[],System.Int32,System.String,System.Int32@)">
+            <summary>
+            通过密码加密数据
+            </summary>
+            <param name="dataToEncrypt">明文数据</param>
+            <param name="lenData">数据长度</param>
+            <param name="encryptKey">密码</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>加密数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.PrivateDecryptData64(System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            通过密码文件解码数据
+            </summary>
+            <param name="encryptoedData">密文数据</param>
+            <param name="lenData">密文数据长度</param>
+            <param name="keyData">密码</param>
+            <param name="lenKeyData">密码长度</param>
+            <param name="outDataSize">解码后的明文数据长度</param>
+            <returns>明文数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.PublicDecryptData64(System.Byte[],System.Int32,System.String,System.Int32@)">
+            <summary>
+            通过密码解码数据
+            </summary>
+            <param name="encryptoedData">密文数据</param>
+            <param name="lenData">密文数据长度</param>
+            <param name="decryptKey">密码</param>
+            <param name="outDataSize">解码后的明文数据长度</param>
+            <returns>明文数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.WriteToRegister64(System.Byte[],System.UInt32)">
+            <summary>
+            将授权数据写入注册表
+            </summary>
+            <param name="writeData">授权数据</param>
+            <param name="dataSize">数据长度</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseValue64(System.UInt32,System.UInt32,System.UInt32@)">
+            <summary>
+            获取授权码中的预定义值
+            </summary>
+            <param name="mainType">主类型</param>
+            <param name="subType">子类型</param>
+            <param name="dataValue">预定义值</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseErrorCode64">
+            <summary>
+            获取错误信息
+            </summary>
+            <returns>enumErrorCode</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.DecryptDataByLicenseKey64(System.Byte[],System.UInt32,System.UInt32,System.UInt32@)">
+            <summary>
+            使用授权数据内置密码解密数据
+            </summary>
+            <param name="dataToDecrypt">需要解码的数据</param>
+            <param name="lenData">数据长度</param>
+            <param name="keyType">密码类型</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>解码后的数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.EncryptDataByLicenseKey64(System.Byte[],System.UInt32,System.UInt32,System.UInt32@)">
+            <summary>
+            使用授权数据内置密码加密数据
+            </summary>
+            <param name="dataToEncrypt">需要解码的数据</param>
+            <param name="lenData">数据长度</param>
+            <param name="keyType">密码类型</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>解码后的数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightLicense64">
+            <summary>
+            是否为本机授权码
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseGuid64(System.Guid@)">
+            <summary>
+            获取授权码中的注册码
+            </summary>
+            <param name="ID">输出：注册码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUser64(System.UInt32@)">
+            <summary>
+            获取授权码中的用户名
+            </summary>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的用户名</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUnit64(System.UInt32@)">
+            <summary>
+            获取授权码中的注册单位
+            </summary>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的注册单位</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetAllLicense64(System.UInt32@)">
+            <summary>
+            获取所有授权信息
+            </summary>
+            <param name="outDataSize">输出：数据长度(DWORD)</param>
+            <returns>授权信息DWORD</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightLicenseFromData64(System.Byte[],System.UInt32)">
+            <summary>
+            是否为本机授权码
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseGuidFromData64(System.Byte[],System.UInt32,System.Guid@)">
+            <summary>
+            获取授权码中的注册码
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+            <param name="ID">输出：注册码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUserFromData64(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            获取授权码中的用户名
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的用户名</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUnitFromData64(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            获取授权码中的注册单位
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <param name="licenseSize">数据长度</param>
+            <param name="outDataSize">输出：数据长度</param>
+            <returns>UFT8编码的注册单位</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.MsiQueryProductState(System.String)">
+            <summary>
+            检测VS C++ 2013运行环境是否安装
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.VCEnvirmentInstalled">
+            <summary>
+            检查VC运行环境是否安装了
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightFinger(System.Byte[])">
+            <summary>
+            是否为正确的密码文件
+            </summary>
+            <param name="fileData">文件数据</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.RefreshLicense">
+            <summary>
+            刷新授权码
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetDeviceFinger">
+            <summary>
+            获取设备硬件码
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.EncryptData(System.Byte[],System.String)">
+            <summary>
+            使用密码加密数据
+            </summary>
+            <param name="dataToEncrypt">需要加密的数据</param>
+            <param name="encryptKey">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.DecryptData(System.Byte[],System.String,System.Byte[])">
+            <summary>
+            解码数据（使用密码或者密码文件来解码）
+            </summary>
+            <param name="dataToDecrypt">需要解码的数据</param>
+            <param name="encryptKey">密码</param>
+            <param name="keyData">密码文件</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.WriteLicenseDataToRegister(System.Byte[])">
+            <summary>
+            写入授权数据到注册表
+            </summary>
+            <param name="data">授权数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseValue(ACloudSecurity.enumDataType,System.Int32,System.UInt32@)">
+            <summary>
+            获取预定义的值
+            </summary>
+            <param name="dataType">数据类型</param>
+            <param name="subType">子类型</param>
+            <param name="value">返回值</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.DecryptDataByLicenseKey(System.Byte[],ACloudSecurity.enumEncryptKeyType)">
+            <summary>
+            使用授权数据中的密码解码数据
+            </summary>
+            <param name="dataToDecrypt">需要解码的数据</param>
+            <param name="keyType">密码类型</param>
+            <returns>解码后的数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.EncryptDataByLicenseKey(System.Byte[],ACloudSecurity.enumEncryptKeyType)">
+            <summary>
+            使用授权数据中的密码加密数据
+            </summary>
+            <param name="dataToEncrypt">需要加密的数据</param>
+            <param name="keyType">密码类型</param>
+            <returns>加密后的数据</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetErrorCode">
+            <summary>
+            获取错误信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightLicense">
+            <summary>
+            是否是本机授权数据
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseGuid">
+            <summary>
+            从授权数据中获取授权码
+            </summary>
+            <returns>授权码</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUser">
+            <summary>
+            获取授权用户
+            </summary>
+            <returns>用户名</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUnit">
+            <summary>
+            获取授权单位
+            </summary>
+            <returns>用户单位</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetAllLicense">
+            <summary>
+            获取所有授权列表
+            </summary>
+            <returns>授权列表</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.IsRightLicenseFromData(System.Byte[])">
+            <summary>
+            是否是本机授权数据
+            </summary>
+            <param name="licenseData">授权数据</param>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseGuidFromData(System.Byte[])">
+            <summary>
+            从授权数据中获取授权码
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <returns>授权码</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUserFromData(System.Byte[])">
+            <summary>
+            从授权数据中获取用户
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <returns>授权码</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.GetLicenseUnitFromData(System.Byte[])">
+            <summary>
+            从授权数据中获取单位
+            </summary>
+            <param name="licenseData">授权数据</param>
+            <returns>授权码</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.Is64BitVersion">
+            <summary>
+            判断是否为64为版本调用
+            </summary>
+        </member>
+        <member name="M:ACloudSecurity.Security.CopyDataArrayFromIntptrAndFree``1(System.IntPtr@,System.Int32)">
+            <summary>
+            从内存中拷贝float数据，并且释放内存
+            </summary>
+            <param name="ptrData">内存数据</param>
+            <param name="dataSize">数据大小(float)</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.CopyStringFromIntptrAndFree(System.IntPtr@,System.Int32,System.Text.Encoding)">
+            <summary>
+            从内存中拷贝字符串，并释放内存
+            </summary>
+            <param name="ptrData">内存地址</param>
+            <param name="datasize">数据大小</param>
+            <param name="encode">编码方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.StringToByte(System.String,System.Text.Encoding)">
+            <summary>
+            将string转换为Byte
+            </summary>
+            <param name="str">字符串</param>
+            <param name="encode">编码方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.ReadBinaryFile(System.String)">
+            <summary>
+            读取全部文件内容
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>文件内容</returns>
+        </member>
+        <member name="M:ACloudSecurity.Security.SaveBinaryFile(System.String,System.Byte[])">
+            <summary>
+            将数据写入文件
+            </summary>
+            <param name="filename">写入文件名</param>
+            <param name="fileData">文件内容</param>
+        </member>
+    </members>
+</doc>

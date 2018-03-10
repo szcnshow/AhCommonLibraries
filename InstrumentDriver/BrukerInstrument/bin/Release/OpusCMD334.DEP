@@ -1,0 +1,23 @@
+[Version]
+Version=3.3.0.4
+
+[OpusCMD334.dll <0009>]
+Dest=$(WinSysPath)
+Date=12/14/2006
+Time=12:04
+Version=3.3.0.4
+CABFilename=
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=scrrun.dll
+Uses8=DDClnt36.ocx
+
+[DDClnt36.ocx <0009>]
+Dest=$(WinSysPath)
+Date=12/14/2000
+Time=00:31
+Version=3.0.0.17

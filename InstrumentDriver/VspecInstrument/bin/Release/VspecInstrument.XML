@@ -1,0 +1,548 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VspecInstrument</name>
+    </assembly>
+    <members>
+        <member name="F:VspecInstrument.Types.InstrumentTypeBase.baseObj">
+            <summary>
+            仪器操作对象
+            </summary>
+        </member>
+        <member name="F:VspecInstrument.Types.InstrumentTypeBase.instrumentObject">
+            <summary>
+            仪器接口
+            </summary>
+        </member>
+        <member name="F:VspecInstrument.Types.InstrumentTypeBase.errorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:VspecInstrument.Types.InstrumentTypeBase.isConnected">
+            <summary>
+            仪器是否联机
+            </summary>
+        </member>
+        <member name="F:VspecInstrument.Types.InstrumentTypeBase.info">
+            <summary>
+            仪器信息
+            </summary>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.Connect">
+            <summary>
+            连接仪器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.Disconnect">
+            <summary>
+            断开仪器连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.InitInstrumentObject(System.Int32)">
+            <summary>
+            初始化仪器操作接口
+            </summary>
+            <param name="ins">1,光纤,2:积分球,6:积分球+透射</param>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.GetParametersTable">
+            <summary>
+            获得仪器参数 格式:{"systemType":1,"serialNum":"VS1003","firmwareVer":3,"laserWavelen":"637.947265","velocities":[15],"resolutions":[32,16,8,4],"retVal":0}
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.ReadSensors">
+            <summary>
+            灵敏度测试  格式：{"sensors":[{"id":1,"val":20.00000},{"id":2,"val":22.00000},{"id":3,"val":55.00000},{"id":4,"val":15.10000},{"id":5,"val":-40.00000}],"retVal":0}，ID2是温度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.SetLaserWavelength(System.Double,System.Double,System.Double@)">
+            <summary>
+            把激光波数写入仪器
+            </summary>
+            <param name="curPeak">当前峰位</param>
+            <param name="targetPeak">目标峰位</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.GetInstrumentInfo">
+            <summary>
+            获取仪器序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.MoveWheel(System.Int32,System.String)">
+            <summary>
+            移动转轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.ReadScanPara(System.String)">
+            <summary>
+            获取扫描参数
+            </summary>
+            <param name="iniPath">配置文件路径</param>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.SampleSpinner(System.Int32)">
+            <summary>
+            移动转轮位置 0 for off.1 for on
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.CalculateAbs(System.String,System.String)">
+            <summary>
+            计算吸收谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.CalculateTrans(System.String,System.String)">
+            <summary>
+            计算透射谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改配置文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.MoveFlag(System.Int32)">
+            <summary>
+            移动积分球位置 0 for sample.1 for background
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.IsTransmissionCellEmpty">
+            <summary>
+            判断不控温样品池(透射) 是否放有样品
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.Types.InstrumentTypeBase.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">样品保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.Types.Fiber.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.Fiber.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.Types.Fiber.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">样品保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphere.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphere.MoveFlag(System.Int32)">
+            <summary>
+            移动积分球位置 0 for sample.1 for background
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphere.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphere.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">样品保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphereTrans.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphereTrans.MoveFlag(System.Int32)">
+            <summary>
+            移动积分球位置 0 for sample.1 for background
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphereTrans.IsTransmissionCellEmpty">
+            <summary>
+            判断不控温样品池(透射) 是否放有样品
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphereTrans.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.Types.IntegratingSphereTrans.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">样品保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.Connect">
+            <summary>
+            连接光谱仪
+            </summary>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.Disconnect">
+            <summary>
+            断开仪器连接
+            </summary>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.SetLaserWavelength(System.Double,System.Double,System.Double@)">
+            <summary>
+            把激光波数写入仪器
+            </summary>
+            <param name="curPeak">当前峰位</param>
+            <param name="targetPeak">目标峰位</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.GetParametersTable">
+            <summary>
+            获得仪器参数 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.ReadSensors">
+            <summary>
+            灵敏度测试  
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.GetInstrumentInfo">
+            <summary>
+            获取仪器序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.MoveWheel(System.Int32,System.String)">
+            <summary>
+            移动转轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.TemperatureCalibrate(System.Double)">
+            <summary>
+            波数精度-聚苯乙烯-温度校正
+            </summary>
+            <param name="targetPeak"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.ReadScanPara(System.String)">
+            <summary>
+            获取扫描参数
+            </summary>
+            <param name="iniPath">配置文件路径</param>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.MoveFlag(System.Int32)">
+            <summary>
+            移动积分球位置 0 for sample.1 for background
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.SampleSpinner(System.Int32)">
+            <summary>
+            移动积分球位置 0 for off.1 for on
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.ScanBackground(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描背景
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">背景保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.ScanSample(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            扫描样品
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="backgroundFile">样品保存文件</param>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.CalculateAbs(System.String,System.String)">
+            <summary>
+            计算吸收谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.CalculateTrans(System.String,System.String)">
+            <summary>
+            计算透射谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.GetLaserWavelength">
+            <summary>
+            获取仪器激光波长
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecInstrument.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改配置文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VspecInstrument.JsonString">
+            <summary>
+            JsonString 操作
+            </summary>
+        </member>
+        <member name="M:VspecInstrument.JsonString.GetJsonString(System.Object)">
+            <summary>
+            序列化对象的到Json字符串
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.JsonString.JsonToObj``1(System.String)">
+            <summary>
+            反序列化得到json字符串对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.JsonString.JsonToList``1(System.String)">
+            <summary>
+            反序列化Json到List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="JsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VspecInstrument.JsonString.ParametersTable">
+            <summary>
+            仪器类型、序列号等
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.JsonString.ParametersTable.systemType">
+            <summary>
+            仪器类型 1：光纤 2：积分球  3：积分球+透射 4：光纤+积分球+透射
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.JsonString.ParametersTable.serialNum">
+            <summary>
+            仪器型号
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.JsonString.ParametersTable.firmwareVer">
+            <summary>
+            防火墙版本
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.JsonString.ParametersTable.laserWavelen">
+            <summary>
+            激光波数(635 ~ 645)
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.JsonString.ParametersTable.velocities">
+            <summary>
+            扫描速度
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.JsonString.ParametersTable.resolutions">
+            <summary>
+            分辨率
+            </summary>
+        </member>
+        <member name="T:VspecInstrument.JsonString.Sensors">
+            <summary>
+            仪器温度等
+            </summary>
+        </member>
+        <member name="T:VspecInstrument.JsonString.GetSensors">
+            <summary>
+            ReadSensos To Obj
+            </summary>
+        </member>
+        <member name="F:VspecInstrument.VspecSpecHandle.objHandle">
+            <summary>
+            光谱操作对象
+            </summary>
+        </member>
+        <member name="F:VspecInstrument.VspecSpecHandle.plsObj">
+            <summary>
+            模型分析操作对象
+            </summary>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.GetError">
+            <summary>
+            获取错误信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.#ctor">
+            <summary>
+            初始化操作对象
+            </summary>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.ReadFile(System.String)">
+            <summary>
+            读取光谱
+            </summary>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.SaveFile(System.String,System.Double[])">
+            <summary>
+            存储光谱到文件
+            </summary>
+            <param name="Path"></param>
+            <param name="FilePara">Ai.Hong.CommonLibrary.FileParameter</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.LoadMethod(System.String)">
+            <summary>
+            加载模型 
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.Analysis(System.String)">
+            <summary>
+            分析光谱得到数据
+            </summary>
+            <param name="spcPath">光谱路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.GetResultObj(System.String,System.String)">
+            <summary>
+            调入模型分析并得到分析结果
+            </summary>
+            <param name="modelPath"></param>
+            <param name="spcPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.GetResultObj(System.String)">
+            <summary>
+            由结果字符串获得结果对象
+            </summary>
+            <param name="spcPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VspecInstrument.VspecSpecHandle.ErrorMessage(System.Int32)">
+            <summary>
+            模型预测错误信息
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.name">
+            <summary>
+            模型内部关联名称
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.value">
+            <summary>
+            组分预测值
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.mah">
+            <summary>
+            马氏距离
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.spcResidual">
+            <summary>
+            光谱残差
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.fValue">
+            <summary>
+            F值
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.fProbability">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.dimension">
+            <summary>
+            维数
+            </summary>
+        </member>
+        <member name="P:VspecInstrument.VspecSpecHandle.AnalysisResult.unit">
+            <summary>
+            浓度单位
+            </summary>
+        </member>
+    </members>
+</doc>

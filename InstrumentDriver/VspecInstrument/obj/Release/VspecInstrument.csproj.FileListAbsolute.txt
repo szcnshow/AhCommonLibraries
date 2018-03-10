@@ -1,0 +1,152 @@
+E:\work\pro\NirClient\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\work\pro\NirClient\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\work\pro\NirClient\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\work\pro\NirClient\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\work\pro\NirClient\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\work\pro\NirClient\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\work\pro\NirClient\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\work\pro\NirClient\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\work\pro\NirClient\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\NirClient\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\NirClient\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\NirClient\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\NirClient\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\NirClient\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\NirClient\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\NirClient\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\NirClient\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\NirClient\VspecInstrument\obj\Release\VspecInstrument.pdb
+F:\软件开发\VspecNirCloud\VspecInstrument\bin\Release\VspecInstrument.dll
+F:\软件开发\VspecNirCloud\VspecInstrument\bin\Release\VspecInstrument.pdb
+F:\软件开发\VspecNirCloud\VspecInstrument\bin\Release\FTNirInterface.dll
+F:\软件开发\VspecNirCloud\VspecInstrument\bin\Release\FTNirInterface.pdb
+F:\软件开发\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+F:\软件开发\VspecNirCloud\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+F:\软件开发\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+F:\软件开发\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.dll
+F:\软件开发\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud_New\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+F:\软件开发\历史版本\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud_20160425\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\新建文件夹\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.pdb
+E:\Project\新建文件夹 (2)\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.pdb
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\新建文件夹 (4)\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\Ionic.Zip.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.xml
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.pdb
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.xml
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+E:\Project\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\Ionic.Zip.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudSecurity.xml
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\ACloudFileFormat.xml
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csprojResolveAssemblyReference.cache
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\Interop.eftirPLSTypeLib.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\Interop.VspecNIRTypeLib.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.csproj.ResolveComReference.cache
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.dll
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\obj\Release\VspecInstrument.pdb
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\VspecInstrument.XML
+F:\软件开发\VspecNirCloud\InstrumentDriver\VspecInstrument\bin\Release\FTNirInterface.xml

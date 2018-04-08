@@ -208,6 +208,7 @@ namespace Ai.Hong.FileFormat
         private const UInt32 IgRfParaType = 0x081B;
         private const UInt32 IgSmParaType = 0x0817;
         private const UInt32 ATRParaType = 0x401F;
+        private const UInt32 RAMANParaType = 0x281F;
 
         //数据类型
         private const UInt32 ABDataType = 0x100F;
@@ -216,6 +217,7 @@ namespace Ai.Hong.FileFormat
         private const UInt32 IgRfDataType = 0x080B;
         private const UInt32 IgSmDataType = 0x0807;
         private const UInt32 ATRDataType = 0x400F;
+        private const UInt32 RAMANDataType = 0x280F;
 
 
         #endregion
@@ -883,8 +885,8 @@ namespace Ai.Hong.FileFormat
             }
 
             //读取光谱数据
-            List<UInt32> datatypes = new List<UInt32> { ABDataType, ScSmDataType, ScRfDataType, IgRfDataType, IgSmDataType, ATRDataType };
-            List<UInt32> paratypes = new List<UInt32> { ABParaType, ScSmParaType, ScRfParaType, IgRfParaType, IgSmParaType, ATRParaType };
+            List<UInt32> datatypes = new List<UInt32> { ABDataType, ScSmDataType, ScRfDataType, IgRfDataType, IgSmDataType, ATRDataType, RAMANDataType };
+            List<UInt32> paratypes = new List<UInt32> { ABParaType, ScSmParaType, ScRfParaType, IgRfParaType, IgSmParaType, ATRParaType, RAMANParaType };
 
             fileFormat.xDataList = new List<double[]>();
             fileFormat.yDataList = new List<double[]>();
@@ -929,6 +931,9 @@ namespace Ai.Hong.FileFormat
                         break;
                     case ATRDataType:
                         info.dataType = FileFormat.YAXISTYPE.YATR;
+                        break;
+                    case RAMANDataType:
+                        info.dataType = FileFormat.YAXISTYPE.YEMISN;
                         break;
                     default:
                         info.dataType = FileFormat.YAXISTYPE.YARB;
@@ -1103,6 +1108,10 @@ namespace Ai.Hong.FileFormat
                     case FileFormat.YAXISTYPE.YARB:
                         para.dataType = ABDataType;
                         para.paraType = ABParaType;
+                        break;
+                    case FileFormat.YAXISTYPE.YEMISN:
+                        para.dataType = RAMANDataType;
+                        para.paraType = RAMANParaType;
                         break;
                 }
                 para.DER = 0;

@@ -1237,5 +1237,55 @@
             当前Item左边的左边的Margin
             </summary>
         </member>
+        <member name="T:Ai.Hong.Common.Convert.DateConverter">
+            <summary>
+            日期格式与字符串yyyy-MM-dd之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DateConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Datetime ==> string
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DateConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            String ==> datetime
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.TimeConverter">
+            <summary>
+            时间格式与字符串HH:mm:ss之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.TimeConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Datetime ==> string
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.TimeConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            String ==> datetime
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

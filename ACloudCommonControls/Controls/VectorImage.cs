@@ -30,23 +30,13 @@ namespace Ai.Hong.Controls
         public static readonly DependencyProperty DrawColorProperty =
             DependencyProperty.Register("DrawColor", typeof(SolidColorBrush), typeof(VectorImage), new UIPropertyMetadata(Brushes.Black));
 
-        DrawingGroup _vectorSource = null;
-
         /// <summary>
         /// 矢量图形（DrawingGroup）
         /// </summary>
         public DrawingGroup VectorSource
         {
             get { return (DrawingGroup)GetValue(VectorSourceProperty); }
-            set
-            {
-                if (value == null)
-                    _vectorSource = null;
-                else
-                    _vectorSource = value.CloneCurrentValue();
-
-                SetValue(VectorSourceProperty, _vectorSource);
-            }
+            set { SetValue(VectorSourceProperty, value); }
         }
 
         /// <summary>
@@ -149,6 +139,9 @@ namespace Ai.Hong.Controls
                 DrawingGroup drawgroup = e.NewValue as DrawingGroup;
                 if(drawgroup != null && drawgroup.Children.Count > 0)
                 {
+                    //这里Clone一个Drawing，防止UpdateChildrenColor时IsFrozen，Brush只读
+                    drawgroup = drawgroup.Clone();
+
                     Source = new DrawingImage(drawgroup);
                     SetImageBrush(Source as DrawingImage, DrawColor);
                 }

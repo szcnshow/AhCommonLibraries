@@ -103,3 +103,13 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDri
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\FTNirInterface.XML
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\FTNirInterface.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\FTNirInterface.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\FTNirInterface.XML
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\FTNirInterface.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\FTNirInterface.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\FTNirInterface.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\WaitDialog\ProcessWaitDialog.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\WaitDialog\ProcessWaitDialog.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\FTNirInterface_MarkupCompile.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\FTNirInterface.g.resources
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\FTNirInterface.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\FTNirInterface.pdb

@@ -518,4 +518,140 @@ namespace Ai.Hong.Controls.Common
         /// </summary>
         public string ErrorMessage { get; set; }
     }
+
+
+    /// <summary>
+    /// 报表模板
+    /// </summary>
+    public static class ReportTemplate
+    {
+        /// <summary>
+        /// 错误信息
+        /// </summary>
+        public static string ErrorString = null;
+
+        /// <summary>
+        /// 保存到XPS格式文档
+        /// </summary>
+        /// <param name="xpsFilename"></param>
+        public static bool SaveToXpsFile(string xpsFilename, FixedDocument fixedDoc)
+        {
+            try
+            {
+                //保存到XPS文件
+                DocumentPaginator paginator = fixedDoc.DocumentPaginator;
+                System.Windows.Xps.Packaging.XpsDocument xpsDocument = new System.Windows.Xps.Packaging.XpsDocument(xpsFilename, FileAccess.Write);
+                System.Windows.Xps.XpsDocumentWriter documentWriter = System.Windows.Xps.Packaging.XpsDocument.CreateXpsDocumentWriter(xpsDocument);
+                documentWriter.Write(paginator);
+                xpsDocument.Close();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ErrorString = ex.Message;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 通过写入和读出Xaml方式克隆一个Object
+        /// </summary>
+        public static T CloneObject<T>(T obj)
+        {
+            string gridXaml = System.Windows.Markup.XamlWriter.Save(obj);
+            MemoryStream stream = new MemoryStream(Encoding.Unicode.GetBytes(gridXaml));
+            Object clone = System.Windows.Markup.XamlReader.Load(stream);
+            return (T)clone;
+        }
+
+        /// <summary>
+        /// 填写TextBlock控件内容
+        /// </summary>
+        /// <param name="rootEl">root控件</param>
+        /// <param name="IdName">TextBlock控件名称</param>
+        /// <param name="content">填写内容</param>
+        public static void FillTextData(FrameworkElement rootEl, string IdName, string content)
+        {
+            object el = rootEl.FindName(IdName);
+            if (el == null)
+                return;
+
+            if (el is TextBlock)
+            {
+                (el as TextBlock).Text = content;
+            }
+        }
+
+        /// <summary>
+        /// 加载打印模版
+        /// </summary>
+        /// <param name="templateName">模版文件名</param>
+        /// <param name="assemb">当前调用进程的Assembly</param>
+        /// <returns>加载后的FlowDocument</returns>
+        public static FlowDocument LoadDocumentTemplate(Assembly assemb, string templateName)
+        {
+            Stream xamlStream = null;
+
+            try
+            {
+                xamlStream = CommonMethod.StreamFromResource(assemb, templateName);
+                if (xamlStream == null)
+                    return null;
+
+                return System.Windows.Markup.XamlReader.Load(xamlStream) as FlowDocument;
+            }
+            catch (System.Exception ex)
+            {
+                ErrorString = ex.Message;
+                return null;
+            }
+            finally
+            {
+                if (xamlStream != null)
+                    xamlStream.Close();
+            }
+        }
+
+        /// <summary>
+        /// 显示光谱图形
+        /// </summary>
+        /// <param name="rootBorder">控件树的根</param>
+        /// <param name="graphicBorderName">图像控件名</param>
+        /// <param name="graphicFile">光谱文件</param>
+        /// <param name="graphicWidth">图像的宽度</param>
+        /// <param name="graphicHeight">图像的高度</param>
+        /// <param name="DPI">图像分辨率</param>
+        public static void ShowSpectrumGraphic(Border rootBorder, string graphicBorderName, string graphicFile, double graphicWidth, double graphicHeight = double.MaxValue, double DPI = double.MaxValue)
+        {
+            Border graphicBorder = rootBorder.FindName(graphicBorderName) as Border;
+            if (graphicBorder != null)
+            {
+                System.Windows.Forms.DataVisualization.Charting.Chart graphicChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+                System.Windows.Forms.DataVisualization.Charting.ChartArea ca = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+                graphicChart.ChartAreas.Add(ca);
+                CommonMethod.DrawSpectrumGraphic(graphicChart, ca, graphicFile, System.Drawing.Color.Black);
+
+                DPI = (DPI == double.MaxValue) ? 96 : DPI;
+                graphicHeight = (graphicHeight == double.MaxValue) ? graphicBorder.Height * DPI / 96 : graphicHeight * DPI / 2.54;
+
+                graphicChart.Width = (int)(graphicWidth * DPI / 2.54);        //1cm = 2.54inch = 96dpi
+                graphicChart.Height = (int)(graphicHeight);
+
+                System.IO.MemoryStream stream = new MemoryStream();
+                graphicChart.SaveImage(stream, System.Drawing.Imaging.ImageFormat.Png);
+
+                var bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = stream;
+                bitmapImage.EndInit();
+
+                Image img = new Image();
+                graphicBorder.Child = img;
+                img.Source = bitmapImage;
+                img.Stretch = System.Windows.Media.Stretch.Uniform;
+            }
+        }
+    }
+
 }

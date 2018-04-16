@@ -203,7 +203,7 @@ namespace Ai.Hong.Common
         /// <param name="assemb">当前调用进程的Assembly</param>
         /// <param name="resourceKey">资源路径</param>
         /// <returns>Binary资源对象</returns>
-        public static object EmbededResourceBinary(Assembly assemb, string resourceKey)
+        public static byte[] EmbededResourceBinary(Assembly assemb, string resourceKey)
         {
             System.IO.Stream binStream = null;
 
@@ -240,7 +240,7 @@ namespace Ai.Hong.Common
         /// <param name="assemb">当前调用进程的Assembly</param>
         /// <param name="resourceKey">资源路径</param>
         /// <returns>Text资源对象</returns>
-        public static object EmbededResourceText(Assembly assemb, string resourceKey)
+        public static string EmbededResourceText(Assembly assemb, string resourceKey)
         {
             System.IO.Stream binStream = null;
 

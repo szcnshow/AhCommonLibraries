@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\
 FTNirInterface
 none
 false
@@ -12,8 +12,8 @@ TRACE
 
 11924057228
 
-5806716206
-141221342064
+5-35871852
+14-1230902140
 WaitDialog\ProcessWaitDialog.xaml;
 
 False

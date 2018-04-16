@@ -715,6 +715,15 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SaveToBitmapFile(System.String,System.Int32,System.Int32,System.Windows.Media.SolidColorBrush)">
+            <summary>
+            保存到图像文件
+            </summary>
+            <param name="filename">图像文件名</param>
+            <param name="width">图像宽度</param>
+            <param name="height">图像高度</param>
+            <param name="backgroundColor">背景颜色</param>
+        </member>
         <member name="M:Ai.Hong.Charts.SpectrumChart.InitializeComponent">
             <summary>
             InitializeComponent
@@ -1191,6 +1200,76 @@
             <summary>
             错误信息
             </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.Common.XPSReportTemplate">
+            <summary>
+            XPS报表模板
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.Common.XPSReportTemplate.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.SaveToXpsFile(System.String,System.Windows.Documents.FixedDocument)">
+            <summary>
+            保存到XPS格式文档
+            </summary>
+            <param name="xpsFilename">XPS文件名</param>
+            <param name="fixedDoc">XPS文档</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.CloneObject``1(``0)">
+            <summary>
+            通过写入和读出Xaml方式克隆一个Object
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.FillTextData(System.Windows.FrameworkElement,System.String,System.String)">
+            <summary>
+            填写TextBlock控件内容
+            </summary>
+            <param name="rootEl">root控件</param>
+            <param name="IdName">TextBlock控件名称</param>
+            <param name="content">填写内容</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.LoadDocumentTemplate(System.Reflection.Assembly,System.String)">
+            <summary>
+            加载打印模版
+            </summary>
+            <param name="templateName">模版文件名</param>
+            <param name="assemb">当前调用进程的Assembly</param>
+            <returns>加载后的FlowDocument</returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.GetBlcokUIContainer(System.Windows.Documents.FlowDocument)">
+            <summary>
+            获取FlowDocument包含的最上层的BlockUIContainer
+            </summary>
+            <param name="document"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.GetElement``1(System.Windows.Documents.BlockUIContainer,System.String)">
+            <summary>
+            获取BlockUIContainer包含的Element
+            </summary>
+            <param name="document"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.CreatePageContent(System.Windows.Controls.Border)">
+            <summary>
+            创建一页报告
+            </summary>
+            <param name="rootBorder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.ShowSpectrumGraphic(System.Windows.Controls.Border,System.String,System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            显示光谱图形
+            </summary>
+            <param name="rootBorder">控件树的根</param>
+            <param name="graphicBorderName">图像控件名</param>
+            <param name="graphicFile">光谱文件</param>
+            <param name="graphicWidth">图像的宽度</param>
+            <param name="graphicHeight">图像的高度</param>
+            <param name="DPI">图像分辨率</param>
         </member>
         <member name="T:Ai.Hong.Controls.ColorPicker">
             <summary>

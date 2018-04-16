@@ -87,6 +87,7 @@
     <Compile Include="CommonMethod.cs" />
     <Compile Include="Extenstions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceOperator.cs" />
     <Compile Include="StaticConverts.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1553,6 +1553,19 @@ namespace Ai.Hong.Charts
         {
             return (from p in graphicFiles select p.key).ToList();
         }
+
+        /// <summary>
+        /// 保存到图像文件
+        /// </summary>
+        /// <param name="filename">图像文件名</param>
+        /// <param name="width">图像宽度</param>
+        /// <param name="height">图像高度</param>
+        /// <param name="backgroundColor">背景颜色</param>
+        public void SaveToBitmapFile(string filename, int width, int height, SolidColorBrush backgroundColor)
+        {
+            spectrumChart.SaveBitmap(filename, width, height, ConvertColor(backgroundColor));
+        }
+
     }
 
 }

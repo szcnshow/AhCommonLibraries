@@ -777,6 +777,91 @@
             <param name="parent">父可视对象</param>
             <returns>第一个指定类型的子可视对象</returns>
         </member>
+        <member name="T:Ai.Hong.Common.ResourceOperator">
+            <summary>
+            资源操作类
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceString(System.Windows.Application,System.String)">
+            <summary>
+            字符串资源
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceBitmap(System.Windows.Application,System.String,System.String)">
+            <summary>
+            图像资源BitmapImage
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <param name="imagePath">图像的根目录</param>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceVector(System.Windows.Application,System.String)">
+            <summary>
+            资源中的DrawingGroup
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceBrush(System.Windows.Application,System.String)">
+            <summary>
+            资源中的Brush
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceSolidBrush(System.Windows.Application,System.String)">
+            <summary>
+            资源中的SolidColorBrush
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceStyle(System.Windows.Application,System.String)">
+            <summary>
+            资源中的Style
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceStream(System.Reflection.Assembly,System.String)">
+            <summary>
+            获取嵌入的资源
+            </summary>
+            <param name="owner">资源的所有者</param>
+            <param name="resourcePath">资源路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceElement(System.Reflection.Assembly,System.String)">
+            <summary>
+            加载Xaml对象
+            </summary>
+            <param name="assemb">当前调用进程的Assembly</param>
+            <param name="resourceKey">资源路径</param>
+            <returns>Xaml资源对象</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceBinary(System.Reflection.Assembly,System.String)">
+            <summary>
+            加载Binary对象
+            </summary>
+            <param name="assemb">当前调用进程的Assembly</param>
+            <param name="resourceKey">资源路径</param>
+            <returns>Binary资源对象</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceText(System.Reflection.Assembly,System.String)">
+            <summary>
+            加载Text对象
+            </summary>
+            <param name="assemb">当前调用进程的Assembly</param>
+            <param name="resourceKey">资源路径</param>
+            <returns>Text资源对象</returns>
+        </member>
         <member name="T:Ai.Hong.Common.Convert.DisableNullConvert">
             <summary>
             Object!=NULL, 返回True, 否则:False

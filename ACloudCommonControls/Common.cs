@@ -9,6 +9,11 @@ using System.Windows.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Xps;
+using System.Windows.Documents;
+using System.Windows.Xps.Serialization;
+using System.IO;
+using System.Reflection;
 
 namespace Ai.Hong.Controls.Common
 {
@@ -521,27 +526,30 @@ namespace Ai.Hong.Controls.Common
 
 
     /// <summary>
-    /// 报表模板
+    /// XPS报表模板
     /// </summary>
-    public static class ReportTemplate
+    public static class XPSReportTemplate
     {
         /// <summary>
         /// 错误信息
         /// </summary>
         public static string ErrorString = null;
 
+        private const double DPCM = 96 / 2.54;      //1cm中的像素点数量
+
         /// <summary>
         /// 保存到XPS格式文档
         /// </summary>
-        /// <param name="xpsFilename"></param>
+        /// <param name="xpsFilename">XPS文件名</param>
+        /// <param name="fixedDoc">XPS文档</param>
         public static bool SaveToXpsFile(string xpsFilename, FixedDocument fixedDoc)
         {
             try
             {
                 //保存到XPS文件
                 DocumentPaginator paginator = fixedDoc.DocumentPaginator;
-                System.Windows.Xps.Packaging.XpsDocument xpsDocument = new System.Windows.Xps.Packaging.XpsDocument(xpsFilename, FileAccess.Write);
-                System.Windows.Xps.XpsDocumentWriter documentWriter = System.Windows.Xps.Packaging.XpsDocument.CreateXpsDocumentWriter(xpsDocument);
+                System.Windows.Xps.Packaging.XpsDocument xpsDocument = new System.Windows.Xps.Packaging.XpsDocument(xpsFilename, System.IO.FileAccess.Write);
+                var documentWriter = System.Windows.Xps.Packaging.XpsDocument.CreateXpsDocumentWriter(xpsDocument);
                 documentWriter.Write(paginator);
                 xpsDocument.Close();
 
@@ -591,26 +599,61 @@ namespace Ai.Hong.Controls.Common
         /// <returns>加载后的FlowDocument</returns>
         public static FlowDocument LoadDocumentTemplate(Assembly assemb, string templateName)
         {
-            Stream xamlStream = null;
+            return Ai.Hong.Common.ResourceOperator.EmbededResourceElement(assemb, templateName) as FlowDocument;
+        }
 
-            try
-            {
-                xamlStream = CommonMethod.StreamFromResource(assemb, templateName);
-                if (xamlStream == null)
-                    return null;
-
-                return System.Windows.Markup.XamlReader.Load(xamlStream) as FlowDocument;
-            }
-            catch (System.Exception ex)
-            {
-                ErrorString = ex.Message;
+        /// <summary>
+        /// 获取FlowDocument包含的最上层的BlockUIContainer
+        /// </summary>
+        /// <param name="document"></param>
+        /// <returns></returns>
+        public static BlockUIContainer GetBlcokUIContainer(FlowDocument document)
+        {
+            if (document == null)
                 return null;
-            }
-            finally
+
+            var enumertor = document.Blocks.GetEnumerator();
+            while(enumertor.MoveNext())
             {
-                if (xamlStream != null)
-                    xamlStream.Close();
+                if (enumertor.Current is BlockUIContainer)
+                    return enumertor.Current as BlockUIContainer;
             }
+
+            return null;
+        }
+
+        /// <summary>
+        /// 获取BlockUIContainer包含的Element
+        /// </summary>
+        /// <param name="document"></param>
+        /// <returns></returns>
+        public static T GetElement<T>(BlockUIContainer blcokContainer, string name)
+        {
+            if (blcokContainer == null)
+                return default(T);
+
+            var el = (T)blcokContainer.FindName(name);
+
+            return el;
+        }
+
+
+        /// <summary>
+        /// 创建一页报告
+        /// </summary>
+        /// <param name="rootBorder"></param>
+        /// <returns></returns>
+        public static PageContent CreatePageContent(Border rootBorder)
+        {
+            PageContent pageContent = new PageContent();
+            FixedPage page = new FixedPage();
+            page.Width = 21 * DPCM;        //A4 Paper: 21cm x 29.7cm
+            page.Height = 29.7 * DPCM;
+
+            //page.ContentBox = new Rect(2 * DPCM, 2 * DPCM, (21 - 4) * DPCM, (29.7 - 4) * DPCM);
+            page.Children.Add(rootBorder);
+            ((System.Windows.Markup.IAddChild)pageContent).AddChild(page);
+            return pageContent;
         }
 
         /// <summary>
@@ -627,29 +670,29 @@ namespace Ai.Hong.Controls.Common
             Border graphicBorder = rootBorder.FindName(graphicBorderName) as Border;
             if (graphicBorder != null)
             {
-                System.Windows.Forms.DataVisualization.Charting.Chart graphicChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-                System.Windows.Forms.DataVisualization.Charting.ChartArea ca = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-                graphicChart.ChartAreas.Add(ca);
-                CommonMethod.DrawSpectrumGraphic(graphicChart, ca, graphicFile, System.Drawing.Color.Black);
+                //System.Windows.Forms.DataVisualization.Charting.Chart graphicChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+                //System.Windows.Forms.DataVisualization.Charting.ChartArea ca = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+                //graphicChart.ChartAreas.Add(ca);
+                //CommonMethod.DrawSpectrumGraphic(graphicChart, ca, graphicFile, System.Drawing.Color.Black);
 
-                DPI = (DPI == double.MaxValue) ? 96 : DPI;
-                graphicHeight = (graphicHeight == double.MaxValue) ? graphicBorder.Height * DPI / 96 : graphicHeight * DPI / 2.54;
+                //DPI = (DPI == double.MaxValue) ? 96 : DPI;
+                //graphicHeight = (graphicHeight == double.MaxValue) ? graphicBorder.Height * DPI / 96 : graphicHeight * DPI / 2.54;
 
-                graphicChart.Width = (int)(graphicWidth * DPI / 2.54);        //1cm = 2.54inch = 96dpi
-                graphicChart.Height = (int)(graphicHeight);
+                //graphicChart.Width = (int)(graphicWidth * DPI / 2.54);        //1cm = 2.54inch = 96dpi
+                //graphicChart.Height = (int)(graphicHeight);
 
-                System.IO.MemoryStream stream = new MemoryStream();
-                graphicChart.SaveImage(stream, System.Drawing.Imaging.ImageFormat.Png);
+                //System.IO.MemoryStream stream = new MemoryStream();
+                //graphicChart.SaveImage(stream, System.Drawing.Imaging.ImageFormat.Png);
 
-                var bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = stream;
-                bitmapImage.EndInit();
+                //var bitmapImage = new BitmapImage();
+                //bitmapImage.BeginInit();
+                //bitmapImage.StreamSource = stream;
+                //bitmapImage.EndInit();
 
-                Image img = new Image();
-                graphicBorder.Child = img;
-                img.Source = bitmapImage;
-                img.Stretch = System.Windows.Media.Stretch.Uniform;
+                //Image img = new Image();
+                //graphicBorder.Child = img;
+                //img.Source = bitmapImage;
+                //img.Stretch = System.Windows.Media.Stretch.Uniform;
             }
         }
     }

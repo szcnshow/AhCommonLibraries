@@ -625,14 +625,15 @@ namespace Ai.Hong.Controls.Common
         /// <summary>
         /// 获取BlockUIContainer包含的Element
         /// </summary>
-        /// <param name="document"></param>
+        /// <param name="parentControl"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
-        public static T GetElement<T>(BlockUIContainer blcokContainer, string name)
+        public static T GetElement<T>(FrameworkElement parentControl, string name)
         {
-            if (blcokContainer == null)
+            if (parentControl == null)
                 return default(T);
 
-            var el = (T)blcokContainer.FindName(name);
+            var el = (T)parentControl.FindName(name);
 
             return el;
         }

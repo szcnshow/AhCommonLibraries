@@ -112,5 +112,7 @@
         <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundUpArrow}" VectorText="RoundUpArrow"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundBoxAdd}" VectorText="RoundBoxAdd"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundRectStart}" VectorText="RoundRectStart"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SingleRightGeometry}" VectorText="SingleRight"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource SingleWrongGeometry}" VectorText="SingleWrong"/>
     </UniformGrid>
 </UserControl>

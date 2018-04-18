@@ -139,8 +139,8 @@ namespace Ai.Hong.Algorithm
             if (foundPos != -1)  // 找到了,还要比较左右看看哪个更接近
             {
                 double x1 = Math.Abs(xData[foundPos] - valueToFind);
-                double x2 = Math.Abs(xData[foundPos - 1] - valueToFind);
-                double x3 = Math.Abs(xData[foundPos + 1] - valueToFind);
+                double x2 = foundPos == 0 ? double.MaxValue :  Math.Abs(xData[foundPos - 1] - valueToFind);
+                double x3 = foundPos == xData.Length ? double.MaxValue : Math.Abs(xData[foundPos + 1] - valueToFind);
 
                 if (x1 < x2 && x1 < x3)
                     return foundPos;

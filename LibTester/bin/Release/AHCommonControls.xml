@@ -1246,11 +1246,12 @@
             <param name="document"></param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.GetElement``1(System.Windows.Documents.BlockUIContainer,System.String)">
+        <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.GetElement``1(System.Windows.FrameworkElement,System.String)">
             <summary>
             获取BlockUIContainer包含的Element
             </summary>
-            <param name="document"></param>
+            <param name="parentControl"></param>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Controls.Common.XPSReportTemplate.CreatePageContent(System.Windows.Controls.Border)">

@@ -445,8 +445,8 @@ namespace Ai.Hong.Algorithm
             }
 
             //查找区间对应的索引
-            int beginIndex = FindNearestPosition(xyDatas[0], 0, xyDatas[0].Length, firstX);
-            int endIndex = FindNearestPosition(xyDatas[0], 0, xyDatas[0].Length, lastX);
+            int beginIndex = FindNearestPosition(xyDatas[0], 0, xyDatas[0].Length-1, firstX);
+            int endIndex = FindNearestPosition(xyDatas[0], 0, xyDatas[0].Length-1, lastX);
             if(beginIndex <0 || endIndex <0 || beginIndex>endIndex || endIndex >=xyDatas[0].Length)
             {
                 ErrorString = "Invalid range parameter";

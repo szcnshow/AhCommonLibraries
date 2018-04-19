@@ -140,7 +140,7 @@ namespace Ai.Hong.Algorithm
             {
                 double x1 = Math.Abs(xData[foundPos] - valueToFind);
                 double x2 = foundPos == 0 ? double.MaxValue :  Math.Abs(xData[foundPos - 1] - valueToFind);
-                double x3 = foundPos == xData.Length ? double.MaxValue : Math.Abs(xData[foundPos + 1] - valueToFind);
+                double x3 = foundPos >= xData.Length-1 ? double.MaxValue : Math.Abs(xData[foundPos + 1] - valueToFind);
 
                 if (x1 < x2 && x1 < x3)
                     return foundPos;

@@ -127,6 +127,7 @@
     <Compile Include="Chart\ChartCommon.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Chart\ChartTracker.cs" />
     <Compile Include="Chart\GraphicOperatePanel.xaml.cs">
       <DependentUpon>GraphicOperatePanel.xaml</DependentUpon>
       <SubType>Code</SubType>

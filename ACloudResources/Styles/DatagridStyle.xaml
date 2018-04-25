@@ -1,0 +1,225 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <!--通用DataGrid Style-->
+    <Style TargetType="DataGrid" x:Key="CommonDataGridStyle">
+        <!--网格线颜色-->
+        <Setter Property="CanUserResizeColumns" Value="false"/>
+        <Setter Property="Background" Value="{DynamicResource CommonGrid_Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CommonGrid_BorderBrush}" />
+        <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource CommonGrid_HorLinesBrush}"/>
+        <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource CommonGrid_VerLinesBrush}"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource CommonDataGridColumnHeaderStyle}"/>
+        <Setter Property="RowStyle" Value="{DynamicResource CommonDataGridRowStyle}"/>
+        <Setter Property="CellStyle" Value="{DynamicResource CommonDataGridCellStyle}"/>
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="HeadersVisibility" Value="Column"/>
+        <Setter Property="FontFamily" Value="{DynamicResource Theme_ContentDatagrid_FontName}"/>
+        <Setter Property="FontSize" Value="{DynamicResource Theme_ContentDatagrid_FontSize}"/>
+    </Style>
+
+    <s:Double x:Key="DataGridColumnHeaderHeight">28</s:Double>
+    <s:Double x:Key="DataGridOperateButtonHeight">30</s:Double>
+    <s:Double x:Key="ExpanderHeaderHeight">26</s:Double>
+
+    <!--通用DataGrid Header Style-->
+    <Style TargetType="DataGridColumnHeader" x:Key="CommonDataGridColumnHeaderStyle">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="{StaticResource DataGridColumnHeaderHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommonGridHeader_Foreground}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridColumnHeader">
+                    <!--"0,1,0,1" -->
+                    <Border x:Name="BackgroundBorder" BorderThickness="0,0,1,0" Background="{DynamicResource CommonGridHeader_Background}"
+                             BorderBrush="{DynamicResource CommonGridHeader_BorderBrush}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Path x:Name="SortArrow" Visibility="Collapsed" Data="M0,0 L1,0 0.5,1 z" Stretch="Fill"  
+                                    Grid.Column="0" Width="8" Height="6" Fill="White" Margin="3,0"
+                                    VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" />
+                            <!--Rectangle Fill="{DynamicResource CommonHeader_Background}" HorizontalAlignment="Right" Grid.ColumnSpan="2" /-->
+                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3,0"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="SortDirection" Value="Ascending">
+                            <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="SortArrow" Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="SortDirection" Value="Descending">
+                            <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Height" Value="25"/>
+    </Style>
+    
+    <!--行样式触发-->
+    <!--背景色改变必须先设置cellStyle 因为cellStyle会覆盖rowStyle样式-->
+    <Style  TargetType="DataGridRow" x:Key="CommonDataGridRowStyle">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Foreground" Value="{DynamicResource CommonGrid_Foreground}" />
+        <Style.Triggers>
+            <!--隔行换色-->
+            <Trigger Property="AlternationIndex" Value="0" >
+                <Setter Property="Background" Value="{DynamicResource CommonGridRow_OddBackground}" />
+            </Trigger>
+            <Trigger Property="AlternationIndex" Value="1" >
+                <Setter Property="Background" Value="{DynamicResource CommonGridRow_EnvBackground}" />
+            </Trigger>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightGray"/>
+            </Trigger>
+
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource CommonGridRow_HighLight}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--单元格样式触发-->
+    <Style TargetType="DataGridCell" x:Key="CommonDataGridCellStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridCell">
+                    <ContentPresenter VerticalAlignment="Center"  />
+                    <!--TextBlock VerticalAlignment="Center"  >
+                    </TextBlock-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    
+    <!--详细信息显示 DataGrid Style-->
+    <Style TargetType="DataGrid" x:Key="queryResultDataGridStyle">
+        <!--网格线颜色-->
+        <Setter Property="CanUserResizeColumns" Value="false"/>
+        <Setter Property="Background" Value="{DynamicResource queryResultGrid_Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource queryResultGrid_BorderBrush}" />
+        <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource queryResultGrid_HorLinesBrush}"/>
+        <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource queryResultGrid_VerLinesBrush}"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource queryResultDataGridColumnHeaderStyle}"/>
+        <Setter Property="RowStyle" Value="{DynamicResource queryResultDataGridRowStyle}"/>
+        <Setter Property="CellStyle" Value="{DynamicResource qeuryResultDataGridCellStyle}"/>
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="HeadersVisibility" Value="Column"/>
+    </Style>
+
+    <!--详细信息显示DataGrid Header Style-->
+    <Style TargetType="DataGridColumnHeader" x:Key="queryResultDataGridColumnHeaderStyle">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="{StaticResource DataGridColumnHeaderHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource queryResultGridHeader_Foreground}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridColumnHeader">
+                    <!--"0,1,0,1" -->
+                    <Border x:Name="BackgroundBorder" BorderThickness="0,0,1,0" Background="{DynamicResource queryResultGridHeader_Background}"
+                             BorderBrush="{DynamicResource queryResultGridHeader_BorderBrush}">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Path x:Name="SortArrow" Visibility="Collapsed" Data="M0,0 L1,0 0.5,1 z" Stretch="Fill"  
+                                    Grid.Column="0" Width="8" Height="6" Fill="White" Margin="3,0"
+                                    VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" />
+                            <!--Rectangle Fill="{DynamicResource CommonHeader_Background}" HorizontalAlignment="Right" Grid.ColumnSpan="2" /-->
+                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3,0"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="SortDirection" Value="Ascending">
+                            <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="SortArrow" Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="SortDirection" Value="Descending">
+                            <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Height" Value="25"/>
+    </Style>
+
+    <!--详细信息显示DataGrid 行样式触发-->
+    <!--背景色改变必须先设置cellStyle 因为cellStyle会覆盖rowStyle样式-->
+    <Style  TargetType="DataGridRow" x:Key="queryResultDataGridRowStyle">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Foreground" Value="{DynamicResource queryResultGrid_Foreground}" />
+        <Style.Triggers>
+            <!--隔行换色-->
+            <Trigger Property="AlternationIndex" Value="0" >
+                <Setter Property="Background" Value="{DynamicResource queryResultGridRow_OddBackground}" />
+            </Trigger>
+            <Trigger Property="AlternationIndex" Value="1" >
+                <Setter Property="Background" Value="{DynamicResource queryResultGridRow_EnvBackground}" />
+            </Trigger>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightGray"/>
+            </Trigger>
+
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource queryResultGridRow_HighLight}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--详细信息显示 单元格样式触发-->
+    <Style TargetType="DataGridCell" x:Key="qeuryResultDataGridCellStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridCell">
+                    <ContentPresenter VerticalAlignment="Center"  />
+                    <!--TextBlock VerticalAlignment="Center"  >
+                    </TextBlock-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

@@ -14,7 +14,14 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ctrl:GraphicOperatePanel Orientation="Horizontal"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="panelOperate" ButtonSize="24" Foreground="Black"  MouseOnColor="Aqua" CheckedColor="Bisque"/>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <btn:FileOperatePanel Orientation="Horizontal" />
+            <ctrl:GraphicOperatePanel Grid.Column="1" Orientation="Horizontal"  Grid.Row="0" x:Name="panelOperate" ButtonSize="24" Foreground="Black"  MouseOnColor="Aqua" CheckedColor="Bisque"/>
+        </Grid>
         <btn:SelectColorList x:Name="fileList" Grid.Row="1" Grid.Column="0" />
         <ctrl:SpectrumChart Grid.Row="1" Grid.Column="1" x:Name="graphicCtrl"/>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Height="30" Margin="10,5">

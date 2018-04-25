@@ -1,0 +1,1077 @@
+﻿<ResourceDictionary x:Class="Ai.Hong.CommonResources.Styles.WindowStyle"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:y="clr-namespace:System.Windows;assembly=PresentationFramework"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:Ai.Hong.CommonResources.Styles"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <local:BrushToColorConverter x:Key="colorConvert"/>
+    
+    <Style x:Key="Window" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <!--<Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="300"/>-->
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="FontFamily" Value="Consolas,Microsoft YaHei UI"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">                    
+                    <Border x:Name="WindowGrid" CornerRadius="10" Background="{TemplateBinding Background}" Margin="10" ClipToBounds="False">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.6" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Grid>
+                        <Grid ClipToBounds="True">
+                            <Grid Margin="0,30,0,0">
+                                <AdornerDecorator>
+                                    <ContentPresenter/>
+                                </AdornerDecorator>
+                            </Grid>
+                            <Grid Background="#0C000000"  MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                                <Rectangle HorizontalAlignment="Stretch" Height="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1" Opacity="0.1" Fill="Black"/>
+                                <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="{TemplateBinding Title}" VerticalAlignment="Center" Width="Auto" Margin="10,0,0,0" Foreground="{TemplateBinding Foreground}" FontSize="14" Opacity="0.8"/>
+                                <WrapPanel HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" >
+                                        <Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                    <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>
+                                </WrapPanel>
+                            </Grid>
+                        </Grid>
+                        <Border BorderBrush="{TemplateBinding Foreground}" Opacity="0.06" BorderThickness="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="Effect" TargetName="WindowGrid">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="8" Direction="-90" Opacity="0.2" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Margin" TargetName="WindowGrid" Value="0"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Minimized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="WindowNoButton" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <!--<Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="300"/>-->
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="FontFamily" Value="Consolas,Microsoft YaHei UI"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border x:Name="WindowGrid" CornerRadius="10" Background="{TemplateBinding Background}" Margin="10" ClipToBounds="False">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.6" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid ClipToBounds="True">
+                                <Grid Margin="0,30,0,0">
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </Grid>
+                                <Grid Background="#0C000000"  MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                                    <Rectangle HorizontalAlignment="Stretch" Height="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1" Opacity="0.1" Fill="Black"/>
+                                    <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="{TemplateBinding Title}" VerticalAlignment="Center" Width="Auto" Margin="10,0,0,0" Foreground="{TemplateBinding Foreground}" FontSize="14" Opacity="0.8"/>
+                                    <WrapPanel HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" Background="#00000000">
+                                        <!--<Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>-->
+                                    </WrapPanel>
+                                </Grid>
+                            </Grid>
+                            <Border BorderBrush="{TemplateBinding Foreground}" Opacity="0.06" BorderThickness="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="Effect" TargetName="WindowGrid">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="8" Direction="-90" Opacity="0.2" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Margin" TargetName="WindowGrid" Value="0"/>
+                            <!--<Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Minimized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="WindowCloseButton" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <!--<Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="300"/>-->
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <!--
+        <Setter Property="FontFamily" Value="Consolas,Microsoft YaHei UI"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="FontSize" Value="14"/>
+        -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border x:Name="WindowGrid" CornerRadius="10" Background="{TemplateBinding Background}" Margin="10" ClipToBounds="False">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.6" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid ClipToBounds="True">
+                                <Grid Margin="0,30,0,0">
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </Grid>
+                                <Grid Background="#0C000000"  MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                                    <Rectangle HorizontalAlignment="Stretch" Height="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1" Opacity="0.1" Fill="Black"/>
+                                    <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="{TemplateBinding Title}" VerticalAlignment="Center" Width="Auto" Margin="10,0,0,0" Foreground="{TemplateBinding Foreground}" FontSize="14" Opacity="0.8"/>
+                                    <WrapPanel HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" Background="#00000000">
+                                        <!--<Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>-->
+                                        <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>
+                                    </WrapPanel>
+                                </Grid>
+                            </Grid>
+                            <Border BorderBrush="{TemplateBinding Foreground}" Opacity="0.06" BorderThickness="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="Effect" TargetName="WindowGrid">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="8" Direction="-90" Opacity="0.2" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Margin" TargetName="WindowGrid" Value="0"/>
+                            <!--<Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Minimized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Button_Window_Maximized" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid1" Background="#00000000">
+                        <y:VisualStateManager.VisualStateGroups>
+                            <y:VisualStateGroup x:Name="CommonStates">
+                                <y:VisualStateGroup.Transitions>
+                                    <y:VisualTransition GeneratedDuration="0:0:0.15"/>
+                                </y:VisualStateGroup.Transitions>
+                                <y:VisualState x:Name="Normal"/>
+                                <y:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="grid">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Disabled"/>
+                            </y:VisualStateGroup>
+                        </y:VisualStateManager.VisualStateGroups>
+                        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid x:Name="grid" Height="Auto" Width="Auto" VerticalAlignment="Stretch" Canvas.Left="0" Canvas.Top="0" Margin="-6,-6,0,0">
+                                <Rectangle x:Name="rectangle" Fill="{x:Null}" HorizontalAlignment="Center" Height="12" VerticalAlignment="Center" Width="12" 
+                                           Stroke="{DynamicResource WindowTitleButton_Foreground}" Opacity="0.6"/>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Setter Property="MaxWidth" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Button_Window_Close" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid" Background="#00000000">
+                        <y:VisualStateManager.VisualStateGroups>
+                            <y:VisualStateGroup x:Name="CommonStates">
+                                <y:VisualStateGroup.Transitions>
+                                    <y:VisualTransition GeneratedDuration="0:0:0.15"/>
+                                </y:VisualStateGroup.Transitions>
+                                <y:VisualState x:Name="Normal"/>
+                                <y:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
+                                            <EasingColorKeyFrame KeyTime="0" Value="#50FF0000"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid">
+                                            <EasingColorKeyFrame KeyTime="0" Value="Red"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="grid1">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Disabled"/>
+                            </y:VisualStateGroup>
+                        </y:VisualStateManager.VisualStateGroups>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid x:Name="grid1" RenderTransformOrigin="0.5,0.5" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-8,-8,0,0" Canvas.Left="0" Canvas.Top="0">
+                                <Grid.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="45"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Grid.RenderTransform>
+                                <Rectangle x:Name="rectangle" Fill="{DynamicResource WindowTitleButton_Foreground}" HorizontalAlignment="Center" Height="1" VerticalAlignment="Center" Width="16" Opacity="0.6"/>
+                                <Rectangle x:Name="rectangle1" Fill="{DynamicResource WindowTitleButton_Foreground}" HorizontalAlignment="Center" Height="16" VerticalAlignment="Center" Width="1" Opacity="0.6"/>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Button_Window_Minimized" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid1" Background="#00000000">
+                        <y:VisualStateManager.VisualStateGroups>
+                            <y:VisualStateGroup x:Name="CommonStates">
+                                <y:VisualStateGroup.Transitions>
+                                    <y:VisualTransition GeneratedDuration="0:0:0.15"/>
+                                </y:VisualStateGroup.Transitions>
+                                <y:VisualState x:Name="Normal"/>
+                                <y:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="grid">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Disabled"/>
+                            </y:VisualStateGroup>
+                        </y:VisualStateManager.VisualStateGroups>
+                        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0">
+                            <Grid x:Name="grid" Height="Auto" Width="Auto" Margin="-7,-3,0,0" Canvas.Left="0" Canvas.Top="0">
+                                <Rectangle x:Name="rectangle" Fill="{DynamicResource WindowTitleButton_Foreground}" 
+                                           HorizontalAlignment="Center" Height="1" VerticalAlignment="Center" Width="14" Margin="0,5,0,0" Opacity="0.6"/>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Setter Property="MaxWidth" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Button_Window_Normal" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid1" Background="#00000000">
+                        <y:VisualStateManager.VisualStateGroups>
+                            <y:VisualStateGroup x:Name="CommonStates">
+                                <y:VisualStateGroup.Transitions>
+                                    <y:VisualTransition GeneratedDuration="0:0:0.15"/>
+                                </y:VisualStateGroup.Transitions>
+                                <y:VisualState x:Name="Normal"/>
+                                <y:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="grid">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Disabled"/>
+                            </y:VisualStateGroup>
+                        </y:VisualStateManager.VisualStateGroups>
+                        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="0" Canvas.Top="0" Margin="-6,-6,0,0">
+                                <Rectangle x:Name="rectangle" Fill="{x:Null}" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10" 
+                                           Stroke="{DynamicResource WindowTitleButton_Foreground}" Margin="0,3,3,0" Opacity="0.6"/>
+                                <Grid Margin="3,0,0,3" Width="10" Height="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Rectangle Fill="{DynamicResource WindowTitleButton_Foreground}" HorizontalAlignment="Left" Height="3" Stroke="{x:Null}" VerticalAlignment="Top" Width="1" Opacity="0.6"/>
+                                    <Rectangle Fill="{DynamicResource WindowTitleButton_Foreground}" HorizontalAlignment="Left" Height="1" Stroke="{x:Null}" VerticalAlignment="Top" Width="9" Margin="1,0,0,0" Opacity="0.6"/>
+                                    <Rectangle Fill="{DynamicResource WindowTitleButton_Foreground}" HorizontalAlignment="Right" Height="8" Stroke="{x:Null}" VerticalAlignment="Top" Width="1" Margin="0,1,0,0" Opacity="0.6"/>
+                                    <Rectangle Fill="{DynamicResource WindowTitleButton_Foreground}" HorizontalAlignment="Right" Height="1" Stroke="{x:Null}" VerticalAlignment="Bottom" Width="3" Margin="0" Opacity="0.6"/>
+                                </Grid>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Setter Property="MaxWidth" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Button_Window_Skin" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid1" Background="#00000000">
+                        <y:VisualStateManager.VisualStateGroups>
+                            <y:VisualStateGroup x:Name="CommonStates">
+                                <y:VisualStateGroup.Transitions>
+                                    <y:VisualTransition GeneratedDuration="0:0:0.15"/>
+                                </y:VisualStateGroup.Transitions>
+                                <y:VisualState x:Name="Normal"/>
+                                <y:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="grid">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Disabled"/>
+                            </y:VisualStateGroup>
+                        </y:VisualStateManager.VisualStateGroups>
+                        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="0" Canvas.Top="0" Margin="-6,-6,0,0">
+                                <Path x:Name="Path_Close" Stroke="{DynamicResource WindowTitleButton_Foreground}" StrokeThickness="0.6" Height="16" Width="16" Canvas.Top="0" 
+                                      Data="M -2.98023e-008,3.12461L 3.15586,0.0156231L 5.93676,0.0156231L 5.93676,2.90589L 7.96775,2.90589L 7.96775,0L 10.6862,0L 13.967,3.12461L 13.967,4.99937L 13.0296,4.99937L 13.0296,6.06174L 10.9361,6.06174L 10.9361,11.9675L 2.93713,11.9675L 2.93713,6.12423L 0.968629,6.12423L 0.968629,4.96813L 0.0312458,4.98375L -2.98023e-008,3.12461 Z "/>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Setter Property="MaxWidth" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Button_Window_Setup" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid1" Background="#00000000">
+                        <y:VisualStateManager.VisualStateGroups>
+                            <y:VisualStateGroup x:Name="CommonStates">
+                                <y:VisualStateGroup.Transitions>
+                                    <y:VisualTransition GeneratedDuration="0:0:0.15"/>
+                                </y:VisualStateGroup.Transitions>
+                                <y:VisualState x:Name="Normal"/>
+                                <y:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid1">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource  WindowTitleButton_SelectedColor}, Converter={StaticResource colorConvert}}"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="grid">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="-6"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </y:VisualState>
+                                <y:VisualState x:Name="Disabled"/>
+                            </y:VisualStateGroup>
+                        </y:VisualStateManager.VisualStateGroups>
+                        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="-8" Height="16" Width="16" Canvas.Top="-8" >
+                                <Path x:Name="Path_Setup" Stroke="{DynamicResource WindowTitleButton_Foreground}" StrokeThickness="0.6" Height="16" Width="16"
+                                      Data="F1 M 15.8451,6.29997C 15.8518,6.32607 16.0103,6.95331 16.0103,7.99873C 16.0101,9.04451 15.8518,9.67141 15.8451,9.69751C 15.784,9.93468 15.5848,10.1107 15.3419,10.1424L 14.0293,10.3141
+                                      L 13.9838,10.4345L 13.9632,10.485L 13.9034,10.6182L 14.7101,11.6666C 14.8594,11.8606 14.8755,12.1262 14.751,12.337C 14.7372,12.3601 14.4053,12.9154 13.6659,13.6547C 12.9257,14.3937 12.3702,14.7252 12.3468,14.739
+                                      C 12.1362,14.8637 11.8704,14.8477 11.6759,14.6981L 10.6268,13.8922L 10.5098,13.9451L 10.4552,13.9679L 10.3223,14.018L 10.1507,15.3297C 10.1189,15.5723 9.94261,15.7713 9.70541,15.8325C 9.67914,15.8392 9.05138,15.9975 8.00533,15.9975
+                                      C 6.95892,15.9975 6.3315,15.8392 6.30522,15.8325C 6.06802,15.7713 5.89158,15.5723 5.85979,15.3297L 5.68801,14.018L 5.56767,13.9725L 5.5171,13.9521L 5.38368,13.8922L 4.33443,14.6981C 4.14026,14.8473 3.87477,14.8637 3.66401,14.7393
+                                      C 3.64074,14.7256 3.08431,14.3944 2.3444,13.6547C 1.60501,12.9154 1.27305,12.3601 1.25934,12.337C 1.13478,12.1262 1.15085,11.8606 1.30034,11.6666L 2.10704,10.6182L 2.05414,10.5014L 1.98098,10.3141L 0.668585,10.1424
+                                      C 0.425852,10.1107 0.226659,9.93468 0.165368,9.69784C 0.158686,9.67141 0,9.04451 0,7.99873C 0.000162125,6.95331 0.158686,6.32607 0.165368,6.29997C 0.226481,6.0628 0.42569,5.88682 0.668585,5.85505L 1.98098,5.68342L 2.02685,5.56265
+                                      L 2.10704,5.37933L 1.30034,4.33124C 1.15102,4.13686 1.13478,3.87158 1.25934,3.66081C 1.27305,3.6374 1.60484,3.08206 2.3444,2.34276C 3.08481,1.60343 3.64057,1.27192 3.66383,1.2582C 3.87459,1.13408 4.14026,1.14981 4.33443,1.29901L 5.38386,2.10523
+                                      L 5.50088,2.05237L 5.68801,1.97944L 5.85961,0.667739C 5.8914,0.425201 6.06769,0.226145 6.30488,0.164926C 6.33118,0.158243 6.95892,6.3586e-007 8.00533,6.3586e-007C 9.05138,6.3586e-007 9.67914,0.158243 9.70541,0.164926
+                                      C 9.94261,0.226145 10.1189,0.425201 10.1507,0.667739L 10.3223,1.97944L 10.4423,2.02462L 10.4914,2.04434L 10.6268,2.10523L 11.676,1.29934C 11.8702,1.14981 12.1355,1.13373 12.3466,1.2582C 12.3699,1.27192 12.926,1.60343 13.6657,2.34243
+                                      C 14.4055,3.08206 14.7372,3.6374 14.751,3.66081C 14.8755,3.87158 14.8593,4.13686 14.7099,4.33089L 13.9034,5.37933L 13.9563,5.49641L 13.9786,5.54962L 14.0293,5.68342L 15.3419,5.85505C 15.5848,5.88682 15.784,6.0628 15.8451,6.29997 Z "/>
+                                <Ellipse x:Name="Ellipse" Stroke="{DynamicResource WindowTitleButton_Foreground}" StrokeThickness="0.6" Width="6.21875" Height="6.21875" Canvas.Left="4.91144" Canvas.Top="4.60945" Stretch="Fill"/>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Setter Property="MaxWidth" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WindowNone" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <!--<Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="300"/>-->
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="FontFamily" Value="Consolas,Microsoft YaHei UI"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border x:Name="WindowGrid" CornerRadius="10" Background="{TemplateBinding Background}" Margin="0" ClipToBounds="False">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.6" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid ClipToBounds="True">
+                                <Grid Margin="0,0,0,0">
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </Grid>
+                            </Grid>
+                            <Border BorderBrush="{TemplateBinding Foreground}" Opacity="0.06" BorderThickness="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="Effect" TargetName="WindowGrid">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="8" Direction="-90" Opacity="0.2" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Margin" TargetName="WindowGrid" Value="0"/>
+                            <!--<Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Minimized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WindowCloseButtonWithSetting" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <!--<Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="300"/>-->
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="FontFamily" Value="Consolas,Microsoft YaHei UI"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border x:Name="WindowGrid" CornerRadius="10" Background="{TemplateBinding Background}" Margin="10" ClipToBounds="False">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.6" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid ClipToBounds="True">
+                                <Grid Margin="0,30,0,0">
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </Grid>
+                                <Grid Background="#0C000000"  MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                                    <Rectangle HorizontalAlignment="Stretch" Height="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1" Opacity="0.1" Fill="Black"/>
+                                    <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="{TemplateBinding Title}" VerticalAlignment="Center" Width="Auto" Margin="10,0,0,0" Foreground="{TemplateBinding Foreground}" FontSize="14" Opacity="0.8"/>
+                                    <WrapPanel HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" Background="#00000000">
+                                        <!--<Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>-->
+                                        <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>
+                                    </WrapPanel>
+                                </Grid>
+                            </Grid>
+                            <Border BorderBrush="{TemplateBinding Foreground}" Opacity="0.06" BorderThickness="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="Effect" TargetName="WindowGrid">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="8" Direction="-90" Opacity="0.2" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Margin" TargetName="WindowGrid" Value="0"/>
+                            <!--<Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Minimized" Value="False"/>-->
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <!--<Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>-->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WindowAllButton" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <!--Setter Property="FontFamily" Value="Consolas,Microsoft YaHei UI"/-->
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border x:Name="WindowGrid" CornerRadius="10" Background="{TemplateBinding Background}" Margin="10" ClipToBounds="False">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.6" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid ClipToBounds="True">
+                                <Grid Margin="0,30,0,0">
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </Grid>
+                                <Grid Background="#0C000000" Name="titlebarGrid" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                                    <Rectangle HorizontalAlignment="Stretch" Height="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1" Opacity="0.1" Fill="Black"/>
+                                    <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="{TemplateBinding Title}" VerticalAlignment="Center" Width="Auto" Margin="10,0,0,0" Foreground="{TemplateBinding Foreground}" FontSize="14" Opacity="0.8"/>
+                                    <WrapPanel Name="titlebuttonWarpPanel" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" Background="#00000000">
+                                        <Button x:Name="SkinSetup" Height="30" Width="40" Style="{DynamicResource Button_Window_Skin}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="SystemSetup" Height="30" Width="40" Style="{DynamicResource Button_Window_Setup}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>
+                                    </WrapPanel>
+                                </Grid>
+                            </Grid>
+                            <Border BorderBrush="{TemplateBinding Foreground}" Opacity="0.06" BorderThickness="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="Effect" TargetName="WindowGrid">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="8" Direction="-90" Opacity="0.2" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Margin" TargetName="WindowGrid" Value="0"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Minimized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="WindowAllButtonNoneBordertemptemp" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="AllowsTransparency" Value="False"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <!--
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="FontFamily" Value="Consolas,Microsoft YaHei UI"/>
+        -->
+        
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border x:Name="WindowGrid" CornerRadius="10" Background="{TemplateBinding Background}" Margin="0" ClipToBounds="False">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.6" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid ClipToBounds="True">
+                                <Grid Name="windowContentGrid">
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </Grid>
+                                <!--标题条和窗口按钮-->
+                                <Grid Name="titlebarGrid" Background="#01FFFFFF" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <!--避开左边的菜单工具条-->
+                                    <Border Grid.Row="0" Name="titleEmptyBorder"/>
+                                    
+                                    <!--标题条的操作面板名称-->
+                                    <Border Grid.Column="1" Name="titleContentBar" Background="{DynamicResource MainWindow_TitleBarBackground}" 
+                                            Height="Auto" Width="Auto" Visibility="Collapsed">
+                                        <TextBlock Name="titleContentText" Foreground="{DynamicResource MainWindow_TitleBarForeground}" FontSize="12pt"
+                                                   HorizontalAlignment="Center" Height="Auto" TextWrapping="NoWrap" VerticalAlignment="Center" />
+                                    </Border>
+                                    <!--标题条的内容关闭按钮-->
+                                    <Button Grid.Column="1" x:Name="titleContentCloseButton" Height="20" Width="25" Style="{DynamicResource Button_Window_Close}" 
+                                            Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed"/>
+                                    
+                                    <WrapPanel Grid.Column="1" Name="titlebuttonWarpPanel" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" Background="#00000000">
+                                        <Button x:Name="SkinSetup" Height="30" Width="40" Style="{DynamicResource Button_Window_Skin}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="SystemSetup" Height="30" Width="40" Style="{DynamicResource Button_Window_Setup}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>
+                                        <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>
+                                    </WrapPanel>
+                                </Grid>
+                                <!--尺寸调整区域-->
+                                <Grid x:Name ="PART_ResizerContainers" Visibility ="Hidden">
+                                    <Grid.Resources >
+                                        <s:Double x:Key ="StraightResizerSize">8</s:Double >
+                                        <s:Double x:Key ="SlantResizerSize">16</s:Double >
+                                        <Style TargetType ="{ x:Type Thumb }">
+                                            <Setter Property ="Template">
+                                                <Setter.Value >
+                                                    <ControlTemplate >
+                                                        <Rectangle Fill ="Transparent"/>
+                                                    </ControlTemplate >
+                                                </Setter.Value >
+                                            </Setter >
+                                        </Style >
+                                    </Grid.Resources >
+                                    <Thumb Width ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Stretch" HorizontalAlignment="Left" 
+                                           Cursor ="SizeWE"  x:Name ="PART_LeftResizer" DragDelta="ResizeLeft"/>
+                                    <Thumb Height ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Top" HorizontalAlignment="Stretch"
+                                           Cursor ="SizeNS"  x:Name ="PART_TopResizer" DragDelta="ResizeTop"/>
+                                    <Thumb Width ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Stretch" HorizontalAlignment="Right"
+                                           Cursor ="SizeWE" x:Name ="PART_RightResizer" DragDelta="ResizeRight"/>
+                                    <Thumb Height ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Bottom" HorizontalAlignment="Stretch"
+                                           Cursor ="SizeNS"  x:Name ="PART_BottomResizer" DragDelta="ResizeBottom"/>
+
+                                    <!--
+                                    <ResizeGrip Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                                        HorizontalAlignment ="Right" VerticalAlignment ="Bottom" Visibility ="{ Binding RelativeSource ={ x:Static RelativeSource.TemplatedParent}, Path =ShowResizeGrip, Converter ={ StaticResource BoolToVisibilityConverter }}"/>
+                                    -->
+                                    <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                                    HorizontalAlignment ="Right" VerticalAlignment ="Bottom" 
+                                    Cursor ="SizeNWSE"  x:Name ="PART_BottomRightResizer" DragDelta="ResizeBottomRight"/>
+                                    <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                                    HorizontalAlignment ="Right" VerticalAlignment ="Top" 
+                                    Cursor ="SizeNESW"  x:Name ="PART_TopRightResizer" DragDelta="ResizeTopRight"/>
+                                    <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }"
+                                    HorizontalAlignment ="Left" VerticalAlignment ="Top"
+                                    Cursor ="SizeNWSE"  x:Name ="PART_TopLeftResizer" DragDelta="ResizeTopLeft"/>
+                                    <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                                    HorizontalAlignment ="Left" VerticalAlignment ="Bottom"
+                                    Cursor ="SizeNESW"  x:Name ="PART_BottomLeftResizer" DragDelta="ResizeBottomLeft"/>
+                                </Grid >
+
+                            </Grid>                            
+                            <Border BorderBrush="{TemplateBinding Foreground}" Opacity="0.06" BorderThickness="1"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="Effect" TargetName="WindowGrid">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="8" Direction="-90" Opacity="0.2" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Margin" TargetName="WindowGrid" Value="0"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                        </Trigger>
+                        <!--
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Minimized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                        -->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MainWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="AllowsTransparency" Value="False"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Grid>
+                        <Grid Name="windowContentGrid">
+                            <AdornerDecorator>
+                                <ContentPresenter/>
+                            </AdornerDecorator>
+                        </Grid>
+                        <!--标题条和窗口按钮-->
+                        <Grid Name="titlebarGrid" Background="#01FFFFFF" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.ColumnSpan="2" Background="WhiteSmoke"/>
+                            
+                            <!--避开左边的菜单工具条-->
+                            <StackPanel Orientation="Horizontal"> <!--ACloud标志-->
+                                <Image Height="16" Margin="10,0,0,0" >
+                                    <Image.Source>
+                                        <DrawingImage>
+                                            <DrawingImage.Drawing>
+                                                <DrawingGroup>
+                                                    <DrawingGroup.Children>
+                                                        <GeometryDrawing Brush="#FF848484" Geometry="M 24.0163,17.997L 20.2564,17.997C 19.8423,17.997 19.5063,17.6614 19.5063,17.2478C 19.5063,16.8341 19.8423,16.4985 20.2564,16.4985L 24.0163,16.4985C 26.4934,16.4985 28.5085,14.4859 28.5085,12.0119C 28.5085,9.53777 26.4934,7.52524 24.0163,7.52524C 23.4882,7.52524 22.9721,7.61513 22.4815,7.79349C 22.1544,7.91184 21.7883,7.79045 21.5978,7.49978C 21.4072,7.20903 21.4417,6.82544 21.6818,6.57369C 22.2144,6.01471 22.507,5.28194 22.507,4.5102C 22.507,2.85732 21.1611,1.5131 19.5063,1.5131C 18.543,1.5131 17.6623,1.95816 17.0906,2.73293C 16.7471,3.19745 16.5475,3.74744 16.5115,4.32289C 16.492,4.64052 16.2729,4.91177 15.9654,4.99869C 15.6578,5.08562 15.3307,4.96727 15.1477,4.70652L 15.1401,4.69598C 14.9796,4.46821 14.8011,4.24346 14.6136,4.03364C 13.1897,2.43318 11.1447,1.5146 9.00216,1.5146C 4.86568,1.5146 1.50033,4.8758 1.50033,9.00732C 1.50033,13.1388 4.86568,16.5 9.00216,16.5L 11.2527,16.5C 11.6668,16.5 12.0029,16.8356 12.0029,17.2493C 12.0029,17.6629 11.6668,17.9985 11.2527,17.9985L 9.00216,17.9985C 4.03897,17.9985 6.42768e-007,13.9644 6.42768e-007,9.00732C 6.42768e-007,4.05015 4.03897,0.0160599 9.00216,0.0160599C 11.4073,0.0160599 13.7088,0.979609 15.3953,2.676C 15.5258,2.38379 15.6893,2.10505 15.8814,1.8443C 16.7275,0.699438 18.0824,0.0160599 19.5048,0.0160599C 21.9864,0.0160599 24.0058,2.03312 24.0058,4.51167C 24.0058,5.03769 23.9143,5.55168 23.7418,6.03571C 23.8333,6.03121 23.9248,6.02971 24.0163,6.02971C 27.3202,6.02971 30.0088,8.71507 30.0088,12.0149C 30.0088,15.3146 27.3202,18 24.0163,18L 24.0163,17.997 Z "/>
+                                                        <GeometryDrawing Brush="#FF848484" Geometry="F1 M 13.2804,6.12349C 13.7347,6.03912 14.1771,6.01147 14.6074,6.04053C 15.0378,6.06959 15.4609,6.1547 15.8768,6.29586C 16.0786,6.36435 16.2808,6.44863 16.4833,6.54872C 16.6858,6.6488 16.8855,6.76055 17.0824,6.88396C 17.16,6.86746 17.2377,6.86059 17.3156,6.86333C 17.3936,6.86607 17.4668,6.87909 17.5355,6.90239C 17.5698,6.91403 17.6269,6.94642 17.7068,6.99954C 17.7868,7.05267 17.8528,7.08808 17.905,7.10579C 17.9434,7.11883 17.9911,7.1293 18.0482,7.13718C 18.1052,7.14507 18.1896,7.15346 18.3015,7.16235L 18.1963,7.26202L 18.3085,7.31041C 18.3504,7.32691 18.4104,7.34844 18.4886,7.37499C 18.5573,7.39829 18.64,7.42178 18.7368,7.44547C 18.8337,7.46915 18.9833,7.50082 19.1857,7.54046L 18.7761,7.26608L 18.9922,7.22475C 18.7622,7.12679 18.5609,7.03209 18.3884,6.94065C 18.2158,6.84921 18.067,6.75551 17.942,6.65953L 18.0542,6.62653L 17.8998,6.57412C 17.8312,6.55082 17.7318,6.50869 17.6017,6.44772C 17.4717,6.38675 17.2807,6.28982 17.0289,6.15694C 17.1977,6.13777 17.3418,6.12933 17.4612,6.13163C 17.5806,6.13393 17.6788,6.14812 17.7557,6.17421C 17.7982,6.18865 17.8547,6.21508 17.9251,6.2535C 17.9954,6.29191 18.0478,6.31694 18.0821,6.32859C 18.1425,6.34909 18.2218,6.35917 18.3199,6.35882C 18.418,6.35847 18.4842,6.36413 18.5185,6.37577C 18.5748,6.39487 18.6438,6.45652 18.7255,6.56071C 18.8072,6.6649 18.8823,6.72865 18.951,6.75194C 19.0278,6.77803 19.2438,6.80699 19.599,6.83882C 19.9541,6.87064 20.2628,6.93105 20.525,7.02003C 20.5936,7.04333 20.6844,7.07912 20.7973,7.12739C 20.9103,7.17567 21.1092,7.26498 21.3941,7.3953L 20.9977,7.44658L 21.113,7.48571C 21.2242,7.52345 21.3165,7.57161 21.39,7.63019C 21.4634,7.68877 21.5217,7.76055 21.5648,7.84551C 21.4468,7.86818 21.3342,7.88653 21.2268,7.90056C 21.1194,7.91459 21.0119,7.92472 20.9041,7.93096C 20.9506,7.96512 21.0012,7.99644 21.0559,8.02492C 21.1105,8.0534 21.168,8.07789 21.2284,8.09838C 21.2792,8.11562 21.3624,8.13431 21.478,8.15444C 21.5937,8.17457 21.6831,8.19536 21.7462,8.21679C 21.8149,8.24008 21.8941,8.28496 21.9841,8.35142C 22.074,8.41788 22.1828,8.51101 22.3105,8.63081C 22.1224,8.64804 21.9077,8.64896 21.6664,8.6336C 21.4251,8.61823 21.1398,8.58829 20.8104,8.5438L 21.1318,8.74005C 21.0122,8.72699 20.8874,8.7068 20.7574,8.67949C 20.6273,8.65217 20.4957,8.61592 20.3626,8.57073C 20.2308,8.526 20.1289,8.48912 20.0568,8.46008C 19.9848,8.43105 19.9179,8.40147 19.8562,8.37134L 20.1352,8.75967C 19.917,8.75291 19.7267,8.73841 19.5643,8.71617C 19.4019,8.69394 19.2562,8.66092 19.1272,8.61713C 19.0462,8.58964 18.9488,8.5497 18.8349,8.49729C 18.7211,8.44488 18.5937,8.38027 18.453,8.30343C 18.6267,8.54897 18.7741,8.8177 18.8953,9.10964C 19.0165,9.40158 19.1073,9.71074 19.1677,10.0371C 19.3736,10.107 19.6188,10.1818 19.9033,10.2615C 20.1878,10.3413 20.3705,10.3949 20.4515,10.4224C 20.5805,10.4662 20.665,10.5105 20.7048,10.5554C 20.7447,10.6002 20.7539,10.6542 20.7324,10.7173L 20.7582,10.7834L 20.8685,10.8438C 21.0017,10.889 21.1623,10.8838 21.3504,10.8284C 21.5384,10.7729 21.6524,10.7519 21.6922,10.7654C 21.7649,10.7901 21.8153,10.8344 21.8434,10.8982C 21.8715,10.962 21.8804,11.0449 21.8701,11.147C 21.991,11.1834 22.1585,11.2177 22.3726,11.2499C 22.5868,11.282 22.7391,11.3135 22.8297,11.3442C 22.9409,11.382 23.0823,11.4513 23.2539,11.5524C 23.4254,11.6534 23.6256,11.7887 23.8543,11.958C 23.7848,11.9238 23.7154,11.8926 23.6461,11.8645C 23.5768,11.8363 23.5037,11.8092 23.4269,11.7832C 23.3404,11.7538 23.2436,11.7355 23.1366,11.7282C 23.0296,11.721 22.9112,11.7236 22.7814,11.7361C 22.7225,11.8553 22.6108,11.9168 22.4464,11.9207C 22.282,11.9245 22.0351,11.8705 21.6419,11.7302C 21.5403,11.6911 21.4381,11.6542 21.3351,11.6192C 21.1551,11.7432 20.971,11.8141 20.7827,11.832C 20.5944,11.8499 20.3719,11.8153 20.1152,11.7282C 19.9779,11.6816 19.7129,11.5603 19.2709,11.3407C 19.2367,11.6212 19.1973,11.8697 19.1527,12.0863C 19.1081,12.3029 19.056,12.4989 18.9963,12.6744C 18.826,13.1748 18.5961,13.6221 18.3066,14.0163C 18.0171,14.4105 17.6637,14.757 17.2466,15.0559C 17.2931,15.0992 17.3341,15.1319 17.3695,15.1538C 17.4049,15.1758 17.4439,15.1963 17.4864,15.2153C 17.5331,15.2311 17.5967,15.2397 17.6774,15.2411C 17.7581,15.2425 17.8115,15.2476 17.8376,15.2565C 17.898,15.277 17.9594,15.3047 18.0217,15.3396C 18.0841,15.3746 18.1445,15.4188 18.2029,15.4722C 18.0966,15.4469 17.9725,15.4563 17.8303,15.5006C 17.6881,15.5449 17.5889,15.5575 17.4854,15.5086L 17.6459,15.6915L 17.4112,15.7266C 17.5061,15.8031 17.5824,15.8581 17.6399,15.8914C 17.6975,15.9247 17.7524,15.9502 17.8045,15.9679C 17.8855,15.9954 18.0171,16.0125 18.1993,16.0193C 18.3815,16.0261 18.5152,16.0439 18.6003,16.0728C 18.6731,16.0975 18.7544,16.1396 18.8444,16.1992C 18.9344,16.2588 19.0343,16.3386 19.1442,16.4386C 18.9849,16.4702 18.8391,16.4838 18.7066,16.4793C 18.5741,16.4749 18.4475,16.4522 18.3267,16.4112L 18.2176,16.3742L 18.3441,16.4882C 18.1981,16.4539 18.0339,16.4583 17.8516,16.5012C 17.6694,16.5441 17.5529,16.5569 17.3218,16.4349C 17.374,16.5199 17.4472,16.5963 17.5412,16.6642C 17.6353,16.7321 17.7592,16.7944 17.9129,16.8511C 17.6542,16.8643 17.4041,16.867 17.1625,16.8591C 16.921,16.8513 16.7768,16.8395 16.7302,16.8237C 16.6492,16.7962 16.5553,16.7559 16.4486,16.7029C 16.3418,16.6498 16.2003,16.5742 16.0239,16.4761C 16.1275,16.4776 16.2292,16.4724 16.3289,16.4604C 16.4287,16.4484 16.5257,16.4323 16.6198,16.4123C 16.4908,16.3685 16.3384,16.2954 16.1627,16.1929C 15.987,16.0905 15.8669,16.0283 15.8024,16.0064C 15.7379,15.9845 15.6744,15.9675 15.6119,15.9555C 15.5493,15.9434 15.489,15.9375 15.4308,15.9376C 14.936,16.0281 14.4466,16.0567 13.9627,16.0232C 13.4787,15.9897 13.0096,15.8958 12.5552,15.7416C 12.083,15.5814 11.6439,15.3597 11.238,15.0766C 10.8321,14.7936 10.4581,14.4503 9.99081,14.0776L 9.98241,14.1022L 10.1688,14.2091C 10.0048,14.1871 9.86377,14.1629 9.74564,14.1366C 9.62751,14.1102 9.51697,14.0796 9.41401,14.0447C 9.35911,14.026 9.27232,13.9897 9.15366,13.9357C 9.035,13.8816 8.94136,13.843 8.87272,13.8197C 8.77938,13.788 8.6419,13.7578 8.46028,13.729C 8.27866,13.7003 8.14668,13.6719 8.06431,13.6439C 7.9998,13.622 7.84317,13.5345 7.59442,13.3812C 7.34567,13.228 7.12041,13.1171 6.91862,13.0486C 6.8843,13.037 6.84276,13.0252 6.79401,13.0132C 6.74525,13.0013 6.67898,12.9857 6.59519,12.9664C 6.69678,12.9198 6.796,12.8881 6.89283,12.8713C 6.98967,12.8544 7.08091,12.8529 7.16657,12.8667L 6.8836,12.6858C 7.00766,12.7172 7.12754,12.7384 7.24324,12.7493C 7.35894,12.7603 7.48195,12.7566 7.61226,12.7381L 7.11103,12.4831C 7.2565,12.4606 7.43629,12.4688 7.6504,12.5079C 7.8645,12.5469 8.0025,12.5677 8.06438,12.5704L 7.43531,12.1848C 7.63628,12.1567 7.81228,12.1457 7.96331,12.1518C 8.11434,12.158 8.25163,12.182 8.37517,12.2239C 8.41361,12.237 8.47227,12.2615 8.55114,12.2974C 8.63002,12.3334 8.69074,12.3586 8.73329,12.373C 8.80742,12.3982 8.89668,12.4216 9.00109,12.4432C 9.10549,12.4649 9.25206,12.4887 9.4408,12.5145C 9.39056,12.3246 9.35546,12.1915 9.3355,12.1151C 9.31555,12.0388 9.2984,11.9722 9.28406,11.9153C 9.24282,11.9105 9.20011,11.9033 9.15593,11.8936L 9.04435,11.8638C 8.9963,11.8475 8.94464,11.8227 8.88936,11.7894C 8.83408,11.7561 8.77037,11.7127 8.69825,11.6591L 8.85775,11.5481C 8.79541,11.5468 8.73504,11.5409 8.67665,11.5302C 8.61825,11.5196 8.5568,11.5033 8.49228,11.4814C 8.36737,11.439 8.22683,11.3626 8.07068,11.2523C 7.91452,11.142 7.80899,11.0775 7.75408,11.0588L 7.68819,11.0365L 7.84377,10.9505L 7.72947,10.9151C 7.61417,10.876 7.50089,10.823 7.38964,10.7562C 7.27839,10.6894 7.16276,10.6073 7.04275,10.51C 7.22452,10.5518 7.55771,10.5919 8.04232,10.6302C 8.52693,10.6685 8.91982,10.7311 9.22099,10.818C 9.23464,10.5214 9.26222,10.2524 9.30374,10.0111C 9.34526,9.76977 9.39891,9.55246 9.46468,9.35914C 9.53605,9.14938 9.63438,8.93461 9.75968,8.71486C 9.88497,8.4951 10.0402,8.2683 10.1966,8.03156C 10.1279,8.022 10.0763,8.0114 10.042,7.99975C 9.98711,7.98111 9.93478,7.95265 9.88503,7.91435C 9.83528,7.87606 9.78742,7.8277 9.74146,7.76927L 9.85378,7.7294C 9.7117,7.64295 9.60017,7.58598 9.51918,7.55849C 9.48486,7.54684 9.42925,7.53026 9.35236,7.50875C 9.27546,7.48724 9.21573,7.46926 9.17318,7.45482C 9.10866,7.43293 9.03708,7.40366 8.95844,7.36703C 8.87979,7.3304 8.76986,7.27435 8.62863,7.19889L 9.00849,7.15576C 8.96454,7.14543 8.91853,7.13326 8.87048,7.11924C 8.82242,7.10523 8.74897,7.08145 8.65014,7.0479C 8.57739,7.02321 8.49415,6.9877 8.40043,6.94136C 8.30672,6.89503 8.20253,6.83558 8.08788,6.76302C 8.4084,6.83357 8.78792,6.86794 9.22646,6.86614C 9.665,6.86434 9.94193,6.883 10.0572,6.92214C 10.1135,6.94124 10.1998,6.98009 10.3162,7.03869C 10.4325,7.09729 10.525,7.13824 10.5936,7.16154C 10.6279,7.17318 10.6843,7.18656 10.7626,7.20167C 10.8409,7.21678 10.9048,7.23043 10.9542,7.24262C 11.1099,7.1089 11.2679,6.98893 11.4281,6.88271C 11.5882,6.77649 11.7518,6.68288 11.9187,6.60188C 11.8212,6.56422 11.749,6.52671 11.702,6.48935C 11.655,6.45198 11.6177,6.40186 11.5069,6.33367C 11.3887,6.3165 11.3077,6.30046 11.2637,6.28555C 11.2088,6.26691 11.1203,6.21546 10.9982,6.13118C 10.876,6.0469 10.7696,5.98939 10.679,5.95864L 10.6152,5.93697L 10.8024,5.91333C 10.6467,5.88038 10.5366,5.85295 10.4721,5.83105C 10.3856,5.8017 10.2904,5.76097 10.1864,5.70885C 10.0824,5.65673 9.95246,5.58511 9.79666,5.494C 10.026,5.48159 10.3398,5.53344 10.7383,5.64955C 11.1367,5.76565 11.4449,5.79801 11.663,5.74662L 11.6043,5.66935C 11.756,5.67343 11.8949,5.68729 12.0208,5.71092C 12.1468,5.73454 12.2722,5.76527 12.3971,5.80308C 12.4617,5.82498 12.5586,5.86401 12.688,5.92017C 12.8175,5.97633 12.9144,6.01535 12.979,6.03725C 13.0435,6.05915 13.0984,6.07664 13.1437,6.08972C 13.189,6.10281 13.2346,6.11406 13.2804,6.12349 Z M 13.2681,6.22026C 13.242,6.21141 13.2015,6.19996 13.1466,6.1859C 13.0916,6.17184 13.0511,6.16039 13.0251,6.15154C 12.9139,6.1138 12.7842,6.06291 12.636,5.99885C 12.4878,5.9348 12.3945,5.89625 12.3561,5.88321C 12.2833,5.85852 12.2037,5.83607 12.1172,5.81588C 12.0306,5.79569 11.9143,5.77532 11.7682,5.75478L 11.7898,5.81947C 11.5737,5.84707 11.3956,5.85622 11.2556,5.84694C 11.1156,5.83765 10.9852,5.81251 10.8644,5.77151L 10.6668,5.70442C 10.6448,5.69697 10.5596,5.67953 10.4112,5.65211C 10.316,5.63507 10.2415,5.62205 10.188,5.61304C 10.2442,5.6413 10.3028,5.66808 10.3639,5.69339C 10.4249,5.7187 10.5069,5.74883 10.6099,5.78377C 10.6662,5.80287 10.7596,5.82998 10.89,5.86508L 10.9972,5.88768L 10.9128,5.96686C 10.9498,5.9886 11.0112,6.03086 11.0971,6.09363C 11.1829,6.15641 11.256,6.19804 11.3164,6.21854C 11.3631,6.23438 11.4171,6.24775 11.4785,6.25864C 11.5398,6.26952 11.6056,6.27769 11.6757,6.28313C 11.7147,6.34838 11.7595,6.40257 11.8099,6.44567C 11.8603,6.48878 11.9171,6.52105 11.9802,6.54248C 12.02,6.55599 12.0763,6.56822 12.176,6.5814C 11.9557,6.69322 11.7454,6.81529 11.5449,6.94761C 11.3445,7.07993 11.1558,7.22387 10.9789,7.37945C 10.9253,7.36586 10.8704,7.35066 10.8141,7.33385C 10.7578,7.31704 10.6891,7.29489 10.6081,7.2674C 10.5313,7.24131 10.4333,7.1985 10.3142,7.13896C 10.1951,7.07943 10.1081,7.04035 10.0532,7.02171C 9.91183,6.97372 9.66907,6.95251 9.32496,6.95807C 8.98084,6.96362 8.71127,6.94248 8.51624,6.89464C 8.55328,6.9118 8.59409,6.92909 8.63869,6.94652C 8.68329,6.96396 8.73579,6.98292 8.79619,7.00342C 8.8511,7.02206 8.9153,7.03926 8.98879,7.05502C 9.06229,7.07079 9.1721,7.08894 9.31823,7.10948C 9.25927,7.15676 9.1982,7.19224 9.13503,7.21591C 9.07185,7.23959 9.00426,7.25373 8.93225,7.25835C 8.98708,7.29072 9.04009,7.31942 9.0913,7.34445C 9.1425,7.36947 9.1983,7.39223 9.2587,7.41273C 9.31086,7.43044 9.38239,7.44974 9.47327,7.47065C 9.56415,7.49155 9.62882,7.50853 9.66725,7.52157C 9.74412,7.54766 9.81258,7.5816 9.87263,7.62339C 9.93267,7.66518 9.99227,7.72517 10.0514,7.80336L 10.0885,7.93064C 10.1434,7.94928 10.1947,7.96286 10.2423,7.97138C 10.2899,7.9799 10.3371,7.98521 10.3839,7.98731C 10.1904,8.21835 10.0222,8.4564 9.87907,8.70147C 9.73598,8.94654 9.61988,9.2 9.53079,9.46187C 9.45942,9.67164 9.40746,9.89526 9.3749,10.1327C 9.34234,10.3702 9.32613,10.635 9.32626,10.9271C 8.96925,10.8243 8.57235,10.7611 8.13557,10.7375C 7.69878,10.7139 7.44879,10.696 7.38559,10.6837C 7.47199,10.7268 7.53818,10.7573 7.58415,10.7752C 7.63012,10.7931 7.67919,10.8109 7.73135,10.8286C 7.77802,10.8444 7.86522,10.8694 7.99293,10.9036C 8.05885,10.9214 8.11172,10.9347 8.15156,10.9437L 7.964,11.0291C 8.01702,11.0578 8.10423,11.1188 8.22564,11.212C 8.34706,11.3052 8.45031,11.3662 8.53542,11.3951C 8.59582,11.4156 8.67102,11.4343 8.76101,11.451C 8.851,11.4678 8.95602,11.482 9.07607,11.4937L 8.87215,11.6746C 8.91144,11.6986 8.9496,11.7192 9.09984,11.7817L 9.21146,11.8046C 9.26391,11.8125 9.31899,11.8216 9.3767,11.832C 9.40288,11.9801 9.43278,12.1218 9.46637,12.2571C 9.49997,12.3923 9.5357,12.5169 9.57354,12.6306C 9.37517,12.6061 9.21782,12.5826 9.1015,12.5599C 8.98518,12.5373 8.88378,12.5112 8.7973,12.4819C 8.75063,12.4661 8.68406,12.4412 8.59761,12.4072C 8.51116,12.3733 8.44871,12.3498 8.41028,12.3368C 8.2936,12.2972 8.1819,12.2688 8.07517,12.2517C 7.96845,12.2346 7.86188,12.2294 7.75548,12.2361L 8.3638,12.6422C 8.22659,12.6629 8.08147,12.6664 7.92842,12.6527C 7.77537,12.639 7.60683,12.6078 7.42281,12.5591L 7.82854,12.7977C 7.72019,12.8237 7.6197,12.8389 7.52706,12.8434C 7.43442,12.8479 7.34483,12.8423 7.25826,12.8267L 7.41473,13.0014C 7.31395,12.9871 7.23161,12.9759 7.1677,12.968C 7.10379,12.9601 7.04066,12.9555 6.97831,12.9542C 7.14578,13.011 7.34793,13.1167 7.58474,13.2713C 7.82156,13.4258 7.99625,13.5222 8.10881,13.5604C 8.18157,13.5851 8.30406,13.611 8.47628,13.6381C 8.64851,13.6652 8.78199,13.6948 8.8767,13.727C 8.94534,13.7503 9.04743,13.7945 9.18299,13.8596C 9.31855,13.9247 9.42064,13.9689 9.48928,13.9922C 9.5538,14.0141 9.61936,14.0329 9.68598,14.0487C 9.75259,14.0644 9.82049,14.0763 9.96342,13.9387C 10.0015,13.9325 10.0487,13.9389 10.2223,14.0116C 10.5757,14.4084 10.9553,14.7452 11.3611,15.0221C 11.7668,15.2989 12.1989,15.5152 12.6574,15.6708C 13.0788,15.8138 13.5165,15.9 13.9705,15.9295C 14.4244,15.9589 14.893,15.9317 15.3763,15.848C 15.4579,15.8466 15.5352,15.8511 15.6083,15.8614C 15.6813,15.8716 15.7522,15.8884 15.8208,15.9117C 15.8716,15.9289 15.983,15.9908 16.155,16.0974C 16.327,16.2039 16.4816,16.2805 16.6189,16.3271C 16.6752,16.3462 16.7189,16.3595 16.8297,16.3826C 16.7927,16.4373 16.7384,16.4778 16.6667,16.5039C 16.595,16.53 16.5005,16.5469 16.3831,16.5544C 16.4269,16.5831 16.4734,16.6096 16.5226,16.6339C 16.5717,16.6582 16.6217,16.679 16.6725,16.6963C 16.8097,16.7428 16.9793,16.7621 17.181,16.7542C 17.3828,16.7462 17.518,16.7538 17.5866,16.7771L 17.6052,16.7834C 17.474,16.719 17.3758,16.652 17.3106,16.5825C 17.2455,16.513 17.2029,16.4244 17.2386,16.3218L 17.3423,16.334L 17.4325,16.383L 17.5247,16.4326C 17.5974,16.4573 17.6942,16.4496 17.815,16.4096C 17.9359,16.3695 18.0329,16.3543 18.1062,16.3639L 18.058,16.2558L 18.1218,16.2774C 18.2509,16.3212 18.3826,16.3491 18.5171,16.3611C 18.6516,16.3731 18.7916,16.3702 18.937,16.3522C 18.8781,16.3139 18.8193,16.2786 18.7606,16.2465C 18.7018,16.2143 18.6423,16.188 18.5819,16.1675C 18.4926,16.1372 18.3525,16.1148 18.1614,16.1005C 17.9703,16.0861 17.8294,16.0635 17.7388,16.0327C 17.6318,15.9964 17.5381,15.9489 17.4577,15.8903C 17.3774,15.8317 17.3063,15.7582 17.2444,15.67L 17.4681,15.6472L 17.4246,15.4375C 17.5056,15.465 17.5761,15.4748 17.6362,15.4669C 17.6963,15.459 17.7586,15.4323 17.7695,15.3756C 17.6221,15.3409 17.5271,15.3163 17.4845,15.3018C 17.4378,15.286 17.381,15.2606 17.3141,15.2256C 17.2471,15.1907 17.1611,15.1431 17.056,15.083C 17.5123,14.7408 17.8942,14.3676 18.2017,13.9635C 18.5091,13.5593 18.7438,13.1194 18.9057,12.6436C 18.9845,12.4119 19.045,12.1744 19.0872,11.931C 19.1295,11.6877 19.158,11.4316 19.1729,11.1629C 19.3831,11.2786 19.5707,11.3752 19.7358,11.4526C 19.9008,11.5301 20.039,11.5876 20.1502,11.6254C 20.411,11.7139 20.6304,11.7463 20.8084,11.7226C 20.9864,11.6989 21.1616,11.6184 21.3339,11.4811C 21.4706,11.5428 21.5798,11.591 21.6614,11.6256C 21.743,11.6602 21.8072,11.6854 21.8539,11.7012C 22.1105,11.7883 22.3005,11.8241 22.4237,11.8086C 22.5469,11.793 22.6379,11.7257 22.6968,11.6065L 23.2229,11.6199C 23.1597,11.5939 23.0997,11.57 23.0428,11.5484C 22.9858,11.5268 22.9319,11.5074 22.8811,11.4901C 22.7905,11.4594 22.6447,11.4301 22.4436,11.4024C 22.2425,11.3747 22.0946,11.3448 21.9998,11.3126L 21.8866,11.2673C 21.8455,11.2487 21.7982,11.2258 21.7447,11.1985C 21.7755,11.108 21.785,11.0416 21.7734,10.9995C 21.7617,10.9573 21.7277,10.9266 21.6714,10.9075C 21.6549,10.9019 21.5458,10.9211 21.3441,10.965C 21.1423,11.009 20.966,11.0053 20.815,10.954C 20.7724,10.9396 20.7278,10.9199 20.6812,10.8949C 20.6346,10.8699 20.5848,10.8385 20.5813,10.6958L 20.5602,10.5889C 20.5317,10.5601 20.4722,10.5303 20.3816,10.4996C 20.3349,10.4837 20.1659,10.4359 19.8746,10.3562C 19.5832,10.2764 19.3154,10.195 19.071,10.1121C 19.0201,9.79815 18.9305,9.48556 18.8021,9.17435C 18.6737,8.86314 18.5041,8.54482 18.2932,8.21939L 18.3303,8.1104C 18.4916,8.1988 18.6336,8.27106 18.7561,8.32717C 18.8787,8.38329 18.9804,8.4251 19.0614,8.45258C 19.152,8.48333 19.2538,8.50831 19.3667,8.52751C 19.4796,8.54671 19.6471,8.56726 19.8694,8.58916L 19.575,8.1245C 19.7529,8.20475 19.9348,8.28102 20.1207,8.3533C 20.3067,8.42559 20.5053,8.49761 20.7167,8.56935L 20.5047,8.36893C 20.8376,8.44367 21.126,8.49491 21.37,8.52266C 21.614,8.55041 21.8293,8.55773 22.016,8.54462C 21.9041,8.46383 21.8061,8.39961 21.7221,8.35196C 21.638,8.30431 21.5596,8.26813 21.4868,8.24344C 21.4566,8.23319 21.3967,8.22586 21.3071,8.22145C 21.2175,8.21703 21.1473,8.20621 21.0965,8.18897C 21.01,8.15962 20.9355,8.11752 20.8731,8.06266C 20.8106,8.00781 20.7491,7.92961 20.6887,7.82806L 20.7475,7.77688L 20.8134,7.79925C 20.8903,7.82534 20.9736,7.83681 21.0635,7.83367C 21.1534,7.83053 21.258,7.81328 21.3774,7.78192C 21.3172,7.73394 21.2704,7.69933 20.9769,7.58864C 20.9302,7.5728 20.8875,7.5476 20.8487,7.51303C 20.81,7.47846 20.7772,7.43751 20.7504,7.39019L 21.0286,7.33549C 20.8356,7.25469 20.6938,7.19891 20.6032,7.16817C 20.2902,7.06194 19.941,6.98779 19.5557,6.94572C 19.1704,6.90364 18.9482,6.87259 18.8892,6.85255C 18.8151,6.82739 18.7399,6.76251 18.6637,6.65789C 18.5875,6.55327 18.5364,6.49654 18.5103,6.48769L 18.3879,6.49659L 18.2736,6.50829C 18.2256,6.49198 18.1507,6.45434 18.0491,6.39537C 17.9474,6.33639 17.8664,6.29666 17.806,6.27616C 17.7675,6.26311 17.7159,6.25056 17.6511,6.23851C 17.5863,6.22646 17.514,6.21608 17.4343,6.20737C 17.5567,6.29784 17.6791,6.37456 17.8016,6.43755C 17.9241,6.50054 18.0519,6.55463 18.1851,6.59982L 18.3004,6.63895L 18.1839,6.68429C 18.282,6.765 18.4168,6.8513 18.5885,6.94319C 18.7601,7.03508 18.9643,7.13346 19.2012,7.23833L 19.0324,7.29573L 19.4369,7.62571C 19.2009,7.6129 19.0005,7.59536 18.8358,7.57311C 18.6711,7.55086 18.5373,7.52227 18.4344,7.48732C 18.3959,7.47428 18.3521,7.4556 18.303,7.43127C 18.2538,7.40694 18.1616,7.35501 18.0264,7.27546L 18.0624,7.23034C 18.0028,7.22541 17.9483,7.218 17.8989,7.20809L 17.7794,7.17786C 17.741,7.16482 17.6841,7.13827 17.609,7.09823C 17.5338,7.05818 17.477,7.03164 17.4385,7.01859C 17.3795,6.99856 17.3158,6.98651 17.2476,6.98245C 17.1793,6.97839 17.1029,6.98115 17.0185,6.99074C 16.8368,6.8633 16.6426,6.74769 16.436,6.64392C 16.2293,6.54014 16.008,6.44819 15.7719,6.36806C 15.3861,6.23715 14.9846,6.15937 14.5673,6.13474C 14.15,6.11011 13.717,6.13861 13.2681,6.22026 Z M 11.6171,7.60983L 11.8295,8.45385C 11.8082,8.48257 11.7708,8.52609 11.7173,8.58439L 11.7615,8.66364L 11.9067,8.66242L 11.8428,8.76233L 11.885,8.84775L 11.7654,8.82095L 11.6874,8.88163L 11.778,8.91238C 11.859,8.93987 11.9091,8.97484 11.9283,9.01731C 11.9476,9.05978 11.9427,9.12352 11.9138,9.20852L 11.8718,9.33191L 11.6515,9.85128C 11.6495,9.80319 11.6505,9.74389 11.6546,9.6734C 11.658,9.5507 11.6406,9.48283 11.4701,9.35156L 11.4696,9.25849L 11.4152,8.97621L 11.358,8.87766L 11.149,8.86408L 11.0883,8.78611L 11.1344,8.65038L 11.4092,8.58535C 11.4176,8.56067 11.3809,8.51993 11.4694,8.05749L 11.37,7.99853L 11.5575,7.91308L 11.6171,7.60983 Z M 17.1857,8.75421C 17.299,8.73152 17.4072,8.71967 17.5101,8.71867C 17.6131,8.71766 17.7142,8.72638 17.8136,8.74481C 17.8624,8.8669 17.9043,8.97212 17.9393,9.06047C 17.9743,9.14882 18.0012,9.20839 18.0198,9.23918L 18.0701,9.21269L 18.1268,9.04611L 18.1906,9.19621L 18.3563,9.19512L 18.2566,9.31955L 18.2616,9.39238L 18.5755,9.35437L 18.8855,9.77963L 18.6606,9.73539L 18.5315,9.82118L 18.3492,9.64806C 18.3204,9.66965 18.2926,9.70646 18.0857,9.61253L 17.9478,9.90983L 17.7903,9.91373L 17.684,9.74002L 17.893,9.52418L 17.7838,9.48714C 17.7907,9.40842 17.7919,9.35875 17.7052,9.29642L 17.5791,9.32591L 17.4207,9.14366C 17.3877,9.05601 17.3521,8.98047 17.314,8.91706C 17.2759,8.85365 17.2331,8.79937 17.1857,8.75421 Z M 16.7108,7.15242L 16.1819,8.5856L 16.9346,9.00621L 16.1469,8.81C 16.1306,8.85799 16.1482,8.90869 16.1997,8.9621C 16.2512,9.01552 16.3541,9.08984 16.5835,9.18756L 16.6906,9.21704C 16.7468,9.23614 16.7881,9.26351 16.8142,9.29915L 16.569,9.30425C 16.7092,9.40992 16.8716,9.60651 17.0563,9.89401C 17.241,10.1815 17.4332,10.5312 17.633,10.9431L 17.6145,10.9368C 17.5458,10.9135 17.435,10.7612 17.2819,10.4798C 17.1288,10.1985 16.9911,9.96289 16.8689,9.77306L 16.7372,9.7146C 16.7412,9.81536 16.8407,10.0078 17.0357,10.2919C 17.2308,10.5761 17.3564,10.847 17.4127,11.1046C 17.337,10.949 17.2642,10.8187 17.1942,10.7139C 17.1242,10.6091 17.0484,10.5146 16.9668,10.4303C 16.9853,10.4885 17.0065,10.542 17.0305,10.5907C 17.0546,10.6394 17.0848,10.689 17.1211,10.7396L 16.9761,10.6192C 16.9802,10.6879 16.99,10.7559 17.0055,10.823C 17.0209,10.8902 17.0447,10.9553 17.0769,11.0182C 16.937,10.8667 16.8252,10.6261 16.7414,10.2964C 16.7028,10.1533 16.6729,10.0499 16.6517,9.9861C 16.631,10.0739 16.6243,10.16 16.6316,10.2443C 16.6389,10.3285 16.6625,10.418 16.7023,10.5125C 16.7592,10.6557 16.7849,10.8052 16.7794,10.9608C 16.774,11.1165 16.7726,11.1994 16.7752,11.2094C 16.8069,11.3548 16.8746,11.507 16.9782,11.666C 17.0818,11.8251 17.1454,11.933 17.1689,11.99C 17.2341,12.136 17.3142,12.2526 17.4093,12.3399C 17.5043,12.4273 17.6308,12.5046 17.7886,12.5719C 17.6691,12.617 17.5627,12.6428 17.4694,12.6494C 17.376,12.6559 17.293,12.6469 17.2202,12.6222C 17.1681,12.6045 17.0965,12.5638 17.0057,12.5C 16.9148,12.4363 16.846,12.3965 16.7994,12.3807C 16.6497,12.3299 16.4823,12.3518 16.297,12.4465L 16.1756,12.5062C 16.1145,12.5283 16.0542,12.5388 15.9949,12.5378C 15.9355,12.5368 15.8674,12.5232 15.7905,12.4971C 15.748,12.4827 15.7004,12.4615 15.6478,12.4338C 15.5953,12.406 15.543,12.3764 15.4909,12.3449L 15.6461,12.0168L 15.3312,12.2472L 15.0647,12.3081C 15.0482,12.3025 15.0084,12.2768 14.9452,12.2308C 14.8819,12.1849 14.8242,12.1531 14.7721,12.1354L 14.7021,12.1116L 14.6528,11.8311C 14.6102,11.8167 14.5232,11.8407 14.3917,11.9031C 14.2603,11.9655 14.1478,11.9809 14.0545,11.9492L 14.0989,12.3451L 14.17,12.4266L 14.2225,12.2723L 14.279,12.3626L 14.3492,12.2373L 14.4357,12.152C 14.3774,12.3953 14.3357,12.5818 14.3107,12.7117C 14.2856,12.8416 14.2687,12.9624 14.2598,13.0741L 14.3307,13.6419L 14.5243,13.5791C 14.5608,13.5441 14.5942,13.5065 14.6247,13.4664C 14.6552,13.4263 14.6955,13.3596 14.7455,13.2665L 14.671,13.1414C 14.6609,13.0944 14.6645,13.0456 14.6818,12.9948C 14.6995,12.9427 14.7338,12.905 14.7846,12.8817C 14.8354,12.8585 14.8992,12.853 14.9762,12.8653L 15.113,12.7604L 15.0831,12.9292L 15.2274,12.9506L 15.1009,13.0659C 15.1853,13.0609 15.2599,13.061 15.3247,13.0662C 15.3896,13.0714 15.4481,13.0828 15.5002,13.1005C 15.5812,13.128 15.636,13.191 15.6645,13.2894C 15.6931,13.3878 15.687,13.4966 15.6465,13.6159C 15.6287,13.668 15.6049,13.7245 15.575,13.7854C 15.5451,13.8464 15.5088,13.9102 15.4662,13.9768C 15.8006,13.867 16.0579,13.7826 16.2379,13.7237C 16.418,13.6648 16.5719,13.6164 16.6996,13.5787L 16.6779,13.7503C 16.4611,13.8969 16.1664,14.0003 15.7938,14.0604C 15.4212,14.1205 15.1803,14.2345 15.0711,14.4024C 14.9729,14.4073 14.875,14.4162 14.7773,14.4289C 14.6795,14.4416 14.5767,14.4602 14.4689,14.4848L 14.5412,15.0484L 14.5637,15.5562L 14.4443,14.9146L 14.3488,15.614L 14.2395,14.9024L 14.1364,15.5901L 14.0789,14.8479L 13.9759,15.6365L 13.9121,14.7913L 13.7587,15.6202L 13.7114,14.7668L 13.5303,15.5151L 13.5558,14.8057L 13.3459,15.4227C 13.3849,15.0245 13.4689,14.5549 13.5979,14.0137C 13.7269,13.4725 13.7783,13.121 13.7522,12.9592C 13.7282,12.8363 13.6998,12.7239 13.6672,12.6218C 13.6345,12.5197 13.5969,12.4255 13.5543,12.3392L 13.7491,12.5498L 13.7542,12.2579L 13.8386,12.2866L 13.8221,12.0584L 13.7583,12.0368C 13.7006,12.0937 13.649,12.1297 13.6032,12.1447C 13.5575,12.1598 13.4987,12.1605 13.4268,12.1468C 13.4362,12.1056 13.4451,12.0368 13.4535,11.9402L 13.4659,11.8228L 13.3433,11.7376L 13.2187,12.1037L 13.09,12.1242C 13.0997,12.0373 13.0853,11.9873 12.9243,11.9969C 12.881,12.025 12.8499,12.0672 12.8307,12.1234C 12.7456,12.0945 12.6533,12.0823 12.5538,12.0868C 12.4543,12.0912 12.34,12.1144 12.2109,12.1562C 12.2575,12.1002 12.3133,12.0545 12.3781,12.0191C 12.443,11.9838 12.5156,11.9606 12.6297,11.9176C 12.6999,11.8374 12.7535,11.7699 12.7905,11.7152L 12.7131,11.5444L 12.9665,11.4744L 13.0015,11.6216L 13.2176,11.4725C 13.1387,11.3126 13.0895,11.1625 13.0699,11.022C 13.0504,10.8816 13.0632,10.7449 13.1084,10.6119L 13.135,10.5337C 13.0718,10.5214 13.0202,10.5292 12.9801,10.5569C 12.9401,10.5846 12.8881,10.6495 12.8243,10.7517L 12.7213,10.7168L 12.7953,10.54L 12.6687,10.5441C 12.6324,10.5585 12.5937,10.5924 12.5526,10.6457C 12.4707,10.6027 12.3925,10.565 12.3177,10.5327C 12.2429,10.5005 12.1733,10.4734 12.1087,10.4515C 12.1678,10.3905 12.2568,10.3538 12.3759,10.3414C 12.4949,10.3291 12.5795,10.2763 12.6295,10.1832L 12.746,10.1379L 12.9797,10.1667C 12.9007,10.1063 12.8525,10.0624 12.8241,9.94876C 12.833,9.92271 12.9364,9.8584 13.1344,9.75583C 13.3324,9.65327 13.5277,9.5437 13.7205,9.42714L 13.7185,9.30486L 13.5981,9.30073C 13.5474,9.35081 13.4649,9.40654 13.3506,9.46792C 13.2363,9.5293 13.1576,9.57406 13.1143,9.6022L 13.1276,9.56313C 13.1509,9.49458 13.2269,9.41179 13.3556,9.31477C 13.4844,9.21776 13.5704,9.11237 13.6137,8.9986C 13.5668,8.92918 13.5348,8.87359 13.5073,8.72392L 13.5698,8.62469C 13.603,8.58321 13.6447,8.54499 13.6949,8.51002L 13.7122,8.24979L 13.6709,7.7976L 13.647,6.34885L 13.8353,6.36917L 13.9282,7.88495C 13.9495,7.93498 13.9671,7.98912 13.9809,8.04736C 14.1223,8.18097 14.2282,8.28496 14.2986,8.35932C 14.369,8.43368 14.4244,8.49685 14.4649,8.54883L 14.5802,8.58797C 14.6571,8.61406 14.759,8.69032 14.8859,8.81676C 15.0129,8.94319 15.1045,9.01596 15.2709,9.01509C 15.3059,8.98874 15.3454,8.9402 15.2798,8.90456C 15.2376,8.90935 15.1877,8.90425 15.13,8.88926C 15.2069,8.8343 15.2686,8.77994 15.3153,8.72618C 15.3619,8.67241 15.3961,8.61331 15.3312,8.53429C 15.2938,8.53156 15.2366,8.53088 15.1596,8.53226C 15.1878,8.48984 15.2209,8.451 15.259,8.41573C 15.297,8.38046 15.3404,8.3474 15.3892,8.31655L 14.9178,8.01433L 15.5426,8.18281L 16.7108,7.15242 Z M 14.3525,13.7938L 14.4123,14.2729C 14.5524,14.3113 14.6673,14.3143 14.7572,14.2821C 14.847,14.2499 14.9087,14.1844 14.9423,14.0857L 14.966,14.0158C 15.047,13.9714 15.1084,13.9337 15.1503,13.9028L 15.2265,13.8174C 15.2437,13.7667 15.2336,13.712 15.1961,13.6534C 15.1587,13.5948 15.1035,13.5532 15.0308,13.5285C 14.9663,13.5066 14.903,13.5092 14.8409,13.5363C 14.7789,13.5634 14.6973,13.6287 14.5963,13.732L 14.3525,13.7938 Z M 13.9233,9.31704L 13.9275,9.42628L 14.0305,9.46122C 14.246,9.53437 14.4366,9.64343 14.6025,9.7884C 14.7683,9.93338 14.9208,10.1251 15.1828,10.1046C 15.1092,10.069 15.0614,10.0237 15.0395,9.96884C 15.0176,9.91399 15.0213,9.84338 15.072,9.70458L 15.1238,9.60289L 14.6525,9.40851L 14.5319,9.39167C 14.4817,9.39069 14.424,9.39596 14.3588,9.40749L 14.116,9.29756L 13.9233,9.31704 Z "/>
+                                                    </DrawingGroup.Children>
+                                                </DrawingGroup>
+                                            </DrawingImage.Drawing>
+                                        </DrawingImage>
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock Text="{DynamicResource Software_About_Name}" VerticalAlignment="Center" FontSize="14" Margin="10,0,0,0" Foreground="#FF848484"/> <!--Analysis @ Cloud-->
+                            </StackPanel>
+                            <!--标题条的操作面板名称-->
+                            <Border Grid.Column="1" Name="titleContentBar" Background="{DynamicResource MainWindow_TitleBarBackground}" 
+                                    Height="Auto" Width="Auto" Visibility="Collapsed">
+                                <TextBlock Name="titleContentText" Foreground="{DynamicResource MainWindow_TitleBarForeground}" FontSize="12pt"
+                                            HorizontalAlignment="Center" Height="Auto" TextWrapping="NoWrap" VerticalAlignment="Center" />
+                            </Border>
+                            <!--标题条的内容关闭按钮-->
+                            <Button Grid.Column="1" x:Name="titleContentCloseButton" Height="20" Width="25" Style="{DynamicResource Button_Window_Close}" 
+                                    Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed"/>
+
+                            <WrapPanel Grid.Column="1" Name="titlebuttonWarpPanel" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" Background="#00000000">
+                                <Button x:Name="SkinSetup" Height="30" Width="40" Style="{DynamicResource Button_Window_Skin}" Foreground="{TemplateBinding Foreground}"/>
+                                <Button x:Name="SystemSetup" Height="30" Width="40" Style="{DynamicResource Button_Window_Setup}" Foreground="{TemplateBinding Foreground}"/>
+                                <Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>
+                                <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>
+                                <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>
+                            </WrapPanel>
+                        </Grid>
+                        <!--尺寸调整区域-->
+                        <Grid x:Name ="PART_ResizerContainers" Visibility ="Hidden">
+                            <Grid.Resources >
+                                <s:Double x:Key ="StraightResizerSize">8</s:Double >
+                                <s:Double x:Key ="SlantResizerSize">16</s:Double >
+                                <Style TargetType ="{ x:Type Thumb }">
+                                    <Setter Property ="Template">
+                                        <Setter.Value >
+                                            <ControlTemplate >
+                                                <Rectangle Fill ="Transparent"/>
+                                            </ControlTemplate >
+                                        </Setter.Value >
+                                    </Setter >
+                                </Style>
+                            </Grid.Resources >
+                            <Thumb Width ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Stretch" HorizontalAlignment="Left" 
+                                    Cursor ="SizeWE"  x:Name ="PART_LeftResizer" DragDelta="ResizeLeft"/>
+                            <Thumb Height ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Top" HorizontalAlignment="Stretch"
+                                    Cursor ="SizeNS"  x:Name ="PART_TopResizer" DragDelta="ResizeTop"/>
+                            <Thumb Width ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Stretch" HorizontalAlignment="Right"
+                                    Cursor ="SizeWE" x:Name ="PART_RightResizer" DragDelta="ResizeRight"/>
+                            <Thumb Height ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Bottom" HorizontalAlignment="Stretch"
+                                    Cursor ="SizeNS"  x:Name ="PART_BottomResizer" DragDelta="ResizeBottom"/>
+
+                            <ResizeGrip Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" HorizontalAlignment ="Right" VerticalAlignment ="Bottom" />
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                            HorizontalAlignment ="Right" VerticalAlignment ="Bottom" 
+                            Cursor ="SizeNWSE"  x:Name ="PART_BottomRightResizer" DragDelta="ResizeBottomRight"/>
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                            HorizontalAlignment ="Right" VerticalAlignment ="Top" 
+                            Cursor ="SizeNESW"  x:Name ="PART_TopRightResizer" DragDelta="ResizeTopRight"/>
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }"
+                            HorizontalAlignment ="Left" VerticalAlignment ="Top"
+                            Cursor ="SizeNWSE"  x:Name ="PART_TopLeftResizer" DragDelta="ResizeTopLeft"/>
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                            HorizontalAlignment ="Left" VerticalAlignment ="Bottom"
+                            Cursor ="SizeNESW"  x:Name ="PART_BottomLeftResizer" DragDelta="ResizeBottomLeft"/>
+                        </Grid >
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NoTransparentWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="Background" Value="{DynamicResource PopupWindow_Background}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PopupWindow_Foreground}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Grid>
+                        <Grid Name="windowContentGrid"  Margin="0,30,0,0">
+                            <AdornerDecorator>
+                                <ContentPresenter/>
+                            </AdornerDecorator>
+                        </Grid>
+                        <!--标题条和窗口按钮-->
+                        <Grid Name="titlebarGrid" TextBlock.Foreground="{DynamicResource PopupWindow_Title_Foreground}" Background="{DynamicResource PopupWindow_Title_Background}"
+                              MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="Grid_MouseMove" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" VerticalAlignment="Top" Height="30">
+                            <Rectangle HorizontalAlignment="Stretch" Height="1" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,-1" Opacity="0.1" Fill="Black"/>
+                            <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="{TemplateBinding Title}" VerticalAlignment="Center" Width="Auto" Margin="10,0,0,0" 
+                                       Foreground="{TemplateBinding Foreground}" FontSize="14" Opacity="0.8"/>
+                            <WrapPanel HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="Auto" Background="Transparent">
+                                <!--<Button x:Name="Minimized" Height="30" Width="40" Click="Minimized_Click" Style="{DynamicResource Button_Window_Minimized}" Foreground="{TemplateBinding Foreground}"/>-->
+                                <Button x:Name="Normal" Height="30" Width="40" Click="Normal_Click" Style="{DynamicResource Button_Window_Normal}" Foreground="{TemplateBinding Foreground}"/>
+                                <Button x:Name="Maximized" Height="30" Width="40" Click="Maximized_Click" Style="{DynamicResource Button_Window_Maximized}" Foreground="{TemplateBinding Foreground}"/>
+                                <Button x:Name="Close" Height="30" Width="40" Click="Close_Click" Style="{DynamicResource Button_Window_Close}" Foreground="{TemplateBinding Foreground}"/>
+                            </WrapPanel>
+                        </Grid>
+                        <!--尺寸调整区域-->
+                        <Grid x:Name ="PART_ResizerContainers" Visibility ="Hidden">
+                            <Grid.Resources >
+                                <s:Double x:Key ="StraightResizerSize">8</s:Double >
+                                <s:Double x:Key ="SlantResizerSize">16</s:Double >
+                                <Style TargetType ="{ x:Type Thumb }">
+                                    <Setter Property ="Template">
+                                        <Setter.Value >
+                                            <ControlTemplate >
+                                                <Rectangle Fill ="Transparent"/>
+                                            </ControlTemplate >
+                                        </Setter.Value >
+                                    </Setter >
+                                </Style>
+                            </Grid.Resources >
+                            <Thumb Width ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Stretch" HorizontalAlignment="Left" 
+                                    Cursor ="SizeWE"  x:Name ="PART_LeftResizer" DragDelta="ResizeLeft"/>
+                            <Thumb Height ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Top" HorizontalAlignment="Stretch"
+                                    Cursor ="SizeNS"  x:Name ="PART_TopResizer" DragDelta="ResizeTop"/>
+                            <Thumb Width ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Stretch" HorizontalAlignment="Right"
+                                    Cursor ="SizeWE" x:Name ="PART_RightResizer" DragDelta="ResizeRight"/>
+                            <Thumb Height ="{ StaticResource StraightResizerSize }" VerticalAlignment ="Bottom" HorizontalAlignment="Stretch"
+                                    Cursor ="SizeNS"  x:Name ="PART_BottomResizer" DragDelta="ResizeBottom"/>
+
+                            <ResizeGrip Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" HorizontalAlignment ="Right" VerticalAlignment ="Bottom" />
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                            HorizontalAlignment ="Right" VerticalAlignment ="Bottom" 
+                            Cursor ="SizeNWSE"  x:Name ="PART_BottomRightResizer" DragDelta="ResizeBottomRight"/>
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                            HorizontalAlignment ="Right" VerticalAlignment ="Top" 
+                            Cursor ="SizeNESW"  x:Name ="PART_TopRightResizer" DragDelta="ResizeTopRight"/>
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }"
+                            HorizontalAlignment ="Left" VerticalAlignment ="Top"
+                            Cursor ="SizeNWSE"  x:Name ="PART_TopLeftResizer" DragDelta="ResizeTopLeft"/>
+                            <Thumb Width ="{ StaticResource SlantResizerSize }" Height ="{ StaticResource SlantResizerSize }" 
+                            HorizontalAlignment ="Left" VerticalAlignment ="Bottom"
+                            Cursor ="SizeNESW"  x:Name ="PART_BottomLeftResizer" DragDelta="ResizeBottomLeft"/>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="IsEnabled" TargetName="Maximized" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter Property="IsEnabled" TargetName="Normal" Value="False"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

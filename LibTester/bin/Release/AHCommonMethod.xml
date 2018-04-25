@@ -1212,12 +1212,12 @@
             <param name="culture"></param>
             <returns></returns>
         </member>
-        <member name="T:Ai.Hong.Common.Convert.StringToFontFamily">
+        <member name="T:Ai.Hong.Common.Convert.FontFamilyToStringName">
             <summary>
             将String指定的字体名称转换为字体类
             </summary>
         </member>
-        <member name="M:Ai.Hong.Common.Convert.StringToFontFamily.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:Ai.Hong.Common.Convert.FontFamilyToStringName.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
             
             </summary>
@@ -1227,7 +1227,7 @@
             <param name="culture"></param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Common.Convert.StringToFontFamily.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:Ai.Hong.Common.Convert.FontFamilyToStringName.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
             
             </summary>

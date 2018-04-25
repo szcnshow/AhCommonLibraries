@@ -119,7 +119,7 @@ namespace Ai.Hong.Common.Convert
     /// <summary>
     /// 如果选择的列表值为设定值，返回Visble,否则返回Collapsed, values[0]=列表选择值, values[1]=比较值
     /// </summary>
-    [ValueConversion(typeof(Visibility), typeof(int[]))]
+    [ValueConversion(typeof(int[]), typeof(Visibility))]
     public class SelectedIndexVisibleConvert : IMultiValueConverter
     {
         /// <summary>
@@ -152,7 +152,7 @@ namespace Ai.Hong.Common.Convert
     /// <summary>
     /// BOOL值与0,1之间的转换: False=0, True=1
     /// </summary>
-    [ValueConversion(typeof(int), typeof(bool))]
+    [ValueConversion(typeof(bool), typeof(int))]
     public class BoolIntConvert : IValueConverter
     {
         /// <summary>
@@ -185,7 +185,7 @@ namespace Ai.Hong.Common.Convert
     /// <summary>
     /// 颜色和画笔之间的转换
     /// </summary>
-    [ValueConversion(typeof(Color), typeof(Brush))]
+    [ValueConversion(typeof(Brush), typeof(Color))]
     public class BrushToColorConverter : IValueConverter
     {
         /// <summary>
@@ -233,7 +233,7 @@ namespace Ai.Hong.Common.Convert
     /// <summary>
     /// 预测值与参考值的偏差，如果parameter=true,返回绝对偏差，否则返回相对偏差
     /// </summary>
-    [ValueConversion(typeof(double), typeof(double[]))]
+    [ValueConversion(typeof(double[]), typeof(double))]
     public class DifferentValueConvert : IMultiValueConverter
     {
         /// <summary>
@@ -314,7 +314,7 @@ namespace Ai.Hong.Common.Convert
     /// <summary>
     /// 颜色和画笔之间的转换
     /// </summary>
-    [ValueConversion(typeof(Brush), typeof(Color))]
+    [ValueConversion(typeof(Color), typeof(Brush))]
     public class ColorToBrushConverter : IValueConverter
     {
         /// <summary>
@@ -484,7 +484,7 @@ namespace Ai.Hong.Common.Convert
     /// <summary>
     /// Orientation值与VerticalAlignment之间的转换
     /// </summary>
-    [ValueConversion(typeof(VerticalAlignment), typeof(Orientation))]
+    [ValueConversion(typeof(Orientation),typeof(VerticalAlignment))]
     public class VerticalConvert : IValueConverter
     {
         /// <summary>
@@ -515,11 +515,10 @@ namespace Ai.Hong.Common.Convert
         }
     }
 
-
     /// <summary>
     /// Orientation值与VerticalAlignment之间的转换
     /// </summary>
-    [ValueConversion(typeof(HorizontalAlignment), typeof(Orientation))]
+    [ValueConversion(typeof(Orientation),typeof(HorizontalAlignment))]
     public class HorizontalConvert : IValueConverter
     {
         /// <summary>
@@ -553,8 +552,8 @@ namespace Ai.Hong.Common.Convert
     /// <summary>
     /// 将String指定的字体名称转换为字体类
     /// </summary>
-    [ValueConversion(typeof(string), typeof(FontFamily))]
-    public class StringToFontFamily : IValueConverter
+    [ValueConversion(typeof(FontFamily),typeof(string))]
+    public class FontFamilyToStringName : IValueConverter
     {
         /// <summary>
         /// 
@@ -603,10 +602,11 @@ namespace Ai.Hong.Common.Convert
             return fontfamily;
         }
     }
+
     /// <summary>
     /// Checked与Visibility之间的转换, True=Visible, False=Collapsed
     /// </summary>
-    [ValueConversion(typeof(Visibility), typeof(bool))]
+    [ValueConversion(typeof(bool), typeof(Visibility))]
     public class TrueIsVisibilityConvert : IValueConverter
     {
         /// <summary>
@@ -636,11 +636,10 @@ namespace Ai.Hong.Common.Convert
         }
     }
 
-
     /// <summary>
     /// False与Visibility之间的转换, False=Visible, True=Collapsed
     /// </summary>
-    [ValueConversion(typeof(Visibility), typeof(bool))]
+    [ValueConversion(typeof(bool), typeof(Visibility))]
     public class FalseIsVisibilityConvert : IValueConverter
     {
         /// <summary>

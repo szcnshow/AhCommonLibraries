@@ -39,47 +39,6 @@ D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\ACloudCommonControls
 D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\ACloudCommonControls\obj\Release\CommonControls.csprojResolveAssemblyReference.cache
 D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\simpleInputWindow.g.cs
 D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\simpleInputWindow.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.xml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.dll
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.pdb
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\CommonControls.csprojResolveAssemblyReference.cache
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\Point2DChart.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\SpectrumChart.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\ColorPicker.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FlattenSelectColorList.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Styles\DatagridStyle.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Styles\DefaultThemeStyle.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Styles\TreeViewStyle.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\GraphicOperatePanel.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\Point2DChart.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\SpectrumChart.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\ColorPicker.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FlattenSelectColorList.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\PorcessWaitWindow.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\dlgPorcessWaiting.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FileOperatePanel.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\OkCancelPanel.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\SelectColorList.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\simpleInputWindow.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\TextBoxAndButton.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\VectorImageButton.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\TestControl.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\GeneratedInternalTypeHelper.g.cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls_MarkupCompile.cache
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls_MarkupCompile.lref
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\GraphicOperatePanel.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\PorcessWaitWindow.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\dlgPorcessWaiting.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FileOperatePanel.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\OkCancelPanel.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\SelectColorList.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\simpleInputWindow.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\TextBoxAndButton.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\VectorImageButton.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\TestControl.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.g.resources
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.dll
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.pdb
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.xml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.pdb
@@ -121,3 +80,46 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonC
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.pdb
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\CommonControls.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\CommonControls.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\Point2DChart.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\SpectrumChart.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\ColorPicker.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Styles\DatagridStyle.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Styles\DefaultThemeStyle.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\GraphicOperatePanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\Point2DChart.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\SpectrumChart.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\ColorPicker.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FlattenFileOperatePanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\PorcessWaitWindow.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\dlgPorcessWaiting.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FileOperatePanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\OkCancelPanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\SelectColorList.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\simpleInputWindow.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\TextBoxAndButton.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\VectorImageButton.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\TestControl.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls_MarkupCompile.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls_MarkupCompile.lref
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonControls.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FlattenSelectColorList.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Styles\TreeViewStyle.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FlattenSelectColorList.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Chart\GraphicOperatePanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FlattenFileOperatePanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\PorcessWaitWindow.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\dlgPorcessWaiting.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\FileOperatePanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\OkCancelPanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\SelectColorList.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\simpleInputWindow.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\TextBoxAndButton.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\VectorImageButton.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\TestControl.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.g.resources
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\AHCommonControls.pdb

@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Ai.Hong.Controls.FlattenFileOperatePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vImg ="clr-namespace:Ai.Hong.Controls"
+             Name="toolbarOperate"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AHCommonResources;component/Vector/VectorGraphicResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="btnStyle" TargetType="vImg:VectorImageButton">
+                <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Margin" Value="{Binding Path=ButtonMargin, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="ImageWidth" Value="{Binding ButtonSize, ElementName=toolbarOperate}" />
+                <Setter Property="ImageWidth" Value="{Binding ButtonSize, ElementName=toolbarOperate}" />
+                <Setter Property="SelectedColor" Value="{Binding Path=MouseOnColor,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="ImageColor" Value="{Binding Path=ButtonColor,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Margin" Value="{Binding Path=ButtonMargin,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="TextMargin" Value="0"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="ImageColor" Value="{Binding Path=DisabledColor,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"
+                     Background="{Binding Path=Background,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}">
+            <ToolBar Background="Transparent">
+                <vImg:VectorImageButton x:Name="btnOpen"  Clicked="Button_Click" ToolTip="加载" VectorGeometry="{DynamicResource FileOpenGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnSave"  Clicked="Button_Click" ToolTip="保存" VectorGeometry="{DynamicResource FileSaveGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnSaveAs"  Clicked="Button_Click" ToolTip="另存" VectorGeometry="{DynamicResource FileSaveAsGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnSaveAll"  Clicked="Button_Click" ToolTip="保存全部" VectorGeometry="{DynamicResource FileSaveAllGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnClose"  Clicked="Button_Click" ToolTip="关闭" VectorGeometry="{DynamicResource FileCloseGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnCloseAll"  Clicked="Button_Click" ToolTip="关闭全部" VectorGeometry="{DynamicResource FileCloseAllGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnUndo"  Clicked="Button_Click" ToolTip="Undo" VectorGeometry="{DynamicResource FileUndoGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnImport"  Clicked="Button_Click" ToolTip="导入" VectorGeometry="{DynamicResource FileImportGeometry}"/>
+                <vImg:VectorImageButton x:Name="btnExport"  Clicked="Button_Click" ToolTip="导出" VectorGeometry="{DynamicResource FileExportGeometry}"/>
+            </ToolBar>
+        </ToolBarTray>
+    </Grid>
+</UserControl>

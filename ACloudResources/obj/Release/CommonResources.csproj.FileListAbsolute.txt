@@ -16,13 +16,17 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonResources.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonResources.pdb
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\CommonResources.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\DatagridStyle.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\DefaultThemeStyle.baml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\VectorImageInfo.baml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AllVectoryViewer.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\WindowStyle.g.cs
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\VectorImageInfo.g.cs
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\GeneratedInternalTypeHelper.g.cs
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources_MarkupCompile.cache
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources_MarkupCompile.lref
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AllVectoryViewer.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\WindowStyle.baml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.g.resources
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.pdb

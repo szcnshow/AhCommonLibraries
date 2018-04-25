@@ -75,6 +75,7 @@
                 </Style>
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
+                <!--Check Button Column-->
                 <DataGridTemplateColumn CanUserResize="False" CanUserSort="False">
                     <DataGridTemplateColumn.Header>
                         <Image Name="checkImage" Height="12" ToolTip="Show/Hide Selected Items" MouseLeftButtonDown="checkImage_MouseLeftButtonDown" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -92,7 +93,7 @@
                             </Image.Source>
                         </Image>
                     </DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellTemplate> 
                         <DataTemplate>
                             <CheckBox 
                                       IsChecked="{Binding Path=isChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
@@ -102,7 +103,8 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn CanUserResize="False" CanUserSort="True" Header="文件名" Binding="{Binding Path=name,Mode=OneWay}"/>
+                <!--Filename Column-->
+                <DataGridTextColumn CanUserResize="False" CanUserSort="True" Header="文件名" Binding="{Binding Path=name,Mode=OneWay}" MinWidth="80" Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

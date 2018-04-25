@@ -144,6 +144,9 @@
     <Compile Include="Controls\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FlattenFileOperatePanel.xaml.cs">
+      <DependentUpon>FlattenFileOperatePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FlattenSelectColorList.xaml.cs">
       <DependentUpon>FlattenSelectColorList.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FlattenFileOperatePanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

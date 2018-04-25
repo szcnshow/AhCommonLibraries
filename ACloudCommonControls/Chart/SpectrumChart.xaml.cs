@@ -179,6 +179,24 @@ namespace Ai.Hong.Charts
             downPeakPick    //向下的峰位 
         }
 
+        /// <summary>
+        /// 绘图区域的颜色
+        /// </summary>
+        public SolidColorBrush PlotAreaBackground
+        {
+            get { return ConvertToSolidBrush(spectrumChart.Model.PlotAreaBackground); }
+            set { spectrumChart.Model.PlotAreaBackground = ConvertOxyColor(value); }
+        }
+
+        /// <summary>
+        /// 底部区域的颜色
+        /// </summary>
+        public SolidColorBrush ModelBackground
+        {
+            get { return ConvertToSolidBrush(spectrumChart.Model.Background); }
+            set { spectrumChart.Model.Background = ConvertOxyColor(value); }
+        }
+
         #region Propertyies
 
         /// <summary>
@@ -206,6 +224,7 @@ namespace Ai.Hong.Charts
         /// </summary>
         GraphicOperatePanel operatePanel = null;
 
+        //OxyPlot.Wpf.TrackerControl
         /// <summary>
         /// 所有操作按钮
         /// </summary>
@@ -373,6 +392,20 @@ namespace Ai.Hong.Charts
             };
 
         System.Windows.Input.Cursor currentCursor = System.Windows.Input.Cursors.Arrow;
+
+        /// <summary>
+        /// 背景颜色
+        /// </summary>
+        public SolidColorBrush ChartBackground
+        {
+            get { return (SolidColorBrush)GetValue(ChartBackgroundProperty); }
+            set { SetValue(ChartBackgroundProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChartBackground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChartBackgroundProperty =
+            DependencyProperty.Register("ChartBackground", typeof(SolidColorBrush), typeof(SpectrumChart), new PropertyMetadata(Brushes.White));
+
         
         #endregion
 
@@ -550,6 +583,7 @@ namespace Ai.Hong.Charts
             menu.Click += ContextMenu_Click;
 
             parentMenu.Items.Add(menu);
+
         }
 
         /// <summary>
@@ -585,7 +619,7 @@ namespace Ai.Hong.Charts
                     SolidColorBrush curColor = (SolidColorBrush)typeof(Brushes).GetProperty(color).GetValue(null, null);
                     foreach(var item in selectedFiles)
                     {
-                        item.chart.Color = ConvertColor(curColor);
+                        item.chart.Color = ConvertOxyColor(curColor);
                     }
                     Refresh();
 
@@ -1169,9 +1203,20 @@ namespace Ai.Hong.Charts
             return RealAddToChart(new GraphicInfo(xDatas, yDatas, color, LineWidth, key, label, labelFormat));
         }
 
-        private OxyColor ConvertColor(SolidColorBrush color)
+        private OxyColor ConvertOxyColor(SolidColorBrush color)
         {
             return OxyColor.FromArgb(color.Color.A, color.Color.R, color.Color.G,color.Color.B);
+        }
+
+        /// <summary>
+        /// Convert Oxy to solid brush
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        private SolidColorBrush ConvertToSolidBrush(OxyColor color)
+        {
+            var cl = new Color() { A = color.A, R = color.R, G = color.G, B = color.B };
+            return new SolidColorBrush(cl);
         }
 
         /// <summary>
@@ -1486,7 +1531,7 @@ namespace Ai.Hong.Charts
 
             foreach (var item in selectedFiles)
             {
-                item.chart.Color = ConvertColor(e.NewValue);
+                item.chart.Color = ConvertOxyColor(e.NewValue);
             }
             Refresh();
 
@@ -1563,7 +1608,7 @@ namespace Ai.Hong.Charts
         /// <param name="backgroundColor">背景颜色</param>
         public void SaveToBitmapFile(string filename, int width, int height, SolidColorBrush backgroundColor)
         {
-            spectrumChart.SaveBitmap(filename, width, height, ConvertColor(backgroundColor));
+            spectrumChart.SaveBitmap(filename, width, height, ConvertOxyColor(backgroundColor));
         }
 
     }

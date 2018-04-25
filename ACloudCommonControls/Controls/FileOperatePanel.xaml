@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vImg ="clr-namespace:Ai.Hong.Controls"
              Name="toolbarOperate"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  Background="DeepPink"
              d:DesignHeight="100" d:DesignWidth="900">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -39,47 +39,52 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-            <Style x:Key="imgStyle" TargetType="Image">
-                <Setter Property="Width" Value="{Binding Path=ButtonSize,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
-                <Setter Property="Height" Value="{Binding Path=ButtonSize,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
-            </Style>
             <Style x:Key="VecImgStyle" TargetType="vImg:VectorImage">
                 <Setter Property="Width" Value="{Binding Path=ButtonSize,ElementName=toolbarOperate,Mode=OneWay}"/>
                 <Setter Property="Height" Value="{Binding Path=ButtonSize,ElementName=toolbarOperate,Mode=OneWay}"/>
                 <Setter Property="DrawColor" Value="{Binding Path=ButtonColor,ElementName=toolbarOperate,Mode=OneWay}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="DrawColor" Value="{Binding Path=MouseOnColor,ElementName=toolbarOperate,Mode=OneWay}"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="DrawColor" Value="{Binding Path=DisabledColor,ElementName=toolbarOperate,Mode=OneWay}"/>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}">
-            <ToolBar>
+        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"
+                     Background="{Binding Path=Background,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}">
+            <ToolBar Background="Transparent">
                 <Button Style="{StaticResource btnStyle}" Name="btnOpen"  Click="Button_Click" ToolTip="加载">
-            <vImg:VectorImage VectorSource="{StaticResource FileOpenGeometry}" Style="{DynamicResource VecImgStyle}" />
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnSave" Click="Button_Click" ToolTip="保存">
-            <vImg:VectorImage VectorSource="{StaticResource FileSaveGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnSaveAs" Click="Button_Click" ToolTip="另存">
-            <vImg:VectorImage VectorSource="{StaticResource FileSaveAsGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnSaveAll" Click="Button_Click" ToolTip="保存全部">
-            <vImg:VectorImage VectorSource="{StaticResource FileSaveAllGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnClose" Click="Button_Click" ToolTip="关闭">
-            <vImg:VectorImage VectorSource="{StaticResource FileCloseGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnCloseAll" Click="Button_Click" ToolTip="关闭全部">
-            <vImg:VectorImage VectorSource="{StaticResource FileCloseAllGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnUndo" Click="Button_Click" ToolTip="Undo">
-            <vImg:VectorImage VectorSource="{StaticResource FileUndoGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnImport" Click="Button_Click" ToolTip="导入">
-            <vImg:VectorImage VectorSource="{StaticResource FileImportGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
-        <Button Style="{StaticResource btnStyle}" Name="btnExport" Click="Button_Click" ToolTip="导出">
-            <vImg:VectorImage VectorSource="{StaticResource FileExportGeometry}" Style="{DynamicResource VecImgStyle}"/>
-        </Button>
+                    <vImg:VectorImage VectorSource="{StaticResource FileOpenGeometry}" Style="{DynamicResource VecImgStyle}" />
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnSave" Click="Button_Click" ToolTip="保存">
+                    <vImg:VectorImage VectorSource="{StaticResource FileSaveGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnSaveAs" Click="Button_Click" ToolTip="另存">
+                    <vImg:VectorImage VectorSource="{StaticResource FileSaveAsGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnSaveAll" Click="Button_Click" ToolTip="保存全部">
+                    <vImg:VectorImage VectorSource="{StaticResource FileSaveAllGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnClose" Click="Button_Click" ToolTip="关闭">
+                    <vImg:VectorImage VectorSource="{StaticResource FileCloseGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnCloseAll" Click="Button_Click" ToolTip="关闭全部">
+                    <vImg:VectorImage VectorSource="{StaticResource FileCloseAllGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnUndo" Click="Button_Click" ToolTip="Undo">
+                    <vImg:VectorImage VectorSource="{StaticResource FileUndoGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnImport" Click="Button_Click" ToolTip="导入">
+                    <vImg:VectorImage VectorSource="{StaticResource FileImportGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
+                <Button Style="{StaticResource btnStyle}" Name="btnExport" Click="Button_Click" ToolTip="导出">
+                    <vImg:VectorImage VectorSource="{StaticResource FileExportGeometry}" Style="{DynamicResource VecImgStyle}"/>
+                </Button>
             </ToolBar>
         </ToolBarTray>
     </Grid>

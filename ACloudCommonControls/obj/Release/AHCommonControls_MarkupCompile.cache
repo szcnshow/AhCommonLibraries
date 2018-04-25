@@ -10,11 +10,11 @@ none
 false
 TRACE
 
-17171108514
+18451383581
 
-28-1501510455
+301227624956
 221560086039
-Chart\GraphicOperatePanel.xaml;Chart\Point2DChart.xaml;Chart\SpectrumChart.xaml;Controls\ColorPicker.xaml;Controls\FlattenSelectColorList.xaml;Controls\PorcessWaitWindow.xaml;Controls\dlgPorcessWaiting.xaml;Controls\FileOperatePanel.xaml;Controls\OkCancelPanel.xaml;Controls\SelectColorList.xaml;Controls\simpleInputWindow.xaml;Controls\TextBoxAndButton.xaml;Controls\VectorImageButton.xaml;Styles\DatagridStyle.xaml;Styles\DefaultThemeStyle.xaml;Styles\TreeViewStyle.xaml;TestControl.xaml;
+Chart\GraphicOperatePanel.xaml;Chart\Point2DChart.xaml;Chart\SpectrumChart.xaml;Controls\ColorPicker.xaml;Controls\FlattenFileOperatePanel.xaml;Controls\FlattenSelectColorList.xaml;Controls\PorcessWaitWindow.xaml;Controls\dlgPorcessWaiting.xaml;Controls\FileOperatePanel.xaml;Controls\OkCancelPanel.xaml;Controls\SelectColorList.xaml;Controls\simpleInputWindow.xaml;Controls\TextBoxAndButton.xaml;Controls\VectorImageButton.xaml;Styles\DatagridStyle.xaml;Styles\DefaultThemeStyle.xaml;Styles\TreeViewStyle.xaml;TestControl.xaml;
 
 False
 

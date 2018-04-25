@@ -107,6 +107,11 @@
       <DependentUpon>AllVectoryViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Styles\win32.cs" />
+    <Compile Include="Styles\WindowStyle.xaml.cs">
+      <DependentUpon>WindowStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Styles\WinStyle.cs" />
     <Compile Include="VectorImageInfo.xaml.cs">
       <DependentUpon>VectorImageInfo.xaml</DependentUpon>
     </Compile>
@@ -143,6 +148,18 @@
     <Page Include="AllVectoryViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DatagridStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\DefaultThemeStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\WindowStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="VectorImageInfo.xaml">
       <SubType>Designer</SubType>

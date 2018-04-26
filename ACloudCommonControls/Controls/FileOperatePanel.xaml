@@ -10,13 +10,14 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="/AHCommonControls;component/Styles/ToolbarStyle.xaml"/>-->
-                <ResourceDictionary Source="./../Styles/ToolbarStyle.xaml"/>
+                <ResourceDictionary Source="/AHCommonControls;component/Styles/ToolbarStyle.xaml"/>
+                <!--<ResourceDictionary Source="./../Styles/ToolbarStyle.xaml"/>-->
                 <ResourceDictionary Source="/AHCommonResources;component/Vector/VectorGraphicResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="btnStyle" TargetType="Button">
                 <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
                 <Setter Property="Margin" Value="{Binding Path=ButtonMargin, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Padding" Value="3"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="Foreground" Value="{Binding Path=MouseOnColor,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
@@ -57,9 +58,10 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"
+        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" 
+                     Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"
                      Background="{Binding Path=Background,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}">
-            <ToolBar Background="Transparent" >
+            <ToolBar Style="{StaticResource toolbarStyle}">
                 <Button Style="{StaticResource btnStyle}" Name="btnOpen"  Click="Button_Click" ToolTip="加载">
                     <vImg:VectorImage VectorSource="{StaticResource FileOpenGeometry}" Style="{DynamicResource VecImgStyle}" />
                 </Button>

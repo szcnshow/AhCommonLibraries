@@ -123,7 +123,7 @@
         <ControlTemplate TargetType="{x:Type ButtonBase}">
           <Border
             x:Name="Border"
-            BorderThickness="1"
+            BorderThickness="0"
             Background="Transparent"
             BorderBrush="Transparent">
             <ContentPresenter
@@ -277,13 +277,14 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ToolBar}">
-          <Border x:Name="Border"
+            <Border x:Name="Border"
             CornerRadius="2"
-            BorderThickness="1"
-            Background="{StaticResource LightBrush}"
-            BorderBrush="{StaticResource NormalBorderBrush}">
-            <DockPanel >
-              <ToggleButton DockPanel.Dock="Right"
+            BorderThickness="0"
+            Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}">
+                        <!--Background="{StaticResource LightBrush}"
+            BorderBrush="{StaticResource NormalBorderBrush}"-->
+                        <DockPanel VerticalAlignment="Center">
+              <ToggleButton DockPanel.Dock="Right" VerticalAlignment="Center"
                 IsEnabled="{TemplateBinding HasOverflowItems}"
                 Style="{StaticResource ToolBarOverflowButtonStyle}"
                 IsChecked="{Binding Path=IsOverflowOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
@@ -310,10 +311,10 @@
                 </Popup>
               </ToggleButton>
 
-              <Thumb x:Name="ToolBarThumb"
+              <Thumb x:Name="ToolBarThumb" Visibility="Collapsed"
                 Style="{StaticResource ToolBarThumbStyle}"
                 Width="10"/>
-              <ToolBarPanel x:Name="PART_ToolBarPanel"
+              <ToolBarPanel x:Name="PART_ToolBarPanel" 
                 IsItemsHost="true"
                 Margin="0,1,2,2"/>
             </DockPanel>

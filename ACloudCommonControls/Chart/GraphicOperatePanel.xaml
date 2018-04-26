@@ -10,11 +10,13 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AHCommonControls;component/Styles/ToolbarStyle.xaml"/>
                 <ResourceDictionary Source="/AHCommonResources;component/Vector/VectorGraphicResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="btnStyle" TargetType="Button">
                 <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
                 <Setter Property="Margin" Value="{Binding Path=ButtonMargin, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Padding" Value="3"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="Foreground" Value="{Binding Path=MouseOnColor,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
@@ -27,6 +29,7 @@
             <Style x:Key="btnToggleStyle" TargetType="RadioButton" > 
                 <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
                 <Setter Property="Margin" Value="{Binding Path=ButtonMargin, RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"/>
+                <Setter Property="Padding" Value="3"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="Foreground" Value="{Binding Path=MouseOnColor,ElementName=toolbarOperate,Mode=OneWay}"/>
@@ -53,8 +56,10 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}">
-            <ToolBar>
+        <ToolBarTray x:Name="toolBarTray" Orientation="{Binding ElementName=toolbarOperate,Path=Orientation}" 
+                     Width="{Binding Path=Width,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}"
+                     Background="{Binding Path=Background,RelativeSource={RelativeSource AncestorType=UserControl},Mode=OneWay}">
+            <ToolBar Style="{StaticResource toolbarStyle}">
                 <RadioButton Style="{StaticResource btnToggleStyle}" Name="btnSelect"  Checked="Button_Checked" Unchecked="Button_Checked">
                     <vImg:VectorImage VectorSource="{StaticResource ArrowCursorGeometry}" Style="{StaticResource VecImgStyle}" />
                 </RadioButton>

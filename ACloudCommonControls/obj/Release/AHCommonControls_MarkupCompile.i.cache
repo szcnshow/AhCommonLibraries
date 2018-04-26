@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\
 Ai.Hong.Controls
 none
 false
@@ -12,8 +12,8 @@ TRACE
 
 19-238516335
 
-32-1004182756
-221560086039
+32-1846770814
+22839144392
 Chart\GraphicOperatePanel.xaml;Chart\Point2DChart.xaml;Chart\SpectrumChart.xaml;Controls\ColorPicker.xaml;Controls\FlattenFileOperatePanel.xaml;Controls\FlattenSelectColorList.xaml;Controls\PorcessWaitWindow.xaml;Controls\dlgPorcessWaiting.xaml;Controls\FileOperatePanel.xaml;Controls\OkCancelPanel.xaml;Controls\SelectColorList.xaml;Controls\simpleInputWindow.xaml;Controls\TextBoxAndButton.xaml;Controls\VectorButton.xaml;Controls\VectorImageButton.xaml;Styles\DatagridStyle.xaml;Styles\DefaultThemeStyle.xaml;Styles\TreeViewStyle.xaml;TestControl.xaml;
 
 True

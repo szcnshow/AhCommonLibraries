@@ -114,5 +114,6 @@
         <vectrl:VectorImageInfo VectorSource="{DynamicResource RoundRectStart}" VectorText="RoundRectStart"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource SingleRightGeometry}" VectorText="SingleRight"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource SingleWrongGeometry}" VectorText="SingleWrong"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource PopupMenuRootGeometry}" VectorText="PopupMenuRoot"/>
     </UniformGrid>
 </UserControl>

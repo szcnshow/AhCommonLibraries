@@ -612,7 +612,7 @@ namespace Ai.Hong.Charts
                 string color = menu.Name.Replace("Color_", "");
                 if(color == "More")     //More菜单，需要弹出颜色选择框
                 {
-
+                    
                 }
                 else if(selectedFiles.Count > 0)
                 {

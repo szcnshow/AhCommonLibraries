@@ -752,14 +752,14 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="P:Ai.Hong.Charts.SpectrumChart.PlotAreaColor">
+        <member name="P:Ai.Hong.Charts.SpectrumChart.PlotAreaBackground">
             <summary>
             绘图区域的颜色
             </summary>
         </member>
-        <member name="P:Ai.Hong.Charts.SpectrumChart.AxisAreaColor">
+        <member name="P:Ai.Hong.Charts.SpectrumChart.ModelBackground">
             <summary>
-            坐标区域的颜色
+            底部区域的颜色
             </summary>
         </member>
         <member name="E:Ai.Hong.Charts.SpectrumChart.ItemSelected">
@@ -2503,6 +2503,204 @@
         <member name="P:Ai.Hong.Controls.VectorImage.VectorSource">
             <summary>
             矢量图形（DrawingGroup）
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.VectorButton">
+            <summary>
+            ImageToolButton.xaml 的交互逻辑
+            </summary>
+            <summary>
+            VectorButton
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.TextProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.VectorGeometryProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ImageWidthProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ImageHeightProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ImageMarginProperty">
+            <summary>
+            图片的空白
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.CornerRadiusProperty">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ContentPaddingProperty">
+            <summary>
+            内容Padding
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.TextMarginProperty">
+            <summary>
+            文字的空白
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.SelectedColorProperty">
+            <summary>
+            鼠标上去的颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.SelectedBorderProperty">
+            <summary>
+            鼠标上去的边框颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.UnselectedColorProperty">
+            <summary>
+            鼠标没上去的颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.UnselectedBorderProperty">
+            <summary>
+            鼠标没上去的边框颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ImageColorProperty">
+            <summary>
+            正常图形颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ImageSelectedColorProperty">
+            <summary>
+            选中图形颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ImageDisabledColorProperty">
+            <summary>
+            图形无效颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.OrientationProperty">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.KeepSelectedProperty">
+            <summary>
+            是否保持选中状态
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.VectorButton.ClickedEvent">
+            <summary>
+            按钮选择消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorButton.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.VectorButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.Text">
+            <summary>
+            按钮的文字
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.VectorGeometry">
+            <summary>
+            按钮的图片
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.ImageWidth">
+            <summary>
+            按钮的图片的宽度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.ImageHeight">
+            <summary>
+            按钮的图片的高度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.ImageMargin">
+            <summary>
+            图片的空白
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.CornerRadius">
+            <summary>
+            按钮的图片的宽度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.ContentPadding">
+            <summary>
+            内容Padding
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.TextMargin">
+            <summary>
+            文字的空白
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.SelectedColor">
+            <summary>
+            鼠标上去的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.SelectedBorder">
+            <summary>
+            鼠标上去的边框颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.UnselectedColor">
+            <summary>
+            鼠标没上去的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.UnselectedBorder">
+            <summary>
+            鼠标没上去的边框颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.ImageColor">
+            <summary>
+            正常图形颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.ImageSelectedColor">
+            <summary>
+            选中图形颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.ImageDisabledColor">
+            <summary>
+            图形无效颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.Orientation">
+            <summary>
+            排列方向
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.VectorButton.KeepSelected">
+            <summary>
+            是否保持选中状态
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.VectorButton.Clicked">
+            <summary>
+            按钮选择消息
             </summary>
         </member>
         <member name="T:Ai.Hong.Controls.VectorImageButton">

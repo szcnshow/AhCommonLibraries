@@ -24,6 +24,6 @@
         </ControlTemplate>
     </UserControl.Resources>
     <Grid Name="gridroot">
-        <oxy:PlotView Name="spectrumChart" Background="{Binding Path=ChartBackground, ElementName=spectrumChart}"/>
+        <oxy:PlotView Name="spectrumChart" Background="{Binding Path=ChartBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"/>
     </Grid>
 </UserControl>

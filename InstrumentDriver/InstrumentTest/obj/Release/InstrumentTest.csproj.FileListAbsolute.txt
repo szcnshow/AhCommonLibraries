@@ -37,3 +37,39 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDri
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\InstrumentTest.csproj.CopyComplete
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\AHInstrumentTest.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\AHInstrumentTest.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHInstrumentTest.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHInstrumentTest.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHInstrumentTest.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonControls.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonMethod.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonResources.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHDeviceDriver.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHSpectrumAlgorithm.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHSpectrumFileFormat.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\alglibnet2.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\OxyPlot.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\OxyPlot.Wpf.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHSpectrumFileFormat.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHSpectrumFileFormat.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHSpectrumAlgorithm.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHSpectrumAlgorithm.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonResources.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonResources.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonMethod.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonMethod.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHDeviceDriver.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHDeviceDriver.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonControls.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\OxyPlot.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\OxyPlot.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\OxyPlot.Wpf.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\OxyPlot.Wpf.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\InstrumentTest.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\InstrumentTest.csproj.CoreCompileInputs.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\InstrumentTest.csproj.CopyComplete
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\AHInstrumentTest.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\AHInstrumentTest.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\bin\Release\AHCommonControls.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHInstrumentTest.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHInstrumentTest.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHInstrumentTest.pdb

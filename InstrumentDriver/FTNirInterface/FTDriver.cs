@@ -44,6 +44,16 @@ namespace Ai.Hong.Driver
         /// </summary>
         public Action<int> OnDataReceived { get; set; }
 
+        /// <summary>
+        /// 当前设备类型
+        /// </summary>
+        public EnumDeviceCategory DeviceCategory { get { return ConnectedDevice != null ? ConnectedDevice.Type : EnumDeviceCategory.Unknown; } }
+
+        /// <summary>
+        /// 当前设备型号
+        /// </summary>
+        public EnumDeviceModel DeviceModel { get { return ConnectedDevice != null ? ConnectedDevice.Model : EnumDeviceModel.Unknown; } }
+
         private EnumHardwareStatus _deviceStatus = EnumHardwareStatus.NotFound;
         /// <summary>
         /// 设备状态
@@ -64,6 +74,30 @@ namespace Ai.Hong.Driver
         /// 本实例是否已经销毁了
         /// </summary>
         private bool _disposed = false;
+
+        /// <summary>
+        /// 扫描过程中的回调函数（通知调用进程刷新扫描进度）
+        /// </summary>
+        /// <param name="maxValue">最大扫描次数</param>
+        /// <param name="curValue">当前扫描次数</param>
+        /// <param name="errorCode">错误代码, 0=OK</param>
+        /// <returns>True=继续扫描，False=终止扫描</returns>
+        public delegate bool ScanProcessingCallback(EnumHardwareError errorCode, int maxValue, int curValue);
+
+        /// <summary>
+        /// 扫描进度回调函数
+        /// </summary>
+        public ScanProcessingCallback ProcessCallback = null;
+
+        /// <summary>
+        /// 扫描数据读取线程
+        /// </summary>
+        private System.Threading.Thread ScanThread = null;
+
+        /// <summary>
+        /// 扫描数据列表
+        /// </summary>
+        public List<FileFormat.FileFormat> ScannedDatas = null;
 
         #region constructor & deconstructor
         /// <summary>

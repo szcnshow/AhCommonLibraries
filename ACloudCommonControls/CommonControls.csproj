@@ -141,11 +141,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common.cs" />
+    <Compile Include="Controls\ClockWaiting.xaml.cs">
+      <DependentUpon>ClockWaiting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\CheckboxNameColorList.xaml.cs">
       <DependentUpon>CheckboxNameColorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ComboxWithDeleteButton.xaml.cs">
+      <DependentUpon>ComboxWithDeleteButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DateTimeInputor.xaml.cs">
       <DependentUpon>DateTimeInputor.xaml</DependentUpon>
@@ -219,11 +225,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ClockWaiting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\ColorPicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\CheckboxNameColorList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ComboxWithDeleteButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

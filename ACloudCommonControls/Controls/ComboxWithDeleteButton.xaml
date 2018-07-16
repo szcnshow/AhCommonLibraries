@@ -1,0 +1,49 @@
+﻿<ComboBox x:Class="Ai.Hong.Controls.ComboxWithDeleteButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:commctrl="clr-namespace:Ai.Hong.Controls"
+             mc:Ignorable="d" Name="thisControl"
+             d:DesignHeight="30" d:DesignWidth="300">
+    <ComboBox.Resources>
+        <Style TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border Name="Border" Padding="2" SnapsToDevicePixels="true">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter />
+                                <commctrl:VectorImageButton Grid.Column="1" Tag="{Binding Path=.}" x:Name="btnDelete" Clicked="btnDelete_Clicked" 
+                                                            ImageWidth="12" ImageHeight="12" TextMargin="0" Orientation="Horizontal" 
+                                                            ImageSelectedColor="Red" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <commctrl:VectorImageButton.VectorGeometry>
+                                        <DrawingGroup>
+                                            <DrawingGroup.Children>
+                                                <GeometryDrawing Brush="#FF272536" Geometry="M 17.1117,15.0128L 29.4387,2.68687C 30.0213,2.10252 30.0238,1.15693 29.4439,0.572571C 28.8626,-0.016983 27.9247,-0.016983 27.3421,0.564802L 15.0139,12.8959L 2.7908,0.571287C 2.21339,-0.0105 1.27029,-0.0156956 0.689042,0.568712C 0.107852,1.1505 0.106467,2.09732 0.686485,2.68168L 12.9044,15.005L 0.585135,27.3258C 0.00255937,27.9076 1.62149e-006,28.8532 0.578687,29.4401C 0.869948,29.7355 1.24977,29.8813 1.6321,29.8813C 2.01192,29.8813 2.39174,29.7355 2.68172,29.4452L 15.0048,17.1219L 27.337,29.5587C 27.6282,29.8542 28.008,30 28.3904,30C 28.7702,30 29.15,29.8542 29.4387,29.5639C 30.0199,28.9796 30.0213,28.034 29.4413,27.4496L 17.1117,15.0128 Z "/>
+                                            </DrawingGroup.Children>
+                                        </DrawingGroup>
+                                    </commctrl:VectorImageButton.VectorGeometry>
+                                </commctrl:VectorImageButton>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ComboBox.Resources>
+</ComboBox>

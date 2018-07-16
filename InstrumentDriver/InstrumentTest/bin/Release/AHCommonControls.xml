@@ -1434,6 +1434,126 @@
             <param name="graphicHeight">图像的高度</param>
             <param name="DPI">图像分辨率</param>
         </member>
+        <member name="T:Ai.Hong.Controls.ClockWaiting">
+            <summary>
+            panelScanner.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ClockWaiting
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.MinuteAngle">
+            <summary>
+            分针的角度，内部Binding使用
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.HourAngle">
+            <summary>
+            时针的角度，内部Binding使用
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.CancelOptical">
+            <summary>
+            取消按钮的不透明度（用于隐藏取消按钮）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.TotalHours">
+            <summary>
+            一圈总共多少小时  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.TotalHoursProperty">
+            <summary>
+            一圈总共多少小时  
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.CurrentHours">
+            <summary>
+            当前小时数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.CurrentHoursProperty">
+            <summary>
+            当前小时数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.MinuteSpeed">
+            <summary>
+            分针的速度(多少秒钟一圈)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.MinuteSpeedProperty">
+            <summary>
+            分针的速度(多少秒钟一圈)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.ProgressGeometry">
+            <summary>
+            弧形几何形状，内部Binding使用
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.ProgressGeometryProperty">
+            <summary>
+            弧形几何形状，内部Binding使用
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.ClockWaiting.CanAbort">
+            <summary>
+            是否能够终止扫描
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.CanAbortProperty">
+            <summary>
+            是否能够终止扫描
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.AbortEvent">
+            <summary>
+            状态变更通知消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.ClockWaiting.Abort">
+            <summary>
+            状态变更通知消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ClockWaiting.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.timer">
+            <summary>
+            分针转动的控制Timer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ClockWaiting.startTime">
+            <summary>
+            启动时间
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ClockWaiting.Start(System.Double,System.Double)">
+            <summary>
+            开始
+            </summary>
+            <param name="totalHours">总共多少小时</param>
+            <param name="minuteSpeed">分针多少秒钟一圈</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.ClockWaiting.Stop">
+            <summary>
+            停止
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ClockWaiting.RaiseAbortEvent">
+            <summary>
+            引发事件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ClockWaiting.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Controls.ColorPicker">
             <summary>
             颜色选择弹出菜单
@@ -1601,6 +1721,40 @@
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Controls.CheckboxNameColorList.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Controls.ComboxWithDeleteButton">
+            <summary>
+            ComboxWithDeleteButton.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ComboxWithDeleteButton
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.ComboxWithDeleteButton.ItemDeleteEvent">
+            <summary>
+            列表删除消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Controls.ComboxWithDeleteButton.ItemDelete">
+            <summary>
+            列表删除消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ComboxWithDeleteButton.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.ComboxWithDeleteButton.RaiseNodeEvent(System.Object)">
+            <summary>
+            发送列表操作消息(包含当前操作的项)
+            </summary>
+            <param name="node">操作方法</param>
+        </member>
+        <member name="M:Ai.Hong.Controls.ComboxWithDeleteButton.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

@@ -59,45 +59,45 @@ namespace Ai.Hong.Driver.IT
         backgroundError = 8,
     }
 
-    /// <summary>
-    /// 扫描通知消息参数
-    /// </summary>
-    public class ScanNotifyArgs:System.Windows.RoutedEventArgs
-    {
-        /// <summary>
-        /// 扫描状态
-        /// </summary>
-        public EnumScanNotifyState state { get; set; }
-        /// <summary>
-        /// 是否取消扫描
-        /// </summary>
-        public bool abortScan { get; set; }
-        /// <summary>
-        /// 错误信息
-        /// </summary>
-        public string errorString { get; set; }
+    ///// <summary>
+    ///// 扫描通知消息参数
+    ///// </summary>
+    //public class ScanNotifyArgs:System.Windows.RoutedEventArgs
+    //{
+    //    /// <summary>
+    //    /// 扫描状态
+    //    /// </summary>
+    //    public EnumScanNotifyState state { get; set; }
+    //    /// <summary>
+    //    /// 是否取消扫描
+    //    /// </summary>
+    //    public bool abortScan { get; set; }
+    //    /// <summary>
+    //    /// 错误信息
+    //    /// </summary>
+    //    public string errorString { get; set; }
 
-        /// <summary>
-        /// Scan notify argreements
-        /// </summary>
-        public ScanNotifyArgs():base()
-        {
-            this.abortScan = false;
-        }
+    //    /// <summary>
+    //    /// Scan notify argreements
+    //    /// </summary>
+    //    public ScanNotifyArgs():base()
+    //    {
+    //        this.abortScan = false;
+    //    }
 
-        /// <summary>
-        /// Scan notify argreements
-        /// </summary>
-        /// <param name="routedEvent"></param>
-        /// <param name="state"></param>
-        /// <param name="errorString"></param>
-        public ScanNotifyArgs(System.Windows.RoutedEvent routedEvent, EnumScanNotifyState state, string errorString):base(routedEvent)
-        {
-            this.abortScan = false;
-            this.state = state;
-            this.errorString = errorString;
-        }
-    }
+    //    /// <summary>
+    //    /// Scan notify argreements
+    //    /// </summary>
+    //    /// <param name="routedEvent"></param>
+    //    /// <param name="state"></param>
+    //    /// <param name="errorString"></param>
+    //    public ScanNotifyArgs(System.Windows.RoutedEvent routedEvent, EnumScanNotifyState state, string errorString):base(routedEvent)
+    //    {
+    //        this.abortScan = false;
+    //        this.state = state;
+    //        this.errorString = errorString;
+    //    }
+    //}
 
     /// <summary>
     /// 仪器自检基本类
@@ -706,7 +706,7 @@ namespace Ai.Hong.Driver.IT
         /// </summary>
         /// <param name="calcuParameter">参考干涉图</param>
         /// <returns></returns>
-        public override bool CalculateResult(dynamic calcuParameter = null)
+        public override bool CalculateResult(dynamic calcuParameter)
         {
             results = new List<double>();
 
@@ -774,7 +774,7 @@ namespace Ai.Hong.Driver.IT
         /// </summary>
         /// <param name="calcuParameter">参考干涉图</param>
         /// <returns></returns>
-        public override bool CalculateResult(dynamic calcuParameter = null)
+        public override bool CalculateResult(dynamic calcuParameter)
         {
             results = new List<double>();
 
@@ -987,7 +987,7 @@ namespace Ai.Hong.Driver.IT
         /// </summary>
         /// <param name="calcuParameter">参考干涉图</param>
         /// <returns></returns>
-        public override bool CalculateResult(dynamic calcuParameter = null)
+        public override bool CalculateResult(dynamic calcuParameter)
         {
             results = new List<double>();
 

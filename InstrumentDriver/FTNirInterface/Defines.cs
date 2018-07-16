@@ -311,26 +311,32 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// OK
         /// </summary>
+        [Description("正常,OK")]
         OK = 0,
         /// <summary>
         /// NotFound
         /// </summary>
+        [Description("未找到,NotFound")]
         NotFound = 1,
         /// <summary>
         /// Warning
         /// </summary>
+        [Description("警告,Warning")]
         Warning = 2,
         /// <summary>
         /// Busy
         /// </summary>
+        [Description("忙,Busy")]
         Busy = 3,
         /// <summary>
         /// Fault
         /// </summary>
+        [Description("错误,Fault")]
         Fault = 4,
         /// <summary>
         /// NotReady
         /// </summary>
+        [Description("未就绪,NotReady")]
         NotReady = 5,
     }
 
@@ -795,51 +801,63 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// Default
         /// </summary>
+        [Description("缺省,Default")]
         Default,
         /// <summary>
         /// Bruer MPA
         /// </summary>
+        [Description("布鲁克MPA,Bruer MPA")]
         Bruer_MPA,
         /// <summary>
         /// Bruer Tango
         /// </summary>
+        [Description("布鲁克Tango,Bruer Tango")]
         Bruer_Tango,
         /// <summary>
         /// Bruer Matrix_E
         /// </summary>
+        [Description("布鲁克Matrix-E,Bruer Matrix-E")]
         Bruer_Matrix_E,
         /// <summary>
         /// Bruer Matrix_F
         /// </summary>
+        [Description("布鲁克Matrix-F,Bruer Matrix-F")]
         Bruer_Matrix_F,
         /// <summary>
         /// Bruer Matrix_I
         /// </summary>
+        [Description("布鲁克Matrix-I,Bruer Matrix-I")]
         Bruer_Matrix_I,
         /// <summary>
         /// Catron IIS100
         /// </summary>
+        [Description("开创 IIS100,Catron IIS100")]
         Catron_IIS100,
+        /// <summary>
+        /// Long light integrate sphere
+        /// </summary>
+        [Description("九光 积分球,LongLight Integrate")]
+        LongLight_Integrate,
         /// <summary>
         /// Thermo AntarisII
         /// </summary>
+        [Description("赛默飞 AntarisII,Thermo AntarisII")]
         Thermo_AntarisII,
         /// <summary>
         /// Vspec Fiber
         /// </summary>
-        Vspec_Fiber,
+        [Description("威斯派克 2000,Vspec 2000")]
+        Vspec_2000,
         /// <summary>
         /// Vspec Integrating Sphere
         /// </summary>
-        Vspec_IntegratingSphere,
+        [Description("威斯派克 3000,Vspec 3000")]
+        Vspec_3000,
         /// <summary>
         /// Vspec QuasIR
         /// </summary>
-        Vspec_QuasIR,
-        /// <summary>
-        /// Long light integrate sphere
-        /// </summary>
-        LongLight_Integrate,
+        [Description("威斯派克 4000,Vspec 4000")]
+        Vspec_4000,
     }
 
     /// <summary>
@@ -850,23 +868,28 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// Bruker
         /// </summary>
+        [Description("布鲁克,Bruker")]
         Bruker,
         /// <summary>
         /// Catron
         /// </summary>
+        [Description("开创,Catron")]
         Catron,
+        /// <summary>
+        /// LongLight
+        /// </summary>
+        [Description("九光,LongLight")]
+        LongLight,
         /// <summary>
         /// Thermo
         /// </summary>
+        [Description("赛默飞,Thermo")]
         Thermo,
         /// <summary>
         /// Vspec
         /// </summary>
+        [Description("威斯派克,Vspec")]
         Vspec,
-        /// <summary>
-        /// LongLight
-        /// </summary>
-        LongLight,
     }
 
     /// <summary>
@@ -877,11 +900,13 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// Start
         /// </summary>
-        Start=0,
+        [Description("开始,Start")]
+        Start = 0,
         /// <summary>
         /// Stop acquire, Wait for device 
         /// </summary>
-        Stop=1,
+        [Description("停止,Stop")]
+        Stop = 1,
     }
 
     /// <summary>
@@ -892,39 +917,91 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 原始数据
         /// </summary>
+        [Description("原始数据,Raw Data")]
         Raw = 0,
         /// <summary>
         /// 背景干涉谱
         /// </summary>
+        [Description("背景干涉谱,Back Interfergoram")]
         BackInterfer = 1,
         /// <summary>
-        /// 样品干涉图
+        /// 样品干涉谱
         /// </summary>
+        [Description("样品干涉谱Sample Interfergoram")]
         SampleInterfer = 2,
         /// <summary>
         /// 背景单通道谱
         /// </summary>
+        [Description("背景单通道谱,Back Single Beam")]
         BackBeam = 3,
         /// <summary>
         /// 样品单通道谱
         /// </summary>
+        [Description("样品单通道谱,Sample Single Beam")]
         SampleBeam = 4,
         /// <summary>
         /// 吸收谱
         /// </summary>
+        [Description("吸收谱,Absorption")]
         Absorption = 5,
         /// <summary>
         /// 透射谱
         /// </summary>
+        [Description("透射谱,Transmission")]
         Transmission = 6,
         /// <summary>
         /// 发射谱
         /// </summary>
+        [Description("发射谱,Emission")]
         Emission = 7,
         /// <summary>
         /// 反射谱
         /// </summary>
+        [Description("反射谱,Reflection")]
         Reflection = 8,
+    }
+
+    /// <summary>
+    /// 扫描通知状态枚举
+    /// </summary>
+    public enum EnumScanNotifyState
+    {
+        /// <summary>
+        /// 还没有开始扫描
+        /// </summary>
+        Idel = 0,
+        /// <summary>
+        /// 正在扫描
+        /// </summary>
+        Scanning = 1,
+        /// <summary>
+        /// 完成一次检测
+        /// </summary>
+        oneFinished = 2,
+        /// <summary>
+        /// 完成全部重复（扫描结束）
+        /// </summary>
+        repeateFinished = 3,
+        /// <summary>
+        /// 参数错误
+        /// </summary>
+        parameterError = 4,
+        /// <summary>
+        /// 设备错误
+        /// </summary>
+        deviceError = 5,
+        /// <summary>
+        /// 文件错误
+        /// </summary>
+        fileError = 6,
+        /// <summary>
+        /// 用户取消
+        /// </summary>
+        userAbort = 7,
+        /// <summary>
+        /// 需要扫描背景
+        /// </summary>
+        backgroundError = 8,
     }
 
     #endregion
@@ -1483,9 +1560,19 @@ namespace Ai.Hong.Driver
         public bool IsConnected { get; set; } = false;
 
         /// <summary>
+        /// 是否模拟采集
+        /// </summary>
+        public bool IsSimulate { get; set; } = false;
+
+        /// <summary>
         /// 设备附加信息
         /// </summary>
         public object Tag { get; set; } = null;
+
+        /// <summary>
+        /// 所有部件及其所有属性的列表
+        /// </summary>
+        public List<HardwarePropertyInfo> AllHardwarePropertyInfos = null;
     }
 
     /// <summary>
@@ -1515,50 +1602,50 @@ namespace Ai.Hong.Driver
         /// 内部名称
         /// </summary>
         [XmlAttribute]
-        public string innerName { get; set; }
+        public string InnerName { get; set; }
 
         private string _value;
         /// <summary>
         /// 属性的值
         /// </summary>
         [XmlAttribute]
-        public string value { get { return _value; } set { _value = value; DoPropertyChange("value"); } }
+        public string Value { get { return _value; } set { _value = value; DoPropertyChange("Value"); } }
 
         /// <summary>
         /// 属性值类型
         /// </summary>
         [XmlIgnore]
-        public Type valueType { get; set; }
+        public Type ValueType { get; set; }
 
         /// <summary>
         /// 中文名称
         /// </summary>
         [XmlIgnore]
-        public string chineseName { get; set; }
+        public string ChineseName { get; set; }
 
         /// <summary>
         /// 英文名称
         /// </summary>
         [XmlIgnore]
-        public string englishName { get; set; }
+        public string EnglishName { get; set; }
 
         /// <summary>
         /// 是否可用
         /// </summary>
         [XmlIgnore]
-        public bool isValid { get; set; }
+        public bool IsValid { get; set; }
 
         /// <summary>
         /// 选项列表
         /// </summary>
         [XmlIgnore]
-        public Dictionary<string, string> selections { get; set; }
+        public List<dynamic> Selections { get; set; }
 
         /// <summary>
         /// 是否可以录入
         /// </summary>
         [XmlIgnore]
-        public bool inputable { get; set; }
+        public bool Inputable { get; set; }
 
         #endregion
 
@@ -1581,16 +1668,16 @@ namespace Ai.Hong.Driver
         /// <param name="isValid">是否有效</param>
         /// <param name="inputable">是否允许用户录入</param>
         /// <param name="selections">选项列表</param>
-        public BasePropertyInfo(string innerName, string chineseName, string englishName, Type valueType, string value = null, bool isValid = true, bool inputable = false, Dictionary<string, string> selections = null)
+        public BasePropertyInfo(string innerName, string chineseName, string englishName, Type valueType, string value = null, bool isValid = true, bool inputable = false, List<dynamic> selections = null)
         {
-            this.innerName = innerName;
-            this.chineseName = chineseName;
-            this.englishName = englishName;
-            this.valueType = valueType;
-            this.value = value;
-            this.isValid = isValid;
-            this.inputable = inputable;
-            this.selections = selections;
+            this.InnerName = innerName;
+            this.ChineseName = chineseName;
+            this.EnglishName = englishName;
+            this.ValueType = valueType;
+            this.Value = value;
+            this.IsValid = isValid;
+            this.Inputable = inputable;
+            this.Selections = selections;
         }
 
         /// <summary>
@@ -1609,7 +1696,7 @@ namespace Ai.Hong.Driver
         /// <returns></returns>
         public string PropertyDispalayName(Common.EnumLanguage language)
         {
-            return language == Common.EnumLanguage.Chinese ? chineseName : englishName;
+            return language == Common.EnumLanguage.Chinese ? ChineseName : EnglishName;
         }
     };
 
@@ -1678,7 +1765,7 @@ namespace Ai.Hong.Driver
         public HardwarePropertyInfo(EnumHardwareProperties propID, Type valueType = null, bool isReadonly = true, bool isSelection = false)
         {
             this.PropertyID = propID;
-            this.valueType = valueType ?? typeof(int);
+            this.ValueType = valueType ?? typeof(int);
             this.IsReadonly = isReadonly;
             this.IsSelection = isSelection;
         }
@@ -1869,6 +1956,25 @@ namespace Ai.Hong.Driver
         public EnumFTPhaseResolution PhaseResolution { get { return _phaseResolution; } set { _phaseResolution = value; DoPropertyChange("PhaseResolution"); } }
 
         /// <summary>
+        /// 背景光谱
+        /// </summary>
+        [XmlIgnore]
+        public FileFormat.FileFormat BackgroundSpectrum { get; set; }
+
+        /// <summary>
+        /// 背景光谱扫描时间
+        /// </summary>
+        [XmlIgnore]
+        public DateTime BackgroundTime { get; set; }
+
+        private EnumBackgroundDuration _backgroundDuration = EnumBackgroundDuration.Duration_60;
+        /// <summary>
+        /// 背景光谱有效期
+        /// </summary>
+        [XmlAttribute]
+        public EnumBackgroundDuration BackgroundDuration { get { return _backgroundDuration; } set { _backgroundDuration = value; DoPropertyChange("BackgroundDuration"); } }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public ScanParameter()
@@ -1881,6 +1987,7 @@ namespace Ai.Hong.Driver
             _count = 64;
             _xStep = _resolution / 4;
             _repeat = 1;
+            _backgroundDuration = EnumBackgroundDuration.Duration_60;
         }
 
         /// <summary>
@@ -1921,5 +2028,44 @@ namespace Ai.Hong.Driver
         }
     }
 
+    /// <summary>
+    /// 扫描通知消息参数
+    /// </summary>
+    public class ScanNotifyArgs : System.Windows.RoutedEventArgs
+    {
+        /// <summary>
+        /// 扫描状态
+        /// </summary>
+        public EnumScanNotifyState state { get; set; }
+        /// <summary>
+        /// 是否取消扫描
+        /// </summary>
+        public bool abortScan { get; set; }
+        /// <summary>
+        /// 错误信息
+        /// </summary>
+        public string errorString { get; set; }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public ScanNotifyArgs() : base()
+        {
+            this.abortScan = false;
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="routedEvent"></param>
+        /// <param name="state"></param>
+        /// <param name="errorString"></param>
+        public ScanNotifyArgs(System.Windows.RoutedEvent routedEvent, EnumScanNotifyState state, string errorString) : base(routedEvent)
+        {
+            this.abortScan = false;
+            this.state = state;
+            this.errorString = errorString;
+        }
+    }
     #endregion
 }

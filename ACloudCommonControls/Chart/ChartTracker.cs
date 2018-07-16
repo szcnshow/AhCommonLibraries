@@ -8,24 +8,37 @@ using OxyPlot.Series;
 
 namespace Ai.Hong.Controls.Chart
 {
-    /// <summary>
+    ///<summary>
     /// Normal OxyPlot behavior is to show the tracker when the bound mouse button is pressed,
     /// and hide it again when the button is released. With this behavior set, the tracker will stay open
     /// until the user clicks the plot outside it (or the plot is modified).
-    /// usage:<PlotView behaviors:ShowTrackerAndLeaveOpenBehavior.BindToMouseDown="Left" />
+    /// usage:PlotView behaviors:ShowTrackerAndLeaveOpenBehavior.BindToMouseDown="Left"
     /// </summary>
     public static class ShowTrackerAndLeaveOpenBehavior
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly DependencyProperty BindToMouseDownProperty = DependencyProperty.RegisterAttached(
             "BindToMouseDown", typeof(OxyMouseButton), typeof(ShowTrackerAndLeaveOpenBehavior),
             new PropertyMetadata(default(OxyMouseButton), OnBindToMouseButtonChanged));
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="value"></param>
         [AttachedPropertyBrowsableForType(typeof(IPlotView))]
         public static void SetBindToMouseDown(DependencyObject element, OxyMouseButton value)
         {
             element.SetValue(BindToMouseDownProperty, value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         [AttachedPropertyBrowsableForType(typeof(IPlotView))]
         public static OxyMouseButton GetBindToMouseDown(DependencyObject element)
         {

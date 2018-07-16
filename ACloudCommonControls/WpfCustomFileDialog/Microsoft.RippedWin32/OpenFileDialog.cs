@@ -22,12 +22,15 @@ namespace Ai.Hong.Controls
     using System.Reflection;
     using System.Windows.Controls;
 
+    /// <summary>
+    /// Open file dialog
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public sealed class OpenFileDialog<T> : Ai.Hong.Controls.FileDialogExt<T> where T : ContentControl, IWindowExt, new()
     {
-
-
-
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         [SecurityCritical]
         public OpenFileDialog()
         {
@@ -40,6 +43,10 @@ namespace Ai.Hong.Controls
             base.SetOption(0x1000, true);
         }
 
+        /// <summary>
+        /// Open file
+        /// </summary>
+        /// <returns></returns>
         [SecurityCritical]
         public Stream OpenFile()
         {
@@ -61,6 +68,10 @@ namespace Ai.Hong.Controls
             return stream;
         }
 
+        /// <summary>
+        /// Open file
+        /// </summary>
+        /// <returns></returns>
         [SecurityCritical]
         public Stream[] OpenFiles()
         {
@@ -88,6 +99,9 @@ namespace Ai.Hong.Controls
             return streamArray;
         }
 
+        /// <summary>
+        /// Reset
+        /// </summary>
         [SecurityCritical]
         public override void Reset()
         {
@@ -121,6 +135,9 @@ namespace Ai.Hong.Controls
             return openFileName;
         }
 
+        /// <summary>
+        /// Multi select
+        /// </summary>
         public bool Multiselect
         {
             get
@@ -134,6 +151,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Read only checked
+        /// </summary>
         public bool ReadOnlyChecked
         {
             get
@@ -147,6 +167,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Show read only
+        /// </summary>
         public bool ShowReadOnly
         {
             get

@@ -30,3 +30,22 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.g.resources
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonResources.xml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonResources.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHCommonResources.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\CommonResources.csprojResolveAssemblyReference.cache
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\DatagridStyle.baml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\DefaultThemeStyle.baml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\VectorImageInfo.baml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AllVectoryViewer.g.cs
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\WindowStyle.g.cs
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\VectorImageInfo.g.cs
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\GeneratedInternalTypeHelper.g.cs
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources_MarkupCompile.cache
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources_MarkupCompile.lref
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AllVectoryViewer.baml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\Styles\WindowStyle.baml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.g.resources
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\AHCommonResources.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\CommonResources.csproj.CoreCompileInputs.cache

@@ -402,7 +402,9 @@ namespace Ai.Hong.Charts
             set { SetValue(ChartBackgroundProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for ChartBackground.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Chart background changed property
+        /// </summary>
         public static readonly DependencyProperty ChartBackgroundProperty =
             DependencyProperty.Register("ChartBackground", typeof(SolidColorBrush), typeof(SpectrumChart), new PropertyMetadata(Brushes.White));
 

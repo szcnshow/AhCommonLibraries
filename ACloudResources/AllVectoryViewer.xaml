@@ -115,5 +115,8 @@
         <vectrl:VectorImageInfo VectorSource="{DynamicResource SingleRightGeometry}" VectorText="SingleRight"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource SingleWrongGeometry}" VectorText="SingleWrong"/>
         <vectrl:VectorImageInfo VectorSource="{DynamicResource PopupMenuRootGeometry}" VectorText="PopupMenuRoot"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource CloudDownloadGeometry}" VectorText="CloudDownload"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource FolderDownloadGeometry}" VectorText="FolderDownload"/>
+        <vectrl:VectorImageInfo VectorSource="{DynamicResource MonitorGeometry}" VectorText="Monitor"/>
     </UniformGrid>
 </UserControl>

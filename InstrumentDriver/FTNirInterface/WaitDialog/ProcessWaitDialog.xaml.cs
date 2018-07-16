@@ -23,7 +23,7 @@ namespace FTNirInterface.WaitDialog
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
         [DllImport("user32.dll")]
-        public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
         /// <summary>
         /// 
@@ -34,11 +34,20 @@ namespace FTNirInterface.WaitDialog
         /// <param name="status">任务详细</param>
         /// <param name="IsClose"></param>
         public delegate void SetProcessAndMsgDeletage(string displayMsg, int maxProcessValue, int curProcessValue, string status, bool IsClose);
+        /// <summary>
+        /// Process task
+        /// </summary>
+        /// <param name="callBack">process callback</param>
+        /// <returns></returns>
         public delegate bool ProcessTask(SetProcessAndMsgDeletage callBack);
 
         ProcessTask curTask = null;
         Thread taskThread = null;
         bool IsClose = false;
+        /// <summary>
+        /// Construct
+        /// </summary>
+        /// <param name="task"></param>
         public ProcessWaitDialog(ProcessTask task)
         {
             InitializeComponent();
@@ -56,6 +65,14 @@ namespace FTNirInterface.WaitDialog
             // CoreHelpers.ThrowIfNotWin7();
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="displayMsg"></param>
+        /// <param name="maxProcessValue"></param>
+        /// <param name="curProcessValue"></param>
+        /// <param name="status"></param>
+        /// <param name="IsClose"></param>
         public delegate void SetMessageDelegate(string displayMsg, int maxProcessValue, int curProcessValue, string status, bool IsClose);
         private void SetMsg(string displayMsg, int maxProcessValue, int curProcessValue, string status, bool IsClose)
         {
@@ -91,6 +108,10 @@ namespace FTNirInterface.WaitDialog
         DispatcherTimer checkTimer = null;
         bool taskSucessed = false;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dstWnd"></param>
         public static void HideWindowSystemButton(Window dstWnd)
         {
             var hwnd = new System.Windows.Interop.WindowInteropHelper(dstWnd).Handle;

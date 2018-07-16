@@ -144,6 +144,15 @@
     <Compile Include="Controls\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CheckboxNameColorList.xaml.cs">
+      <DependentUpon>CheckboxNameColorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DateTimeInputor.xaml.cs">
+      <DependentUpon>DateTimeInputor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EnumTextList.xaml.cs">
+      <DependentUpon>EnumTextList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FlattenFileOperatePanel.xaml.cs">
       <DependentUpon>FlattenFileOperatePanel.xaml</DependentUpon>
     </Compile>
@@ -172,6 +181,9 @@
     </Compile>
     <Compile Include="Controls\TextBoxAndButton.xaml.cs">
       <DependentUpon>TextBoxAndButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\TredentDotChart.xaml.cs">
+      <DependentUpon>TredentDotChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\VectorImage.cs" />
     <Compile Include="Controls\VectorButton.xaml.cs">
@@ -211,6 +223,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\CheckboxNameColorList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DateTimeInputor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EnumTextList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\FlattenFileOperatePanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -244,6 +268,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\TextBoxAndButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Chart\TredentDotChart.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

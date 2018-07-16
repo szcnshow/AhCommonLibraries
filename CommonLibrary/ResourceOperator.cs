@@ -14,6 +14,9 @@ namespace Ai.Hong.Common
     /// </summary>
     public static class ResourceOperator
     {
+        /// <summary>
+        /// Error message
+        /// </summary>
         public static string ErrorString = null;
 
         /// <summary>

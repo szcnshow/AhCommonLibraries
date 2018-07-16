@@ -32,16 +32,37 @@ namespace Ai.Hong.Controls
     using System.Windows.Interop;
 
     #region Delegates
+    /// <summary>
+    /// Path changed event handler
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="filePath"></param>
     public delegate void PathChangedEventHandler(IFileDlgExt sender, string filePath);
+    /// <summary>
+    /// Filter changed event handler
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="index"></param>
     public delegate void FilterChangedEventHandler(IFileDlgExt sender, int index);
     #endregion
 
 
-
+    /// <summary>
+    /// 附加信息窗口位置
+    /// </summary>
     public enum AddonWindowLocation
     {
+        /// <summary>
+        /// 右下
+        /// </summary>
         BottomRight = 0,
+        /// <summary>
+        /// 右边
+        /// </summary>
         Right = 1,
+        /// <summary>
+        /// 下边
+        /// </summary>
         Bottom = 2,
 
     }
@@ -50,6 +71,9 @@ namespace Ai.Hong.Controls
     {
         #region IWin32Window Members
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IntPtr Handle
         {
             get { return this._hwndFileDialog; }
@@ -115,6 +139,9 @@ namespace Ai.Hong.Controls
         private FilterChangedEventHandler _eventFilterChanged;
         #endregion
         AddonWindowLocation _location;
+        /// <summary>
+        /// Dialog start location
+        /// </summary>
         public AddonWindowLocation FileDlgStartLocation
         {
             get
@@ -129,6 +156,9 @@ namespace Ai.Hong.Controls
 
         bool _EnableOkBtn = true;
 
+        /// <summary>
+        /// Can enable OK button
+        /// </summary>
         public bool FileDlgEnableOkBtn
         {
             get { return _EnableOkBtn; }
@@ -142,6 +172,9 @@ namespace Ai.Hong.Controls
         #endregion
         T _childWnd;
         static internal readonly uint MSG_POST_CREATION = NativeMethods.RegisterWindowMessage("Post Creation Message");
+        /// <summary>
+        /// Get child window
+        /// </summary>
         public T ChildWnd
         {
             get { return _childWnd; }
@@ -221,6 +254,9 @@ namespace Ai.Hong.Controls
             NativeMethods.CriticalSetWindowLong(new HandleRef(this, hwnd), (int)GWL.GWL_STYLE, new IntPtr(styles));
         }
 
+        /// <summary>
+        /// Ok button caption
+        /// </summary>
         public string FileDlgOkCaption
         {
             get { return _OKCaption; }
@@ -232,6 +268,9 @@ namespace Ai.Hong.Controls
             }
         }
         bool _bFixedSize = true;
+        /// <summary>
+        /// Is fixed size
+        /// </summary>
         public bool FixedSize
         {
             set
@@ -241,6 +280,9 @@ namespace Ai.Hong.Controls
         }
 
         NativeMethods.FolderViewMode _DefaultViewMode;
+        /// <summary>
+        /// Default view mode
+        /// </summary>
         public NativeMethods.FolderViewMode FileDlgDefaultViewMode
         {
             get { return _DefaultViewMode; }
@@ -370,6 +412,9 @@ namespace Ai.Hong.Controls
             return true;
         }
 
+        /// <summary>
+        /// Invalid int pointer
+        /// </summary>
         public static readonly IntPtr InvalidIntPtr = (IntPtr)(-1);
 
         internal static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
@@ -380,6 +425,14 @@ namespace Ai.Hong.Controls
             PropertyInfo mi = type.GetProperty(fieldName, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty);
             mi.SetValue(target, value, null);
         }
+
+        /// <summary>
+        /// Invoke method
+        /// </summary>
+        /// <param name="instance">Class instance</param>
+        /// <param name="methodName">Method name in class</param>
+        /// <param name="args">argument</param>
+        /// <returns></returns>
         protected object InvokeMethod(object instance, string methodName, params object[] args)
         {
             Type type = (instance is Type) ? instance as Type : instance.GetType();
@@ -387,6 +440,12 @@ namespace Ai.Hong.Controls
             //null- no parameter for the function [or] we can pass the array of parameters            
             return (args == null || args.Length == 0) ? mi.Invoke(instance, null) : mi.Invoke(instance, args);
         }
+        /// <summary>
+        /// Get class property
+        /// </summary>
+        /// <param name="target">class instance</param>
+        /// <param name="fieldName">Field name</param>
+        /// <returns></returns>
         protected object GetProperty(object target, string fieldName)
         {
             Type type = target.GetType();

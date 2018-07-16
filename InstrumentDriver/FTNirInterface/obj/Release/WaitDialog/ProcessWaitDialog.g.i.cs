@@ -83,7 +83,7 @@ namespace FTNirInterface.WaitDialog {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FTNirInterface;component/waitdialog/processwaitdialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AHDeviceDriver;component/waitdialog/processwaitdialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WaitDialog\ProcessWaitDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

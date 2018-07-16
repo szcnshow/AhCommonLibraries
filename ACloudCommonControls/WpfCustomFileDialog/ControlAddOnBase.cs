@@ -33,6 +33,9 @@ namespace Ai.Hong.Controls
         System.Windows.Interop.HwndSource _source;
         IFileDlgExt _parentDlg;
         #region IWindowExt Members
+        /// <summary>
+        /// Additional control source
+        /// </summary>
         public System.Windows.Interop.HwndSource Source
         {
             set
@@ -40,6 +43,9 @@ namespace Ai.Hong.Controls
 
         }
 
+        /// <summary>
+        /// Parent dialog window
+        /// </summary>
         public IFileDlgExt ParentDlg
         {
             set { _parentDlg = value; }

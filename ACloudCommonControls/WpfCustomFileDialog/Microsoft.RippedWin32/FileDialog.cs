@@ -26,6 +26,11 @@ namespace Ai.Hong.Controls
     using System.Reflection;
     using System.Windows.Interop; 
     using System.Windows.Controls;
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract partial class FileDialogExt<T> : Microsoft.Win32.CommonDialog, IFileDlgExt where T : ContentControl, IWindowExt, new()
     {
 
@@ -46,8 +51,15 @@ namespace Ai.Hong.Controls
         private string _title;
         private const int FILEBUFSIZE = 0x2000;
         private const int OPTION_ADDEXTENSION = -2147483648;
+
+        /// <summary>
+        /// Cancel event handler
+        /// </summary>
         public event CancelEventHandler FileOk;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         [SecurityCritical, SecuritySafeCritical]
         protected FileDialogExt()
         {
@@ -159,7 +171,14 @@ namespace Ai.Hong.Controls
         }
 
 
-        //HookProc has been changed
+        /// <summary>
+        /// HookProc has been changed
+        /// </summary>
+        /// <param name="hwnd">window's handle</param>
+        /// <param name="msg">message value</param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
         [SecurityCritical]
         protected override IntPtr HookProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam)
         {
@@ -424,6 +443,10 @@ namespace Ai.Hong.Controls
             return flag;
         }
 
+        /// <summary>
+        /// On file ok event
+        /// </summary>
+        /// <param name="e"></param>
         protected void OnFileOk(CancelEventArgs e)
         {
             if (this.FileOk != null)
@@ -498,12 +521,20 @@ namespace Ai.Hong.Controls
             return flag;
         }
 
+        /// <summary>
+        /// Reset
+        /// </summary>
         [SecurityCritical]
         public override void Reset()
         {
             this.Initialize();
         }
 
+        /// <summary>
+        /// Run dialog
+        /// </summary>
+        /// <param name="hwndOwner"></param>
+        /// <returns></returns>
         [SecurityCritical]
         protected override bool RunDialog(IntPtr hwndOwner)
         {
@@ -573,6 +604,10 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// To String
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder(base.ToString() + ": Title: " + this.Title + ", FileName: ");
@@ -580,6 +615,9 @@ namespace Ai.Hong.Controls
             return builder.ToString();
         }
 
+        /// <summary>
+        /// Add extension
+        /// </summary>
         public bool AddExtension
         {
             get
@@ -593,6 +631,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Check if file exists
+        /// </summary>
         public virtual bool CheckFileExists
         {
             get
@@ -606,6 +647,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Check if path exists
+        /// </summary>
         public bool CheckPathExists
         {
             get
@@ -632,6 +676,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Default extension
+        /// </summary>
         public string DefaultExt
         {
             get
@@ -659,6 +706,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Deference links
+        /// </summary>
         public bool DereferenceLinks
         {
             get
@@ -690,6 +740,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// dialog return file name
+        /// </summary>
         public string FileName
         {
             [SecurityCritical]
@@ -711,6 +764,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Dialog return filenames
+        /// </summary>
         public string[] FileNames
         {
             [SecurityCritical]
@@ -733,6 +789,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Dialog filter
+        /// </summary>
         public string Filter
         {
             get
@@ -764,6 +823,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Current filter index
+        /// </summary>
         public int FilterIndex
         {
             get
@@ -776,6 +838,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Initial Directory
+        /// </summary>
         public string InitialDirectory
         {
             get
@@ -793,6 +858,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Options
+        /// </summary>
         protected int Options
         {
             get
@@ -801,6 +869,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Restore dicrectory
+        /// </summary>
         public bool RestoreDirectory
         {
             get
@@ -815,6 +886,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Safe file name
+        /// </summary>
         public string SafeFileName
         {
             [SecurityCritical]
@@ -829,6 +903,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Safe file names
+        /// </summary>
         public string[] SafeFileNames
         {
             [SecurityCritical]
@@ -848,6 +925,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Dialog title
+        /// </summary>
         public string Title
         {
             get
@@ -866,6 +946,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Is valide names
+        /// </summary>
         public bool ValidateNames
         {
             get

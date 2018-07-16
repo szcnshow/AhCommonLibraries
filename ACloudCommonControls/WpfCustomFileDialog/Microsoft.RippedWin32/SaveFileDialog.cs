@@ -20,10 +20,15 @@ namespace Ai.Hong.Controls
     using System.Runtime.InteropServices;
     using System.Windows.Controls;
 
+    /// <summary>
+    /// Save file dialog extension
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public sealed class SaveFileDialog<T> : Ai.Hong.Controls.FileDialogExt<T> where T : ContentControl, IWindowExt, new()
     {
-
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         [SecurityCritical]
         public SaveFileDialog()
         {
@@ -36,6 +41,10 @@ namespace Ai.Hong.Controls
             base.SetOption(2, true);
         }
 
+        /// <summary>
+        /// Open file
+        /// </summary>
+        /// <returns></returns>
         [SecurityCritical]
         public Stream OpenFile()
         {
@@ -88,6 +97,9 @@ namespace Ai.Hong.Controls
             return true;
         }
 
+        /// <summary>
+        /// Reset
+        /// </summary>
         [SecurityCritical]
         public override void Reset()
         {
@@ -117,6 +129,9 @@ namespace Ai.Hong.Controls
             return saveFileName;
         }
 
+        /// <summary>
+        /// Create prompt
+        /// </summary>
         public bool CreatePrompt
         {
             get
@@ -131,6 +146,9 @@ namespace Ai.Hong.Controls
             }
         }
 
+        /// <summary>
+        /// Over write prompt
+        /// </summary>
         public bool OverwritePrompt
         {
             get

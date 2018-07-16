@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonMethod", "CommonLibrary\CommonMethod.csproj", "{C31B5252-FA45-49C7-932F-6BF7E134E483}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instrument Driver", "Instrument Driver", "{5237AA55-AF29-418A-8ECE-BCA1B1D996AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTNirInterface", "InstrumentDriver\FTNirInterface\FTNirInterface.csproj", "{C77FC9F9-7042-413A-AEDC-F5666BD7AA1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstrumentTest", "InstrumentDriver\InstrumentTest\InstrumentTest.csproj", "{DF013EAB-C702-4952-996A-F1D23A3C9F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,11 +169,33 @@ Global
 		{C77FC9F9-7042-413A-AEDC-F5666BD7AA1A}.XPVersion|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C77FC9F9-7042-413A-AEDC-F5666BD7AA1A}.XPVersion|Mixed Platforms.Build.0 = Release|Any CPU
 		{C77FC9F9-7042-413A-AEDC-F5666BD7AA1A}.XPVersion|x86.ActiveCfg = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Debug|x86.Build.0 = Debug|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Release|x86.ActiveCfg = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.Release|x86.Build.0 = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.XPVersion|Any CPU.ActiveCfg = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.XPVersion|Any CPU.Build.0 = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.XPVersion|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.XPVersion|Mixed Platforms.Build.0 = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.XPVersion|x86.ActiveCfg = Release|Any CPU
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B}.XPVersion|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C77FC9F9-7042-413A-AEDC-F5666BD7AA1A} = {5237AA55-AF29-418A-8ECE-BCA1B1D996AD}
+		{DF013EAB-C702-4952-996A-F1D23A3C9F0B} = {5237AA55-AF29-418A-8ECE-BCA1B1D996AD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2824A3EB-0773-4EC2-925B-C89841643E7E}
 	EndGlobalSection
 EndGlobal

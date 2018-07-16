@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls.Primitives;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace Ai.Hong.Common.Extenstion
 {
@@ -295,6 +297,85 @@ namespace Ai.Hong.Common.Extenstion
         }
     }
 
+    /// <summary>
+    /// Enum扩展功能
+    /// </summary>
+    public static class EnumExtensions
+    {
+        /// <summary>
+        /// 获取枚举的描述信息
+        /// </summary>
+        /// <param name="enumValue">枚举值</param>
+        /// <param name="language">枚举描述的语言</param>
+        /// <returns>枚举的描述信息</returns>
+        public static string GetEnumDescription<T>(T enumValue, EnumLanguage language)
+        {
+            FieldInfo fieldInfo = typeof(T).GetField(enumValue.ToString());
 
+            object[] attribArray = fieldInfo.GetCustomAttributes(false);
+
+            //如果没有描述
+            if (attribArray.Length == 0)
+            {
+                return enumValue.ToString();
+            }
+            else
+            {
+                DescriptionAttribute attrib = attribArray[0] as DescriptionAttribute;
+                //没有描述，返回枚举值
+                if (string.IsNullOrEmpty(attrib.Description))
+                    return enumValue.ToString();
+
+                //返回枚举对应的语言
+                var descrips = attrib.Description.Split(',');
+                return descrips.Length <= (int)language ? descrips[0] : descrips[(int)language];
+            }
+        }
+
+        /// <summary>
+        /// 获取Enum列表的描述
+        /// </summary>
+        /// <typeparam name="T">enum类型</typeparam>
+        /// <param name="enumValues">当前枚举值的列表</param>
+        /// <param name="language">枚举描述的语言</param>
+        /// <returns>Key=EnumValue, Value=Description</returns>
+        public static Dictionary<T, string> EnumValuesToDescriptionList<T>(List<T> enumValues, EnumLanguage language) where T : struct, IConvertible
+        {
+            if (typeof(T).IsEnum == false)
+                return null;
+
+            Dictionary<T, string> retData = new Dictionary<T, string>();
+
+            foreach (var value in enumValues)
+            {
+                retData.Add(((T)System.Convert.ChangeType(value, typeof(T))), GetEnumDescription<T>(value, language));
+            }
+
+            return retData;
+        }
+
+        /// <summary>
+        /// 获取Enum类型的描述列表
+        /// </summary>
+        /// <typeparam name="T">enum类型</typeparam>
+        /// <param name="language">使用的语言</param>
+        /// <returns>Key=EnumValue, Value=Description</returns>
+        public static Dictionary<T, string> EnumTypeToDescriptionList<T>(EnumLanguage language) where T:struct, IConvertible
+        {
+            if (typeof(T).IsEnum == false)
+                return null;
+
+            Dictionary<T, string> retData = new Dictionary<T, string>();
+
+            Array enumValues = Enum.GetValues(typeof(T));
+            foreach (var value in enumValues)
+            {
+                retData.Add((T)System.Convert.ChangeType(value, typeof(T)), GetEnumDescription<T>((T)value, language));
+            }
+
+            return retData;
+        }
+
+    }
 
 }

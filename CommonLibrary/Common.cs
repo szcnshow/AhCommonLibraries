@@ -276,4 +276,21 @@ namespace Ai.Hong.Common
             this.item = item;
         }
     }
+
+    /// <summary>
+    /// 语言类型枚举
+    /// </summary>
+    public enum EnumLanguage
+    {
+        /// <summary>
+        /// Chinese
+        /// </summary>
+        Chinese = 0,
+        /// <summary>
+        /// English
+        /// </summary>
+        English = 1,
+    }
+
+
 }

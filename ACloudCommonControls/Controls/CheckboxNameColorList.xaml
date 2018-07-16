@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Ai.Hong.Controls.CheckboxNameColorList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Name="UserControl"
+             d:DesignHeight="100" d:DesignWidth="150">
+    <UserControl.Resources>
+        <DataTemplate x:Key="LibItemTemplate" DataType="IdentifyLibraryInfo">
+            <Grid Margin="3" MouseRightButtonDown="ListItem_MouseRightButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Name="specColor"  Grid.Column="0" Margin="5,2,5,2" VerticalAlignment="Center" Height="10" Width="20" Stroke="Black"  Fill="{Binding Color}" StrokeThickness="1"/>
+                <CheckBox Name="specCheck" Grid.Column="1" Margin="0,2,5,2" IsChecked="{Binding IsChecked,Mode=TwoWay}"  VerticalAlignment="Center" Checked="specCheck_Checked" Unchecked="specCheck_Unchecked" />
+                <TextBlock Name="specText" Grid.Column="2" Text="{Binding Path=Name,Mode=OneWay}" VerticalAlignment="Center" FontSize="13" Tag="{Binding Path=Tag}"/>
+                <!--TextBlock Name="specFileName" Grid.Column="0" Text="{Binding data}" Visibility="Collapsed"/-->
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <ListBox Name="ListFile" ItemTemplate="{StaticResource LibItemTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" SelectionChanged="ListFile_SelectionChanged" />
+</UserControl>

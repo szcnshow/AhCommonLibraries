@@ -768,6 +768,51 @@ namespace Ai.Hong.Algorithm
             return retdata;
         }
 
+        /// <summary>
+        /// 使用样品单通道谱和背景单通道谱计算样品吸收谱
+        /// </summary>
+        /// <param name="bkYDatas">背景单通道谱</param>
+        /// <param name="sampleYDatas">样品单通道谱</param>
+        /// <returns>吸收谱</returns>
+        public static double[] CalculateAbsorb(double[] bkYDatas, double[] sampleYDatas)
+        {
+            System.Diagnostics.Trace.Assert(bkYDatas != null && bkYDatas.Length != 0 && sampleYDatas != null && sampleYDatas.Length == bkYDatas.Length, "Invalid parameters");
+
+            double[] retDatas = new double[bkYDatas.Length];
+
+            for (int index = 0; index < bkYDatas.Length; index++)
+            {
+                //比值 = 样品谱 / 背景谱
+                retDatas[index] = bkYDatas[index] == 0 ? 1 : Math.Abs(sampleYDatas[index] / bkYDatas[index]);
+
+                //计算Log10(1/比值)
+                retDatas[index] = Math.Log10(1 / retDatas[index]);
+            }
+
+            return retDatas;
+        }
+
+        /// <summary>
+        /// 创建透射光谱
+        /// </summary>
+        /// <param name="bkYDatas">背景单通道谱</param>
+        /// <param name="sampleYDatas">样品单通道谱</param>
+        /// <returns>透射光谱</returns>
+        public static double[] CalculateTransimit(double[] bkYDatas, double[] sampleYDatas)
+        {
+            System.Diagnostics.Trace.Assert(bkYDatas != null && bkYDatas.Length != 0 && sampleYDatas != null && sampleYDatas.Length == bkYDatas.Length, "Invalid parameters");
+
+            double[] retDatas = new double[bkYDatas.Length];
+
+            for (int index = 0; index < bkYDatas.Length; index++)
+            {
+                //比值 = 样品谱 / 背景谱
+                retDatas[index] = bkYDatas[index] == 0 ? 100 : Math.Abs(sampleYDatas[index] / bkYDatas[index])*100;
+            }
+
+            return retDatas;
+        }
+
     }
 
 }

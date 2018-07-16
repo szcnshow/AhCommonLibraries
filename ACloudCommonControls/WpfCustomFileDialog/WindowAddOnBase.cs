@@ -18,12 +18,19 @@ using System.Runtime.InteropServices;
 
 namespace Ai.Hong.Controls
 {
+    /// <summary>
+    /// Base class for window addtion
+    /// </summary>
     public class WindowAddOnBase : Window, IWindowExt
     {// to be used as here: http://geekswithblogs.net/lbugnion/archive/2007/03/02/107747.aspx
         //WPF: Inheriting from custom class instead of Window
         System.Windows.Interop.HwndSource _source;
         IFileDlgExt _parentDlg;
         #region IWindowExt Members
+
+        /// <summary>
+        /// Source
+        /// </summary>
         public System.Windows.Interop.HwndSource Source
         {
             set
@@ -31,12 +38,20 @@ namespace Ai.Hong.Controls
             
         }
 
+        /// <summary>
+        /// Parent dialog
+        /// </summary>
         public IFileDlgExt ParentDlg
         {
             set { _parentDlg = value; }
             get { return _parentDlg; }
         }
         #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="arrangeBounds"></param>
+        /// <returns></returns>
         protected override Size ArrangeOverride(Size arrangeBounds)
         {
 

@@ -9,17 +9,17 @@
             选择消息参数结构
             </summary>
         </member>
+        <member name="P:Ai.Hong.Common.SelectChangedArgs.item">
+            <summary>
+            内容
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Common.SelectChangedArgs.#ctor(System.Windows.RoutedEvent,System.Object)">
             <summary>
             
             </summary>
             <param name="routedEvent"></param>
             <param name="item"></param>
-        </member>
-        <member name="P:Ai.Hong.Common.SelectChangedArgs.item">
-            <summary>
-            内容
-            </summary>
         </member>
         <member name="T:Ai.Hong.Common.CheckedVisibilityConvert">
             <summary>
@@ -171,6 +171,11 @@
             列表变动的方式
             </summary>
         </member>
+        <member name="P:Ai.Hong.Common.CollectionChangedArgs.item">
+            <summary>
+            列表数据
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Common.CollectionChangedArgs.#ctor(System.Windows.RoutedEvent,System.Collections.Specialized.NotifyCollectionChangedAction,System.Object)">
             <summary>
             CollectionChangedArgs
@@ -179,14 +184,29 @@
             <param name="action"></param>
             <param name="item"></param>
         </member>
-        <member name="P:Ai.Hong.Common.CollectionChangedArgs.item">
+        <member name="T:Ai.Hong.Common.EnumLanguage">
             <summary>
-            列表数据
+            语言类型枚举
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.EnumLanguage.Chinese">
+            <summary>
+            Chinese
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.EnumLanguage.English">
+            <summary>
+            English
             </summary>
         </member>
         <member name="T:Ai.Hong.Common.CommonMethod">
             <summary>
             通用功能
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.CommonMethod.ErrorString">
+            <summary>
+            错误信息
             </summary>
         </member>
         <member name="F:Ai.Hong.Common.CommonMethod.GBCode2312">
@@ -207,11 +227,6 @@
         <member name="F:Ai.Hong.Common.CommonMethod.ShortDateTimeString">
             <summary>
             时间短格式
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Common.CommonMethod.ErrorString">
-            <summary>
-            错误信息
             </summary>
         </member>
         <member name="M:Ai.Hong.Common.CommonMethod.Serialize``1(``0)">
@@ -521,6 +536,36 @@
             树形节点
             </summary>
         </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.Name">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.IsSelected">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.IsExpanded">
+            <summary>
+            是否展开
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.Parent">
+            <summary>
+            父节点
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.IconImage">
+            <summary>
+            图标文件
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Common.TreeViewNode.#ctor">
             <summary>
             Treeview 构造函数
@@ -554,36 +599,6 @@
             <param name="fullMatch">是否全字匹配</param>
             <returns>查找到的节点</returns>
         </member>
-        <member name="P:Ai.Hong.Common.TreeViewNode.Name">
-            <summary>
-            节点名称
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.TreeViewNode.IsSelected">
-            <summary>
-            是否选中
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.TreeViewNode.IsExpanded">
-            <summary>
-            是否展开
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.TreeViewNode.Parent">
-            <summary>
-            父节点
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.TreeViewNode.Children">
-            <summary>
-            子节点
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.TreeViewNode.IconImage">
-            <summary>
-            图标文件
-            </summary>
-        </member>
         <member name="E:Ai.Hong.Common.TreeViewNode.PropertyChanged">
             <summary>
             PropertyChangedEventHandler
@@ -592,6 +607,16 @@
         <member name="T:Ai.Hong.Common.region">
             <summary>
             光谱区间
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.region.firstX">
+            <summary>
+            firstX
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.region.lastX">
+            <summary>
+            lastX
             </summary>
         </member>
         <member name="M:Ai.Hong.Common.region.#ctor(System.Double,System.Double)">
@@ -613,19 +638,19 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="P:Ai.Hong.Common.region.firstX">
-            <summary>
-            firstX
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.region.lastX">
-            <summary>
-            lastX
-            </summary>
-        </member>
         <member name="T:Ai.Hong.Common.thresold">
             <summary>
             阈值区间
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.thresold.minimum">
+            <summary>
+            minimum
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.thresold.maximum">
+            <summary>
+            maximum
             </summary>
         </member>
         <member name="M:Ai.Hong.Common.thresold.#ctor(System.Double,System.Double)">
@@ -652,16 +677,6 @@
             the min and max is validate
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:Ai.Hong.Common.thresold.minimum">
-            <summary>
-            minimum
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.thresold.maximum">
-            <summary>
-            maximum
-            </summary>
         </member>
         <member name="T:Ai.Hong.Common.Extenstion.AutoGreyableImage">
             <summary>
@@ -777,9 +792,44 @@
             <param name="parent">父可视对象</param>
             <returns>第一个指定类型的子可视对象</returns>
         </member>
+        <member name="T:Ai.Hong.Common.Extenstion.EnumExtensions">
+            <summary>
+            Enum扩展功能
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.GetEnumDescription``1(``0,Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            获取枚举的描述信息
+            </summary>
+            <param name="enumValue">枚举值</param>
+            <param name="language">枚举描述的语言</param>
+            <returns>枚举的描述信息</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumValuesToDescriptionList``1(System.Collections.Generic.List{``0},Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            获取Enum列表的描述
+            </summary>
+            <typeparam name="T">enum类型</typeparam>
+            <param name="enumValues">当前枚举值的列表</param>
+            <param name="language">枚举描述的语言</param>
+            <returns>Key=EnumValue, Value=Description</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumTypeToDescriptionList``1(Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            获取Enum类型的描述列表
+            </summary>
+            <typeparam name="T">enum类型</typeparam>
+            <param name="language">使用的语言</param>
+            <returns>Key=EnumValue, Value=Description</returns>
+        </member>
         <member name="T:Ai.Hong.Common.ResourceOperator">
             <summary>
             资源操作类
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.ResourceOperator.ErrorString">
+            <summary>
+            Error message
             </summary>
         </member>
         <member name="M:Ai.Hong.Common.ResourceOperator.ResourceString(System.Windows.Application,System.String)">
@@ -1292,6 +1342,16 @@
             计算treeviewItem的层级,使用TreeViewItemExtensions
             </summary>
         </member>
+        <member name="P:Ai.Hong.Common.Convert.IndentConverter.Indent">
+            <summary>
+            Item的层级
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.Convert.IndentConverter.MarginLeft">
+            <summary>
+            当前Item左边的左边的Margin
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Common.Convert.IndentConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
             
@@ -1311,16 +1371,6 @@
             <param name="parameter"></param>
             <param name="culture"></param>
             <returns></returns>
-        </member>
-        <member name="P:Ai.Hong.Common.Convert.IndentConverter.Indent">
-            <summary>
-            Item的层级
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Common.Convert.IndentConverter.MarginLeft">
-            <summary>
-            当前Item左边的左边的Margin
-            </summary>
         </member>
         <member name="T:Ai.Hong.Common.Convert.DateConverter">
             <summary>

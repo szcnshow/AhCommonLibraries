@@ -10,7 +10,7 @@ using System.Windows.Threading;
 using Ai.Hong.FileFormat;
 using System.IO;
 
-namespace Ai.Hong.Driver
+namespace Ai.Hong.Driver.Controls
 {
     /// <summary>
     /// panelScanner.xaml 的交互逻辑
@@ -94,7 +94,7 @@ namespace Ai.Hong.Driver
         private void SimulateScan()
         {
             ScanningState = EnumScanNotifyState.Scanning;
-            int count = parameter.Count;
+            int count = parameter.ScanCount;
             for(int i=0; i<count; i++)
             {
                 Thread.Sleep(500);
@@ -125,7 +125,7 @@ namespace Ai.Hong.Driver
             }
 
             currentRepeat = 0;
-            scanProgress.Start(parameter.Count);
+            scanProgress.Start(parameter.ScanCount);
 
             if(scanner == null || parameter == null)
             {
@@ -159,7 +159,7 @@ namespace Ai.Hong.Driver
         private bool RepeatScan()
         {
             currentRepeat++;
-            scanProgress.Start(parameter.Count);
+            scanProgress.Start(parameter.ScanCount);
 
             //启动扫描
             scanner.ProcessCallback = ScanCallback;
@@ -205,7 +205,7 @@ namespace Ai.Hong.Driver
             else if (maxValue == curValue)   //完成一次扫描
             {
                 scanProgress.Stop();
-                ScanningState = currentRepeat < parameter.Repeat ? EnumScanNotifyState.oneFinished : EnumScanNotifyState.repeateFinished;
+                ScanningState = currentRepeat < parameter.RepeatCount ? EnumScanNotifyState.oneFinished : EnumScanNotifyState.repeateFinished;
 
                 //不管重复扫描是否完成，都要结束本次扫描，由RaiseNofiyEvent开启重复扫描
                 RaiseNofiyEvent(ScanningState);

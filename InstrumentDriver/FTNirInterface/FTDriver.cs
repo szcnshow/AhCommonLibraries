@@ -99,6 +99,11 @@ namespace Ai.Hong.Driver
         /// </summary>
         public List<FileFormat.FileFormat> ScannedDatas = null;
 
+        /// <summary>
+        /// 当前扫描参数
+        /// </summary>
+        public ScanParameter ScanParameter = null;
+
         #region constructor & deconstructor
         /// <summary>
         /// </summary>
@@ -219,7 +224,7 @@ namespace Ai.Hong.Driver
         /// </summary>
         /// <param name="paramter">Scan Parameters</param>
         /// <returns></returns>
-        public virtual bool SetExperimentParemter(ScanParameter paramter) { throw new NotImplementedException(); }
+        public virtual bool SetExperimentParemter(ScanParameter paramter) { this.ScanParameter = paramter; return true; }
 
         /// <summary>
         /// 读取采集配置文件
@@ -235,6 +240,12 @@ namespace Ai.Hong.Driver
         /// <param name="saveFile">保存</param>
         /// <returns></returns>
         public virtual bool SaveExperimentFile(ScanParameter paraData, string saveFile) { throw new NotImplementedException(); }
+
+        /// <summary>
+        /// 获取扫描数据
+        /// </summary>
+        /// <returns></returns>
+        public virtual List<FileFormat.FileFormat> GetScanedDatas() { throw new NotImplementedException(); }
 
         /// <summary>
         /// 计算吸收谱

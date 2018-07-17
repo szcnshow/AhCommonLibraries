@@ -314,11 +314,11 @@ namespace Ai.Hong.Driver.IT
                 this._measurePara = new ScanParameter();
             }
 
-            this._measurePara.FirstX = 4000.0f;
-            this._measurePara.LastX = 10000.0f;
-            this._measurePara.Resolution = Resolution;
-            this._measurePara.Count = ScanCount;
-            this._measurePara.ZeroFilling =  EnumFTZeroFilling.Filling_1;
+            this._measurePara.StartWavelength = 4000.0f;
+            this._measurePara.EndWavelength = 10000.0f;
+            this._measurePara.Resolution = EnumDeviceResolutions.res_4;
+            this._measurePara.ScanCount = ScanCount;
+            this._measurePara.ZeroFilling =  1;
 
             //默认增益Gain 1, 默认相位校正Mertz，默认截趾函数Blackman_Harris_3_Term
             this._measurePara.BackGain = EnumDeviceGain.Gain_1;
@@ -1784,7 +1784,7 @@ namespace Ai.Hong.Driver.IT
         {
             var assemb = System.Reflection.Assembly.GetExecutingAssembly();
             var templateDoc = ResourceOperator.EmbededResourceElement(assemb, templateName) as FlowDocument;
-            var blockUI = Controls.Common.XPSReportTemplate.GetBlcokUIContainer(templateDoc);
+            var blockUI = Ai.Hong.Controls.Common.XPSReportTemplate.GetBlcokUIContainer(templateDoc);
             Border rootBorder = blockUI.Child as Border;
             
             return rootBorder;
@@ -2233,7 +2233,7 @@ namespace Ai.Hong.Driver.IT
             var scanpara = testingInfo.GetScanParameter();
             var parasEnglish = new string[] { "Resolution", "Count", "BackGain", "ZeroFilling", "PhaseCorrect", "Apodization" };
             var parasChinese = new string[] { "分辨率", "扫描次数", "背景增益", "填零系数", "截趾函数", "相位校正方法", "相位分辨率" };
-            var paraValues = new string[] { scanpara.Resolution.ToString(), scanpara.Count.ToString(), scanpara.BackGain.ToString(), scanpara.ZeroFilling.ToString(), scanpara.Apodization.ToString(), scanpara.PhaseCorrect.ToString(), scanpara.PhaseResolution.ToString() };
+            var paraValues = new string[] { scanpara.Resolution.ToString(), scanpara.ScanCount.ToString(), scanpara.BackGain.ToString(), scanpara.ZeroFilling.ToString(), scanpara.Apodization.ToString(), scanpara.PhaseCorrect.ToString(), scanpara.PhaseResolution.ToString() };
 
             for (int index = 0; index < paraValues.Length; index++)
             {

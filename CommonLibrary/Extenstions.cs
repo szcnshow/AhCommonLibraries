@@ -376,6 +376,28 @@ namespace Ai.Hong.Common.Extenstion
             return retData;
         }
 
+        ///// <summary>
+        ///// 获取Enum的描述列表
+        ///// </summary>
+        ///// <typeparam name="T">enum类型</typeparam>
+        ///// <param name="language">使用的语言</param>
+        ///// <returns>Key=显示名称, Value=值</returns>
+        //public static Dictionary<string, dynamic> EnumToDescriptionList<T>(EnumLanguage language)
+        //{
+        //    if (typeof(T).IsEnum == false)
+        //        return null;
+
+        //    Dictionary<string, dynamic> retData = new Dictionary<string, dynamic>();
+
+        //    Array enumValues = Enum.GetValues(typeof(T));
+        //    foreach (var value in enumValues)
+        //    {
+        //        retData.Add(((int)System.Convert.ChangeType(value, typeof(Enum))).ToString(), GetEnumDescription<T>((T)value, language));
+        //    }
+
+        //    return retData;
+        //}
+
     }
 
 }

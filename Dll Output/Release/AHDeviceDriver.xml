@@ -4,6 +4,157 @@
         <name>AHDeviceDriver</name>
     </assembly>
     <members>
+        <member name="T:Ai.Hong.Driver.Controls.CommonParaPanel">
+            <summary>
+            扫描参数设置面板
+            </summary>
+            <summary>
+            CommonParaPanel
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.CommonParaPanel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.CommonParaPanel.language">
+            <summary>
+            语言
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.CommonParaPanel.Init(System.Collections.Generic.List{Ai.Hong.Driver.BasePropertyInfo},Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            初始化扫描属性
+            </summary>
+            <param name="properties">属性列表</param>
+            <param name="language">语言</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.CommonParaPanel.AddOneProperty(Ai.Hong.Driver.BasePropertyInfo,System.Int32)">
+            <summary>
+            添加一个属性
+            </summary>
+            <param name="property"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.CommonParaPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.Controls.ClockScannerPanel">
+            <summary>
+            panelScanner.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ClockScannerPanel
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.parameter">
+            <summary>
+            扫描参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.scanner">
+            <summary>
+            连接的设备
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.userAbort">
+            <summary>
+            用户取消扫描
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.IsBackground">
+            <summary>
+            是否为背景光谱
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.ScanningState">
+            <summary>
+            当前扫描状态
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.NotifyEvent">
+            <summary>
+            Status changed notify event
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Driver.Controls.ClockScannerPanel.Notify">
+            <summary>
+            Status changed notify event
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.currentRepeat">
+            <summary>
+            当前重复次数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.scanProgress_Abort(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            取消扫描
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.SimulateScan">
+            <summary>
+            模拟扫描
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.StartScan(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.ScanParameter,System.Boolean)">
+            <summary>
+            启动扫描
+            </summary>
+            <param name="scanner">当前设备</param>
+            <param name="parameter">扫描参数</param>
+            <param name="isBackground">True=扫描背景, False=扫描样品</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.RepeatScan">
+            <summary>
+            重复扫描（第一次扫描需要调用StartScan）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.ScanCallback(Ai.Hong.Driver.EnumHardwareError,System.Int32,System.Int32)">
+            <summary>
+            扫描回调函数
+            </summary>
+            <param name="errorCode">扫描错误代码</param>
+            <param name="maxValue">总扫描次数</param>
+            <param name="curValue">当前扫描次数</param>
+            <returns>True=继续扫描, False=终止扫描</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.RaiseNofiyEvent(Ai.Hong.Driver.EnumScanNotifyState)">
+            <summary>
+            引发事件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.CanAbort(System.Boolean)">
+            <summary>
+            是否可以终止扫描（默认可以终止）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.GetResult">
+            <summary>
+            获取扫描结果（包括结果谱图，单通道普通，干涉图）
+            </summary>
+            <returns>FileFormat列表</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Driver.EnumHardwareError">
             <summary>
             错误代码
@@ -789,6 +940,11 @@
             Catron IIS100
             </summary>
         </member>
+        <member name="F:Ai.Hong.Driver.EnumDeviceBrand.CFTIR_GAS">
+            <summary>
+            CFTIR GAS
+            </summary>
+        </member>
         <member name="F:Ai.Hong.Driver.EnumDeviceBrand.LongLight_Integrate">
             <summary>
             Long light integrate sphere
@@ -1480,6 +1636,11 @@
             所有部件及其所有属性的列表
             </summary>
         </member>
+        <member name="P:Ai.Hong.Driver.DeviceInfo.Status">
+            <summary>
+            设备状态
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Driver.BasePropertyInfo">
             <summary>
             信息的基础类
@@ -1646,6 +1807,65 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Ai.Hong.Driver.SampleFieldInfo">
+            <summary>
+            录入信息字段属性
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.SampleFieldInfo.ForFilename">
+            <summary>
+            是否作为文件名
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.SampleFieldInfo.HasPreDefines">
+            <summary>
+            是否需要预定义属性
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.SampleFieldInfo.PreDefines">
+            <summary>
+            预定义的值
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.SampleFieldInfo.IsSelected">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.SampleFieldInfo.SelectOnly">
+            <summary>
+            是否只能选择
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.SampleFieldInfo.AutoGenerate">
+            <summary>
+            系统自动创建的信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.SampleFieldInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.SampleFieldInfo.#ctor(System.String,System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            构造函数(用于定义固定的属性)
+            </summary>
+            <param name="innerName">内部名称</param>
+            <param name="chineseName">中文名称</param>
+            <param name="englishName">英文名称</param>
+            <param name="valueType">值得类型</param>
+            <param name="hasPreDefines">是否可以预定义</param>
+            <param name="isValid">是否选中</param>
+            <param name="forFilename">是否作为文件名</param>
+            <param name="autoGenerate">是否系统自动生成</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.SampleFieldInfo.Clone">
+            <summary>
+            Clone this class
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Ai.Hong.Driver.ScanParameter">
             <summary>
             仪器扫描参数
@@ -1662,99 +1882,54 @@
             </summary>
             <param name="propertyName"></param>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.Resolution">
+        <member name="P:Ai.Hong.Driver.ScanParameter.Filename">
             <summary>
-            分辨率
+            参数文件名
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.TimeOrCount">
+        <member name="P:Ai.Hong.Driver.ScanParameter.SavePath">
             <summary>
-            True=使用时间, False=使用扫描次数
+            光谱保存路径
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.Time">
+        <member name="P:Ai.Hong.Driver.ScanParameter.CreateFolder">
             <summary>
-            扫描时间(秒)
+            按照样品信息自动创建文件夹
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.Count">
+        <member name="P:Ai.Hong.Driver.ScanParameter.DeviceCategory">
             <summary>
-            扫描次数
+            设备种类
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.FirstX">
+        <member name="P:Ai.Hong.Driver.ScanParameter.DeviceModel">
             <summary>
-            X轴扫描范围
+            设备类型
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.LastX">
+        <member name="P:Ai.Hong.Driver.ScanParameter.HardwareProps">
             <summary>
-            X轴扫描范围
+            设备属性
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.XStep">
+        <member name="P:Ai.Hong.Driver.ScanParameter.FtTransProps">
             <summary>
-            X轴步长, 4cm-1 = 1, 8cm-1 = 2, 16cm-1=4;
+            FT转换属性
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.Repeat">
+        <member name="P:Ai.Hong.Driver.ScanParameter.AcquireProps">
             <summary>
-            重复扫描次数
+            采集参数
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.ResultSpectrum">
+        <member name="P:Ai.Hong.Driver.ScanParameter.SampleProps">
             <summary>
-            结果光谱类型
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.SaveSingleBeam">
-            <summary>
-            是否保存单通道谱
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.SaveInterfere">
-            <summary>
-            是否保存干涉图
+            样品信息
             </summary>
         </member>
         <member name="F:Ai.Hong.Driver.ScanParameter.ReferenceFile">
             <summary>
             背景参考光谱
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.IVUFilter">
-            <summary>
-            验证轮的位置
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.Apodization">
-            <summary>
-            FT截趾函数
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.BackGain">
-            <summary>
-            背景增益
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.SampleGain">
-            <summary>
-            样品增益
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.ZeroFilling">
-            <summary>
-            填零系数
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.PhaseCorrect">
-            <summary>
-            相位校准方法
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.PhaseResolution">
-            <summary>
-            相位校准分辨率
             </summary>
         </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.BackgroundSpectrum">
@@ -1765,11 +1940,6 @@
         <member name="P:Ai.Hong.Driver.ScanParameter.BackgroundTime">
             <summary>
             背景光谱扫描时间
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanParameter.BackgroundDuration">
-            <summary>
-            背景光谱有效期
             </summary>
         </member>
         <member name="M:Ai.Hong.Driver.ScanParameter.#ctor">
@@ -1797,6 +1967,139 @@
             <param name="propertyName">属性名称</param>
             <param name="propertyValue">属性值</param>
             <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.FindPropertyByName(System.String)">
+            <summary>
+            通过属性名称获取属性实例
+            </summary>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.GetPropertyValue``1(System.String)">
+            <summary>
+            获取属性的值
+            </summary>
+            <param name="propertyName">属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.SetPropertyValue``1(System.String,``0)">
+            <summary>
+            设置属性的值
+            </summary>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.ScanCount">
+            <summary>
+            扫描次数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.RepeatCount">
+            <summary>
+            重复次数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.SaveSingleBeam">
+            <summary>
+            是否需要保存SingleBeam
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.SaveInterfere">
+            <summary>
+            是否需要保存SingleBeam
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.NeedInterfere">
+            <summary>
+            是否需要保存Interfere
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.StartWavelength">
+            <summary>
+            起始波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.EndWavelength">
+            <summary>
+            结束波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.Resolution">
+            <summary>
+            分辨率
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.ResultSpectrum">
+            <summary>
+            结果谱图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.BackGain">
+            <summary>
+            背景增益
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.SampleGain">
+            <summary>
+            样品增益
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.PhaseCorrect">
+            <summary>
+            相位校准方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.PhaseResolution">
+            <summary>
+            相位分辨率
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.Apodization">
+            <summary>
+            截止函数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.ZeroFilling">
+            <summary>
+            填零系数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.IVUFilter">
+            <summary>
+            IVU滤光片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.BackgroundDuration">
+            <summary>
+            背景光谱有效期
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.XStep">
+            <summary>
+            X轴插值后的步长, 4cm-1 = 1, 8cm-1 = 2, 16cm-1=4;
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.NeedScanBackground">
+            <summary>
+            是否需要扫描背景
+            </summary>
         </member>
         <member name="T:Ai.Hong.Driver.ScanNotifyArgs">
             <summary>
@@ -1916,6 +2219,11 @@
             扫描数据列表
             </summary>
         </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.ScanParameter">
+            <summary>
+            当前扫描参数
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Driver.FTDriver.Dispose">
             <summary>
             </summary>
@@ -2031,6 +2339,12 @@
             <param name="saveFile">保存</param>
             <returns></returns>
         </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetScanedDatas">
+            <summary>
+            获取扫描数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Ai.Hong.Driver.FTDriver.CalculateAbs(System.String,System.String)">
             <summary>
             计算吸收谱
@@ -2102,120 +2416,6 @@
             透射池是否空
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.ClockScannerPanel">
-            <summary>
-            panelScanner.xaml 的交互逻辑
-            </summary>
-            <summary>
-            ClockScannerPanel
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ClockScannerPanel.ErrorString">
-            <summary>
-            错误信息
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.ClockScannerPanel.parameter">
-            <summary>
-            扫描参数
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ClockScannerPanel.scanner">
-            <summary>
-            连接的设备
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.ClockScannerPanel.userAbort">
-            <summary>
-            用户取消扫描
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.ClockScannerPanel.IsBackground">
-            <summary>
-            是否为背景光谱
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ClockScannerPanel.ScanningState">
-            <summary>
-            当前扫描状态
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.ClockScannerPanel.NotifyEvent">
-            <summary>
-            Status changed notify event
-            </summary>
-        </member>
-        <member name="E:Ai.Hong.Driver.ClockScannerPanel.Notify">
-            <summary>
-            Status changed notify event
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.ClockScannerPanel.currentRepeat">
-            <summary>
-            当前重复次数
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.#ctor">
-            <summary>
-            构造函数
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.scanProgress_Abort(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            取消扫描
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.SimulateScan">
-            <summary>
-            模拟扫描
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.StartScan(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.ScanParameter,System.Boolean)">
-            <summary>
-            启动扫描
-            </summary>
-            <param name="scanner">当前设备</param>
-            <param name="parameter">扫描参数</param>
-            <param name="isBackground">True=扫描背景, False=扫描样品</param>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.RepeatScan">
-            <summary>
-            重复扫描（第一次扫描需要调用StartScan）
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.ScanCallback(Ai.Hong.Driver.EnumHardwareError,System.Int32,System.Int32)">
-            <summary>
-            扫描回调函数
-            </summary>
-            <param name="errorCode">扫描错误代码</param>
-            <param name="maxValue">总扫描次数</param>
-            <param name="curValue">当前扫描次数</param>
-            <returns>True=继续扫描, False=终止扫描</returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.RaiseNofiyEvent(Ai.Hong.Driver.EnumScanNotifyState)">
-            <summary>
-            引发事件
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.CanAbort(System.Boolean)">
-            <summary>
-            是否可以终止扫描（默认可以终止）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.GetResult">
-            <summary>
-            获取扫描结果（包括结果谱图，单通道普通，干涉图）
-            </summary>
-            <returns>FileFormat列表</returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.ClockScannerPanel.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
         </member>
         <member name="T:FTNirInterface.WaitDialog.ProcessWaitDialog">
             <summary>

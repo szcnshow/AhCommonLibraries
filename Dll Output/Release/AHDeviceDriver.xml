@@ -1907,6 +1907,11 @@
             设备类型
             </summary>
         </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.Language">
+            <summary>
+            语言
+            </summary>
+        </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.HardwareProps">
             <summary>
             设备属性
@@ -1967,6 +1972,12 @@
             <param name="propertyName">属性名称</param>
             <param name="propertyValue">属性值</param>
             <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.InitProperties(Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            初始化扫描参数的属性
+            </summary>
+            <param name="language"></param>
         </member>
         <member name="M:Ai.Hong.Driver.ScanParameter.FindPropertyByName(System.String)">
             <summary>
@@ -2133,6 +2144,145 @@
             <param name="routedEvent"></param>
             <param name="state"></param>
             <param name="errorString"></param>
+        </member>
+        <member name="T:Ai.Hong.Driver.DeviceCategoryProperties">
+            <summary>
+            设备类型和型号对应的信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.category">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.model">
+            <summary>
+            设备型号
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.hardwares">
+            <summary>
+            设备列表及其包含的属性信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.properties">
+            <summary>
+            设备属性列表
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceCategoryProperties.#ctor(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,System.Collections.Generic.Dictionary{Ai.Hong.Driver.EnumHardware,System.Collections.Generic.List{Ai.Hong.Driver.EnumHardwareProperties}})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="category">设备类型</param>
+            <param name="model">设备型号</param>
+            <param name="hardwares">设备列表及其包含的属性信息</param>
+        </member>
+        <member name="T:Ai.Hong.Driver.HardwareProperty">
+            <summary>
+            硬件属性操作
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.HardwareProperty.ErrorCode">
+            <summary>
+            硬件错误信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.HardwareProperty.PropertyInfoList">
+            <summary>
+            硬件属性的值类型和是否可读列表(const)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.HardwareProperty.FTNIRHardwareHasProperties">
+            <summary>
+            FTNIR硬件所包含的属性列表(const)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.HardwareProperty.DeviceCategoryProperties">
+            <summary>
+            不同类型设备的硬件属性
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareList(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel)">
+            <summary>
+            获取仪器包含的所有部件
+            </summary>
+            <param name="category">设备类型FTNIR, FTIR...</param>
+            <param name="model">设备型号Sephere, Fiber...</param>
+            <returns>设备部件列表</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwarePropertyList(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware)">
+            <summary>
+            获取部件可用的属性列表
+            </summary>
+            <param name="category">设备类型FTNIR, FTIR...</param>
+            <param name="model">设备型号Sephere, Fiber...</param>
+            <param name="hardwareID">硬件ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareGetAllProperties(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel)">
+            <summary>
+            设备连接后调用
+            获取所有的部件，部件的所有属性，以及属性的取值范围或选项列表
+            </summary>
+            <param name="category">设备类型FTNIR, FTIR...</param>
+            <param name="model">设备型号Sephere, Fiber...</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.InnerHardwarePropertySelections(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
+            <summary>
+            获取设备属性的选择项列表
+            </summary>
+            <param name="category">设备类型FTNIR, FTIR...</param>
+            <param name="model">设备型号Sephere, Fiber...</param>
+            <param name="deviceID">设备ID</param>
+            <param name="propertyID">属性ID</param>
+            <returns>Null=出现错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.InnerHardwareGetPropertyRange(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Single@,System.Single@)">
+            <summary>
+            获取浮点属性的取值范围
+            </summary>
+            <param name="category">设备类型FTNIR, FTIR...</param>
+            <param name="model">设备型号Sephere, Fiber...</param>
+            <param name="hardwareID">部件ID</param>
+            <param name="propertyID">属性ID</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwarePropertyDetail(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Boolean)">
+            <summary>
+            检查部件是否包含了指定属性，并获取本属性的类型，只读信息
+            使用deviceHasProperties检查PropertyID是否在DeviceID中
+            用propertyInfoList来获取PropertyID的类型，只读信息
+            </summary>
+            <param name="category">设备类型FTNIR, FTIR...</param>
+            <param name="model">设备型号Sephere, Fiber...</param>
+            <param name="hardwareID">部件ID</param>
+            <param name="propertyID">属性ID</param>
+            <param name="forRead">True=获取属性, False=设置属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareGetProperty(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
+            <summary>
+            获取部件的属性（需要修改）
+            </summary>
+            <param name="category">设备类型</param>
+            <param name="model">设备型号</param>
+            <param name="hardwareID">部件ID</param>
+            <param name="propertyID">属性ID</param>
+            <returns>状态的值, Int, float都转为string返回，由调用程序解读, NULL表示错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareSetProperty(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Object)">
+            <summary>
+            设置部件的属性（需要修改）
+            </summary>
+            <param name="category">设备类型</param>
+            <param name="model">设备型号</param>
+            <param name="hardwareID">部件ID</param>
+            <param name="propertyID">属性ID</param>
+            <param name="propertyValue">属性的值</param>
+            <returns>错误信息</returns>
         </member>
         <member name="T:Ai.Hong.Driver.FTDriver">
             <summary>

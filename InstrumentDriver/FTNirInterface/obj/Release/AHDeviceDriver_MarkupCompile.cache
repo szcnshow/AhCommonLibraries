@@ -4,7 +4,7 @@
 library
 C#
 .cs
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\
 Ai.Hong.Driver
 none
 false
@@ -12,8 +12,8 @@ TRACE
 
 3778508063
 
-62088217764
-151159093157
+7-1026017810
+15-116670203
 Controls\ClockScannerPanel.xaml;Controls\CommonParaPanel.xaml;WaitDialog\ProcessWaitDialog.xaml;
 
 False

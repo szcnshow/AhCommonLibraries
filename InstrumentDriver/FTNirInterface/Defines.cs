@@ -1960,6 +1960,12 @@ namespace Ai.Hong.Driver
         public EnumDeviceModel DeviceModel { get { return _deviceModel; } set { _deviceModel = value; DoPropertyChange("deviceModel"); } }
 
         /// <summary>
+        /// 语言
+        /// </summary>
+        [XmlAttribute]
+        public Common.EnumLanguage Language { get; set; }
+
+        /// <summary>
         /// 设备属性
         /// </summary>
         [XmlArray("HardwareProps")]
@@ -2047,6 +2053,15 @@ namespace Ai.Hong.Driver
         /// <param name="propertyValue">属性值</param>
         /// <returns></returns>
         public virtual bool SetPropertyValue(string propertyName, dynamic propertyValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 初始化扫描参数的属性
+        /// </summary>
+        /// <param name="language"></param>
+        public virtual void InitProperties(Ai.Hong.Common.EnumLanguage language)
         {
             throw new NotImplementedException();
         }

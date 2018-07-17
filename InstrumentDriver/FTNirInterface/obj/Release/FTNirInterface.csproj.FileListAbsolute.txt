@@ -117,9 +117,11 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\FTNirInterface.csproj.CopyComplete
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\AHDeviceDriver.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\AHDeviceDriver.pdb
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\ClockScannerPanel.baml
-D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\ClockScannerPanel.g.cs
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\ClockScannerPanel.baml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\ClockScannerPanel.g.cs
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\CommonParaPanel.baml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\CommonParaPanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\ClockScannerPanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\CommonParaPanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\ClockScannerPanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Release\Controls\CommonParaPanel.g.cs

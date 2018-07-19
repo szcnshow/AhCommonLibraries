@@ -340,6 +340,21 @@
             Sample Rotator
             </summary>
         </member>
+        <member name="F:Ai.Hong.Driver.EnumHardware.Firmware">
+            <summary>
+            Firmware
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardware.Coaddtion">
+            <summary>
+            Firmware
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardware.Metrology">
+            <summary>
+            Firmware
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Driver.EnumHardwareProperties">
             <summary>
             硬件所有的属性
@@ -438,6 +453,36 @@
         <member name="F:Ai.Hong.Driver.EnumHardwareProperties.ScanChannel">
             <summary>
             ScanChannel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardwareProperties.Name">
+            <summary>
+            Device name
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardwareProperties.Decription">
+            <summary>
+            Device decription
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardwareProperties.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardwareProperties.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardwareProperties.Port">
+            <summary>
+            Port（Communication port)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumHardwareProperties.Pressure">
+            <summary>
+            Pressure
             </summary>
         </member>
         <member name="T:Ai.Hong.Driver.EnumHardwareStatus">
@@ -2188,20 +2233,37 @@
             硬件错误信息
             </summary>
         </member>
+        <member name="P:Ai.Hong.Driver.HardwareProperty.DeviceCategory">
+            <summary>
+            设备种类
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.HardwareProperty.DeviceModel">
+            <summary>
+            设备型号
+            </summary>
+        </member>
         <member name="P:Ai.Hong.Driver.HardwareProperty.PropertyInfoList">
             <summary>
             硬件属性的值类型和是否可读列表(const)
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.HardwareProperty.FTNIRHardwareHasProperties">
+        <member name="P:Ai.Hong.Driver.HardwareProperty.AllHardwareProperties">
             <summary>
-            FTNIR硬件所包含的属性列表(const)
+            硬件所包含的属性列表
             </summary>
         </member>
         <member name="P:Ai.Hong.Driver.HardwareProperty.DeviceCategoryProperties">
             <summary>
             不同类型设备的硬件属性
             </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.HardwareProperty.Initialize(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel)">
+            <summary>
+            初始化（必须最先调用）
+            </summary>
+            <param name="category">设备种类</param>
+            <param name="model">设备型号</param>
         </member>
         <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareList(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel)">
             <summary>

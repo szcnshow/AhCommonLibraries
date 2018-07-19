@@ -54,6 +54,14 @@ namespace Ai.Hong.Driver
         /// 硬件错误信息
         /// </summary>
         public EnumHardwareError ErrorCode;
+        /// <summary>
+        /// 设备种类
+        /// </summary>
+        public EnumDeviceCategory DeviceCategory { get; protected set; }
+        /// <summary>
+        /// 设备型号
+        /// </summary>
+        public EnumDeviceModel DeviceModel { get; protected set; }
 
         #region Hardware functions
 
@@ -63,46 +71,41 @@ namespace Ai.Hong.Driver
         public List<HardwarePropertyInfo> PropertyInfoList { get; set; }
 
         /// <summary>
-        /// FTNIR硬件所包含的属性列表(const)
+        /// 硬件所包含的属性列表
         /// </summary>
-        public Dictionary<EnumHardware, List<EnumHardwareProperties>> FTNIRHardwareHasProperties { get; set; }
+        public Dictionary<EnumHardware, List<EnumHardwareProperties>> AllHardwareProperties { get; protected set; }
 
         /// <summary>
-        /// 不同类型设备的硬件属性
+        /// 初始化（必须最先调用）
         /// </summary>
-        public List<DeviceCategoryProperties> DeviceCategoryProperties { get; set; }
+        /// <param name="category">设备种类</param>
+        /// <param name="model">设备型号</param>
+        public virtual void Initialize(EnumDeviceCategory category, EnumDeviceModel model)
+        {
+            DeviceCategory = category;
+            DeviceModel = model;
+        }
 
         /// <summary>
         /// 获取仪器包含的所有部件
         /// </summary>
-        /// <param name="category">设备类型FTNIR, FTIR...</param>
-        /// <param name="model">设备型号Sephere, Fiber...</param>
         /// <returns>设备部件列表</returns>
-        public List<EnumHardware> HardwareList(EnumDeviceCategory category, EnumDeviceModel model)
+        public virtual List<EnumHardware> HardwareList()
         {
-            var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
-            Trace.Assert(device != null, "Device not found");
-
-            return (from p in device.hardwares select p.Key).ToList();
+            return AllHardwareProperties.Keys.ToList();
         }
 
         /// <summary>
         /// 获取部件可用的属性列表
         /// </summary>
-        /// <param name="category">设备类型FTNIR, FTIR...</param>
-        /// <param name="model">设备型号Sephere, Fiber...</param>
         /// <param name="hardwareID">硬件ID</param>
         /// <returns></returns>
-        public List<EnumHardwareProperties> HardwarePropertyList(EnumDeviceCategory category, EnumDeviceModel model, EnumHardware hardwareID)
+        public virtual List<EnumHardwareProperties> HardwarePropertyList(EnumHardware hardwareID)
         {
-            var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
-            if (device == null)
-                return null;
-
-            if (!device.hardwares.ContainsKey(hardwareID))
-                return null;
-
-            return device.hardwares[hardwareID];
+            if (AllHardwareProperties.ContainsKey(hardwareID))
+                return AllHardwareProperties[hardwareID];
+            else
+                return new List<EnumHardwareProperties>();
         }
 
         /// <summary>
@@ -111,7 +114,7 @@ namespace Ai.Hong.Driver
         /// </summary>
         /// <param name="category">设备类型FTNIR, FTIR...</param>
         /// <param name="model">设备型号Sephere, Fiber...</param>
-        public void HardwareGetAllProperties(EnumDeviceCategory category, EnumDeviceModel model)
+        public void HardwareGetAllProperties()
         {
             var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
             Trace.Assert(device != null, "Device not found");

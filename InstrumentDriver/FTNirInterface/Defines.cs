@@ -197,6 +197,21 @@ namespace Ai.Hong.Driver
         /// </summary>
         [Description("旋转台,Rotator")]
         Rotator = 26,
+        /// <summary>
+        /// Firmware
+        /// </summary>
+        [Description("固件,Firmware")]
+        Firmware = 27,
+        /// <summary>
+        /// Firmware
+        /// </summary>
+        [Description("累加采样,Coaddtion")]
+        Coaddtion = 28,
+        /// <summary>
+        /// Firmware
+        /// </summary>
+        [Description("光学计量,Metrology")]
+        Metrology = 29,
     };
 
     /// <summary>
@@ -301,6 +316,36 @@ namespace Ai.Hong.Driver
         /// </summary>
         [Description("采样通道")]
         ScanChannel = 24,
+        /// <summary>
+        /// Device name
+        /// </summary>
+        [Description("设备名称")]
+        Name = 25,
+        /// <summary>
+        /// Device decription
+        /// </summary>
+        [Description("设备描述")]
+        Decription = 26,
+        /// <summary>
+        /// Version
+        /// </summary>
+        [Description("版本号")]
+        Version = 27,
+        /// <summary>
+        /// Address
+        /// </summary>
+        [Description("仪器地址")]
+        Address = 28,
+        /// <summary>
+        /// Port（Communication port)
+        /// </summary>
+        [Description("端口")]
+        Port = 29,
+        /// <summary>
+        /// Pressure
+        /// </summary>
+        [Description("压力")]
+        Pressure = 29,
     };
 
     /// <summary>
@@ -2242,14 +2287,14 @@ namespace Ai.Hong.Driver
         /// </summary>
         /// <returns></returns>
         [XmlIgnore]
-        public int ZeroFilling { get { return GetPropertyValue<int>(nameof(ZeroFilling)); } set { SetPropertyValue<int>(nameof(ZeroFilling), value); } }
+        public EnumFTZeroFilling ZeroFilling { get { return GetPropertyValue<EnumFTZeroFilling>(nameof(ZeroFilling)); } set { SetPropertyValue(nameof(ZeroFilling), value); } }
 
         /// <summary>
         /// IVU滤光片
         /// </summary>
         /// <returns></returns>
         [XmlIgnore]
-        public EnumDeviceIVU IVUFilter { get { return GetPropertyValue<EnumDeviceIVU>(nameof(IVUFilter)); } set { SetPropertyValue<EnumDeviceIVU>(nameof(IVUFilter), value); } }
+        public EnumDeviceIVU IVUFilter { get { return GetPropertyValue<EnumDeviceIVU>(nameof(IVUFilter)); } set { SetPropertyValue(nameof(IVUFilter), value); } }
 
         /// <summary>
         /// 背景光谱有效期

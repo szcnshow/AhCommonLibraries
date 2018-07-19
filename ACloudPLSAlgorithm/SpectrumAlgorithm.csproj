@@ -35,13 +35,13 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Dll Output\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Debug\AHSpectrumAlgorithm.xml</DocumentationFile>
+    <DocumentationFile>..\Dll Output\Debug\AHSpectrumAlgorithm.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -100,7 +100,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="alglibnet2">
-      <HintPath>..\..\..\CommonLibrary\CommDllFiles\alglibnet2.dll</HintPath>
+      <HintPath>..\Dll Output\Release\alglibnet2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

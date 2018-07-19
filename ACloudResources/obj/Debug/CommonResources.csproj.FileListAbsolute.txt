@@ -1,0 +1,19 @@
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHCommonResources.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHCommonResources.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\Styles\DatagridStyle.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\Styles\DefaultThemeStyle.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\VectorImageInfo.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\AllVectoryViewer.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\Styles\WindowStyle.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\VectorImageInfo.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\AHCommonResources_MarkupCompile.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\AHCommonResources_MarkupCompile.lref
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\AllVectoryViewer.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\Styles\WindowStyle.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\AHCommonResources.g.resources
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\CommonResources.csproj.CoreCompileInputs.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\AHCommonResources.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\AHCommonResources.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHCommonResources.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\CommonResources.csprojResolveAssemblyReference.cache

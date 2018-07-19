@@ -1,0 +1,33 @@
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\FTNirInterface.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\Controls\ClockScannerPanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\Controls\CommonParaPanel.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\WaitDialog\ProcessWaitDialog.baml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\Controls\ClockScannerPanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\Controls\CommonParaPanel.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\WaitDialog\ProcessWaitDialog.g.cs
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\AHDeviceDriver_MarkupCompile.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\AHDeviceDriver.g.resources
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\FTNirInterface.csproj.CoreCompileInputs.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHDeviceDriver.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHDeviceDriver.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHCommonControls.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHCommonMethod.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHSpectrumFileFormat.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\OxyPlot.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\OxyPlot.Wpf.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHSpectrumFileFormat.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHSpectrumFileFormat.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHCommonControls.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHCommonControls.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHCommonMethod.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\AHCommonMethod.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\OxyPlot.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\OxyPlot.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\OxyPlot.Wpf.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\bin\Debug\OxyPlot.Wpf.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\FTNirInterface.csproj.CopyComplete
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\AHDeviceDriver.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\FTNirInterface\obj\Debug\AHDeviceDriver.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHDeviceDriver.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHDeviceDriver.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHDeviceDriver.pdb

@@ -16,11 +16,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Dll Output\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\AHInstrumentTest.xml</DocumentationFile>
+    <DocumentationFile>..\..\Dll Output\Debug\AHInstrumentTest.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,6 +37,10 @@
     </Reference>
     <Reference Include="AHCommonResources">
       <HintPath>..\..\Dll Output\Release\AHCommonResources.dll</HintPath>
+    </Reference>
+    <Reference Include="AHSpectrumAlgorithm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll Output\Debug\AHSpectrumAlgorithm.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -68,10 +72,6 @@
     <ProjectReference Include="..\..\ACloudFileFormat\SpectrumFileFormat.csproj">
       <Project>{e01f8204-e19b-4c55-b3bd-d4270df16f1c}</Project>
       <Name>SpectrumFileFormat</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ACloudPLSAlgorithm\SpectrumAlgorithm.csproj">
-      <Project>{ffe0b384-d57f-415e-b93d-7e45acf7745b}</Project>
-      <Name>SpectrumAlgorithm</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ACloudResources\CommonResources.csproj">
       <Project>{897e2cde-69c1-4809-896c-f5d9e2256b0f}</Project>

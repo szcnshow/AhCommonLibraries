@@ -116,68 +116,68 @@ namespace Ai.Hong.Driver
         /// <param name="model">设备型号Sephere, Fiber...</param>
         public void HardwareGetAllProperties()
         {
-            var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
-            Trace.Assert(device != null, "Device not found");
+            //var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
+            //Trace.Assert(device != null, "Device not found");
 
-            var deviceprops = device.properties;
-            if (deviceprops != null && deviceprops.Count > 0)
-                return;
+            //var deviceprops = device.properties;
+            //if (deviceprops != null && deviceprops.Count > 0)
+            //    return;
 
-            device.properties = new List<HardwarePropertyInfo>();
-            deviceprops = device.properties;
+            //device.properties = new List<HardwarePropertyInfo>();
+            //deviceprops = device.properties;
 
-            //通用属性，每个硬件都有
-            var commprop = new List<EnumHardwareProperties>() { EnumHardwareProperties.Status, EnumHardwareProperties.SerialNo,
-                                                            EnumHardwareProperties.Temperature, EnumHardwareProperties.ProduceDate};
+            ////通用属性，每个硬件都有
+            //var commprop = new List<EnumHardwareProperties>() { EnumHardwareProperties.Status, EnumHardwareProperties.SerialNo,
+            //                                                EnumHardwareProperties.Temperature, EnumHardwareProperties.ProduceDate};
 
-            foreach (var hardware in device.hardwares)
-            {
-                //加入每个设备都有的通用属性,肯定是只读的
-                foreach (var prop in commprop)
-                {
-                    //获取预定义属性的基本信息
-                    var info = PropertyInfoList.FirstOrDefault(p => p.PropertyID == prop);
-                    Trace.Assert(info != null, "Property not found");
+            //foreach (var hardware in device.hardwares)
+            //{
+            //    //加入每个设备都有的通用属性,肯定是只读的
+            //    foreach (var prop in commprop)
+            //    {
+            //        //获取预定义属性的基本信息
+            //        var info = PropertyInfoList.FirstOrDefault(p => p.PropertyID == prop);
+            //        Trace.Assert(info != null, "Property not found");
 
-                    //Clone属性，准备加入部件属性列表中
-                    var newinfo = info.Clone();
-                    newinfo.HardwareID = hardware.Key;
-                    deviceprops.Add(newinfo);
-                }
+            //        //Clone属性，准备加入部件属性列表中
+            //        var newinfo = info.Clone();
+            //        newinfo.HardwareID = hardware.Key;
+            //        deviceprops.Add(newinfo);
+            //    }
 
-                //查看设备的专用属性是否存在
-                foreach (var prop in hardware.Value)
-                {
-                    //获取预定义属性的基本信息
-                    var info = PropertyInfoList.FirstOrDefault(p => p.PropertyID == prop);
-                    Trace.Assert(info != null, "Property not found");
+            //    //查看设备的专用属性是否存在
+            //    foreach (var prop in hardware.Value)
+            //    {
+            //        //获取预定义属性的基本信息
+            //        var info = PropertyInfoList.FirstOrDefault(p => p.PropertyID == prop);
+            //        Trace.Assert(info != null, "Property not found");
 
-                    //Clone属性，准备加入部件属性列表中
-                    var newinfo = info.Clone();
-                    newinfo.HardwareID = hardware.Key;
+            //        //Clone属性，准备加入部件属性列表中
+            //        var newinfo = info.Clone();
+            //        newinfo.HardwareID = hardware.Key;
 
-                    //只读属性,本属性没有取值范围或者可选列表
-                    if (info.IsReadonly == false)   //读写属性，表示本属性有取值范围或者可选列表
-                    {
-                        //属性是整数,表示有列表选择
-                        if (info.ValueType == typeof(int))
-                        {
-                            var sels = InnerHardwarePropertySelections(category, model, hardware.Key, prop);
-                            Trace.Assert(sels != null, "Get Property Error");
-                            newinfo.Selections = sels;
-                        }
-                        //属性是小数,表示有取值范围
-                        else if (info.ValueType == typeof(float))
-                        {
-                            float min, max;
-                            Trace.Assert(InnerHardwareGetPropertyRange(category, model, hardware.Key, prop, out min, out max), "Get Property Error");
-                            newinfo.MinValue = min;
-                            newinfo.MaxValue = max;
-                        }
-                    }
-                    deviceprops.Add(newinfo);
-                }
-            }
+            //        //只读属性,本属性没有取值范围或者可选列表
+            //        if (info.IsReadonly == false)   //读写属性，表示本属性有取值范围或者可选列表
+            //        {
+            //            //属性是整数,表示有列表选择
+            //            if (info.ValueType == typeof(int))
+            //            {
+            //                var sels = InnerHardwarePropertySelections(category, model, hardware.Key, prop);
+            //                Trace.Assert(sels != null, "Get Property Error");
+            //                newinfo.Selections = sels;
+            //            }
+            //            //属性是小数,表示有取值范围
+            //            else if (info.ValueType == typeof(float))
+            //            {
+            //                float min, max;
+            //                Trace.Assert(InnerHardwareGetPropertyRange(category, model, hardware.Key, prop, out min, out max), "Get Property Error");
+            //                newinfo.MinValue = min;
+            //                newinfo.MaxValue = max;
+            //            }
+            //        }
+            //        deviceprops.Add(newinfo);
+            //    }
+            //}
         }
 
         /// <summary>
@@ -221,23 +221,23 @@ namespace Ai.Hong.Driver
         /// <returns></returns>
         public HardwarePropertyInfo HardwarePropertyDetail(EnumDeviceCategory category, EnumDeviceModel model, EnumHardware hardwareID, EnumHardwareProperties propertyID, bool forRead = true)
         {
-            //确保仪器类型正确
-            var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
-            Trace.Assert(device != null, "Device not found");
+            ////确保仪器类型正确
+            //var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
+            //Trace.Assert(device != null, "Device not found");
 
-            //刷新属性
-            HardwareGetAllProperties(category, model);
+            ////刷新属性
+            //HardwareGetAllProperties(category, model);
 
-            switch (category)
-            {
-                case EnumDeviceCategory.FTNIR:
-                case EnumDeviceCategory.FTIR:
-                    var info = device.properties.FirstOrDefault(p => p.HardwareID == hardwareID && p.PropertyID == propertyID);
-                    if (info.IsReadonly == true && forRead == false)
-                        return null;
+            //switch (category)
+            //{
+            //    case EnumDeviceCategory.FTNIR:
+            //    case EnumDeviceCategory.FTIR:
+            //        var info = device.properties.FirstOrDefault(p => p.HardwareID == hardwareID && p.PropertyID == propertyID);
+            //        if (info.IsReadonly == true && forRead == false)
+            //            return null;
 
-                    return info;
-            }
+            //        return info;
+            //}
             return null;
         }
 

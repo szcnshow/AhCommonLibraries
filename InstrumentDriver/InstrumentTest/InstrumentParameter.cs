@@ -1243,6 +1243,24 @@ namespace Ai.Hong.Driver.IT
             }
         }
 
+        //private double CalMidPoint(double x1, double y1, double x2, double y2, double peakX, double peakY)
+        //{
+        //    double midx, midy;
+
+        //    if (y1 == y2)
+        //    {
+        //        midx = x1 + (x2 - x1) / 2;
+        //        midy = y1 + (peakY - y1) / 2;
+        //    }
+        //    else
+        //    {
+        //        double temp = targetX * (firstX - endX) * (firstX - endX) - (endY * targetY - firstY * targetY) * (firstX - endX) + (firstX * endY - firstY * endX) * (endY - firstY);
+        //        double x = temp / ((endY - firstY) * (endY - firstY) + (endX - firstX) * (endX - firstX));
+        //        double y = (firstX * x - endX * x + endX * targetX - firstX * targetX - firstY * targetY + endY * targetY) / (endY - firstY);
+        //        return ((x + targetX) / 2).ToString() + "+" + ((y + targetY) / 2).ToString();
+        //    }
+        //}
+
         /// <summary>
         /// 分辨率计算
         /// </summary>
@@ -1254,10 +1272,11 @@ namespace Ai.Hong.Driver.IT
         /// <param name="midPointY"></param>
         /// <param name="DataX"></param>
         /// <param name="DataY"></param>
+        /// <param name="IsUpPeak">True=向上的峰，False=向下的峰</param>
         /// <returns></returns>
-        private double CalResolution(double firstX, double firstY, double endX, double endY, double midPointX, double midPointY, double[] DataX, double[] DataY)
+        private double CalResolution(double firstX, double firstY, double endX, double endY, double midPointX, double midPointY, double[] DataX, double[] DataY, bool IsUpPeak)
         {
-            double Resolution = Ai.Hong.Algorithm.CommonAlgorithm.Integrate(DataX, DataY, firstX, endX);
+            double Resolution = Ai.Hong.Algorithm.CommonAlgorithm.Integrate(DataX, DataY, firstX, endX, IsUpPeak); 
             int tar = Ai.Hong.Algorithm.CommonMethod.FindNearestPosition(DataX, 0, DataX.Length - 1, resolutionPeak);
             double tary;
             double tarx = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(DataX, DataY, resolutionPeak, 4, out tary, true);
@@ -1275,25 +1294,26 @@ namespace Ai.Hong.Driver.IT
         /// <summary>
         /// 计算测试结果
         /// </summary>
-        /// <param name="calcuParameter"></param>
+        /// <param name="calcuParameter">bool, True=向上的峰，False=向下的峰</param>
         /// <returns></returns>
-        public override bool CalculateResult(dynamic calcuParameter = null)
+        public override bool CalculateResult(dynamic calcuParameter)
         {
             var xDatas = SpectraDatas[0].xDatas;
-            //var yDatas = SpectraDatas[0].yDatas;
+            var yDatas = SpectraDatas[0].yDatas;
 
-            //计算-log
-            double[] yDatas = new double[SpectraDatas[0].yDatas.Length];
-            for (int i = 0; i < yDatas.Length; i++)
-                yDatas[i] = -Math.Log10(SpectraDatas[0].yDatas[i]);
+            //计算 - log
+            //double[] yDatas = new double[SpectraDatas[0].yDatas.Length];
+            //for (int i = 0; i < yDatas.Length; i++)
+            //    yDatas[i] = -Math.Log10(SpectraDatas[0].yDatas[i]);
 
             //标定峰位（向上的峰位）
+            bool IsUpPeak = (bool)calcuParameter;
             double newYValue;
-            double targetPeak = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, resolutionPeak, 4, out newYValue, true);
+            double targetPeak = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, resolutionPeak, 4, out newYValue, IsUpPeak);
             double newStartY;
-            double newStartX = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, resolutionPeak - 2, 4, out newStartY, false);
+            double newStartX = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, resolutionPeak - 2, 4, out newStartY, !IsUpPeak);
             double newEndY;
-            double newEndX = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, resolutionPeak + 2, 4, out newEndY, false);
+            double newEndX = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, resolutionPeak + 2, 4, out newEndY, !IsUpPeak);
 
             string midPoint = CalMidPoint(newStartX, newStartY, newEndX, newEndY, targetPeak, newYValue);
             string[] mid = midPoint.Split('+');
@@ -1301,7 +1321,7 @@ namespace Ai.Hong.Driver.IT
             double midPointY = Convert.ToDouble(mid[1]);
 
             int midX = Ai.Hong.Algorithm.CommonMethod.FindNearestPosition(xDatas, 0, xDatas.Length - 1, midPointX);
-            FinalResult = CalResolution(newStartX, newStartY, newEndX, newEndY, midPointX, midPointY, xDatas, yDatas);
+            FinalResult = CalResolution(newStartX, newStartY, newEndX, newEndY, midPointX, midPointY, xDatas, yDatas, IsUpPeak);
 
             return IsValidResult();
         }

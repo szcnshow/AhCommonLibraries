@@ -1,0 +1,1426 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AHCommonMethod</name>
+    </assembly>
+    <members>
+        <member name="T:Ai.Hong.Common.SelectChangedArgs">
+            <summary>
+            选择消息参数结构
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.SelectChangedArgs.item">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.SelectChangedArgs.#ctor(System.Windows.RoutedEvent,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="routedEvent"></param>
+            <param name="item"></param>
+        </member>
+        <member name="T:Ai.Hong.Common.CheckedVisibilityConvert">
+            <summary>
+            Checked与Visibility之间的转换, True=Visible, False=Collapsed
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CheckedVisibilityConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Checked to visibility
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CheckedVisibilityConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            visibility to checked
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Common.FalseIsVisibilityConvert">
+            <summary>
+            False与Visibility之间的转换, False=Visible, True=Collapsed
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.FalseIsVisibilityConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            False to visibility
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.FalseIsVisibilityConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Visibility to false
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.BoolToIntConvert">
+            <summary>
+            False与Visibility之间的转换, False=Visible, True=Collapsed
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.BoolToIntConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            True/False ==>1/0
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.BoolToIntConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            1/0 ==> True/False
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.ImageConvert">
+            <summary>
+            文件名与BitmapImage之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.ImageConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Filename ==> image
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ImageConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Image ==> filename
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.DateTimeConverter">
+            <summary>
+            时间格式与字符串yyyy-MM-dd HH:mm:ss之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.DateTimeConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Datetime ==> string
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.DateTimeConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            String ==> datetime
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.PositiveValueConverter">
+            <summary>
+            数值与字符串之间的转换，保持2位小数，如果数值小于等于0，显示为N
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.PositiveValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Positive value ==> N
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.PositiveValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            N ==> positive value
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.CollectionChangedArgs">
+            <summary>
+            列表修改消息参数结构
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.CollectionChangedArgs.action">
+            <summary>
+            列表变动的方式
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.CollectionChangedArgs.item">
+            <summary>
+            列表数据
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CollectionChangedArgs.#ctor(System.Windows.RoutedEvent,System.Collections.Specialized.NotifyCollectionChangedAction,System.Object)">
+            <summary>
+            CollectionChangedArgs
+            </summary>
+            <param name="routedEvent"></param>
+            <param name="action"></param>
+            <param name="item"></param>
+        </member>
+        <member name="T:Ai.Hong.Common.EnumLanguage">
+            <summary>
+            语言类型枚举
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.EnumLanguage.Chinese">
+            <summary>
+            Chinese
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.EnumLanguage.English">
+            <summary>
+            English
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Common.CommonMethod">
+            <summary>
+            通用功能
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.CommonMethod.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.CommonMethod.GBCode2312">
+            <summary>
+            GBCode2312
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.CommonMethod.UTF8">
+            <summary>
+            UTF8
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.CommonMethod.LongDateTimeString">
+            <summary>
+            时间的长格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.CommonMethod.ShortDateTimeString">
+            <summary>
+            时间短格式
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.Serialize``1(``0)">
+            <summary>
+            将类序列化到字符串
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="serialObj">序列化的对象</param>
+            <returns>序列化得到的XML字符串</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.Deserialize``1(System.String)">
+            <summary>
+            从字符串中反序列化类
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="serialString">序列化的XML字符串</param>
+            <returns>反序列化的对象</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.DeserializeFromFile``1(System.String)">
+            <summary>
+            从文件中反序列化对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="filename">文件名</param>
+            <returns>反序列化的对象</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.SerializeToFile``1(``0,System.String)">
+            <summary>
+            序列化对象到文件
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="filename">文件名</param>
+            <param name="serializeObject">序列化对象</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.HideWindowSystemButton(System.Windows.Window)">
+            <summary>
+            隐藏窗口最大、最小、关闭按钮
+            </summary>
+            <param name="dstWnd"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.ErrorMsgBox(System.String)">
+            <summary>
+            ErrorMsgBox
+            </summary>
+            <param name="errstr"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.InfoMsgBox(System.String)">
+            <summary>
+            InfoMsgBox
+            </summary>
+            <param name="infostr"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.QuestionMsgBox(System.String)">
+            <summary>
+            QuestionMsgBox
+            </summary>
+            <param name="questionStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.StreamFromResource(System.Reflection.Assembly,System.String)">
+            <summary>
+            从资源文件中创建Stream
+            </summary>
+            <param name="filename">资源文件名</param>
+            <param name="assemb">当前调用进程的Assembly</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.ConvertToUTF_8(System.String)">
+            <summary>
+            字符串转换到UTF-8编码
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.LoadBitmapImage(System.String)">
+            <summary>
+            加载图像
+            </summary>
+            <param name="imageFile">图像路径</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.LoadImageFromInnerResource(System.String)">
+            <summary>
+            加载资源图像
+            </summary>
+            <param name="resourceName">资源名称</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.SetImageSource(System.Windows.Controls.Image,System.String,System.String)">
+            <summary>
+            设置Image Control的图像
+            </summary>
+            <param name="imgCtrl">Image Control</param>
+            <param name="imgPath">图像在文件中的路径例如：pack://application:,,/Images</param>
+            <param name="imgFile">图形文件名(在Images目录下)</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.IsEmpty(System.String)">
+            <summary>
+            字符串是否为空或者NULL
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetEnumDescription(System.Enum)">
+            <summary>
+            获取Enum的描述
+            </summary>
+            <param name="enumObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetEnumFromDescription(System.Type,System.String)">
+            <summary>
+            从描述中获取Enum的值
+            </summary>
+            <param name="enumtype"></param>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.EnumDescriptionToList(System.Type)">
+            <summary>
+            获取Enum描述列表
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.DirectoryCopy(System.String,System.String)">
+            <summary>
+            拷贝文件夹中所有文件到新文件夹
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.AddToLogFile(System.String,System.String)">
+            <summary>
+            添加到log文件
+            </summary>
+            <param name="filename"></param>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.RemoveDataGridItems(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            移除DataGrid中的选定项
+            </summary>
+            <param name="allItems"></param>
+            <param name="removeItems"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.KillProcess(System.String)">
+            <summary>
+            删除进程
+            </summary>
+            <param name="processName">进程名称</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.ReadIniFile(System.String,System.String,System.String)">
+            <summary>
+            读取Ini配置文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.WriteIniFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            写入Ini配置文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetProgramDataPath(System.String)">
+            <summary>
+            获取C:\Users\Public\Documents\???\setting  文件夹路径
+            </summary>
+            <param name="programName">应用程序文件名，缺省为运行程序名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetDatabaseTemplate(System.String,System.Boolean)">
+            <summary>
+            加密一个字符串
+            </summary>
+            <param name="source">需要加密的字符串</param>
+            <param name="getTemplate">True=加密, False=解密</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetDatabaseTemplate(System.String,System.String,System.Boolean)">
+            <summary>
+            加密一个字符串
+            </summary>
+            <param name="source">需要加密的字符串</param>
+            <param name="destionation">密码</param>
+            <param name="getTemplate">True=加密, False=解密</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.ReplaceInvalidFileCharactor(System.String)">
+            <summary>
+            替换不能在目录和文件名中使用的非法字符
+            </summary>
+            <param name="str">输入字符串</param>
+            <returns>替换后的字符串</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetGBCodeEncoding">
+            <summary>
+            获取GB2312的文字编码格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetComputerHardwareID(System.String,System.String)">
+            <summary>
+            获取单个硬件信息
+            </summary>
+            <param name="hardwareType">硬件类型</param>
+            <param name="propertyType">硬件属性</param>
+            <returns>硬件信息</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetComputerFinger">
+            <summary>
+            获取硬件指纹
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.ReadFileBinnaryData(System.String)">
+            <summary>
+            读取全部文件内容
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>文件内容</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.SaveBinnaryDataToFile(System.String,System.Byte[])">
+            <summary>
+            将数据写入文件
+            </summary>
+            <param name="filename">写入文件名</param>
+            <param name="fileData">文件内容</param>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.IsSameFile(System.String,System.String)">
+            <summary>
+            比较两个文件名是否相同
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.IsChineseOS">
+            <summary>
+            判断是否为中文操作系统
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.PingDevice(System.String,System.Int32)">
+            <summary>
+            通过Ping命令测试仪器是否开机
+            <param name="ipAddress">IP地址</param>
+            <param name="timeout">timeout时间(毫秒)</param>
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.FindChildByName(System.Windows.Controls.ItemsControl,System.String)">
+            <summary>
+            通过名称查找ItemsControl包含的子节点
+            </summary>
+            <param name="currentNode">当前结点</param>
+            <param name="name">查找的名称</param>
+            <returns>找到的节点</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.AdjustItemOrderInList(System.Collections.IList,System.Object,System.Boolean)">
+            <summary>
+            调整curItem在allItems列表中的顺序
+            </summary>
+            <param name="allItems">项目列表</param>
+            <param name="curItem">要调整的项目</param>
+            <param name="moveUp">True:上移，False:下移</param>
+            <returns>调整后curItem的序号</returns>
+        </member>
+        <member name="T:Ai.Hong.Common.PrintDatabaseTemplate">
+            <summary>
+            加密程序
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.PrintDatabaseTemplate.#ctor(System.String,System.String)">
+            <summary>   
+            Conctructor
+            </summary>   
+        </member>
+        <member name="M:Ai.Hong.Common.PrintDatabaseTemplate.GetLegalKey">
+            <summary>   
+            Get the key   
+            </summary>   
+            <returns>key</returns>   
+        </member>
+        <member name="M:Ai.Hong.Common.PrintDatabaseTemplate.GetLegalIV">
+            <summary>   
+            Initialize IV   
+            </summary>   
+            <returns>Initialize IV</returns>   
+        </member>
+        <member name="M:Ai.Hong.Common.PrintDatabaseTemplate.Encrypto(System.String)">
+            <summary>   
+            Encrypto string
+            </summary>   
+            <param name="Source">The source string need to encrypto</param>   
+            <returns>The string after crypto</returns>   
+        </member>
+        <member name="M:Ai.Hong.Common.PrintDatabaseTemplate.Encrypto(System.Byte[])">
+            <summary>   
+            Encrypto byte array
+            </summary>   
+            <param name="source">The source bytes need to encrypto</param>   
+            <returns>The bytes after crypto</returns>   
+        </member>
+        <member name="M:Ai.Hong.Common.PrintDatabaseTemplate.Decrypto(System.String)">
+            <summary>   
+            Decrypto string
+            </summary>   
+            <param name="Source">The srouce need to decrypto</param>   
+            <returns>The result string after decrypto</returns>   
+        </member>
+        <member name="M:Ai.Hong.Common.PrintDatabaseTemplate.Decrypto(System.Byte[])">
+            <summary>   
+            Decrypto byte array
+            </summary>   
+            <param name="source">The srouce need to decrypto</param>   
+            <returns>The result string after decrypto</returns>   
+        </member>
+        <member name="T:Ai.Hong.Common.TreeViewNode">
+            <summary>
+            树形节点
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.Name">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.IsSelected">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.IsExpanded">
+            <summary>
+            是否展开
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.Parent">
+            <summary>
+            父节点
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.TreeViewNode.IconImage">
+            <summary>
+            图标文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.TreeViewNode.#ctor">
+            <summary>
+            Treeview 构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.TreeViewNode.#ctor(Ai.Hong.Common.TreeViewNode,System.String)">
+            <summary>
+            Treeview 构造函数
+            </summary>
+            <param name="parent"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.TreeViewNode.FindItem(System.String)">
+            <summary>
+            查找的字符串
+            </summary>
+            <param name="comparestr">查找的字符串</param>
+        </member>
+        <member name="M:Ai.Hong.Common.TreeViewNode.RefreshParent(Ai.Hong.Common.TreeViewNode)">
+            <summary>
+            重置当前节点下面子节点的父节点，构造树形列表
+            </summary>
+            <param name="curNode">当前节点(从根节点开始)</param>
+        </member>
+        <member name="M:Ai.Hong.Common.TreeViewNode.FindItem(Ai.Hong.Common.TreeViewNode,System.String,System.Boolean)">
+            <summary>
+            查找节点
+            </summary>
+            <param name="curNode">当前节点</param>
+            <param name="name">查找的节点名称</param>
+            <param name="fullMatch">是否全字匹配</param>
+            <returns>查找到的节点</returns>
+        </member>
+        <member name="E:Ai.Hong.Common.TreeViewNode.PropertyChanged">
+            <summary>
+            PropertyChangedEventHandler
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Common.region">
+            <summary>
+            光谱区间
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.region.firstX">
+            <summary>
+            firstX
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.region.lastX">
+            <summary>
+            lastX
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.region.#ctor(System.Double,System.Double)">
+            <summary>
+            region
+            </summary>
+            <param name="firstx"></param>
+            <param name="lastx"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.region.#ctor">
+            <summary>
+            region
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.region.inRegion(System.Double)">
+            <summary>
+            value in this region
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.thresold">
+            <summary>
+            阈值区间
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.thresold.minimum">
+            <summary>
+            minimum
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.thresold.maximum">
+            <summary>
+            maximum
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.thresold.#ctor(System.Double,System.Double)">
+            <summary>
+            thresold
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+        </member>
+        <member name="M:Ai.Hong.Common.thresold.#ctor">
+            <summary>
+            thresold
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.thresold.valueOk(System.Double)">
+            <summary>
+            value is ok
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.thresold.validate">
+            <summary>
+            the min and max is validate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Extenstion.AutoGreyableImage">
+            <summary>
+            灰度图像
+            Class used to have an image that is able to be gray when the control is not enabled.
+            Based on the version by Thomas LEBRUN (http://blogs.developpeur.org/tom)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.AutoGreyableImage.#cctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ai.Hong.Common.Extenstion.AutoGreyableImage"/> class.
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.AutoGreyableImage.GetImageWithSource(System.Windows.DependencyObject)">
+            <summary>
+            Return grey image from source
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.AutoGreyableImage.OnAutoGreyScaleImageSourcePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when [auto grey scale image source property changed].
+            </summary>
+            <param name="source">The source.</param>
+            <param name="args">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.AutoGreyableImage.OnAutoGreyScaleImageIsEnabledPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when [auto grey scale image is enabled property changed].
+            </summary>
+            <param name="source">The source.</param>
+            <param name="args">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.AutoGreyableImage.ApplyGreyScaleImage(Ai.Hong.Common.Extenstion.AutoGreyableImage,System.Boolean)">
+            <summary>
+            Apply grey to image
+            </summary>
+            <param name="autoGreyScaleImg">The image source</param>
+            <param name="isEnabled">True=color image, False=grey image</param>
+        </member>
+        <member name="T:Ai.Hong.Common.Extenstion.TreeViewItemExtensions">
+            <summary>
+            TreeView样式所用到的类
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.TreeViewItemExtensions.GetDepth(System.Windows.Controls.TreeViewItem)">
+            <summary>
+            Get the max depth of this tree view
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.TreeViewItemExtensions.GetAncestor``1(System.Windows.DependencyObject)">
+            <summary>
+            Get the ancestor of a element
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Extenstion.EditableComboBoxExtensions">
+            <summary>
+            可编辑的ComboBox扩展
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EditableComboBoxExtensions.GetMaxLength(System.Windows.DependencyObject)">
+            <summary>
+            Get combox's allowable text lenght
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EditableComboBoxExtensions.SetMaxLength(System.Windows.DependencyObject,System.Int32)">
+            <summary>
+            Set the combox's text length
+            </summary>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="F:Ai.Hong.Common.Extenstion.EditableComboBoxExtensions.MaxLengthProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for MaxLength.  This enables animation, styling, binding, etc... 
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Common.Extenstion.DataGridPlus">
+            <summary>
+            WPF DataGrid控件扩展方法 
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.DataGridPlus.GetCell(System.Windows.Controls.DataGrid,System.Int32,System.Int32)">
+            <summary>
+            获取DataGrid控件单元格
+            </summary>
+            <param name="dataGrid">DataGrid控件</param>
+            <param name="rowIndex">单元格所在的行号</param>
+            <param name="columnIndex">单元格所在的列号</param>
+            <returns>指定的单元格</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.DataGridPlus.GetRow(System.Windows.Controls.DataGrid,System.Int32)">
+            <summary>
+            获取DataGrid的行
+            </summary>
+            <param name="dataGrid">DataGrid控件</param>
+            <param name="rowIndex">DataGrid行号</param>
+            <returns>指定的行号</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.DataGridPlus.GetVisualChild``1(System.Windows.Media.Visual)">
+            <summary>
+            获取父可视对象中第一个指定类型的子可视对象
+            </summary>
+            <typeparam name="T">可视对象类型</typeparam>
+            <param name="parent">父可视对象</param>
+            <returns>第一个指定类型的子可视对象</returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Extenstion.EnumExtensions">
+            <summary>
+            Enum扩展功能
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.GetEnumDescription``1(``0,Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            获取枚举的描述信息
+            </summary>
+            <param name="enumValue">枚举值</param>
+            <param name="language">枚举描述的语言</param>
+            <returns>枚举的描述信息</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumValuesToDescriptionList``1(System.Collections.Generic.List{``0},Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            获取Enum列表的描述
+            </summary>
+            <typeparam name="T">enum类型</typeparam>
+            <param name="enumValues">当前枚举值的列表</param>
+            <param name="language">枚举描述的语言</param>
+            <returns>Key=EnumValue, Value=Description</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumTypeToDescriptionList``1(Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            获取Enum类型的描述列表
+            </summary>
+            <typeparam name="T">enum类型</typeparam>
+            <param name="language">使用的语言</param>
+            <returns>Key=EnumValue, Value=Description</returns>
+        </member>
+        <member name="T:Ai.Hong.Common.ResourceOperator">
+            <summary>
+            资源操作类
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.ResourceOperator.ErrorString">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceString(System.Windows.Application,System.String)">
+            <summary>
+            字符串资源
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceBitmap(System.Windows.Application,System.String,System.String)">
+            <summary>
+            图像资源BitmapImage
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <param name="imagePath">图像的根目录</param>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceVector(System.Windows.Application,System.String)">
+            <summary>
+            资源中的DrawingGroup
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceBrush(System.Windows.Application,System.String)">
+            <summary>
+            资源中的Brush
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceSolidBrush(System.Windows.Application,System.String)">
+            <summary>
+            资源中的SolidColorBrush
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.ResourceStyle(System.Windows.Application,System.String)">
+            <summary>
+            资源中的Style
+            </summary>
+            <param name="app">当前执行程序</param>
+            <param name="key">资源的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceStream(System.Reflection.Assembly,System.String)">
+            <summary>
+            获取嵌入的资源
+            </summary>
+            <param name="owner">资源的所有者</param>
+            <param name="resourcePath">资源路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceElement(System.Reflection.Assembly,System.String)">
+            <summary>
+            加载Xaml对象
+            </summary>
+            <param name="assemb">当前调用进程的Assembly</param>
+            <param name="resourceKey">资源路径</param>
+            <returns>Xaml资源对象</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceBinary(System.Reflection.Assembly,System.String)">
+            <summary>
+            加载Binary对象
+            </summary>
+            <param name="assemb">当前调用进程的Assembly</param>
+            <param name="resourceKey">资源路径</param>
+            <returns>Binary资源对象</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.ResourceOperator.EmbededResourceText(System.Reflection.Assembly,System.String)">
+            <summary>
+            加载Text对象
+            </summary>
+            <param name="assemb">当前调用进程的Assembly</param>
+            <param name="resourceKey">资源路径</param>
+            <returns>Text资源对象</returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.DisableNullConvert">
+            <summary>
+            Object!=NULL, 返回True, 否则:False
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DisableNullConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DisableNullConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.NotTrueConvert">
+            <summary>
+            True到False转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.NotTrueConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not true ==>false
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.NotTrueConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not true ==> false
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.RowNumberConverter">
+            <summary>
+            获取DataGrid的Item所在的行,用于绑定行号
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.RowNumberConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Row number
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.RowNumberConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            ConvertBack
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.SelectedIndexVisibleConvert">
+            <summary>
+            如果选择的列表值为设定值，返回Visble,否则返回Collapsed, values[0]=列表选择值, values[1]=比较值
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.SelectedIndexVisibleConvert.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="values"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.SelectedIndexVisibleConvert.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetTypes"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.BoolIntConvert">
+            <summary>
+            BOOL值与0,1之间的转换: False=0, True=1
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.BoolIntConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.BoolIntConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.BrushToColorConverter">
+            <summary>
+            颜色和画笔之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.BrushToColorConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.BrushToColorConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.DifferentValueConvert">
+            <summary>
+            预测值与参考值的偏差，如果parameter=true,返回绝对偏差，否则返回相对偏差
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DifferentValueConvert.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="values"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DifferentValueConvert.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetTypes"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.ValueQueryConditionConvert">
+            <summary>
+            Nuallable BOOL值与0,1, 2之间的转换: False=0, True=1, NULL=2
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.ValueQueryConditionConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.ValueQueryConditionConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.ColorToBrushConverter">
+            <summary>
+            颜色和画笔之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.ColorToBrushConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.ColorToBrushConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.DoubleStringF2Convert">
+            <summary>
+            double与显示间的转换(两位小数)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DoubleStringF2Convert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DoubleStringF2Convert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.FloatStringF2Convert">
+            <summary>
+            float与显示间的转换(两位小数)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.FloatStringF2Convert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.FloatStringF2Convert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.BoolToYesConvert">
+            <summary>
+            BOOL值与Y之间的转换: False=null, True='Y'
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.BoolToYesConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.BoolToYesConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.VerticalConvert">
+            <summary>
+            Orientation值与VerticalAlignment之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.VerticalConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.VerticalConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.HorizontalConvert">
+            <summary>
+            Orientation值与VerticalAlignment之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.HorizontalConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.HorizontalConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.FontFamilyToStringName">
+            <summary>
+            将String指定的字体名称转换为字体类
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.FontFamilyToStringName.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.FontFamilyToStringName.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.TrueIsVisibilityConvert">
+            <summary>
+            Checked与Visibility之间的转换, True=Visible, False=Collapsed
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.TrueIsVisibilityConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.TrueIsVisibilityConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.FalseIsVisibilityConvert">
+            <summary>
+            False与Visibility之间的转换, False=Visible, True=Collapsed
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.FalseIsVisibilityConvert.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.FalseIsVisibilityConvert.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.IndentConverter">
+            <summary>
+            计算treeviewItem的层级,使用TreeViewItemExtensions
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.Convert.IndentConverter.Indent">
+            <summary>
+            Item的层级
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Common.Convert.IndentConverter.MarginLeft">
+            <summary>
+            当前Item左边的左边的Margin
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.IndentConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.IndentConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.DateConverter">
+            <summary>
+            日期格式与字符串yyyy-MM-dd之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DateConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Datetime ==> string
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.DateConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            String ==> datetime
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Convert.TimeConverter">
+            <summary>
+            时间格式与字符串HH:mm:ss之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.TimeConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Datetime ==> string
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Convert.TimeConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            String ==> datetime
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

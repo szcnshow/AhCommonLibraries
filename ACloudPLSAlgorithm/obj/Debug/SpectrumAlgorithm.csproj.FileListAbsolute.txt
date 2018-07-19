@@ -1,0 +1,12 @@
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\obj\Debug\SpectrumAlgorithm.csprojResolveAssemblyReference.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\obj\Debug\SpectrumAlgorithm.csproj.CoreCompileInputs.cache
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\bin\Debug\AHSpectrumAlgorithm.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\bin\Debug\AHSpectrumAlgorithm.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\bin\Debug\AHSpectrumAlgorithm.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\bin\Debug\alglibnet2.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\obj\Debug\SpectrumAlgorithm.csproj.CopyComplete
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\obj\Debug\AHSpectrumAlgorithm.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudPLSAlgorithm\obj\Debug\AHSpectrumAlgorithm.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHSpectrumAlgorithm.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHSpectrumAlgorithm.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHSpectrumAlgorithm.pdb

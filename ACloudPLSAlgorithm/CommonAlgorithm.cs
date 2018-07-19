@@ -73,8 +73,9 @@ namespace Ai.Hong.Algorithm
         /// <param name="yData">Y轴数据</param>
         /// <param name="freqStart">积分起始X值</param>
         /// <param name="freqEnd">积分结束X值</param>
+        /// <param name="IsUpPeak">True=向上峰位，False=向下峰位</param>
         /// <returns>积分结果，错误范围NAN</returns>
-        public static double Integrate(double[] xData, double[] yData, double freqStart, double freqEnd)
+        public static double Integrate(double[] xData, double[] yData, double freqStart, double freqEnd, bool IsUpPeak=true)
         {
             int beginIndex = FindNearestPosition(xData, 0, xData.Length - 1, freqStart);
             int endIndex = FindNearestPosition(xData, 0, xData.Length - 1, freqEnd);
@@ -91,10 +92,12 @@ namespace Ai.Hong.Algorithm
             double[] x = new double[endIndex - beginIndex + 1];
             double[] y = new double[endIndex - beginIndex + 1];
 
+            //如果是向下的峰位，临时反转过来
+            double sign = IsUpPeak ? 1 : -1;
             for (int i = beginIndex; i <= endIndex; i++)
             {
                 x[i - beginIndex] = xData[i];
-                y[i - beginIndex] = yData[i];
+                y[i - beginIndex] = yData[i] * sign;
             }
 
             alglib.spline1dinterpolant c;

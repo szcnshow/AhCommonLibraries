@@ -2107,11 +2107,12 @@
             <param name="propertyID">硬件属性</param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.SendAcquireCommand(Ai.Hong.Driver.EnumAcquireCommand)">
+        <member name="M:Ai.Hong.Driver.FTDriver.SendAcquireCommand(Ai.Hong.Driver.EnumAcquireCommand,Ai.Hong.Driver.FTDriver.ScanProcessingCallback)">
             <summary>
             发送采集命令（开始或者停止采集）
             </summary>
             <param name="command">Start or Stop acquire</param>
+            <param name="callback">Scan processing callback</param>
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.FTDriver.SetExperimentFile(System.String)">

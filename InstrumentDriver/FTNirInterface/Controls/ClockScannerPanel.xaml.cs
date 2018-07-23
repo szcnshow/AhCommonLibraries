@@ -142,8 +142,7 @@ namespace Ai.Hong.Driver.Controls
             }
 
             //启动扫描
-            scanner.ProcessCallback = ScanCallback;
-            var ret = scanner.SendAcquireCommand( EnumAcquireCommand.Start);
+            var ret = scanner.SendAcquireCommand(isBackground? EnumAcquireCommand.BackStart: EnumAcquireCommand.SampleStart, ScanCallback);
             if (ret == false)
                 ErrorString = scanner.ErrorString;
 
@@ -156,14 +155,13 @@ namespace Ai.Hong.Driver.Controls
         /// 重复扫描（第一次扫描需要调用StartScan）
         /// </summary>
         /// <returns></returns>
-        private bool RepeatScan()
+        private bool RepeatScan(bool isBackground)
         {
             currentRepeat++;
             scanProgress.Start(parameter.ScanCount);
 
             //启动扫描
-            scanner.ProcessCallback = ScanCallback;
-            var ret = scanner.SendAcquireCommand(EnumAcquireCommand.Start);
+            var ret = scanner.SendAcquireCommand(isBackground ? EnumAcquireCommand.BackStart : EnumAcquireCommand.SampleStart, ScanCallback);
             if (ret == false)
                 ErrorString = scanner.ErrorString;
 
@@ -231,7 +229,7 @@ namespace Ai.Hong.Driver.Controls
                 if (args.abortScan == false && args.state == EnumScanNotifyState.oneFinished)
                 {
                     Thread.Sleep(10);   //暂停10ms等待当前扫描线程结束
-                    RepeatScan();   //启动新的扫描
+                    RepeatScan(IsBackground);   //启动新的扫描
                 }
             });
         }
@@ -261,7 +259,7 @@ namespace Ai.Hong.Driver.Controls
         /// <returns>FileFormat列表</returns>
         public List<FileFormat.FileFormat> GetResult()
         {
-            return scanner.ScannedDatas;
+            return scanner.GetScanedDatas();
         }
     }
 }

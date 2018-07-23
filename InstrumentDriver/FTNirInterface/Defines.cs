@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -345,7 +343,7 @@ namespace Ai.Hong.Driver
         /// Pressure
         /// </summary>
         [Description("压力")]
-        Pressure = 29,
+        Pressure = 30,
     };
 
     /// <summary>
@@ -948,15 +946,25 @@ namespace Ai.Hong.Driver
     public enum EnumAcquireCommand
     {
         /// <summary>
-        /// Start
+        /// Start live acquire
         /// </summary>
-        [Description("开始,Start")]
-        Start = 0,
+        [Description("实时开始,Live Start")]
+        LiveStart = 0,
+        /// <summary>
+        /// Live Start
+        /// </summary>
+        [Description("背景开始,Background Start")]
+        BackStart = 1,
+        /// <summary>
+        /// Live Start
+        /// </summary>
+        [Description("样品开始,Background Start")]
+        SampleStart = 2,
         /// <summary>
         /// Stop acquire, Wait for device 
         /// </summary>
-        [Description("停止,Stop")]
-        Stop = 1,
+        [Description("停止扫描,Stop Acquisition")]
+        Stop = 3,
     }
 
     /// <summary>
@@ -1058,51 +1066,56 @@ namespace Ai.Hong.Driver
 
     #region properties value defines
 
-    ///// <summary>
-    ///// 驱动使用的语言类型枚举
-    ///// </summary>
-    //public enum EnumLanguage
-    //{
-    //    /// <summary>
-    //    /// Chinese
-    //    /// </summary>
-    //    Chinese = 0,
-    //    /// <summary>
-    //    /// English
-    //    /// </summary>
-    //    English = 1,
-    //}
-
     /// <summary>
     /// 结果谱图类型
     /// </summary>
     public enum EnumResultSpectrum
     {
         /// <summary>
+        /// Interfergoram
+        /// </summary>
+        [Description("干涉谱,Interfergoram")]
+        Interfer = 0,
+        /// <summary>
+        /// Interfergoram
+        /// </summary>
+        [Description("背景单通道谱,Background SingleBeam")]
+        BackSingleBeam = 1,
+        /// <summary>
+        /// Interfergoram
+        /// </summary>
+        [Description("样品单通道谱,Sample SingleBeam")]
+        SampleSingleBeam = 2,
+        /// <summary>
         /// Absorbance
         /// </summary>
         [Description("吸收谱,Absorbance")]
-        Absorbance = 0,
+        Absorbance = 3,
         /// <summary>
         /// Transmittance
         /// </summary>
         [Description("透过谱,Transmittance")]
-        Transmittance = 1,
+        Transmittance = 4,
         /// <summary>
         /// Kubelka_Munk
         /// </summary>
         [Description("Kubelka Munk谱,Kubelka Munk")]
-        Kubelka_Munk = 2,
+        Kubelka_Munk = 5,
         /// <summary>
         /// Reflectance
         /// </summary>
         [Description("反射谱,Reflectance")]
-        Reflectance = 3,
+        Reflectance = 6,
+        /// <summary>
+        /// Emission
+        /// </summary>
+        [Description("发射谱,Emission")]
+        Emission = 7,
         /// <summary>
         /// Log Reflectance
         /// </summary>
         [Description("Log 反射谱,Log Reflectance")]
-        Log_Reflectance = 4,
+        Log_Reflectance = 8,
     }
 
     /// <summary>
@@ -1551,783 +1564,6 @@ namespace Ai.Hong.Driver
 
 
     #region class definition
-
-    /// <summary>
-    /// 仪器信息类
-    /// </summary>
-    public class DeviceInfo : INotifyPropertyChanged
-    {
-        #region notifyevent
-        /// <summary>
-        /// 属性变更消息
-        /// </summary>
-        [field: NonSerialized]
-        public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// 属性变更消息
-        /// </summary>
-        /// <param name="propertyName"></param>
-        protected void DoPropertyChange(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-
-        /// <summary>
-        /// 仪器厂商
-        /// </summary>
-        public EnumDeviceFactor Factor { get; set; }
-
-        /// <summary>
-        /// 仪器种类
-        /// </summary>
-        public EnumDeviceCategory Type { get; set; }
-
-        /// <summary>
-        /// 仪器型号
-        /// </summary>
-        public EnumDeviceModel Model { get; set; }
-
-        /// <summary>
-        /// 仪器商标
-        /// </summary>
-        public EnumDeviceBrand Brand { get; set; }
-
-        /// <summary>
-        /// 仪器序列号
-        /// </summary>
-        public string SerialNumber { get; set; }
-
-        /// <summary>
-        /// 设备采集到数据的消息
-        /// </summary>
-        public Action<int> OnDataReceived { get; set; }
-
-        /// <summary>
-        /// 设备是否已经连接
-        /// </summary>
-        public bool IsConnected { get; set; } = false;
-
-        /// <summary>
-        /// 是否模拟采集
-        /// </summary>
-        public bool IsSimulate { get; set; } = false;
-
-        /// <summary>
-        /// 设备附加信息
-        /// </summary>
-        public object Tag { get; set; } = null;
-
-        /// <summary>
-        /// 所有部件及其所有属性的列表
-        /// </summary>
-        public List<HardwarePropertyInfo> AllHardwarePropertyInfos = null;
-
-        private EnumHardwareStatus _status = EnumHardwareStatus.NotFound;
-        /// <summary>
-        /// 设备状态
-        /// </summary>
-        public EnumHardwareStatus Status { get { return _status; } set { value = _status; DoPropertyChange("Status"); } }
-    }
-
-    /// <summary>
-    /// 信息的基础类
-    /// </summary>
-    public class BasePropertyInfo : INotifyPropertyChanged
-    {
-        #region notifyevent
-        /// <summary>
-        /// 属性变更消息
-        /// </summary>
-        [field: NonSerialized]
-        public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// DoPropertyChange
-        /// </summary>
-        /// <param name="propertyName">propertyName</param>
-        public void DoPropertyChange(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-
-        #region properties
-        /// <summary>
-        /// 内部名称
-        /// </summary>
-        [XmlAttribute]
-        public string InnerName { get; set; }
-
-        private string _value;
-        /// <summary>
-        /// 属性的值
-        /// </summary>
-        [XmlAttribute]
-        public string Value { get { return _value; } set { _value = value; DoPropertyChange("Value"); } }
-
-        /// <summary>
-        /// 属性值类型
-        /// </summary>
-        [XmlIgnore]
-        public Type ValueType { get; set; }
-
-        /// <summary>
-        /// 中文名称
-        /// </summary>
-        [XmlIgnore]
-        public string ChineseName { get; set; }
-
-        /// <summary>
-        /// 英文名称
-        /// </summary>
-        [XmlIgnore]
-        public string EnglishName { get; set; }
-
-        /// <summary>
-        /// 是否可用
-        /// </summary>
-        [XmlIgnore]
-        public bool IsValid { get; set; }
-
-        /// <summary>
-        /// 选项列表
-        /// </summary>
-        [XmlIgnore]
-        public List<dynamic> Selections { get; set; }
-
-        /// <summary>
-        /// 是否可以录入
-        /// </summary>
-        [XmlIgnore]
-        public bool Inputable { get; set; }
-
-        #endregion
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public BasePropertyInfo()
-        {
-
-        }
-
-        /// <summary>
-        /// 构造函数(用于定义固定的属性)
-        /// </summary>
-        /// <param name="innerName">内部名称</param>
-        /// <param name="chineseName">中文名称</param>
-        /// <param name="englishName">英文名称</param>
-        /// <param name="valueType">值得类型</param>
-        /// <param name="value">当前值</param>
-        /// <param name="isValid">是否有效</param>
-        /// <param name="inputable">是否允许用户录入</param>
-        /// <param name="selections">选项列表</param>
-        public BasePropertyInfo(string innerName, string chineseName, string englishName, Type valueType, string value = null, bool isValid = true, bool inputable = false, List<dynamic> selections = null)
-        {
-            this.InnerName = innerName;
-            this.ChineseName = chineseName;
-            this.EnglishName = englishName;
-            this.ValueType = valueType;
-            this.Value = value;
-            this.IsValid = isValid;
-            this.Inputable = inputable;
-            this.Selections = selections;
-        }
-
-        /// <summary>
-        /// Clone
-        /// </summary>
-        /// <returns></returns>
-        public BasePropertyInfo Clone()
-        {
-            return this.MemberwiseClone() as BasePropertyInfo;
-        }
-
-        /// <summary>
-        /// 获取属性的显示名称
-        /// </summary>
-        /// <param name="language">使用的语言</param>
-        /// <returns></returns>
-        public string PropertyDispalayName(Common.EnumLanguage language)
-        {
-            return language == Common.EnumLanguage.Chinese ? ChineseName : EnglishName;
-        }
-    };
-
-    /// <summary>
-    /// 硬件属性信息
-    /// </summary>
-    public class HardwarePropertyInfo:BasePropertyInfo
-    {
-        /// <summary>
-        /// 属性所属的类型
-        /// </summary>
-        [XmlIgnore]
-        public EnumPropCategory Category { get; set; }
-
-        /// <summary>
-        /// 部件ID
-        /// </summary>
-        public EnumHardware HardwareID;
-
-        /// <summary>
-        /// 属性ID
-        /// </summary>
-        public EnumHardwareProperties PropertyID;
-
-        /// <summary>
-        /// 是否只读
-        /// </summary>
-        public bool IsReadonly;
-
-        /// <summary>
-        /// 是否为列表项
-        /// </summary>
-        public bool IsSelection;
-
-        /// <summary>
-        /// 属性最小值
-        /// </summary>
-        public float MinValue;
-
-        /// <summary>
-        /// 属性最大值
-        /// </summary>
-        public float MaxValue;
-
-        /// <summary>
-        /// 从硬件获取的属性
-        /// </summary>
-        [XmlIgnore]
-        public HardwarePropertyInfo HardwarePropInfo = null;
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public HardwarePropertyInfo()
-        {
-
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        /// <param name="propID">属性ID</param>
-        /// <param name="valueType">属性值类型</param>
-        /// <param name="isReadonly">是否只读</param>
-        /// <param name="isSelection">是否为列表项</param>
-        public HardwarePropertyInfo(EnumHardwareProperties propID, Type valueType = null, bool isReadonly = true, bool isSelection = false)
-        {
-            this.PropertyID = propID;
-            this.ValueType = valueType ?? typeof(int);
-            this.IsReadonly = isReadonly;
-            this.IsSelection = isSelection;
-        }
-
-        /// <summary>
-        /// 构造函数(用于定义固定的属性)
-        /// </summary>
-        /// <param name="innerName">内部名称</param>
-        /// <param name="chineseName">中文名称</param>
-        /// <param name="englishName">英文名称</param>
-        /// <param name="valueType">值得类型</param>
-        /// <param name="value">当前值</param>
-        /// <param name="category">所属种类</param>
-        /// <param name="hardwareID">硬件ID</param>
-        /// <param name="propID">属性ID</param>
-        /// <param name="inputable">是否允许用户录入</param>
-        public HardwarePropertyInfo(string innerName, string chineseName, string englishName, Type valueType, string value,
-            EnumPropCategory category, EnumHardware hardwareID, EnumHardwareProperties propID, bool inputable = false) :
-            base(innerName, chineseName, englishName, valueType, value, true, inputable)
-        {
-            this.Category = category;
-            this.HardwareID = hardwareID;
-            this.PropertyID = propID;
-        }
-
-        /// <summary>
-        /// Clone当前类的值
-        /// </summary>
-        /// <returns></returns>
-        public new HardwarePropertyInfo Clone()
-        {
-            HardwarePropertyInfo retData = this.MemberwiseClone() as HardwarePropertyInfo;
-
-            return retData;
-        }
-    }
-
-    /// <summary>
-    /// 录入信息字段属性
-    /// </summary>
-    public class SampleFieldInfo : BasePropertyInfo
-    {
-        private bool _forFilename;
-        /// <summary>
-        /// 是否作为文件名
-        /// </summary>
-        [XmlAttribute]
-        public bool ForFilename { get { return _forFilename; } set { _forFilename = value; DoPropertyChange("forFilename"); } }
-
-        /// <summary>
-        /// 是否需要预定义属性
-        /// </summary>
-        [XmlAttribute]
-        public bool HasPreDefines { get; set; }
-
-        /// <summary>
-        /// 预定义的值
-        /// </summary>
-        [XmlArray("preDefines")]
-        [XmlArrayItem("preDefine")]
-        public List<string> PreDefines { get; set; }
-
-        private bool _isSelected = false;
-        /// <summary>
-        /// 是否选中
-        /// </summary>
-        [XmlAttribute]
-        public bool IsSelected { get { return _isSelected; } set { _isSelected = value; DoPropertyChange("isSelected"); } }
-
-        private bool _selectOnly = false;
-        /// <summary>
-        /// 是否只能选择
-        /// </summary>
-        [XmlAttribute]
-        public bool SelectOnly { get { return _selectOnly; } set { _selectOnly = value; DoPropertyChange("selectOnly"); } }
-
-        /// <summary>
-        /// 系统自动创建的信息
-        /// </summary>
-        [XmlAttribute]
-        public bool AutoGenerate { get; set; }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public SampleFieldInfo()
-        {
-
-        }
-
-        /// <summary>
-        /// 构造函数(用于定义固定的属性)
-        /// </summary>
-        /// <param name="innerName">内部名称</param>
-        /// <param name="chineseName">中文名称</param>
-        /// <param name="englishName">英文名称</param>
-        /// <param name="valueType">值得类型</param>
-        /// <param name="hasPreDefines">是否可以预定义</param>
-        /// <param name="isValid">是否选中</param>
-        /// <param name="forFilename">是否作为文件名</param>
-        /// <param name="autoGenerate">是否系统自动生成</param>
-        public SampleFieldInfo(string innerName, string chineseName, string englishName, Type valueType, bool hasPreDefines = true, bool isValid = false, bool forFilename = false, bool autoGenerate = false) :
-            base(innerName, chineseName, englishName, valueType, null, isValid, true)
-        {
-            this.ForFilename = forFilename;
-            this.HasPreDefines = hasPreDefines;
-            this.AutoGenerate = autoGenerate;
-        }
-
-        /// <summary>
-        /// Clone this class
-        /// </summary>
-        /// <returns></returns>
-        public new SampleFieldInfo Clone()
-        {
-            var retData = this.MemberwiseClone() as SampleFieldInfo;
-            retData.PreDefines = new List<string>();
-            if (this.PreDefines == null)
-                this.PreDefines = new List<string>();
-
-            retData.PreDefines.AddRange(this.PreDefines);
-            return retData;
-        }
-    }
-
-    /// <summary>
-    /// 仪器扫描参数
-    /// </summary>
-    [Serializable]
-    public class ScanParameter : INotifyPropertyChanged
-    {
-        #region notify
-        /// <summary>
-        /// 属性变更消息
-        /// </summary>
-        [field: NonSerialized]
-        public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// Property changed event
-        /// </summary>
-        /// <param name="propertyName"></param>
-        public void DoPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-
-        #region properties
-        /// <summary>
-        /// 参数文件名
-        /// </summary>
-        [XmlElement]
-        public string Filename { get; set; }
-
-        private string _savePath;
-        /// <summary>
-        /// 光谱保存路径
-        /// </summary>
-        [XmlElement]
-        public string SavePath { get { return _savePath; } set { _savePath = value; DoPropertyChange("savePath"); } }
-
-        private bool _createFolder;
-        /// <summary>
-        /// 按照样品信息自动创建文件夹
-        /// </summary>
-        [XmlAttribute]
-        public bool CreateFolder { get { return _createFolder; } set { _createFolder = value; DoPropertyChange("createFolder"); } }
-
-        private EnumDeviceCategory _deviceCategory = EnumDeviceCategory.FTNIR;
-        /// <summary>
-        /// 设备种类
-        /// </summary>
-        [XmlAttribute]
-        public EnumDeviceCategory DeviceCategory { get { return _deviceCategory; } set { _deviceCategory = value; DoPropertyChange("deviceCategory"); } }
-
-        private EnumDeviceModel _deviceModel = EnumDeviceModel.SphereIntegrate;
-        /// <summary>
-        /// 设备类型
-        /// </summary>
-        [XmlAttribute]
-        public EnumDeviceModel DeviceModel { get { return _deviceModel; } set { _deviceModel = value; DoPropertyChange("deviceModel"); } }
-
-        /// <summary>
-        /// 语言
-        /// </summary>
-        [XmlAttribute]
-        public Common.EnumLanguage Language { get; set; }
-
-        /// <summary>
-        /// 设备属性
-        /// </summary>
-        [XmlArray("HardwareProps")]
-        [XmlArrayItem("HardwareProp")]
-        public List<HardwarePropertyInfo> HardwareProps { get; set; }
-
-        /// <summary>
-        /// FT转换属性
-        /// </summary>
-        [XmlArray("FtTransProps")]
-        [XmlArrayItem("FtTransProp")]
-        public List<BasePropertyInfo> FtTransProps { get; set; }
-
-        /// <summary>
-        /// 采集参数
-        /// </summary>
-        [XmlArray("AcquireProps")]
-        [XmlArrayItem("AcquireProp")]
-        public List<BasePropertyInfo> AcquireProps { get; set; }
-
-        /// <summary>
-        /// 样品信息
-        /// </summary>
-        [XmlArray("SampleProps")]
-        [XmlArrayItem("SampleProp")]
-        public List<SampleFieldInfo> SampleProps { get; set; }
-
-        /// <summary>
-        /// 背景参考光谱
-        /// </summary>
-        [XmlIgnore]
-        public FileFormat.FileFormat ReferenceFile;
-
-        /// <summary>
-        /// 背景光谱
-        /// </summary>
-        [XmlIgnore]
-        public FileFormat.FileFormat BackgroundSpectrum { get; set; }
-
-        /// <summary>
-        /// 背景光谱扫描时间
-        /// </summary>
-        [XmlIgnore]
-        public DateTime BackgroundTime { get; set; }
-
-        #endregion
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public ScanParameter()
-        {
-        }
-
-        /// <summary>
-        /// Clone
-        /// </summary>
-        /// <returns></returns>
-        public ScanParameter Clone()
-        {
-            return MemberwiseClone() as ScanParameter;
-        }
-
-        /// <summary>
-        /// 比较两个扫描参数是否相同
-        /// </summary>
-        /// <param name="para"></param>
-        /// <returns></returns>
-        public bool IsSameParameter(ScanParameter para)
-        {
-            if (Resolution != para.Resolution || 
-                ScanCount != para.ScanCount || RepeatCount != para.RepeatCount ||
-                XStep > para.XStep + 0.01 || XStep < para.XStep - 0.01 ||
-                StartWavelength > para.StartWavelength + 0.1 || StartWavelength < para.StartWavelength - 0.1 ||
-                EndWavelength > para.EndWavelength + 0.1 || EndWavelength < para.EndWavelength - 0.1)
-                return false;
-
-            return true;
-        }
-
-        /// <summary>
-        /// 设置特殊属性
-        /// </summary>
-        /// <param name="propertyName">属性名称</param>
-        /// <param name="propertyValue">属性值</param>
-        /// <returns></returns>
-        public virtual bool SetPropertyValue(string propertyName, dynamic propertyValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 初始化扫描参数的属性
-        /// </summary>
-        /// <param name="language"></param>
-        public virtual void InitProperties(Ai.Hong.Common.EnumLanguage language)
-        {
-            throw new NotImplementedException();
-        }
-
-        #region alias properties
-
-        /// <summary>
-        /// 通过属性名称获取属性实例
-        /// </summary>
-        /// <param name="propertyName">属性名</param>
-        /// <returns></returns>
-        private BasePropertyInfo FindPropertyByName(string propertyName)
-        {
-            System.Diagnostics.Trace.Assert(propertyName != null, "Invalid parameters");
-
-            var fieldinfo = HardwareProps.FirstOrDefault(p => p.InnerName == propertyName) as BasePropertyInfo;
-            if (fieldinfo != null)
-                return fieldinfo;
-
-            fieldinfo = FtTransProps.FirstOrDefault(p => p.InnerName == propertyName) as BasePropertyInfo;
-            if (fieldinfo != null)
-                return fieldinfo;
-
-            fieldinfo = AcquireProps.FirstOrDefault(p => p.InnerName == propertyName) as BasePropertyInfo;
-            if (fieldinfo != null)
-                return fieldinfo;
-
-            fieldinfo = SampleProps.FirstOrDefault(p => p.InnerName == propertyName) as BasePropertyInfo;
-            if (fieldinfo != null)
-                return fieldinfo;
-
-            return null;
-        }
-
-        /// <summary>
-        /// 获取属性的值
-        /// </summary>
-        /// <param name="propertyName">属性名称</param>
-        /// <returns></returns>
-        public T GetPropertyValue<T>(string propertyName)
-        {
-            var fieldinfo = FindPropertyByName(propertyName);
-            System.Diagnostics.Trace.Assert(fieldinfo != null, "Invalid Property Name");
-
-            if (typeof(T) == typeof(int) || typeof(T).IsEnum)
-                return (T)(object)(int.Parse(fieldinfo.Value));
-            else if (typeof(T) == typeof(float))
-                return (T)(object)(float.Parse(fieldinfo.Value));
-            else if (typeof(T) == typeof(string))
-                return (T)(object)fieldinfo.Value;
-            else if (typeof(T) == typeof(bool))
-                return (T)(object)(fieldinfo.Value == "1");
-
-            return default(T);
-        }
-
-        /// <summary>
-        /// 设置属性的值
-        /// </summary>
-        /// <param name="propertyName"></param>
-        /// <param name="propertyValue"></param>
-        /// <returns></returns>
-        public void SetPropertyValue<T>(string propertyName, T propertyValue)
-        {
-            var fieldinfo = FindPropertyByName(propertyName);
-            System.Diagnostics.Trace.Assert(fieldinfo != null, "Invalid Property Name");
-
-            if (typeof(T) == typeof(int) || typeof(T) == typeof(float))
-                fieldinfo.Value = propertyValue.ToString();
-            else if (typeof(T).IsEnum)
-                fieldinfo.Value = ((int)(object)propertyValue).ToString();
-            else if (typeof(T) == typeof(string))
-                fieldinfo.Value = (string)((object)propertyValue);
-            else if (typeof(T) == typeof(bool))
-                fieldinfo.Value = (bool)(object)propertyValue == true ? "1" : "0";
-        }
-
-        /// <summary>
-        /// 扫描次数
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public int ScanCount { get { return GetPropertyValue<int>(nameof(ScanCount)); } set { SetPropertyValue<int>(nameof(ScanCount), value); } }
-
-        /// <summary>
-        /// 重复次数
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public int RepeatCount { get { return GetPropertyValue<int>(nameof(RepeatCount)); } set { SetPropertyValue(nameof(RepeatCount), value); } }
-
-        /// <summary>
-        /// 是否需要保存SingleBeam
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public bool SaveSingleBeam { get { return GetPropertyValue<bool>(nameof(SaveSingleBeam)); } set { SetPropertyValue(nameof(SaveSingleBeam), value); } }
-
-        /// <summary>
-        /// 是否需要保存SingleBeam
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public bool SaveInterfere { get { return GetPropertyValue<bool>(nameof(SaveInterfere)); } set { SetPropertyValue(nameof(SaveInterfere), value); } }
-
-        /// <summary>
-        /// 是否需要保存Interfere
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public bool NeedInterfere { get { return GetPropertyValue<bool>(nameof(NeedInterfere)); } set { SetPropertyValue(nameof(NeedInterfere), value); } }
-
-        /// <summary>
-        /// 起始波数
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public float StartWavelength { get { return GetPropertyValue<float>(nameof(StartWavelength)); } set { SetPropertyValue(nameof(StartWavelength), value); } }
-
-        /// <summary>
-        /// 结束波数
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public float EndWavelength { get { return GetPropertyValue<float>(nameof(EndWavelength)); } set { SetPropertyValue(nameof(EndWavelength), value); } }
-
-        /// <summary>
-        /// 分辨率
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumDeviceResolutions Resolution { get { return GetPropertyValue<EnumDeviceResolutions>(nameof(Resolution)); } set { SetPropertyValue(nameof(Resolution), value); } }
-
-        /// <summary>
-        /// 结果谱图
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumResultSpectrum ResultSpectrum { get { return GetPropertyValue<EnumResultSpectrum>(nameof(ResultSpectrum)); } set { SetPropertyValue(nameof(ResultSpectrum), value); } }
-
-        /// <summary>
-        /// 背景增益
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumDeviceGain BackGain { get { return GetPropertyValue<EnumDeviceGain>(nameof(BackGain)); } set { SetPropertyValue(nameof(BackGain), value); } }
-
-        /// <summary>
-        /// 样品增益
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumDeviceGain SampleGain { get { return GetPropertyValue<EnumDeviceGain>(nameof(SampleGain)); } set { SetPropertyValue(nameof(SampleGain), value); } }
-
-        /// <summary>
-        /// 相位校准方法
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumFTPhaseCorrect PhaseCorrect { get { return GetPropertyValue<EnumFTPhaseCorrect>(nameof(PhaseCorrect)); } set { SetPropertyValue(nameof(PhaseCorrect), value); } }
-
-        /// <summary>
-        /// 相位分辨率
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumFTPhaseResolution PhaseResolution { get { return GetPropertyValue<EnumFTPhaseResolution>(nameof(PhaseResolution)); } set { SetPropertyValue(nameof(PhaseResolution), value); } }
-        
-        /// <summary>
-        /// 截止函数
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumFTApodization Apodization { get { return GetPropertyValue<EnumFTApodization>(nameof(Apodization)); } set { SetPropertyValue(nameof(Apodization), value); } }
-
-        /// <summary>
-        /// 填零系数
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumFTZeroFilling ZeroFilling { get { return GetPropertyValue<EnumFTZeroFilling>(nameof(ZeroFilling)); } set { SetPropertyValue(nameof(ZeroFilling), value); } }
-
-        /// <summary>
-        /// IVU滤光片
-        /// </summary>
-        /// <returns></returns>
-        [XmlIgnore]
-        public EnumDeviceIVU IVUFilter { get { return GetPropertyValue<EnumDeviceIVU>(nameof(IVUFilter)); } set { SetPropertyValue(nameof(IVUFilter), value); } }
-
-        /// <summary>
-        /// 背景光谱有效期
-        /// </summary>
-        [XmlIgnore]
-        public EnumBackgroundDuration BackgroundDuration { get { return GetPropertyValue<EnumBackgroundDuration>(nameof(BackgroundDuration)); } set { SetPropertyValue(nameof(BackgroundDuration), value); } }
-
-        /// <summary>
-        /// X轴插值后的步长, 4cm-1 = 1, 8cm-1 = 2, 16cm-1=4;
-        /// </summary>
-        [XmlIgnore]
-        public double XStep { get { return GetPropertyValue<double>(nameof(XStep)); } set { SetPropertyValue(nameof(XStep), value); } }
-
-        /// <summary>
-        /// 是否需要扫描背景
-        /// </summary>
-        [XmlIgnore]
-        public bool NeedScanBackground
-        {
-            get
-            {
-                if (BackgroundSpectrum == null)
-                    return true;
-
-                int duration = GetPropertyValue<int>("bgDuration");
-                var diff = DateTime.Now - BackgroundTime;
-                return diff.TotalMinutes >= duration;
-            }
-        }
-
-        #endregion
-
-    }
 
     /// <summary>
     /// 扫描通知消息参数

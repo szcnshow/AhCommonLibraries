@@ -79,11 +79,16 @@
     </Compile>
     <Compile Include="Defines.cs" />
     <Compile Include="DeviceHardware.cs" />
+    <Compile Include="DeviceInfo.cs" />
     <Compile Include="FTDriver.cs" />
     <Compile Include="Controls\ClockScannerPanel.xaml.cs">
       <DependentUpon>ClockScannerPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BasePropertyInfo.cs" />
+    <Compile Include="HardwarePropertyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleFieldInfo.cs" />
+    <Compile Include="ScanParameter.cs" />
     <Compile Include="WaitDialog\ProcessWaitDialog.xaml.cs">
       <DependentUpon>ProcessWaitDialog.xaml</DependentUpon>
     </Compile>

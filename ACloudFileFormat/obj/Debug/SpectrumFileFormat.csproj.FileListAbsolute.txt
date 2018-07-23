@@ -12,3 +12,11 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHSpectrumFileFormat.xml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHSpectrumFileFormat.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHSpectrumFileFormat.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHSpectrumFileFormat.xml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHSpectrumFileFormat.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHSpectrumFileFormat.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Debug\SpectrumFileFormat.csprojResolveAssemblyReference.cache
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Debug\SpectrumFileFormat.csproj.CoreCompileInputs.cache
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Debug\SpectrumFileFormat.csproj.CopyComplete
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Debug\AHSpectrumFileFormat.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Debug\AHSpectrumFileFormat.pdb

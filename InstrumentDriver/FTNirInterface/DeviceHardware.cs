@@ -48,8 +48,9 @@ namespace Ai.Hong.Driver
     /// <summary>
     /// 硬件属性操作
     /// </summary>
-    public class HardwareProperty
+    public class DeviceHardware
     {
+        #region properties
         /// <summary>
         /// 硬件错误信息
         /// </summary>
@@ -57,23 +58,19 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 设备种类
         /// </summary>
-        public EnumDeviceCategory DeviceCategory { get; protected set; }
+        public EnumDeviceCategory DeviceCategory { get; protected set; } = EnumDeviceCategory.Unknown;
         /// <summary>
         /// 设备型号
         /// </summary>
-        public EnumDeviceModel DeviceModel { get; protected set; }
+        public EnumDeviceModel DeviceModel { get; protected set; } = EnumDeviceModel.Unknown;
+        #endregion
 
         #region Hardware functions
 
         /// <summary>
-        /// 硬件属性的值类型和是否可读列表(const)
+        /// 硬件属性的值类型和是否可读列表
         /// </summary>
-        public List<HardwarePropertyInfo> PropertyInfoList { get; set; }
-
-        /// <summary>
-        /// 硬件所包含的属性列表
-        /// </summary>
-        public Dictionary<EnumHardware, List<EnumHardwareProperties>> AllHardwareProperties { get; protected set; }
+        public List<HardwarePropertyInfo> PropertyInfos { get; set; }
 
         /// <summary>
         /// 初始化（必须最先调用）
@@ -84,15 +81,25 @@ namespace Ai.Hong.Driver
         {
             DeviceCategory = category;
             DeviceModel = model;
+            PropertyInfos = GetHardwarePropertyInfos();
         }
 
         /// <summary>
-        /// 获取仪器包含的所有部件
+        /// 获取本设备的所有硬件属性的详细信息
         /// </summary>
-        /// <returns>设备部件列表</returns>
-        public virtual List<EnumHardware> HardwareList()
+        /// <returns></returns>
+        protected virtual List<HardwarePropertyInfo> GetHardwarePropertyInfos()
         {
-            return AllHardwareProperties.Keys.ToList();
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 获取仪器包含的所有硬件
+        /// </summary>
+        /// <returns>设备硬件列表</returns>
+        public List<EnumHardware> HardwareList()
+        {
+            return PropertyInfos.Select(p => p.HardwareID).Distinct().ToList();
         }
 
         /// <summary>
@@ -100,177 +107,82 @@ namespace Ai.Hong.Driver
         /// </summary>
         /// <param name="hardwareID">硬件ID</param>
         /// <returns></returns>
-        public virtual List<EnumHardwareProperties> HardwarePropertyList(EnumHardware hardwareID)
+        public List<EnumHardwareProperties> HardwarePropertyList(EnumHardware hardwareID)
         {
-            if (AllHardwareProperties.ContainsKey(hardwareID))
-                return AllHardwareProperties[hardwareID];
-            else
-                return new List<EnumHardwareProperties>();
+            return PropertyInfos.Where(p => p.HardwareID == hardwareID).Select(q => q.PropertyID).ToList();
         }
 
         /// <summary>
-        /// 设备连接后调用
-        /// 获取所有的部件，部件的所有属性，以及属性的取值范围或选项列表
+        /// 从当前设备属性中初始化初始化反序列化后的属性，并将反序列化的属性值填入找到的属性
         /// </summary>
-        /// <param name="category">设备类型FTNIR, FTIR...</param>
-        /// <param name="model">设备型号Sephere, Fiber...</param>
-        public void HardwareGetAllProperties()
+        /// <param name="properties">反序列化后的属性列表</param>
+        public List<HardwarePropertyInfo> InitDeserializedProperties(List<HardwarePropertyInfo> properties)
         {
-            //var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
-            //Trace.Assert(device != null, "Device not found");
+            List<HardwarePropertyInfo> retDatas = new List<HardwarePropertyInfo>();
 
-            //var deviceprops = device.properties;
-            //if (deviceprops != null && deviceprops.Count > 0)
-            //    return;
+            //在属性列表中查找反序列化的属性
+            foreach(var item in properties)
+            {
+                //在当前设备中查找本属性
+                var curProp = PropertyInfos.FirstOrDefault(p => p.InnerName == item.InnerName);
+                if (curProp == null)
+                    continue;
 
-            //device.properties = new List<HardwarePropertyInfo>();
-            //deviceprops = device.properties;
+                var newProp = curProp.Clone();
+                newProp.Value = item.Value;
 
-            ////通用属性，每个硬件都有
-            //var commprop = new List<EnumHardwareProperties>() { EnumHardwareProperties.Status, EnumHardwareProperties.SerialNo,
-            //                                                EnumHardwareProperties.Temperature, EnumHardwareProperties.ProduceDate};
+                retDatas.Add(newProp);
+            }
 
-            //foreach (var hardware in device.hardwares)
-            //{
-            //    //加入每个设备都有的通用属性,肯定是只读的
-            //    foreach (var prop in commprop)
-            //    {
-            //        //获取预定义属性的基本信息
-            //        var info = PropertyInfoList.FirstOrDefault(p => p.PropertyID == prop);
-            //        Trace.Assert(info != null, "Property not found");
+            //查找并加入反序列化中没有包含的属性
+            retDatas.AddRange(PropertyInfos.Where(p => properties.FirstOrDefault(q => q.InnerName == p.InnerName) == null));
 
-            //        //Clone属性，准备加入部件属性列表中
-            //        var newinfo = info.Clone();
-            //        newinfo.HardwareID = hardware.Key;
-            //        deviceprops.Add(newinfo);
-            //    }
-
-            //    //查看设备的专用属性是否存在
-            //    foreach (var prop in hardware.Value)
-            //    {
-            //        //获取预定义属性的基本信息
-            //        var info = PropertyInfoList.FirstOrDefault(p => p.PropertyID == prop);
-            //        Trace.Assert(info != null, "Property not found");
-
-            //        //Clone属性，准备加入部件属性列表中
-            //        var newinfo = info.Clone();
-            //        newinfo.HardwareID = hardware.Key;
-
-            //        //只读属性,本属性没有取值范围或者可选列表
-            //        if (info.IsReadonly == false)   //读写属性，表示本属性有取值范围或者可选列表
-            //        {
-            //            //属性是整数,表示有列表选择
-            //            if (info.ValueType == typeof(int))
-            //            {
-            //                var sels = InnerHardwarePropertySelections(category, model, hardware.Key, prop);
-            //                Trace.Assert(sels != null, "Get Property Error");
-            //                newinfo.Selections = sels;
-            //            }
-            //            //属性是小数,表示有取值范围
-            //            else if (info.ValueType == typeof(float))
-            //            {
-            //                float min, max;
-            //                Trace.Assert(InnerHardwareGetPropertyRange(category, model, hardware.Key, prop, out min, out max), "Get Property Error");
-            //                newinfo.MinValue = min;
-            //                newinfo.MaxValue = max;
-            //            }
-            //        }
-            //        deviceprops.Add(newinfo);
-            //    }
-            //}
+            return retDatas;
         }
 
         /// <summary>
-        /// 获取设备属性的选择项列表
+        /// 获取指定硬件指定属性的信息
         /// </summary>
-        /// <param name="category">设备类型FTNIR, FTIR...</param>
-        /// <param name="model">设备型号Sephere, Fiber...</param>
-        /// <param name="deviceID">设备ID</param>
+        /// <param name="hardwareID">硬件ID</param>
         /// <param name="propertyID">属性ID</param>
-        /// <returns>Null=出现错误</returns>
-        protected virtual  List<dynamic> InnerHardwarePropertySelections(EnumDeviceCategory category, EnumDeviceModel model, EnumHardware deviceID, EnumHardwareProperties propertyID)
+        /// <returns>属性信息</returns>
+        public HardwarePropertyInfo GetHardwarePropertyInfo(EnumHardware hardwareID, EnumHardwareProperties propertyID)
         {
-            throw new NotImplementedException();
+            if (PropertyInfos == null)
+                return null;
+            return PropertyInfos.FirstOrDefault(p => p.HardwareID == hardwareID && p.PropertyID == propertyID);
         }
 
         /// <summary>
-        /// 获取浮点属性的取值范围
+        /// 获取部件的属性
         /// </summary>
-        /// <param name="category">设备类型FTNIR, FTIR...</param>
-        /// <param name="model">设备型号Sephere, Fiber...</param>
-        /// <param name="hardwareID">部件ID</param>
-        /// <param name="propertyID">属性ID</param>
-        /// <param name="min">最小值</param>
-        /// <param name="max">最大值</param>
-        /// <returns></returns>
-        protected virtual  bool InnerHardwareGetPropertyRange(EnumDeviceCategory category, EnumDeviceModel model, EnumHardware hardwareID, EnumHardwareProperties propertyID, out float min, out float max)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 检查部件是否包含了指定属性，并获取本属性的类型，只读信息
-        /// 使用deviceHasProperties检查PropertyID是否在DeviceID中
-        /// 用propertyInfoList来获取PropertyID的类型，只读信息
-        /// </summary>
-        /// <param name="category">设备类型FTNIR, FTIR...</param>
-        /// <param name="model">设备型号Sephere, Fiber...</param>
-        /// <param name="hardwareID">部件ID</param>
-        /// <param name="propertyID">属性ID</param>
-        /// <param name="forRead">True=获取属性, False=设置属性</param>
-        /// <returns></returns>
-        public HardwarePropertyInfo HardwarePropertyDetail(EnumDeviceCategory category, EnumDeviceModel model, EnumHardware hardwareID, EnumHardwareProperties propertyID, bool forRead = true)
-        {
-            ////确保仪器类型正确
-            //var device = DeviceCategoryProperties.FirstOrDefault(p => p.category == category && p.model == model);
-            //Trace.Assert(device != null, "Device not found");
-
-            ////刷新属性
-            //HardwareGetAllProperties(category, model);
-
-            //switch (category)
-            //{
-            //    case EnumDeviceCategory.FTNIR:
-            //    case EnumDeviceCategory.FTIR:
-            //        var info = device.properties.FirstOrDefault(p => p.HardwareID == hardwareID && p.PropertyID == propertyID);
-            //        if (info.IsReadonly == true && forRead == false)
-            //            return null;
-
-            //        return info;
-            //}
-            return null;
-        }
-
-        #endregion
-
-        #region hardware functions
-
-        /// <summary>
-        /// 获取部件的属性（需要修改）
-        /// </summary>
-        /// <param name="category">设备类型</param>
-        /// <param name="model">设备型号</param>
+        /// <param name="lowLayerDevice">当前连接的设备</param>
         /// <param name="hardwareID">部件ID</param>
         /// <param name="propertyID">属性ID</param>
         /// <returns>状态的值, Int, float都转为string返回，由调用程序解读, NULL表示错误</returns>
-        public virtual dynamic HardwareGetProperty(EnumDeviceCategory category, EnumDeviceModel model, EnumHardware hardwareID, EnumHardwareProperties propertyID)
+        public virtual dynamic HardwareGetProperty(dynamic lowLayerDevice, EnumHardware hardwareID, EnumHardwareProperties propertyID)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// 设置部件的属性（需要修改）
+        /// 设置部件的属性
         /// </summary>
-        /// <param name="category">设备类型</param>
-        /// <param name="model">设备型号</param>
+        /// <param name="lowLayerDevice">当前连接的底层设备</param>
         /// <param name="hardwareID">部件ID</param>
         /// <param name="propertyID">属性ID</param>
-        /// <param name="propertyValue">属性的值</param>
+        /// <param name="propertyValue">属性的值（继承类解析）</param>
         /// <returns>错误信息</returns>
-        public virtual EnumHardwareError HardwareSetProperty(EnumDeviceCategory category, EnumDeviceModel model, EnumHardware hardwareID, EnumHardwareProperties propertyID, dynamic propertyValue)
+        public virtual EnumHardwareError HardwareSetProperty(dynamic lowLayerDevice, EnumHardware hardwareID, EnumHardwareProperties propertyID, dynamic propertyValue)
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// 根据当前硬件初始化扫描参数
+        /// </summary>
+        /// <param name="parameter"></param>
+        public virtual void InitScanParameter(ScanParameter parameter) { throw new NotImplementedException(); }
 
         #endregion
     }

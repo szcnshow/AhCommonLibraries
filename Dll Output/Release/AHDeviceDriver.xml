@@ -119,7 +119,7 @@
             <param name="parameter">扫描参数</param>
             <param name="isBackground">True=扫描背景, False=扫描样品</param>
         </member>
-        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.RepeatScan">
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.RepeatScan(System.Boolean)">
             <summary>
             重复扫描（第一次扫描需要调用StartScan）
             </summary>
@@ -1050,9 +1050,19 @@
             设备采集命令
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumAcquireCommand.Start">
+        <member name="F:Ai.Hong.Driver.EnumAcquireCommand.LiveStart">
             <summary>
-            Start
+            Start live acquire
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumAcquireCommand.BackStart">
+            <summary>
+            Live Start
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumAcquireCommand.SampleStart">
+            <summary>
+            Live Start
             </summary>
         </member>
         <member name="F:Ai.Hong.Driver.EnumAcquireCommand.Stop">
@@ -1165,6 +1175,21 @@
             结果谱图类型
             </summary>
         </member>
+        <member name="F:Ai.Hong.Driver.EnumResultSpectrum.Interfer">
+            <summary>
+            Interfergoram
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumResultSpectrum.BackSingleBeam">
+            <summary>
+            Interfergoram
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumResultSpectrum.SampleSingleBeam">
+            <summary>
+            Interfergoram
+            </summary>
+        </member>
         <member name="F:Ai.Hong.Driver.EnumResultSpectrum.Absorbance">
             <summary>
             Absorbance
@@ -1183,6 +1208,11 @@
         <member name="F:Ai.Hong.Driver.EnumResultSpectrum.Reflectance">
             <summary>
             Reflectance
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumResultSpectrum.Emission">
+            <summary>
+            Emission
             </summary>
         </member>
         <member name="F:Ai.Hong.Driver.EnumResultSpectrum.Log_Reflectance">
@@ -1615,6 +1645,162 @@
             Sample
             </summary>
         </member>
+        <member name="T:Ai.Hong.Driver.ScanNotifyArgs">
+            <summary>
+            扫描通知消息参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.state">
+            <summary>
+            扫描状态
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.abortScan">
+            <summary>
+            是否取消扫描
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.errorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanNotifyArgs.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanNotifyArgs.#ctor(System.Windows.RoutedEvent,Ai.Hong.Driver.EnumScanNotifyState,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="routedEvent"></param>
+            <param name="state"></param>
+            <param name="errorString"></param>
+        </member>
+        <member name="T:Ai.Hong.Driver.DeviceCategoryProperties">
+            <summary>
+            设备类型和型号对应的信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.category">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.model">
+            <summary>
+            设备型号
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.hardwares">
+            <summary>
+            设备列表及其包含的属性信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.properties">
+            <summary>
+            设备属性列表
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceCategoryProperties.#ctor(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,System.Collections.Generic.Dictionary{Ai.Hong.Driver.EnumHardware,System.Collections.Generic.List{Ai.Hong.Driver.EnumHardwareProperties}})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="category">设备类型</param>
+            <param name="model">设备型号</param>
+            <param name="hardwares">设备列表及其包含的属性信息</param>
+        </member>
+        <member name="T:Ai.Hong.Driver.DeviceHardware">
+            <summary>
+            硬件属性操作
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceHardware.ErrorCode">
+            <summary>
+            硬件错误信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.DeviceHardware.DeviceCategory">
+            <summary>
+            设备种类
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.DeviceHardware.DeviceModel">
+            <summary>
+            设备型号
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.DeviceHardware.PropertyInfos">
+            <summary>
+            硬件属性的值类型和是否可读列表
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.Initialize(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel)">
+            <summary>
+            初始化（必须最先调用）
+            </summary>
+            <param name="category">设备种类</param>
+            <param name="model">设备型号</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.GetHardwarePropertyInfos">
+            <summary>
+            获取本设备的所有硬件属性的详细信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.HardwareList">
+            <summary>
+            获取仪器包含的所有硬件
+            </summary>
+            <returns>设备硬件列表</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.HardwarePropertyList(Ai.Hong.Driver.EnumHardware)">
+            <summary>
+            获取部件可用的属性列表
+            </summary>
+            <param name="hardwareID">硬件ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.InitDeserializedProperties(System.Collections.Generic.List{Ai.Hong.Driver.HardwarePropertyInfo})">
+            <summary>
+            从当前设备属性中初始化初始化反序列化后的属性，并将反序列化的属性值填入找到的属性
+            </summary>
+            <param name="properties">反序列化后的属性列表</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.GetHardwarePropertyInfo(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
+            <summary>
+            获取指定硬件指定属性的信息
+            </summary>
+            <param name="hardwareID">硬件ID</param>
+            <param name="propertyID">属性ID</param>
+            <returns>属性信息</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.HardwareGetProperty(System.Object,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
+            <summary>
+            获取部件的属性
+            </summary>
+            <param name="lowLayerDevice">当前连接的设备</param>
+            <param name="hardwareID">部件ID</param>
+            <param name="propertyID">属性ID</param>
+            <returns>状态的值, Int, float都转为string返回，由调用程序解读, NULL表示错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.HardwareSetProperty(System.Object,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Object)">
+            <summary>
+            设置部件的属性
+            </summary>
+            <param name="lowLayerDevice">当前连接的底层设备</param>
+            <param name="hardwareID">部件ID</param>
+            <param name="propertyID">属性ID</param>
+            <param name="propertyValue">属性的值（继承类解析）</param>
+            <returns>错误信息</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.DeviceHardware.InitScanParameter(Ai.Hong.Driver.ScanParameter)">
+            <summary>
+            根据当前硬件初始化扫描参数
+            </summary>
+            <param name="parameter"></param>
+        </member>
         <member name="T:Ai.Hong.Driver.DeviceInfo">
             <summary>
             仪器信息类
@@ -1636,7 +1822,7 @@
             仪器厂商
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.DeviceInfo.Type">
+        <member name="P:Ai.Hong.Driver.DeviceInfo.Category">
             <summary>
             仪器种类
             </summary>
@@ -1671,6 +1857,21 @@
             是否模拟采集
             </summary>
         </member>
+        <member name="P:Ai.Hong.Driver.DeviceInfo.Name">
+            <summary>
+            Device name
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.DeviceInfo.Address">
+            <summary>
+            Device address to connect
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.DeviceInfo.LaserWavelength">
+            <summary>
+            Wave length of laser
+            </summary>
+        </member>
         <member name="P:Ai.Hong.Driver.DeviceInfo.Tag">
             <summary>
             设备附加信息
@@ -1685,6 +1886,378 @@
             <summary>
             设备状态
             </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.FTDriver">
+            <summary>
+            仪器信息类
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Driver.FTDriver.PropertyChanged">
+            <summary>
+            属性变更消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.DoPropertyChange(System.String)">
+            <summary>
+            属性变更消息
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.AllDevices">
+            <summary>
+            系统连接的所有设备
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.ConnectedDevice">
+            <summary>
+            当前已经连接的仪器
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.DeviceConnected">
+            <summary>
+            设备是否连接
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.OperateMessage">
+            <summary>
+            Device operate message
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.OnDataReceived">
+            <summary>
+            设备采集到数据的消息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.DeviceCategory">
+            <summary>
+            当前设备类型
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.DeviceModel">
+            <summary>
+            当前设备型号
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.DeviceStatus">
+            <summary>
+            设备状态
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.ErrorString">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.DataLock">
+            <summary>
+            数据存取同步锁定
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.DeviceLock">
+            <summary>
+            设备操作同步锁定
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.FTDriver.AcquireCommand">
+            <summary>
+            当前扫描命令状态
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver._disposed">
+            <summary>
+            本实例是否已经销毁了
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.FTDriver.ScanProcessingCallback">
+            <summary>
+            扫描过程中的回调函数（通知调用进程刷新扫描进度）
+            </summary>
+            <param name="maxValue">最大扫描次数</param>
+            <param name="curValue">当前扫描次数</param>
+            <param name="errorCode">错误代码, 0=OK</param>
+            <returns>True=继续扫描，False=终止扫描</returns>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.ScanProgress">
+            <summary>
+            当前扫描进度
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.ProcessCallback">
+            <summary>
+            扫描进度回调函数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.IsScanning">
+            <summary>
+            是否正在扫描的标志
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.ScanThread">
+            <summary>
+            扫描线程
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.LiveDatas">
+            <summary>
+            实时数据列表
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.ScannedDatas">
+            <summary>
+            扫描数据列表
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.ScanParameter">
+            <summary>
+            当前扫描参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.deviceHardware">
+            <summary>
+            设备包含的硬件属性操作
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.Dispose(System.Boolean)">
+            <summary>
+            Disposes the object
+            </summary>
+            <param name="disposing">Indicates whether Dispose was called manually (true) or by
+            the garbage collector (false) via the destructor.</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.Finalize">
+            <summary>
+            Finalizer for the UsbDevice. Disposes all unmanaged handles.
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.EnumerateDevices(System.Object)">
+            <summary>
+            枚举系统连接的设备
+            </summary>
+            <param name="parameter">枚举参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.Connect(Ai.Hong.Driver.DeviceInfo)">
+            <summary>
+            连接仪器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.Disconnect">
+            <summary>
+            断开仪器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.ListHardwares">
+            <summary>
+            列出设备所有硬件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.ListHardwareProperties(Ai.Hong.Driver.EnumHardware)">
+            <summary>
+            列出硬件属性
+            </summary>
+            <param name="hardwareID">硬件ID编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetHardwarePropertyInfo(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
+            <summary>
+            列出硬件属性详细信息
+            </summary>
+            <param name="hardwareID">硬件ID编号</param>
+            <param name="propertyID">硬件属性编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetLowLayerDevice">
+            <summary>
+            获取底层设备
+            </summary>
+            <returns>底层设备，继承类负责解释</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetDeviceStatus">
+            <summary>
+            获取当前连接设备的状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.SetHardwareProperty(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Object)">
+            <summary>
+            设置设备硬件属性
+            </summary>
+            <param name="hardwareID">硬件类型</param>
+            <param name="propertyID">硬件属性</param>
+            <param name="value">属性值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetHardwareProperty(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
+            <summary>
+            获取设备硬件属性
+            </summary>
+            <param name="hardwareID">硬件类型</param>
+            <param name="propertyID">硬件属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.SendAcquireCommand(Ai.Hong.Driver.EnumAcquireCommand)">
+            <summary>
+            发送采集命令（开始或者停止采集）
+            </summary>
+            <param name="command">Start or Stop acquire</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.SetExperimentFile(System.String)">
+            <summary>
+            设置采集配置文件
+            </summary>
+            <param name="paraFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.SetExperimentParemter(Ai.Hong.Driver.ScanParameter)">
+            <summary>
+            设置采集配置文件
+            </summary>
+            <param name="paramter">Scan Parameters</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.LoadExperimentFile(System.String)">
+            <summary>
+            读取采集配置文件
+            </summary>
+            <param name="paraFile">Parameter file</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.SaveExperimentFile(Ai.Hong.Driver.ScanParameter,System.String)">
+            <summary>
+            保存采集配置文件
+            </summary>
+            <param name="paraData">Scan Parameters</param>
+            <param name="saveFile">保存</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetIntensity">
+            <summary>
+            获取设备信号强度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.RefreshDeviceStatus">
+            <summary>
+            刷新设备状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.RefreshScanStatus">
+            <summary>
+            刷新扫描状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetLiveDatas">
+            <summary>
+            获取实时扫描数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetScanedDatas">
+            <summary>
+            获取扫描数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.CalculateAbs(System.String,System.String)">
+            <summary>
+            计算吸收谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.CalculateTrans(System.String,System.String)">
+            <summary>
+            计算透射谱
+            </summary>
+            <param name="backFile">背景光谱</param>
+            <param name="sampleFile">样品光谱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.SetLaserWavelength(System.Double)">
+            <summary>
+            写入激光波数到仪器
+            </summary>
+            <param name="waveLength">激光波数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetTemperature">
+            <summary>
+            读取设备温度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.MoveIVU(System.Int32)">
+            <summary>
+            移动验证轮
+            </summary>
+            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetSerialNumber">
+            <summary>
+            获取仪器序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.IsTransmissionCellEmpty">
+            <summary>
+            透射池是否空
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.ScanReference(System.String,System.Int32,System.String)">
+            <summary>
+            扫描参考光谱
+            </summary>
+            <param name="scanMethodFile">扫描配置文件</param>
+            <param name="scanCount">扫描次数</param>
+            <param name="referenceFile">参考光谱保存文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.GetLaserWavelength">
+            <summary>
+            获取当前激光波数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.ModifyIniFile``1(``0,System.String)">
+            <summary>
+            修改参数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="scPara"></param>
+            <param name="iniFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.YDataTypeFromResultSepctrum(Ai.Hong.Driver.EnumResultSpectrum)">
+            <summary>
+            结果光谱类型到光谱文件Y轴类型的转换
+            </summary>
+            <param name="spectrumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.SpecTypeFromDeviceCategory(Ai.Hong.Driver.EnumDeviceCategory)">
+            <summary>
+            光谱仪器类型到光谱文件类型的转换
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
         </member>
         <member name="T:Ai.Hong.Driver.BasePropertyInfo">
             <summary>
@@ -1778,7 +2351,7 @@
             硬件属性信息
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.HardwarePropertyInfo.Category">
+        <member name="F:Ai.Hong.Driver.HardwarePropertyInfo.PropCategory">
             <summary>
             属性所属的类型
             </summary>
@@ -1813,42 +2386,40 @@
             属性最大值
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.HardwarePropertyInfo.HardwarePropInfo">
-            <summary>
-            从硬件获取的属性
-            </summary>
-        </member>
         <member name="M:Ai.Hong.Driver.HardwarePropertyInfo.#ctor">
             <summary>
             构造函数
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.HardwarePropertyInfo.#ctor(Ai.Hong.Driver.EnumHardwareProperties,System.Type,System.Boolean,System.Boolean)">
+        <member name="M:Ai.Hong.Driver.HardwarePropertyInfo.#ctor(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,Ai.Hong.Driver.EnumPropCategory,System.Type,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             构造函数
             </summary>
+            <param name="hardwareID">硬件ID</param>
             <param name="propID">属性ID</param>
+            <param name="propCategory">属性所属类别</param>
             <param name="valueType">属性值类型</param>
             <param name="isReadonly">是否只读</param>
             <param name="isSelection">是否为列表项</param>
+            <param name="inputable">是否可以输入</param>
         </member>
-        <member name="M:Ai.Hong.Driver.HardwarePropertyInfo.#ctor(System.String,System.String,System.String,System.Type,System.String,Ai.Hong.Driver.EnumPropCategory,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Boolean)">
+        <member name="M:Ai.Hong.Driver.HardwarePropertyInfo.#ctor(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,Ai.Hong.Driver.EnumPropCategory,System.String,System.String,System.String,System.Type,System.String,System.Boolean)">
             <summary>
             构造函数(用于定义固定的属性)
             </summary>
+            <param name="hardwareID">硬件ID</param>
+            <param name="propID">属性ID</param>
+            <param name="propCategory">属性所属类别</param>
             <param name="innerName">内部名称</param>
             <param name="chineseName">中文名称</param>
             <param name="englishName">英文名称</param>
             <param name="valueType">值得类型</param>
             <param name="value">当前值</param>
-            <param name="category">所属种类</param>
-            <param name="hardwareID">硬件ID</param>
-            <param name="propID">属性ID</param>
             <param name="inputable">是否允许用户录入</param>
         </member>
         <member name="M:Ai.Hong.Driver.HardwarePropertyInfo.Clone">
             <summary>
-            Clone当前类的值
+            Clone当前类的值(浅层复制选项列表）
             </summary>
             <returns></returns>
         </member>
@@ -1927,6 +2498,26 @@
             </summary>
             <param name="propertyName"></param>
         </member>
+        <member name="F:Ai.Hong.Driver.ScanParameter.constHardwareProperties">
+            <summary>
+            所有预定义的硬件属性
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.ScanParameter.constFTProperties">
+            <summary>
+            预定义的所有FT转换参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.ScanParameter.constAcquireProperties">
+            <summary>
+            预定义的所有采样参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.ScanParameter.constSampleProps">
+            <summary>
+            预定义的所有样品信息
+            </summary>
+        </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.Filename">
             <summary>
             参数文件名
@@ -1950,6 +2541,11 @@
         <member name="P:Ai.Hong.Driver.ScanParameter.DeviceModel">
             <summary>
             设备类型
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.AddtionalData">
+            <summary>
+            附件信息，由各设备自己解释
             </summary>
         </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.Language">
@@ -1997,6 +2593,13 @@
             Constructor
             </summary>
         </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.#ctor(Ai.Hong.Driver.DeviceHardware,Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            按照设备型号创建扫描参数
+            </summary>
+            <param name="hardware"></param>
+            <param name="language"></param>
+        </member>
         <member name="M:Ai.Hong.Driver.ScanParameter.Clone">
             <summary>
             Clone
@@ -2017,12 +2620,6 @@
             <param name="propertyName">属性名称</param>
             <param name="propertyValue">属性值</param>
             <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.ScanParameter.InitProperties(Ai.Hong.Common.EnumLanguage)">
-            <summary>
-            初始化扫描参数的属性
-            </summary>
-            <param name="language"></param>
         </member>
         <member name="M:Ai.Hong.Driver.ScanParameter.FindPropertyByName(System.String)">
             <summary>
@@ -2156,469 +2753,6 @@
             <summary>
             是否需要扫描背景
             </summary>
-        </member>
-        <member name="T:Ai.Hong.Driver.ScanNotifyArgs">
-            <summary>
-            扫描通知消息参数
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.state">
-            <summary>
-            扫描状态
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.abortScan">
-            <summary>
-            是否取消扫描
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.errorString">
-            <summary>
-            错误信息
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.ScanNotifyArgs.#ctor">
-            <summary>
-            构造函数
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.ScanNotifyArgs.#ctor(System.Windows.RoutedEvent,Ai.Hong.Driver.EnumScanNotifyState,System.String)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="routedEvent"></param>
-            <param name="state"></param>
-            <param name="errorString"></param>
-        </member>
-        <member name="T:Ai.Hong.Driver.DeviceCategoryProperties">
-            <summary>
-            设备类型和型号对应的信息
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.category">
-            <summary>
-            设备类型
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.model">
-            <summary>
-            设备型号
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.hardwares">
-            <summary>
-            设备列表及其包含的属性信息
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.DeviceCategoryProperties.properties">
-            <summary>
-            设备属性列表
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.DeviceCategoryProperties.#ctor(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,System.Collections.Generic.Dictionary{Ai.Hong.Driver.EnumHardware,System.Collections.Generic.List{Ai.Hong.Driver.EnumHardwareProperties}})">
-            <summary>
-            构造函数
-            </summary>
-            <param name="category">设备类型</param>
-            <param name="model">设备型号</param>
-            <param name="hardwares">设备列表及其包含的属性信息</param>
-        </member>
-        <member name="T:Ai.Hong.Driver.HardwareProperty">
-            <summary>
-            硬件属性操作
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.HardwareProperty.ErrorCode">
-            <summary>
-            硬件错误信息
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.HardwareProperty.DeviceCategory">
-            <summary>
-            设备种类
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.HardwareProperty.DeviceModel">
-            <summary>
-            设备型号
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.HardwareProperty.PropertyInfoList">
-            <summary>
-            硬件属性的值类型和是否可读列表(const)
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.HardwareProperty.AllHardwareProperties">
-            <summary>
-            硬件所包含的属性列表
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.Initialize(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel)">
-            <summary>
-            初始化（必须最先调用）
-            </summary>
-            <param name="category">设备种类</param>
-            <param name="model">设备型号</param>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareList">
-            <summary>
-            获取仪器包含的所有部件
-            </summary>
-            <returns>设备部件列表</returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwarePropertyList(Ai.Hong.Driver.EnumHardware)">
-            <summary>
-            获取部件可用的属性列表
-            </summary>
-            <param name="hardwareID">硬件ID</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareGetAllProperties">
-            <summary>
-            设备连接后调用
-            获取所有的部件，部件的所有属性，以及属性的取值范围或选项列表
-            </summary>
-            <param name="category">设备类型FTNIR, FTIR...</param>
-            <param name="model">设备型号Sephere, Fiber...</param>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.InnerHardwarePropertySelections(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
-            <summary>
-            获取设备属性的选择项列表
-            </summary>
-            <param name="category">设备类型FTNIR, FTIR...</param>
-            <param name="model">设备型号Sephere, Fiber...</param>
-            <param name="deviceID">设备ID</param>
-            <param name="propertyID">属性ID</param>
-            <returns>Null=出现错误</returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.InnerHardwareGetPropertyRange(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Single@,System.Single@)">
-            <summary>
-            获取浮点属性的取值范围
-            </summary>
-            <param name="category">设备类型FTNIR, FTIR...</param>
-            <param name="model">设备型号Sephere, Fiber...</param>
-            <param name="hardwareID">部件ID</param>
-            <param name="propertyID">属性ID</param>
-            <param name="min">最小值</param>
-            <param name="max">最大值</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwarePropertyDetail(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Boolean)">
-            <summary>
-            检查部件是否包含了指定属性，并获取本属性的类型，只读信息
-            使用deviceHasProperties检查PropertyID是否在DeviceID中
-            用propertyInfoList来获取PropertyID的类型，只读信息
-            </summary>
-            <param name="category">设备类型FTNIR, FTIR...</param>
-            <param name="model">设备型号Sephere, Fiber...</param>
-            <param name="hardwareID">部件ID</param>
-            <param name="propertyID">属性ID</param>
-            <param name="forRead">True=获取属性, False=设置属性</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareGetProperty(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
-            <summary>
-            获取部件的属性（需要修改）
-            </summary>
-            <param name="category">设备类型</param>
-            <param name="model">设备型号</param>
-            <param name="hardwareID">部件ID</param>
-            <param name="propertyID">属性ID</param>
-            <returns>状态的值, Int, float都转为string返回，由调用程序解读, NULL表示错误</returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.HardwareProperty.HardwareSetProperty(Ai.Hong.Driver.EnumDeviceCategory,Ai.Hong.Driver.EnumDeviceModel,Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Object)">
-            <summary>
-            设置部件的属性（需要修改）
-            </summary>
-            <param name="category">设备类型</param>
-            <param name="model">设备型号</param>
-            <param name="hardwareID">部件ID</param>
-            <param name="propertyID">属性ID</param>
-            <param name="propertyValue">属性的值</param>
-            <returns>错误信息</returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.FTDriver">
-            <summary>
-            仪器信息类
-            </summary>
-        </member>
-        <member name="E:Ai.Hong.Driver.FTDriver.PropertyChanged">
-            <summary>
-            属性变更消息
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.DoPropertyChange(System.String)">
-            <summary>
-            属性变更消息
-            </summary>
-            <param name="propertyName"></param>
-        </member>
-        <member name="P:Ai.Hong.Driver.FTDriver.AllDevices">
-            <summary>
-            系统连接的所有设备
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.FTDriver.ConnectedDevice">
-            <summary>
-            当前已经连接的仪器
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.FTDriver.OnDataReceived">
-            <summary>
-            设备采集到数据的消息
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.FTDriver.DeviceCategory">
-            <summary>
-            当前设备类型
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.FTDriver.DeviceModel">
-            <summary>
-            当前设备型号
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.FTDriver.DeviceStatus">
-            <summary>
-            设备状态
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.FTDriver.ErrorCode">
-            <summary>
-            错误代码
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.FTDriver.ErrorString">
-            <summary>
-            错误代码
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.FTDriver._disposed">
-            <summary>
-            本实例是否已经销毁了
-            </summary>
-        </member>
-        <member name="T:Ai.Hong.Driver.FTDriver.ScanProcessingCallback">
-            <summary>
-            扫描过程中的回调函数（通知调用进程刷新扫描进度）
-            </summary>
-            <param name="maxValue">最大扫描次数</param>
-            <param name="curValue">当前扫描次数</param>
-            <param name="errorCode">错误代码, 0=OK</param>
-            <returns>True=继续扫描，False=终止扫描</returns>
-        </member>
-        <member name="F:Ai.Hong.Driver.FTDriver.ProcessCallback">
-            <summary>
-            扫描进度回调函数
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.FTDriver.ScanThread">
-            <summary>
-            扫描数据读取线程
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.FTDriver.ScannedDatas">
-            <summary>
-            扫描数据列表
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.FTDriver.ScanParameter">
-            <summary>
-            当前扫描参数
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.Dispose">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.Dispose(System.Boolean)">
-            <summary>
-            Disposes the object
-            </summary>
-            <param name="disposing">Indicates whether Dispose was called manually (true) or by
-            the garbage collector (false) via the destructor.</param>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.Finalize">
-            <summary>
-            Finalizer for the UsbDevice. Disposes all unmanaged handles.
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.EnumerateDevices(System.Object)">
-            <summary>
-            枚举系统连接的设备
-            </summary>
-            <param name="parameter">枚举参数</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.Connect(Ai.Hong.Driver.DeviceInfo)">
-            <summary>
-            连接仪器
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.Disconnect">
-            <summary>
-            断开仪器
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.ListHardwares">
-            <summary>
-            列出设备所有硬件
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.ListHardwareProperties(Ai.Hong.Driver.EnumHardware)">
-            <summary>
-            列出硬件属性
-            </summary>
-            <param name="hardwareID">硬件ID编号</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.GetHardwarePropertyInfo(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
-            <summary>
-            列出硬件属性详细信息
-            </summary>
-            <param name="hardwareID">硬件ID编号</param>
-            <param name="propertyID">硬件属性编号</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.GetDeviceStatus">
-            <summary>
-            获取当前连接设备的状态
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.SetHardwareProperty(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties,System.Object)">
-            <summary>
-            设置设备硬件属性
-            </summary>
-            <param name="hardware">硬件类型</param>
-            <param name="property">硬件属性</param>
-            <param name="value">属性值</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.GetHardwareProperty(Ai.Hong.Driver.EnumHardware,Ai.Hong.Driver.EnumHardwareProperties)">
-            <summary>
-            获取设备硬件属性
-            </summary>
-            <param name="hardware">硬件类型</param>
-            <param name="property">硬件属性</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.SendAcquireCommand(Ai.Hong.Driver.EnumAcquireCommand)">
-            <summary>
-            发送采集命令（开始或者停止采集）
-            </summary>
-            <param name="command">Start or Stop acquire</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.SetExperimentFile(System.String)">
-            <summary>
-            设置采集配置文件
-            </summary>
-            <param name="paraFile"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.SetExperimentParemter(Ai.Hong.Driver.ScanParameter)">
-            <summary>
-            设置采集配置文件
-            </summary>
-            <param name="paramter">Scan Parameters</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.LoadExperimentFile(System.String)">
-            <summary>
-            读取采集配置文件
-            </summary>
-            <param name="paraFile">Parameter file</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.SaveExperimentFile(Ai.Hong.Driver.ScanParameter,System.String)">
-            <summary>
-            保存采集配置文件
-            </summary>
-            <param name="paraData">Scan Parameters</param>
-            <param name="saveFile">保存</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.GetScanedDatas">
-            <summary>
-            获取扫描数据
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.CalculateAbs(System.String,System.String)">
-            <summary>
-            计算吸收谱
-            </summary>
-            <param name="backFile">背景光谱</param>
-            <param name="sampleFile">样品光谱</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.CalculateTrans(System.String,System.String)">
-            <summary>
-            计算透射谱
-            </summary>
-            <param name="backFile">背景光谱</param>
-            <param name="sampleFile">样品光谱</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.SetLaserWavelength(System.Double)">
-            <summary>
-            写入激光波数到仪器
-            </summary>
-            <param name="waveLength">激光波数</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.GetTemperature">
-            <summary>
-            读取设备温度
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.MoveIVU(System.Int32)">
-            <summary>
-            移动验证轮
-            </summary>
-            <param name="position">0 = 打开, 1 = NG4滤光玻璃, 2 = 聚苯乙烯, 3 = 过滤网</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.GetSerialNumber">
-            <summary>
-            获取仪器序列号
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.ScanReference(System.String,System.Int32,System.String)">
-            <summary>
-            扫描参考光谱
-            </summary>
-            <param name="scanMethodFile">扫描配置文件</param>
-            <param name="scanCount">扫描次数</param>
-            <param name="referenceFile">参考光谱保存文件</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.GetLaserWavelength">
-            <summary>
-            获取当前激光波数
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.ModifyIniFile``1(``0,System.String)">
-            <summary>
-            修改参数
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="scPara"></param>
-            <param name="iniFilePath"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.FTDriver.IsTransmissionCellEmpty">
-            <summary>
-            透射池是否空
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:FTNirInterface.WaitDialog.ProcessWaitDialog">
             <summary>

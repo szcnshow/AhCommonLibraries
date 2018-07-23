@@ -21,10 +21,9 @@ namespace Ai.Hong.Driver
         /// 属性变更消息
         /// </summary>
         /// <param name="propertyName"></param>
-        private void DoPropertyChange(string propertyName)
+        protected void DoPropertyChange(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -37,7 +36,18 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 当前已经连接的仪器
         /// </summary>
-        public DeviceInfo ConnectedDevice { get { return _connectedDevice; } set { _connectedDevice = value; DoPropertyChange("ConnectedDevice"); } }
+        public DeviceInfo ConnectedDevice { get { return _connectedDevice; } set { _connectedDevice = value; DoPropertyChange("DeviceConnected"); } }
+
+        /// <summary>
+        /// 设备是否连接
+        /// </summary>
+        public bool DeviceConnected { get { return ConnectedDevice == null ? false : ConnectedDevice.IsConnected; } }
+
+        private string _operateMessage = null;
+        /// <summary>
+        /// Device operate message
+        /// </summary>
+        public string OperateMessage { get { return _operateMessage; } set { _operateMessage = value; DoPropertyChange("OperateMessage"); } }
 
         /// <summary>
         /// 设备采集到数据的消息
@@ -47,7 +57,7 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 当前设备类型
         /// </summary>
-        public EnumDeviceCategory DeviceCategory { get { return ConnectedDevice != null ? ConnectedDevice.Type : EnumDeviceCategory.Unknown; } }
+        public EnumDeviceCategory DeviceCategory { get { return ConnectedDevice != null ? ConnectedDevice.Category : EnumDeviceCategory.Unknown; } }
 
         /// <summary>
         /// 当前设备型号
@@ -71,6 +81,22 @@ namespace Ai.Hong.Driver
         public string ErrorString { get { return ErrorCode.ToString(); } }
 
         /// <summary>
+        /// 数据存取同步锁定
+        /// </summary>
+        protected object DataLock = new object();
+
+        /// <summary>
+        /// 设备操作同步锁定
+        /// </summary>
+        protected object DeviceLock = new object();
+
+        private EnumAcquireCommand _acquireCommand = EnumAcquireCommand.Stop;
+        /// <summary>
+        /// 当前扫描命令状态
+        /// </summary>
+        public EnumAcquireCommand AcquireCommand { get { return _acquireCommand; } set { _acquireCommand = value; DoPropertyChange(nameof(AcquireCommand)); } }
+
+        /// <summary>
         /// 本实例是否已经销毁了
         /// </summary>
         private bool _disposed = false;
@@ -85,24 +111,44 @@ namespace Ai.Hong.Driver
         public delegate bool ScanProcessingCallback(EnumHardwareError errorCode, int maxValue, int curValue);
 
         /// <summary>
+        /// 当前扫描进度
+        /// </summary>
+        protected int ScanProgress = 0;
+
+        /// <summary>
         /// 扫描进度回调函数
         /// </summary>
         public ScanProcessingCallback ProcessCallback = null;
 
         /// <summary>
-        /// 扫描数据读取线程
+        /// 是否正在扫描的标志
         /// </summary>
-        private System.Threading.Thread ScanThread = null;
+        public bool IsScanning = false;
+
+        /// <summary>
+        /// 扫描线程
+        /// </summary>
+        protected System.Threading.Thread ScanThread = null;
+
+        /// <summary>
+        /// 实时数据列表
+        /// </summary>
+        protected List<FileFormat.FileFormat> LiveDatas = null;
 
         /// <summary>
         /// 扫描数据列表
         /// </summary>
-        public List<FileFormat.FileFormat> ScannedDatas = null;
+        protected List<FileFormat.FileFormat> ScannedDatas = null;
 
         /// <summary>
         /// 当前扫描参数
         /// </summary>
         public ScanParameter ScanParameter = null;
+
+        /// <summary>
+        /// 设备包含的硬件属性操作
+        /// </summary>
+        public DeviceHardware deviceHardware;
 
         #region constructor & deconstructor
         /// <summary>
@@ -162,14 +208,20 @@ namespace Ai.Hong.Driver
         /// 列出设备所有硬件
         /// </summary>
         /// <returns></returns>
-        public virtual List<EnumHardware> ListHardwares() { throw new NotImplementedException(); }
+        public List<EnumHardware> ListHardwares()
+        {
+            return deviceHardware?.HardwareList();
+        }
 
         /// <summary>
         /// 列出硬件属性
         /// </summary>
         /// <param name="hardwareID">硬件ID编号</param>
         /// <returns></returns>
-        public virtual List<EnumHardwareProperties> ListHardwareProperties(EnumHardware hardwareID) { throw new NotImplementedException(); }
+        public List<EnumHardwareProperties> ListHardwareProperties(EnumHardware hardwareID)
+        {
+            return deviceHardware?.HardwarePropertyList(hardwareID);
+        }
 
         /// <summary>
         /// 列出硬件属性详细信息
@@ -177,7 +229,16 @@ namespace Ai.Hong.Driver
         /// <param name="hardwareID">硬件ID编号</param>
         /// <param name="propertyID">硬件属性编号</param>
         /// <returns></returns>
-        public virtual HardwarePropertyInfo GetHardwarePropertyInfo(EnumHardware hardwareID, EnumHardwareProperties propertyID) { throw new NotImplementedException(); }
+        public HardwarePropertyInfo GetHardwarePropertyInfo(EnumHardware hardwareID, EnumHardwareProperties propertyID)
+        {
+            return deviceHardware?.GetHardwarePropertyInfo(hardwareID, propertyID);
+        }
+
+        /// <summary>
+        /// 获取底层设备
+        /// </summary>
+        /// <returns>底层设备，继承类负责解释</returns>
+        public virtual dynamic GetLowLayerDevice() { throw new NotImplementedException(); }
 
         /// <summary>
         /// 获取当前连接设备的状态
@@ -191,26 +252,33 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 设置设备硬件属性
         /// </summary>
-        /// <param name="hardware">硬件类型</param>
-        /// <param name="property">硬件属性</param>
+        /// <param name="hardwareID">硬件类型</param>
+        /// <param name="propertyID">硬件属性</param>
         /// <param name="value">属性值</param>
         /// <returns></returns>
-        public virtual bool SetHardwareProperty(EnumHardware hardware, EnumHardwareProperties property, dynamic value) { throw new NotImplementedException(); }
+        public bool SetHardwareProperty(EnumHardware hardwareID, EnumHardwareProperties propertyID, dynamic value)
+        {
+            return deviceHardware?.HardwareSetProperty(GetLowLayerDevice(), hardwareID, propertyID, value);
+        }
 
         /// <summary>
         /// 获取设备硬件属性
         /// </summary>
-        /// <param name="hardware">硬件类型</param>
-        /// <param name="property">硬件属性</param>
+        /// <param name="hardwareID">硬件类型</param>
+        /// <param name="propertyID">硬件属性</param>
         /// <returns></returns>
-        public virtual dynamic GetHardwareProperty(EnumHardware hardware, EnumHardwareProperties property) { throw new NotImplementedException(); }
+        public dynamic GetHardwareProperty(EnumHardware hardwareID, EnumHardwareProperties propertyID)
+        {
+            return deviceHardware?.HardwareGetProperty(GetLowLayerDevice(), hardwareID, propertyID);
+        }
 
         /// <summary>
         /// 发送采集命令（开始或者停止采集）
         /// </summary>
         /// <param name="command">Start or Stop acquire</param>
+        /// <param name="callback">Scan processing callback</param>
         /// <returns></returns>
-        public virtual bool SendAcquireCommand(EnumAcquireCommand command) { throw new NotImplementedException(); }
+        public virtual bool SendAcquireCommand(EnumAcquireCommand command, ScanProcessingCallback callback) { throw new NotImplementedException(); }
 
         /// <summary>
         /// 设置采集配置文件
@@ -242,10 +310,55 @@ namespace Ai.Hong.Driver
         public virtual bool SaveExperimentFile(ScanParameter paraData, string saveFile) { throw new NotImplementedException(); }
 
         /// <summary>
+        /// 获取设备信号强度
+        /// </summary>
+        /// <returns></returns>
+        public virtual double GetIntensity() { throw new NotImplementedException(); }
+
+        /// <summary>
+        /// 刷新设备状态
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool RefreshDeviceStatus() { throw new NotImplementedException(); }
+
+        /// <summary>
+        /// 刷新扫描状态
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool RefreshScanStatus() { throw new NotImplementedException(); }
+
+        /// <summary>
+        /// 获取实时扫描数据
+        /// </summary>
+        /// <returns></returns>
+        public List<FileFormat.FileFormat> GetLiveDatas()
+        {
+            lock (DataLock) {
+                if (LiveDatas == null)
+                    return null;
+
+                var retDatas = new List<FileFormat.FileFormat>();
+                retDatas.AddRange(LiveDatas);
+                return retDatas;
+            }
+        }
+
+        /// <summary>
         /// 获取扫描数据
         /// </summary>
         /// <returns></returns>
-        public virtual List<FileFormat.FileFormat> GetScanedDatas() { throw new NotImplementedException(); }
+        public List<FileFormat.FileFormat> GetScanedDatas()
+        {
+            lock (DataLock)
+            {
+                if (ScannedDatas == null)
+                    return null;
+
+                var retDatas = new List<FileFormat.FileFormat>();
+                retDatas.AddRange(ScannedDatas);
+                return retDatas;
+            }
+        }
 
         /// <summary>
         /// 计算吸收谱
@@ -352,6 +465,7 @@ namespace Ai.Hong.Driver
             return fileName;
         }
 
+        #region alias
         /// <summary>
         /// 写入激光波数到仪器
         /// </summary>
@@ -366,10 +480,7 @@ namespace Ai.Hong.Driver
         /// 读取设备温度
         /// </summary>
         /// <returns></returns>
-        public double GetTemperature()
-        {
-            return GetHardwareProperty(EnumHardware.Device, EnumHardwareProperties.Temperature);
-        }
+        public double GetTemperature() { return GetHardwareProperty(EnumHardware.Device, EnumHardwareProperties.Temperature); }
 
         /// <summary>
         /// 移动验证轮
@@ -382,10 +493,15 @@ namespace Ai.Hong.Driver
         /// 获取仪器序列号
         /// </summary>
         /// <returns></returns>
-        public string GetSerialNumber()
-        {
-            return GetHardwareProperty(EnumHardware.Device, EnumHardwareProperties.SerialNo) as string;
-        }
+        public string GetSerialNumber() { return GetHardwareProperty(EnumHardware.Device, EnumHardwareProperties.SerialNo) as string; }
+
+        /// <summary>
+        /// 透射池是否空
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool? IsTransmissionCellEmpty() { return null; }
+
+        #endregion
 
         /// <summary>
         /// 扫描参考光谱
@@ -415,10 +531,53 @@ namespace Ai.Hong.Driver
         }
 
         /// <summary>
-        /// 透射池是否空
+        /// 结果光谱类型到光谱文件Y轴类型的转换
         /// </summary>
+        /// <param name="spectrumType"></param>
         /// <returns></returns>
-        public virtual bool? IsTransmissionCellEmpty() { return null; }
+        public static FileFormat.FileFormat.YAXISTYPE YDataTypeFromResultSepctrum(EnumResultSpectrum spectrumType)
+        {
+            switch (spectrumType)
+            {
+                case EnumResultSpectrum.Interfer:
+                    return FileFormat.FileFormat.YAXISTYPE.YIGRAM;
+                case EnumResultSpectrum.BackSingleBeam:
+                    return FileFormat.FileFormat.YAXISTYPE.YIGRF;
+                case EnumResultSpectrum.SampleSingleBeam:
+                    return FileFormat.FileFormat.YAXISTYPE.YIGSM;
+                case EnumResultSpectrum.Absorbance:
+                    return FileFormat.FileFormat.YAXISTYPE.YABSRB;
+                case EnumResultSpectrum.Transmittance:
+                    return FileFormat.FileFormat.YAXISTYPE.YTRANS;
+                case EnumResultSpectrum.Kubelka_Munk:
+                    return FileFormat.FileFormat.YAXISTYPE.YKMONK;
+                case EnumResultSpectrum.Reflectance:
+                    return FileFormat.FileFormat.YAXISTYPE.YREFLEC;
+                case EnumResultSpectrum.Emission:
+                    return FileFormat.FileFormat.YAXISTYPE.YEMISN;
+                case EnumResultSpectrum.Log_Reflectance:
+                    return FileFormat.FileFormat.YAXISTYPE.YLOGDR;
+                default:
+                    return FileFormat.FileFormat.YAXISTYPE.YARB;
+            }
+        }
 
+        /// <summary>
+        /// 光谱仪器类型到光谱文件类型的转换
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
+        public static FileFormat.FileFormat.SPECTYPE SpecTypeFromDeviceCategory(EnumDeviceCategory category)
+        {
+            switch (category)
+            {
+                case EnumDeviceCategory.FTNIR:
+                    return FileFormat.FileFormat.SPECTYPE.SPCNIR;
+                case EnumDeviceCategory.FTIR:
+                    return FileFormat.FileFormat.SPECTYPE.SPCFTIR;
+                default:
+                    return FileFormat.FileFormat.SPECTYPE.SPCGEN;
+            }
+        }
     }
 }

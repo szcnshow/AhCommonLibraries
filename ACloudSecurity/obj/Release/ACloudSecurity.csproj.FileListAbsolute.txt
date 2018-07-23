@@ -41,3 +41,4 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurit
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Release\ACloudSecurity.csproj.CopyComplete
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Release\ACloudSecurity.csproj.CoreCompileInputs.cache
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Release\ACloudSecurity.csproj.CopyComplete
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\bin\Release\Ionic.Zip.dll

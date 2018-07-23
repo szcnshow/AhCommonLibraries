@@ -2095,7 +2095,7 @@ namespace Ai.Hong.Driver.IT
             AddTextBlockToGrid(contentGrid, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 1, 5, true);
 
             AddTextBlockToGrid(contentGrid, "仪器类型", 2, 0, true);
-            AddTextBlockToGrid(contentGrid, scanner == null ? null : Common.Extenstion.EnumExtensions.GetEnumDescription(scanner.ConnectedDevice.Type, Language), 2, 1, true);
+            AddTextBlockToGrid(contentGrid, scanner == null ? null : Common.Extenstion.EnumExtensions.GetEnumDescription(scanner.ConnectedDevice.Category, Language), 2, 1, true);
 
             AddTextBlockToGrid(contentGrid, "仪器型号", 2, 2, true);
             AddTextBlockToGrid(contentGrid, scanner == null ? null : Common.Extenstion.EnumExtensions.GetEnumDescription(scanner.ConnectedDevice.Model, Language), 2, 3, true);

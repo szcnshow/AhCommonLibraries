@@ -638,6 +638,34 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.GetLineSlopAndBias(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            计算两点直线的斜率和偏移
+            </summary>
+            <param name="pt1"></param>
+            <param name="pt2"></param>
+            <returns>X=k, Y=b</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.GetLineCrossPoint(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point@)">
+            <summary>
+            判断两条直线是否相交，返回交点
+            </summary>
+            <param name="line1Pt1">直线1端点1</param>
+            <param name="line1Pt2">直线1端点2</param>
+            <param name="line2Pt1">直线2端点1</param>
+            <param name="line2Pt2">直线2端点2</param>
+            <param name="crossPt">Out 交点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.GetHalfPeakLine(System.Windows.Point,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            计算半高宽线
+            </summary>
+            <param name="basePt1">基线端点1</param>
+            <param name="basePt2">基线端点2</param>
+            <param name="peakPt">峰位点</param>
+            <returns></returns>
+        </member>
         <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.CalMidPoint(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             计算中点
@@ -648,21 +676,6 @@
             <param name="endY"></param>
             <param name="targetX"></param>
             <param name="targetY"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.CalResolution(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double[],System.Double[],System.Boolean)">
-            <summary>
-            分辨率计算
-            </summary>
-            <param name="firstX"></param>
-            <param name="firstY"></param>
-            <param name="endX"></param>
-            <param name="endY"></param>
-            <param name="midPointX"></param>
-            <param name="midPointY"></param>
-            <param name="DataX"></param>
-            <param name="DataY"></param>
-            <param name="IsUpPeak">True=向上的峰，False=向下的峰</param>
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.CalculateResult(System.Object)">

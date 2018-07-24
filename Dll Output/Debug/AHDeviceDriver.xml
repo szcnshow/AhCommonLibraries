@@ -125,11 +125,11 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.ScanCallback(Ai.Hong.Driver.EnumHardwareError,System.Int32,System.Int32)">
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.ScanCallback(Ai.Hong.Driver.EnumHardwareStatus,System.Int32,System.Int32)">
             <summary>
             扫描回调函数
             </summary>
-            <param name="errorCode">扫描错误代码</param>
+            <param name="status">扫描错误代码</param>
             <param name="maxValue">总扫描次数</param>
             <param name="curValue">当前扫描次数</param>
             <returns>True=继续扫描, False=终止扫描</returns>
@@ -1979,7 +1979,7 @@
             </summary>
             <param name="maxValue">最大扫描次数</param>
             <param name="curValue">当前扫描次数</param>
-            <param name="errorCode">错误代码, 0=OK</param>
+            <param name="status">设备状态, 正在扫描=Busy, 空闲=Idel</param>
             <returns>True=继续扫描，False=终止扫描</returns>
         </member>
         <member name="F:Ai.Hong.Driver.FTDriver.ScanProgress">

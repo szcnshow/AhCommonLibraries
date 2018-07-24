@@ -106,9 +106,9 @@ namespace Ai.Hong.Driver
         /// </summary>
         /// <param name="maxValue">最大扫描次数</param>
         /// <param name="curValue">当前扫描次数</param>
-        /// <param name="errorCode">错误代码, 0=OK</param>
+        /// <param name="status">设备状态, 正在扫描=Busy, 空闲=Idel</param>
         /// <returns>True=继续扫描，False=终止扫描</returns>
-        public delegate bool ScanProcessingCallback(EnumHardwareError errorCode, int maxValue, int curValue);
+        public delegate bool ScanProcessingCallback(EnumHardwareStatus status, int maxValue, int curValue);
 
         /// <summary>
         /// 当前扫描进度

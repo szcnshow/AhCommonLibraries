@@ -98,7 +98,7 @@ namespace Ai.Hong.Driver.Controls
             for(int i=0; i<count; i++)
             {
                 Thread.Sleep(500);
-                if(ScanCallback(Driver.EnumHardwareError.OK, count, i+1) == false)
+                if(ScanCallback(EnumHardwareStatus.OK, count, i+1) == false)
                     break;
             }
             ScanningState = EnumScanNotifyState.oneFinished;
@@ -173,11 +173,11 @@ namespace Ai.Hong.Driver.Controls
         /// <summary>
         /// 扫描回调函数
         /// </summary>
-        /// <param name="errorCode">扫描错误代码</param>
+        /// <param name="status">扫描错误代码</param>
         /// <param name="maxValue">总扫描次数</param>
         /// <param name="curValue">当前扫描次数</param>
         /// <returns>True=继续扫描, False=终止扫描</returns>
-        bool ScanCallback(Driver.EnumHardwareError errorCode, int maxValue, int curValue)
+        bool ScanCallback(EnumHardwareStatus status, int maxValue, int curValue)
         {
             Dispatcher.BeginInvoke((Action)delegate()
             {
@@ -186,7 +186,7 @@ namespace Ai.Hong.Driver.Controls
 
             //扫描出现错误，或者扫描结束
             ErrorString = null;
-            if (errorCode != Driver.EnumHardwareError.OK) //扫描出现错误
+            if (status != EnumHardwareStatus.Busy && status != EnumHardwareStatus.OK) //扫描出现错误
             {
                 scanProgress.Stop();
                 ErrorString = scanner.ErrorString;

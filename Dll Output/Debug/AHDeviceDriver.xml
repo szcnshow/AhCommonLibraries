@@ -69,11 +69,6 @@
             用户取消扫描
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.IsBackground">
-            <summary>
-            是否为背景光谱
-            </summary>
-        </member>
         <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.ScanningState">
             <summary>
             当前扫描状态
@@ -111,21 +106,20 @@
             模拟扫描
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.StartScan(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.ScanParameter,System.Boolean)">
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.StartScan(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.ScanParameter)">
             <summary>
             启动扫描
             </summary>
             <param name="scanner">当前设备</param>
             <param name="parameter">扫描参数</param>
-            <param name="isBackground">True=扫描背景, False=扫描样品</param>
         </member>
-        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.RepeatScan(System.Boolean)">
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.RepeatScan">
             <summary>
             重复扫描（第一次扫描需要调用StartScan）
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.ScanCallback(Ai.Hong.Driver.EnumHardwareStatus,System.Int32,System.Int32)">
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.ScanCallback(Ai.Hong.Driver.EnumScanNotifyState,System.Int32,System.Int32)">
             <summary>
             扫描回调函数
             </summary>
@@ -1135,37 +1129,37 @@
             正在扫描
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.oneFinished">
+        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.OneFinished">
             <summary>
             完成一次检测
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.repeateFinished">
+        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.RepeateFinished">
             <summary>
             完成全部重复（扫描结束）
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.parameterError">
+        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.ParameterError">
             <summary>
             参数错误
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.deviceError">
+        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.DeviceError">
             <summary>
             设备错误
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.fileError">
+        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.FileError">
             <summary>
             文件错误
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.userAbort">
+        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.UserAbort">
             <summary>
             用户取消
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.backgroundError">
+        <member name="F:Ai.Hong.Driver.EnumScanNotifyState.BackgroundError">
             <summary>
             需要扫描背景
             </summary>
@@ -1218,6 +1212,26 @@
         <member name="F:Ai.Hong.Driver.EnumResultSpectrum.Log_Reflectance">
             <summary>
             Log Reflectance
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.EnumSaveFileType">
+            <summary>
+            保存的光谱文件格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumSaveFileType.SPC">
+            <summary>
+            SPC
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumSaveFileType.CSV">
+            <summary>
+            CSV
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumSaveFileType.JDX">
+            <summary>
+            JDX
             </summary>
         </member>
         <member name="T:Ai.Hong.Driver.EnumPropCategory">
@@ -1285,64 +1299,9 @@
             Mertz
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.MertzSigned">
+        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Power_Spectrum">
             <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.PowerSpectrum">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Mertz_NoPeakSearched">
-            <summary>
-            Mertz / No Peak Searched
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.MertzSigned_NoPeakSearched">
-            <summary>
-            Mertz Signed / No Peak Searched
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Power_NoPeakSearched">
-            <summary>
-            Power / No Peak Searched
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Mertz_StoredPhase">
-            <summary>
-            Mertz / Stored Phase
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.No_SaveComplexData">
-            <summary>
-            No / Save Complex Data
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Forman">
-            <summary>
-            Forman
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Forman_StoredPhase">
-            <summary>
-            Forman / Stored Phase
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Forman_Preapodized">
-            <summary>
-            Forman / Preapodized
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.DoublePhase">
-            <summary>
-            Double Phase
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Mertz_FullRangePeakSearch">
-            <summary>
-            Mertz / Full Range Peak Search
+            Power Spectrum
             </summary>
         </member>
         <member name="T:Ai.Hong.Driver.EnumFTApodization">
@@ -1360,11 +1319,6 @@
             Triangular
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumFTApodization.FourPoint">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="F:Ai.Hong.Driver.EnumFTApodization.Happ_Genzel">
             <summary>
             Happ Genzel
@@ -1376,6 +1330,11 @@
             </summary>
         </member>
         <member name="F:Ai.Hong.Driver.EnumFTApodization.Blackman_Harris_4_Term">
+            <summary>
+            Blackman Harris 4 Term
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.EnumFTApodization.Blackman_Harris_7_Term">
             <summary>
             Blackman Harris 4 Term
             </summary>
@@ -1395,24 +1354,9 @@
             Norton Beer Strong
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumFTApodization.UserOne">
-            <summary>
-            User One
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTApodization.UserTwo">
-            <summary>
-            User Two
-            </summary>
-        </member>
         <member name="T:Ai.Hong.Driver.EnumFTZeroFilling">
             <summary>
             FT填零
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTZeroFilling.Filling_0">
-            <summary>
-            Filling 0
             </summary>
         </member>
         <member name="F:Ai.Hong.Driver.EnumFTZeroFilling.Filling_1">
@@ -2316,12 +2260,27 @@
             是否可以录入
             </summary>
         </member>
+        <member name="P:Ai.Hong.Driver.BasePropertyInfo.IsSelection">
+            <summary>
+            是否为列表项
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.BasePropertyInfo.MinValue">
+            <summary>
+            属性最小值
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.BasePropertyInfo.MaxValue">
+            <summary>
+            属性最大值
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Driver.BasePropertyInfo.#ctor">
             <summary>
             构造函数
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.BasePropertyInfo.#ctor(System.String,System.String,System.String,System.Type,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{System.Object})">
+        <member name="M:Ai.Hong.Driver.BasePropertyInfo.#ctor(System.String,System.String,System.String,System.Type,System.String,System.Boolean,System.Collections.Generic.Dictionary{System.Object,System.String})">
             <summary>
             构造函数(用于定义固定的属性)
             </summary>
@@ -2330,7 +2289,6 @@
             <param name="englishName">英文名称</param>
             <param name="valueType">值得类型</param>
             <param name="value">当前值</param>
-            <param name="isValid">是否有效</param>
             <param name="inputable">是否允许用户录入</param>
             <param name="selections">选项列表</param>
         </member>
@@ -2370,21 +2328,6 @@
         <member name="F:Ai.Hong.Driver.HardwarePropertyInfo.IsReadonly">
             <summary>
             是否只读
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.HardwarePropertyInfo.IsSelection">
-            <summary>
-            是否为列表项
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.HardwarePropertyInfo.MinValue">
-            <summary>
-            属性最小值
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.HardwarePropertyInfo.MaxValue">
-            <summary>
-            属性最大值
             </summary>
         </member>
         <member name="M:Ai.Hong.Driver.HardwarePropertyInfo.#ctor">
@@ -2546,7 +2489,7 @@
         </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.AddtionalData">
             <summary>
-            附件信息，由各设备自己解释
+            附加信息，由各设备自己解释
             </summary>
         </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.Language">
@@ -2614,14 +2557,6 @@
             <param name="para"></param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.ScanParameter.SetPropertyValue(System.String,System.Object)">
-            <summary>
-            设置特殊属性
-            </summary>
-            <param name="propertyName">属性名称</param>
-            <param name="propertyValue">属性值</param>
-            <returns></returns>
-        </member>
         <member name="M:Ai.Hong.Driver.ScanParameter.FindPropertyByName(System.String)">
             <summary>
             通过属性名称获取属性实例
@@ -2643,6 +2578,36 @@
             <param name="propertyName"></param>
             <param name="propertyValue"></param>
             <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.SetPropertySelections(System.String,System.Collections.Generic.Dictionary{System.Object,System.String})">
+            <summary>
+            设置属性列表选项
+            </summary>
+            <param name="innerName">属性内部名称</param>
+            <param name="selections">选项</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.GetPropertySelections(System.String)">
+            <summary>
+            获取属性列表选项
+            </summary>
+            <param name="innerName">属性内部名称</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.SetPropertyMaxMin(System.String,System.Single,System.Single)">
+            <summary>
+            设置属性最大最小值
+            </summary>
+            <param name="innerName"></param>
+            <param name="max"></param>
+            <param name="min"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.GetPropertyMaxMin(System.String,System.Single@,System.Single@)">
+            <summary>
+            获取属性最大最小值
+            </summary>
+            <param name="innerName"></param>
+            <param name="max"></param>
+            <param name="min"></param>
+            <returns>true=找到属性</returns>
         </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.ScanCount">
             <summary>
@@ -2748,6 +2713,16 @@
         <member name="P:Ai.Hong.Driver.ScanParameter.XStep">
             <summary>
             X轴插值后的步长, 4cm-1 = 1, 8cm-1 = 2, 16cm-1=4;
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.SaveFileType">
+            <summary>
+            保存的光谱文件格式
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.ScanParameter.LaserWavelength">
+            <summary>
+            激光器波数
             </summary>
         </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.NeedScanBackground">

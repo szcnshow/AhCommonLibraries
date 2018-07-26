@@ -4,56 +4,6 @@
         <name>AHInstrumentTest</name>
     </assembly>
     <members>
-        <member name="T:Ai.Hong.Driver.IT.EnumScanNotifyState">
-            <summary>
-            扫描通知状态枚举
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.Idel">
-            <summary>
-            还没有开始扫描
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.Scanning">
-            <summary>
-            正在扫描
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.oneFinished">
-            <summary>
-            完成一次检测
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.repeateFinished">
-            <summary>
-            完成全部重复（扫描结束）
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.parameterError">
-            <summary>
-            参数错误
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.deviceError">
-            <summary>
-            设备错误
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.fileError">
-            <summary>
-            文件错误
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.userAbort">
-            <summary>
-            用户取消
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.IT.EnumScanNotifyState.backgroundError">
-            <summary>
-            需要扫描背景
-            </summary>
-        </member>
         <member name="T:Ai.Hong.Driver.IT.BaseSelfTestInfo">
             <summary>
             仪器自检基本类
@@ -198,10 +148,11 @@
             <param name="sampleCount">样品重复次数</param>
             <param name="ResultUnit">测量结果单位</param>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
+            <param name="hardware">当前设备</param>
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.CalculateResult(System.Object)">
@@ -350,7 +301,7 @@
             <param name="calcuParameter"></param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.LineNoiseTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.LineNoiseTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
@@ -393,7 +344,7 @@
             带参数的构造函数(TargetResult = 参考光谱=100% Thresold>70%
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
@@ -421,7 +372,7 @@
             带参数的构造函数 Thresold 《 30%
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
@@ -492,7 +443,7 @@
             带参数的构造函数Thresold±0.5
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
@@ -632,7 +583,7 @@
             </summary>
             <param name="createNew"></param>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
@@ -742,7 +693,7 @@
             带参数的构造函数 Thresold《0.8
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
@@ -776,7 +727,7 @@
             带参数的构造函数 Thresold《0.8
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.GetScanParameter">
+        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
             <summary>
             获取扫描参数
             </summary>
@@ -990,10 +941,11 @@
             <param name="reportTitle">报告标题</param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.XPSReport.GenerateDetailPage(Ai.Hong.Driver.IT.BaseSelfTestInfo)">
+        <member name="M:Ai.Hong.Driver.IT.XPSReport.GenerateDetailPage(Ai.Hong.Driver.DeviceHardware,Ai.Hong.Driver.IT.BaseSelfTestInfo)">
             <summary>
             创建一页详细测试结果报告
             </summary>
+            <param name="hardware">设备类型</param>
             <param name="testingInfo">测试结果</param>
             <returns></returns>
         </member>
@@ -1004,10 +956,11 @@
             <param name="result">结果，NULL=Unknown</param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.XPSReport.CreateAndSaveXPSFile(System.String,System.Collections.Generic.List{Ai.Hong.Driver.IT.SelTestGroup},System.String)">
+        <member name="M:Ai.Hong.Driver.IT.XPSReport.CreateAndSaveXPSFile(Ai.Hong.Driver.DeviceHardware,System.String,System.Collections.Generic.List{Ai.Hong.Driver.IT.SelTestGroup},System.String)">
             <summary>
             创建并保存测试报告
             </summary>
+            <param name="hardware">设备硬件</param>
             <param name="filename">XPS文件名</param>
             <param name="groups">测试组合的列表</param>
             <param name="reportTitle">报告的标题</param>

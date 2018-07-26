@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Ai.Hong.Common.Extenstion;
 
 namespace Ai.Hong.Driver
 {
@@ -39,6 +40,7 @@ namespace Ai.Hong.Driver
             new HardwarePropertyInfo(EnumHardware.Device, EnumHardwareProperties.ScanChannel, EnumPropCategory.optical, "BackChannel","背景通道", "Back Channel", typeof(EnumDeviceChannels), ((int)EnumDeviceChannels.SphereBackground).ToString(), false),
             new HardwarePropertyInfo(EnumHardware.Device, EnumHardwareProperties.ScanChannel, EnumPropCategory.optical, "SampleChannel", "样品通道", "Sample Channel", typeof(EnumDeviceChannels), ((int)EnumDeviceChannels.SphereSample).ToString(), false),
             new HardwarePropertyInfo(EnumHardware.Source, EnumHardwareProperties.Source, EnumPropCategory.optical, "Source", "光源", "Source", typeof(EnumDeviceSource),((int)EnumDeviceSource.Source1).ToString(), false),
+            new HardwarePropertyInfo(EnumHardware.Laser, EnumHardwareProperties.Wavelength, EnumPropCategory.optical, nameof(LaserWavelength), "激光波数", nameof(LaserWavelength), typeof(float),"15798.65", false),
 
             //电子部件
 
@@ -51,10 +53,14 @@ namespace Ai.Hong.Driver
         /// </summary>
         private static List<BasePropertyInfo> constFTProperties = new List<BasePropertyInfo>()
         {
-            new BasePropertyInfo(nameof(PhaseResolution), "相位分辨率", "Phase Resolution", typeof(EnumFTPhaseResolution), ((int)EnumFTPhaseResolution.Res_32).ToString(), true, false), //, EnumToDescriptionList<EnumFTPhaseResolution>(language)  ),
-            new BasePropertyInfo(nameof(PhaseCorrect), "相位校正方法", "Phase Correct", typeof(EnumFTPhaseCorrect), ((int)EnumFTPhaseCorrect.PowerSpectrum).ToString(), true, false), //, EnumToDescriptionList<EnumFTPhaseCorrect>(language) ),
-            new BasePropertyInfo(nameof(Apodization), "截趾函数", "Apodization", typeof(EnumFTApodization), ((int)EnumFTApodization.Blackman_Harris_3_Term).ToString(), true, false), //, EnumToDescriptionList<EnumFTApodization>(language)),
-            new BasePropertyInfo(nameof(ZeroFilling), "填零因子", "Zero Filling", typeof(EnumFTZeroFilling), ((int)EnumFTZeroFilling.Filling_0).ToString(), true, false), //, EnumToDescriptionList<EnumFTZeroFilling>(language)),
+            new BasePropertyInfo(nameof(PhaseResolution), "相位分辨率", "Phase Resolution", typeof(EnumFTPhaseResolution), ((int)EnumFTPhaseResolution.Res_32).ToString(), 
+                false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumFTPhaseResolution>(Language))),
+            new BasePropertyInfo(nameof(PhaseCorrect), "相位校正方法", "Phase Correct", typeof(EnumFTPhaseCorrect), ((int)EnumFTPhaseCorrect.Power_Spectrum).ToString(),
+                false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumFTPhaseCorrect>(Language))),
+            new BasePropertyInfo(nameof(Apodization), "截趾函数", "Apodization", typeof(EnumFTApodization), ((int)EnumFTApodization.BoxCar).ToString(),
+                false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumFTApodization>(Language))),
+            new BasePropertyInfo(nameof(ZeroFilling), "填零因子", "Zero Filling", typeof(EnumFTZeroFilling), ((int)EnumFTZeroFilling.Filling_1).ToString(), 
+                false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumFTZeroFilling>(Language))),
         };
 
         /// <summary>
@@ -65,16 +71,24 @@ namespace Ai.Hong.Driver
             //new BasePropertyInfo("resolution", "分辨率", "Resolution", typeof(int), "8"),
             new BasePropertyInfo(nameof(StartWavelength), "起始波数", "Start Wavelength", typeof(float), "4000"),
             new BasePropertyInfo(nameof(EndWavelength), "结束波数", "End Wavelength", typeof(float), "10000"),
-            new BasePropertyInfo(nameof(ScanCount), "扫描次数", "Count", typeof(EnumScanCount),((int)EnumScanCount.ScanCount_64).ToString(), true, true), //, EnumToDescriptionList<EnumScanCount>(language) ),
-            new BasePropertyInfo(nameof(RepeatCount), "重复次数", "Repeat", typeof(EnumRepeatCount), ((int)EnumRepeatCount.Repeat_0).ToString(), true, true), //, EnumToDescriptionList<EnumRepeatCount>(language) ),
+            new BasePropertyInfo(nameof(ScanCount), "扫描次数", "Count", typeof(EnumScanCount),"32", true, 
+                new Dictionary<dynamic, string>(){{1, "1" }, {2, "2" }, {4, "4" }, {8, "8" }, {16, "16" }, {32, "32" }, {64, "64" } }),
+            new BasePropertyInfo(nameof(RepeatCount), "重复次数", "Repeat", typeof(EnumRepeatCount), "0", true, 
+                new Dictionary<dynamic, string>(){ { 0, "0" }, { 1, "1" }, {2, "2" }, {3, "3" }, {4, "4" } }),
             //new BasePropertyInfo("minX", "最小X值", "Min Wavelength", typeof(int), "4000.0", true, true),
             //new BasePropertyInfo("maxX", "最大X值", "Max Wagelength", typeof(int), "10000.0", true, true),
             //new BasePropertyInfo("xStandardize", "X轴标准化", "X Standardize", typeof(int), "0"), 以后再用
             //new BasePropertyInfo("xStep", "X轴步长", "X Step", typeof(int), "2"),
-            new BasePropertyInfo(nameof(ResultSpectrum), "结果谱图", "Result Spectrum", typeof(EnumResultSpectrum), ((int)EnumResultSpectrum.Absorbance).ToString(), true, false), //,EnumToDescriptionList<EnumResultSpectrum>(language)),
-            new BasePropertyInfo(nameof(SaveSingleBeam), "保存单通道图", "Save SingleBeam", typeof(EnumYesNo), ((int)EnumYesNo.No).ToString(), true, false), //, EnumToDescriptionList<EnumYesNo>(language)),
-            new BasePropertyInfo(nameof(SaveInterfere), "保存干涉图", "Save Interfere", typeof(EnumYesNo), ((int)EnumYesNo.No).ToString(), true, false), //, EnumToDescriptionList<EnumYesNo>(language)),
-            new BasePropertyInfo(nameof(BackgroundDuration), "背景有限期", "Background Duration", typeof(EnumBackgroundDuration), ((int)EnumBackgroundDuration.Duration_60).ToString(), true, false), //, EnumToDescriptionList<EnumBackgroundDuring>(language)),
+            new BasePropertyInfo(nameof(ResultSpectrum), "结果谱图", "Result Spectrum", typeof(EnumResultSpectrum), ((int)EnumResultSpectrum.Absorbance).ToString(),
+                false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumResultSpectrum>(Language))),
+            new BasePropertyInfo(nameof(SaveSingleBeam), "保存单通道图", "Save SingleBeam", typeof(EnumYesNo), ((int)EnumYesNo.No).ToString(),
+                false, new Dictionary<dynamic, string>(){{false, "否" }, {true, "是" } }),
+            new BasePropertyInfo(nameof(SaveInterfere), "保存干涉图", "Save Interfere", typeof(EnumYesNo), ((int)EnumYesNo.No).ToString(), //, EnumToDescriptionList<EnumYesNo>(language)),
+                false, new Dictionary<dynamic, string>(){{false, "否" }, {true, "是" } }),
+            new BasePropertyInfo(nameof(BackgroundDuration), "背景有限期", "Background Duration", typeof(EnumBackgroundDuration), ((int)EnumBackgroundDuration.Duration_60).ToString(),
+                false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumBackgroundDuration>(Language))),
+            new BasePropertyInfo(nameof(SaveFileType), "文件格式", "File Format", typeof(EnumSaveFileType), ((int)EnumSaveFileType.SPC).ToString(),
+                false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumSaveFileType>(Language))),
         };
 
         /// <summary>
@@ -139,22 +153,23 @@ namespace Ai.Hong.Driver
         public EnumDeviceModel DeviceModel { get { return _deviceModel; } set { _deviceModel = value; DoPropertyChange("deviceModel"); } }
 
         /// <summary>
-        /// 附件信息，由各设备自己解释
+        /// 附加信息，由各设备自己解释
         /// </summary>
-        public string AddtionalData { get; set; }
+        [XmlElement]
+        public Dictionary<string,  string> AddtionalData { get; set; }
 
         /// <summary>
         /// 语言
         /// </summary>
         [XmlAttribute]
-        public Common.EnumLanguage Language { get; set; }
+        public static Common.EnumLanguage Language { get; set; }
 
         /// <summary>
         /// 设备属性
         /// </summary>
         [XmlArray("HardwareProps")]
         [XmlArrayItem("HardwareProp")]
-        public List<HardwarePropertyInfo> HardwareProps { get; set; }
+        public List<BasePropertyInfo> HardwareProps { get; set; }
 
         /// <summary>
         /// FT转换属性
@@ -211,11 +226,11 @@ namespace Ai.Hong.Driver
         /// <param name="language"></param>
         public ScanParameter(DeviceHardware hardware, Common.EnumLanguage language)
         {
-            HardwareProps = constHardwareProperties;
+            //HardwareProps = constHardwareProperties;
             FtTransProps = constFTProperties;
             AcquireProps = constAcquireProperties;
             SampleProps = constSampleProps;
-            this.Language = language;
+            Language = language;
 
             hardware.InitScanParameter(this);
         }
@@ -247,19 +262,6 @@ namespace Ai.Hong.Driver
         }
 
         /// <summary>
-        /// 设置特殊属性
-        /// </summary>
-        /// <param name="propertyName">属性名称</param>
-        /// <param name="propertyValue">属性值</param>
-        /// <returns></returns>
-        public virtual bool SetPropertyValue(string propertyName, dynamic propertyValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        #region alias properties
-
-        /// <summary>
         /// 通过属性名称获取属性实例
         /// </summary>
         /// <param name="propertyName">属性名</param>
@@ -287,6 +289,8 @@ namespace Ai.Hong.Driver
             return null;
         }
 
+        #region 操作属性
+
         /// <summary>
         /// 获取属性的值
         /// </summary>
@@ -295,12 +299,15 @@ namespace Ai.Hong.Driver
         public T GetPropertyValue<T>(string propertyName)
         {
             var fieldinfo = FindPropertyByName(propertyName);
-            System.Diagnostics.Trace.Assert(fieldinfo != null, "Invalid Property Name");
+            if (fieldinfo == null)
+                return default(T);
 
             if (typeof(T) == typeof(int) || typeof(T).IsEnum)
                 return (T)(object)(int.Parse(fieldinfo.Value));
             else if (typeof(T) == typeof(float))
                 return (T)(object)(float.Parse(fieldinfo.Value));
+            else if (typeof(T) == typeof(double))
+                return (T)(object)(double.Parse(fieldinfo.Value));
             else if (typeof(T) == typeof(string))
                 return (T)(object)fieldinfo.Value;
             else if (typeof(T) == typeof(bool))
@@ -318,7 +325,8 @@ namespace Ai.Hong.Driver
         public void SetPropertyValue<T>(string propertyName, T propertyValue)
         {
             var fieldinfo = FindPropertyByName(propertyName);
-            System.Diagnostics.Trace.Assert(fieldinfo != null, "Invalid Property Name");
+            if (fieldinfo == null)
+                return;
 
             if (typeof(T) == typeof(int) || typeof(T) == typeof(float))
                 fieldinfo.Value = propertyValue.ToString();
@@ -329,6 +337,70 @@ namespace Ai.Hong.Driver
             else if (typeof(T) == typeof(bool))
                 fieldinfo.Value = (bool)(object)propertyValue == true ? "1" : "0";
         }
+
+        /// <summary>
+        /// 设置属性列表选项
+        /// </summary>
+        /// <param name="innerName">属性内部名称</param>
+        /// <param name="selections">选项</param>
+        public void SetPropertySelections(string innerName, Dictionary<dynamic, string> selections)
+        {
+            var propInfo = FindPropertyByName(innerName);
+            if(propInfo != null)
+                propInfo.Selections = selections;
+        }
+
+        /// <summary>
+        /// 获取属性列表选项
+        /// </summary>
+        /// <param name="innerName">属性内部名称</param>
+        public Dictionary<dynamic, string> GetPropertySelections(string innerName)
+        {
+            var propInfo = FindPropertyByName(innerName);
+            return propInfo != null ? propInfo.Selections : null;
+        }
+
+        /// <summary>
+        /// 设置属性最大最小值
+        /// </summary>
+        /// <param name="innerName"></param>
+        /// <param name="max"></param>
+        /// <param name="min"></param>
+        public void SetPropertyMaxMin(string innerName, float max, float min)
+        {
+            var propInfo = FindPropertyByName(innerName);
+            if (propInfo != null)
+            {
+                propInfo.MaxValue = max;
+                propInfo.MinValue = min;
+            }
+        }
+
+        /// <summary>
+        /// 获取属性最大最小值
+        /// </summary>
+        /// <param name="innerName"></param>
+        /// <param name="max"></param>
+        /// <param name="min"></param>
+        /// <returns>true=找到属性</returns>
+        public bool GetPropertyMaxMin(string innerName, out float max, out float min)
+        {
+            max = float.MaxValue;
+            min = float.MinValue;
+            var propInfo = FindPropertyByName(innerName);
+            if (propInfo != null)
+            {
+                max = propInfo.MaxValue;
+                min = propInfo.MinValue;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        #endregion
+
+        #region alias properties
 
         /// <summary>
         /// 扫描次数
@@ -452,24 +524,25 @@ namespace Ai.Hong.Driver
         /// X轴插值后的步长, 4cm-1 = 1, 8cm-1 = 2, 16cm-1=4;
         /// </summary>
         [XmlIgnore]
-        public double XStep { get { return GetPropertyValue<double>(nameof(XStep)); } set { SetPropertyValue(nameof(XStep), value); DoPropertyChange(nameof(XStep)); } }
+        public float XStep { get { return GetPropertyValue<float>(nameof(XStep)); } set { SetPropertyValue(nameof(XStep), value); DoPropertyChange(nameof(XStep)); } }
+
+        /// <summary>
+        /// 保存的光谱文件格式
+        /// </summary>
+        [XmlIgnore]
+        public EnumSaveFileType SaveFileType { get { return GetPropertyValue<EnumSaveFileType>(nameof(SaveFileType)); } set { SetPropertyValue(nameof(SaveFileType), value); DoPropertyChange(nameof(SaveFileType)); } }
+
+        /// <summary>
+        /// 激光器波数
+        /// </summary>
+        [XmlIgnore]
+        public float LaserWavelength { get { return GetPropertyValue<float>(nameof(LaserWavelength)); } set { SetPropertyValue(nameof(LaserWavelength), value); DoPropertyChange(nameof(LaserWavelength)); } }
 
         /// <summary>
         /// 是否需要扫描背景
         /// </summary>
         [XmlIgnore]
-        public bool NeedScanBackground
-        {
-            get
-            {
-                if (BackgroundSpectrum == null)
-                    return true;
-
-                int duration = GetPropertyValue<int>("bgDuration");
-                var diff = DateTime.Now - BackgroundTime;
-                return diff.TotalMinutes >= duration;
-            }
-        }
+        public bool NeedScanBackground { get { return BackgroundSpectrum == null || (DateTime.Now - BackgroundTime).TotalMinutes >= (int)BackgroundDuration; } }
 
         #endregion
 

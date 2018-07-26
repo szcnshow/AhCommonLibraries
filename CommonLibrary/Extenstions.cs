@@ -376,28 +376,45 @@ namespace Ai.Hong.Common.Extenstion
             return retData;
         }
 
-        ///// <summary>
-        ///// 获取Enum的描述列表
-        ///// </summary>
-        ///// <typeparam name="T">enum类型</typeparam>
-        ///// <param name="language">使用的语言</param>
-        ///// <returns>Key=显示名称, Value=值</returns>
-        //public static Dictionary<string, dynamic> EnumToDescriptionList<T>(EnumLanguage language)
-        //{
-        //    if (typeof(T).IsEnum == false)
-        //        return null;
 
-        //    Dictionary<string, dynamic> retData = new Dictionary<string, dynamic>();
+        /// <summary>
+        /// 获取Enum类型的值列表
+        /// </summary>
+        /// <typeparam name="T">enum类型</typeparam>
+        /// <returns>Key=EnumValue, Value=Description</returns>
+        public static List<T> EnumValueList<T>() where T : struct, IConvertible
+        {
+            if (typeof(T).IsEnum == false)
+                return null;
 
-        //    Array enumValues = Enum.GetValues(typeof(T));
-        //    foreach (var value in enumValues)
-        //    {
-        //        retData.Add(((int)System.Convert.ChangeType(value, typeof(Enum))).ToString(), GetEnumDescription<T>((T)value, language));
-        //    }
+            List<T> retData = new List<T>();
 
-        //    return retData;
-        //}
+            Array enumValues = Enum.GetValues(typeof(T));
+            foreach (var value in enumValues)
+            {
+                retData.Add((T)System.Convert.ChangeType(value, typeof(T)));
+            }
 
+            return retData;
+        }
+
+        /// <summary>
+        /// 将确认类型的字典转换为dyanmic字典
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Dictionary<dynamic, string> TypeDictionaryToDynamic<T>(Dictionary<T, string> value)
+        {
+            Dictionary<dynamic, string> retData = new Dictionary<dynamic, string>();
+
+            foreach(var item in value)
+            {
+                retData.Add(item.Key, item.Value);
+            }
+
+            return retData;
+        }
     }
 
 }

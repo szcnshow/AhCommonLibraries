@@ -1035,31 +1035,31 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 完成一次检测
         /// </summary>
-        oneFinished = 2,
+        OneFinished = 2,
         /// <summary>
         /// 完成全部重复（扫描结束）
         /// </summary>
-        repeateFinished = 3,
+        RepeateFinished = 3,
         /// <summary>
         /// 参数错误
         /// </summary>
-        parameterError = 4,
+        ParameterError = 4,
         /// <summary>
         /// 设备错误
         /// </summary>
-        deviceError = 5,
+        DeviceError = 5,
         /// <summary>
         /// 文件错误
         /// </summary>
-        fileError = 6,
+        FileError = 6,
         /// <summary>
         /// 用户取消
         /// </summary>
-        userAbort = 7,
+        UserAbort = 7,
         /// <summary>
         /// 需要扫描背景
         /// </summary>
-        backgroundError = 8,
+        BackgroundError = 8,
     }
 
     #endregion
@@ -1116,6 +1116,25 @@ namespace Ai.Hong.Driver
         /// </summary>
         [Description("Log 反射谱,Log Reflectance")]
         Log_Reflectance = 8,
+    }
+
+    /// <summary>
+    /// 保存的光谱文件格式
+    /// </summary>
+    public enum EnumSaveFileType
+    {
+        /// <summary>
+        /// SPC
+        /// </summary>
+        SPC = 0,
+        /// <summary>
+        /// CSV
+        /// </summary>
+        CSV = 1,
+        /// <summary>
+        /// JDX
+        /// </summary>
+        JDX = 2,
     }
 
     /// <summary>
@@ -1185,65 +1204,10 @@ namespace Ai.Hong.Driver
         [Description("Mertz")]
         Mertz = 1,
         /// <summary>
-        /// 
-        /// </summary>
-        [Description("Mertz Signed")]
-        MertzSigned = 2,
-        /// <summary>
-        /// 
+        /// Power Spectrum
         /// </summary>
         [Description("Power Spectrum")]
-        PowerSpectrum = 3,
-        /// <summary>
-        /// Mertz / No Peak Searched
-        /// </summary>
-        [Description("Mertz / No Peak Searched")]
-        Mertz_NoPeakSearched = 4,
-        /// <summary>
-        /// Mertz Signed / No Peak Searched
-        /// </summary>
-        [Description("Mertz Signed / No Peak Searched")]
-        MertzSigned_NoPeakSearched = 5,
-        /// <summary>
-        /// Power / No Peak Searched
-        /// </summary>
-        [Description("Power / No Peak Searched")]
-        Power_NoPeakSearched = 6,
-        /// <summary>
-        /// Mertz / Stored Phase
-        /// </summary>
-        [Description("Mertz / Stored Phase")]
-        Mertz_StoredPhase = 7,
-        /// <summary>
-        /// No / Save Complex Data
-        /// </summary>
-        [Description("No / Save Complex Data")]
-        No_SaveComplexData = 8,
-        /// <summary>
-        /// Forman
-        /// </summary>
-        [Description("Forman")]
-        Forman = 9,
-        /// <summary>
-        /// Forman / Stored Phase
-        /// </summary>
-        [Description("Forman / Stored Phase")]
-        Forman_StoredPhase = 10,
-        /// <summary>
-        /// Forman / Preapodized
-        /// </summary>
-        [Description("Forman / Preapodized")]
-        Forman_Preapodized = 11,
-        /// <summary>
-        /// Double Phase
-        /// </summary>
-        [Description("Double Phase")]
-        DoublePhase = 12,
-        /// <summary>
-        /// Mertz / Full Range Peak Search
-        /// </summary>
-        [Description("Mertz / Full Range Peak Search")]
-        Mertz_FullRangePeakSearch = 13,
+        Power_Spectrum = 2,
     }
 
     /// <summary>
@@ -1262,25 +1226,25 @@ namespace Ai.Hong.Driver
         [Description("Triangular")]
         Triangular = 2,
         /// <summary>
-        /// 
-        /// </summary>
-        [Description("FourPoint")]
-        FourPoint = 3,
-        /// <summary>
         /// Happ Genzel
         /// </summary>
         [Description("Happ Genzel")]
-        Happ_Genzel = 4,
+        Happ_Genzel = 3,
         /// <summary>
         /// Blackman Harris 3 Term
         /// </summary>
         [Description("Blackman Harris 3 Term")]
-        Blackman_Harris_3_Term = 5,
+        Blackman_Harris_3_Term = 4,
         /// <summary>
         /// Blackman Harris 4 Term
         /// </summary>
         [Description("Blackman Harris 4 Term")]
-        Blackman_Harris_4_Term = 6,
+        Blackman_Harris_4_Term = 5,
+        /// <summary>
+        /// Blackman Harris 4 Term
+        /// </summary>
+        [Description("Blackman Harris 7 Term")]
+        Blackman_Harris_7_Term = 6,
         /// <summary>
         /// Norton Beer Weak
         /// </summary>
@@ -1296,16 +1260,6 @@ namespace Ai.Hong.Driver
         /// </summary>
         [Description("Norton Beer Strong")]
         Norton_Beer_Strong = 9,
-        /// <summary>
-        /// User One
-        /// </summary>
-        [Description("User One")]
-        UserOne = 10,
-        /// <summary>
-        /// User Two
-        /// </summary>
-        [Description("User Two")]
-        UserTwo = 11
     }
 
     /// <summary>
@@ -1313,11 +1267,11 @@ namespace Ai.Hong.Driver
     /// </summary>
     public enum EnumFTZeroFilling
     {
-        /// <summary>
-        /// Filling 0
-        /// </summary>
-        [Description("Factor 0")]
-        Filling_0 = 0,
+        ///// <summary>
+        ///// Filling 0
+        ///// </summary>
+        //[Description("Factor 0")]
+        //Filling_0 = 0,
         /// <summary>
         /// Filling 1
         /// </summary>

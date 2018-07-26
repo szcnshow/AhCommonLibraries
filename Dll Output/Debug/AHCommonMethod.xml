@@ -822,6 +822,21 @@
             <param name="language">使用的语言</param>
             <returns>Key=EnumValue, Value=Description</returns>
         </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumValueList``1">
+            <summary>
+            获取Enum类型的值列表
+            </summary>
+            <typeparam name="T">enum类型</typeparam>
+            <returns>Key=EnumValue, Value=Description</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.TypeDictionaryToDynamic``1(System.Collections.Generic.Dictionary{``0,System.String})">
+            <summary>
+            将确认类型的字典转换为dyanmic字典
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="T:Ai.Hong.Common.ResourceOperator">
             <summary>
             资源操作类

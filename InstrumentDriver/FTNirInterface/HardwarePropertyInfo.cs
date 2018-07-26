@@ -35,24 +35,6 @@ namespace Ai.Hong.Driver
         [XmlIgnore]
         public bool IsReadonly;
 
-        /// <summary>
-        /// 是否为列表项
-        /// </summary>
-        [XmlIgnore]
-        public bool IsSelection;
-
-        /// <summary>
-        /// 属性最小值
-        /// </summary>
-        [XmlIgnore]
-        public float MinValue;
-
-        /// <summary>
-        /// 属性最大值
-        /// </summary>
-        [XmlIgnore]
-        public float MaxValue;
-
         #endregion
 
         /// <summary>
@@ -81,7 +63,7 @@ namespace Ai.Hong.Driver
             this.PropCategory = propCategory;
             this.ValueType = valueType ?? typeof(int);
             this.IsReadonly = isReadonly;
-            this.IsSelection = isSelection;
+            //this.IsSelection = isSelection;
             this.Inputable = inputable;
             this.InnerName = propID.ToString();
             this.EnglishName = propID.ToString();
@@ -109,7 +91,7 @@ namespace Ai.Hong.Driver
         /// <param name="inputable">是否允许用户录入</param>
         public HardwarePropertyInfo(EnumHardware hardwareID, EnumHardwareProperties propID, EnumPropCategory propCategory,
             string innerName, string chineseName, string englishName, Type valueType, string value, bool inputable = false) :
-            base(innerName, chineseName, englishName, valueType, value, true, inputable)
+            base(innerName, chineseName, englishName, valueType, value, inputable)
         {
             this.HardwareID = hardwareID;
             this.PropertyID = propID;

@@ -16,49 +16,6 @@ using Ai.Hong.Common;
 // Instrument test
 namespace Ai.Hong.Driver.IT
 {
-    /// <summary>
-    /// 扫描通知状态枚举
-    /// </summary>
-    public enum EnumScanNotifyState
-    {
-        /// <summary>
-        /// 还没有开始扫描
-        /// </summary>
-        Idel = 0,
-        /// <summary>
-        /// 正在扫描
-        /// </summary>
-        Scanning=1,
-        /// <summary>
-        /// 完成一次检测
-        /// </summary>
-        oneFinished=2,
-        /// <summary>
-        /// 完成全部重复（扫描结束）
-        /// </summary>
-        repeateFinished=3,
-        /// <summary>
-        /// 参数错误
-        /// </summary>
-        parameterError=4,
-        /// <summary>
-        /// 设备错误
-        /// </summary>
-        deviceError = 5,
-        /// <summary>
-        /// 文件错误
-        /// </summary>
-        fileError = 6,
-        /// <summary>
-        /// 用户取消
-        /// </summary>
-        userAbort=7,
-        /// <summary>
-        /// 需要扫描背景
-        /// </summary>
-        backgroundError = 8,
-    }
-
     ///// <summary>
     ///// 扫描通知消息参数
     ///// </summary>
@@ -306,12 +263,13 @@ namespace Ai.Hong.Driver.IT
         /// <summary>
         /// 获取扫描参数
         /// </summary>
+        /// <param name="hardware">当前设备</param>
         /// <returns></returns>
-        public virtual ScanParameter GetScanParameter()
+        public virtual ScanParameter GetScanParameter(DeviceHardware hardware)
         {
             if (this._measurePara == null)
             {
-                this._measurePara = new ScanParameter();
+                this._measurePara = new ScanParameter(hardware, EnumLanguage.Chinese);
             }
 
             this._measurePara.StartWavelength = 4000.0f;
@@ -615,10 +573,10 @@ namespace Ai.Hong.Driver.IT
         /// 获取扫描参数
         /// </summary>
         /// <returns></returns>
-        public override ScanParameter GetScanParameter()
+        public override ScanParameter GetScanParameter(DeviceHardware hardware)
         {
             //采集透射谱，保存单通道谱和干涉谱
-            var para = base.GetScanParameter();
+            var para = base.GetScanParameter(hardware);
             para.ResultSpectrum = EnumResultSpectrum.Transmittance;
             para.SaveSingleBeam = true;
             para.SaveInterfere = true;
@@ -697,10 +655,10 @@ namespace Ai.Hong.Driver.IT
         /// 获取扫描参数
         /// </summary>
         /// <returns></returns>
-        public override ScanParameter GetScanParameter()
+        public override ScanParameter GetScanParameter(DeviceHardware hardware)
         {
-            var para = base.GetScanParameter();
-            para.SaveInterfere = true;
+            var para = base.GetScanParameter(hardware);
+            para.ResultSpectrum =  EnumResultSpectrum.Interfer;
 
             return para;
         }
@@ -765,10 +723,10 @@ namespace Ai.Hong.Driver.IT
         /// 获取扫描参数
         /// </summary>
         /// <returns></returns>
-        public override ScanParameter GetScanParameter()
+        public override ScanParameter GetScanParameter(DeviceHardware hardware)
         {
-            var para = base.GetScanParameter();
-            para.SaveSingleBeam = true;
+            var para = base.GetScanParameter(hardware);
+            para.ResultSpectrum = EnumResultSpectrum.BackSingleBeam;
 
             return para;
         }
@@ -918,9 +876,9 @@ namespace Ai.Hong.Driver.IT
         /// 获取扫描参数
         /// </summary>
         /// <returns></returns>
-        public override ScanParameter GetScanParameter()
+        public override ScanParameter GetScanParameter(DeviceHardware hardware)
         {
-            var para = base.GetScanParameter();
+            var para = base.GetScanParameter(hardware);
             para.IVUFilter = IVUFilter;
 
             return para;
@@ -1209,9 +1167,9 @@ namespace Ai.Hong.Driver.IT
         /// 获取扫描参数
         /// </summary>
         /// <returns></returns>
-        public override ScanParameter GetScanParameter()
+        public override ScanParameter GetScanParameter(DeviceHardware hardware)
         {
-            var para = base.GetScanParameter();
+            var para = base.GetScanParameter(hardware);
             para.Apodization = EnumFTApodization.BoxCar;
 
             return para;
@@ -1581,9 +1539,9 @@ namespace Ai.Hong.Driver.IT
         /// 获取扫描参数
         /// </summary>
         /// <returns></returns>
-        public override ScanParameter GetScanParameter()
+        public override ScanParameter GetScanParameter(DeviceHardware hardware)
         {
-            var para = base.GetScanParameter();
+            var para = base.GetScanParameter(hardware);
             para.ResultSpectrum = EnumResultSpectrum.Transmittance;
 
             return para;
@@ -1660,9 +1618,9 @@ namespace Ai.Hong.Driver.IT
         /// 获取扫描参数
         /// </summary>
         /// <returns></returns>
-        public override ScanParameter GetScanParameter()
+        public override ScanParameter GetScanParameter(DeviceHardware hardware)
         {
-            var para = base.GetScanParameter();
+            var para = base.GetScanParameter(hardware);
             para.BackGain = Driver.EnumDeviceGain.Gain_1;
             para.ResultSpectrum = EnumResultSpectrum.Transmittance;
 
@@ -2344,9 +2302,10 @@ namespace Ai.Hong.Driver.IT
         /// <summary>
         /// 创建一页详细测试结果报告
         /// </summary>
+        /// <param name="hardware">设备类型</param>
         /// <param name="testingInfo">测试结果</param>
         /// <returns></returns>
-        public Border GenerateDetailPage(BaseSelfTestInfo testingInfo)
+        public Border GenerateDetailPage(DeviceHardware hardware, BaseSelfTestInfo testingInfo)
         {
             Border rootBorder = Ai.Hong.Controls.Common.XPSReportTemplate.CloneObject(detailBorder);
             Grid rootGrid = rootBorder.Child as Grid;
@@ -2401,7 +2360,7 @@ namespace Ai.Hong.Driver.IT
 
             //测量参数
             Grid paraGrid = rootBorder.FindName("gridParameters") as Grid;
-            var scanpara = testingInfo.GetScanParameter();
+            var scanpara = testingInfo.GetScanParameter(hardware);
             var parasEnglish = new string[] { "Resolution", "Count", "BackGain", "ZeroFilling", "PhaseCorrect", "Apodization" };
             var parasChinese = new string[] { "分辨率", "扫描次数", "背景增益", "填零系数", "截趾函数", "相位校正方法", "相位分辨率" };
             var paraValues = new string[] { scanpara.Resolution.ToString(), scanpara.ScanCount.ToString(), scanpara.BackGain.ToString(), scanpara.ZeroFilling.ToString(), scanpara.Apodization.ToString(), scanpara.PhaseCorrect.ToString(), scanpara.PhaseResolution.ToString() };
@@ -2455,11 +2414,12 @@ namespace Ai.Hong.Driver.IT
         /// <summary>
         /// 创建并保存测试报告
         /// </summary>
+        /// <param name="hardware">设备硬件</param>
         /// <param name="filename">XPS文件名</param>
         /// <param name="groups">测试组合的列表</param>
         /// <param name="reportTitle">报告的标题</param>
         /// <returns></returns>
-        public bool CreateAndSaveXPSFile(string filename, List<SelTestGroup> groups, string reportTitle)
+        public bool CreateAndSaveXPSFile(DeviceHardware hardware, string filename, List<SelTestGroup> groups, string reportTitle)
         {
             FixedDocument fixedDoc = new FixedDocument();
 
@@ -2473,7 +2433,7 @@ namespace Ai.Hong.Driver.IT
             {
                 foreach (var item in group.testItems)
                 {
-                    border = GenerateDetailPage(item);
+                    border = GenerateDetailPage(hardware, item);
                     page = Ai.Hong.Controls.Common.XPSReportTemplate.CreatePageContent(border);
                     fixedDoc.Pages.Add(page);
                 }

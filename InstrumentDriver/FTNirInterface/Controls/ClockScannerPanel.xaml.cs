@@ -39,11 +39,6 @@ namespace Ai.Hong.Driver.Controls
         private bool userAbort = false;
 
         /// <summary>
-        /// 是否为背景光谱
-        /// </summary>
-        public bool IsBackground = true;
-
-        /// <summary>
         /// 当前扫描状态
         /// </summary>
         public EnumScanNotifyState ScanningState { get; set; }
@@ -66,6 +61,8 @@ namespace Ai.Hong.Driver.Controls
         /// 当前重复次数
         /// </summary>
         private int currentRepeat = 0;
+
+        private List<FileFormat.FileFormat> ScannedDatas = null;
 
         #endregion
 
@@ -98,10 +95,10 @@ namespace Ai.Hong.Driver.Controls
             for(int i=0; i<count; i++)
             {
                 Thread.Sleep(500);
-                if(ScanCallback(EnumHardwareStatus.OK, count, i+1) == false)
+                if(ScanCallback(EnumScanNotifyState.Scanning, count, i+1) == false)
                     break;
             }
-            ScanningState = EnumScanNotifyState.oneFinished;
+            ScanningState = EnumScanNotifyState.OneFinished;
         }
 
         /// <summary>
@@ -109,44 +106,47 @@ namespace Ai.Hong.Driver.Controls
         /// </summary>
         /// <param name="scanner">当前设备</param>
         /// <param name="parameter">扫描参数</param>
-        /// <param name="isBackground">True=扫描背景, False=扫描样品</param>
-        public EnumScanNotifyState StartScan(FTDriver scanner, ScanParameter parameter, bool isBackground)
+        public EnumScanNotifyState StartScan(FTDriver scanner, ScanParameter parameter)
         {
-            this.parameter = parameter;
-            this.scanner = scanner;
-            this.IsBackground = isBackground;
-
-            //扫描样品时，没有背景光谱，或者背景光谱过期，提示错误
-            if (isBackground == false && (parameter.BackgroundSpectrum == null || 
-                (DateTime.Now - parameter.BackgroundTime).TotalMinutes > (int)parameter.BackgroundDuration))
+            if (scanner == null || parameter == null)
             {
-                ScanningState = EnumScanNotifyState.Idel;
-                return EnumScanNotifyState.backgroundError;
-            }
-
-            currentRepeat = 0;
-            scanProgress.Start(parameter.ScanCount);
-
-            if(scanner == null || parameter == null)
-            {
-                ScanningState = EnumScanNotifyState.parameterError;
+                ScanningState = EnumScanNotifyState.ParameterError;
                 return ScanningState;
             }
+
+            this.parameter = parameter;
+            this.scanner = scanner;
+
+            //干涉图和单通道图不需要背景，否则检查没有背景光谱，或者背景光谱过期，提示错误
+            if (parameter.ResultSpectrum != EnumResultSpectrum.Interfer && parameter.ResultSpectrum != EnumResultSpectrum.BackSingleBeam && parameter.ResultSpectrum != EnumResultSpectrum.SampleSingleBeam)
+            {
+                if (parameter.BackgroundSpectrum == null || (DateTime.Now - parameter.BackgroundTime).TotalMinutes > (int)parameter.BackgroundDuration)
+                {
+                    ScanningState = EnumScanNotifyState.Idel;
+                    return EnumScanNotifyState.BackgroundError;
+                }
+            }
+            currentRepeat = 0;
+
+            //设置进度条
+            scanProgress.Start(parameter.ScanCount);
 
             //设置扫描参数
             if (scanner.SetExperimentParemter(parameter) == false)
             {
                 ErrorString = scanner.ErrorString;
-                ScanningState = EnumScanNotifyState.parameterError;
+                ScanningState = EnumScanNotifyState.ParameterError;
                 return ScanningState;
             }
 
-            //启动扫描
-            var ret = scanner.SendAcquireCommand(isBackground? EnumAcquireCommand.BackStart: EnumAcquireCommand.SampleStart, ScanCallback);
+            //启动扫描,干涉图和背景单通道发送背景扫描命令，否则发送样品扫描命令
+            var ret = scanner.SendAcquireCommand((parameter.ResultSpectrum==EnumResultSpectrum.Interfer || parameter.ResultSpectrum==EnumResultSpectrum.BackSingleBeam)  ? EnumAcquireCommand.BackStart: EnumAcquireCommand.SampleStart, ScanCallback);
             if (ret == false)
                 ErrorString = scanner.ErrorString;
 
-            ScanningState = ret ? EnumScanNotifyState.Scanning : EnumScanNotifyState.deviceError;
+            ScannedDatas = new List<FileFormat.FileFormat>();
+
+            ScanningState = ret ? EnumScanNotifyState.Scanning : EnumScanNotifyState.DeviceError;
 
             return ScanningState;
         }
@@ -155,17 +155,17 @@ namespace Ai.Hong.Driver.Controls
         /// 重复扫描（第一次扫描需要调用StartScan）
         /// </summary>
         /// <returns></returns>
-        private bool RepeatScan(bool isBackground)
+        private bool RepeatScan()
         {
             currentRepeat++;
             scanProgress.Start(parameter.ScanCount);
 
             //启动扫描
-            var ret = scanner.SendAcquireCommand(isBackground ? EnumAcquireCommand.BackStart : EnumAcquireCommand.SampleStart, ScanCallback);
+            var ret = scanner.SendAcquireCommand((parameter.ResultSpectrum == EnumResultSpectrum.Interfer || parameter.ResultSpectrum == EnumResultSpectrum.BackSingleBeam) ? EnumAcquireCommand.BackStart : EnumAcquireCommand.SampleStart, ScanCallback);
             if (ret == false)
                 ErrorString = scanner.ErrorString;
 
-            ScanningState = ret ? EnumScanNotifyState.Scanning : EnumScanNotifyState.deviceError;
+            ScanningState = ret ? EnumScanNotifyState.Scanning : EnumScanNotifyState.DeviceError;
 
             return ret;
         }
@@ -177,39 +177,54 @@ namespace Ai.Hong.Driver.Controls
         /// <param name="maxValue">总扫描次数</param>
         /// <param name="curValue">当前扫描次数</param>
         /// <returns>True=继续扫描, False=终止扫描</returns>
-        bool ScanCallback(EnumHardwareStatus status, int maxValue, int curValue)
+        bool ScanCallback(EnumScanNotifyState status, int maxValue, int curValue)
         {
-            Dispatcher.BeginInvoke((Action)delegate()
+            //每次扫描完成都通知驱动扫描线程退出, 判断完成一次扫描还是全部扫描
+            if (userAbort)
+                status = EnumScanNotifyState.UserAbort;
+            else if(status == EnumScanNotifyState.OneFinished)  //一次扫描结束（扫描结束消息由驱动程序提供）
             {
-                scanProgress.CurrentHours = curValue;
-            });
-
-            //扫描出现错误，或者扫描结束
-            ErrorString = null;
-            if (status != EnumHardwareStatus.Busy && status != EnumHardwareStatus.OK) //扫描出现错误
-            {
-                scanProgress.Stop();
-                ErrorString = scanner.ErrorString;
-                ScanningState = EnumScanNotifyState.deviceError;
-                RaiseNofiyEvent(ScanningState);
-            }
-            else if (userAbort)  //用户取消
-            {
-                scanProgress.Stop();
-                ErrorString = "User Abort Scanning";
-                ScanningState = EnumScanNotifyState.userAbort;
-                RaiseNofiyEvent(ScanningState);
-            }
-            else if (maxValue == curValue)   //完成一次扫描
-            {
-                scanProgress.Stop();
-                ScanningState = currentRepeat < parameter.RepeatCount ? EnumScanNotifyState.oneFinished : EnumScanNotifyState.repeateFinished;
-
-                //不管重复扫描是否完成，都要结束本次扫描，由RaiseNofiyEvent开启重复扫描
-                RaiseNofiyEvent(ScanningState);
+                status = currentRepeat < parameter.RepeatCount ? EnumScanNotifyState.OneFinished : EnumScanNotifyState.RepeateFinished;
             }
 
-            return ScanningState == EnumScanNotifyState.Scanning;
+            //另外启动一个线程来处理扫描通知
+            Dispatcher.BeginInvoke((Action)delegate { DoScanProcessEvent(status, maxValue, curValue); });
+
+            return userAbort == false && status == EnumScanNotifyState.Scanning;
+        }
+
+        private void DoScanProcessEvent(EnumScanNotifyState status, int maxValue, int curValue)
+        {
+            scanProgress.CurrentHours = curValue;
+            ScanningState = status;
+            switch (ScanningState)
+            {
+                case EnumScanNotifyState.OneFinished:   //本次扫描完成
+                    ScannedDatas.AddRange(scanner.GetScanedDatas());
+                    RaiseNofiyEvent(ScanningState);
+                    
+                    //有可能用户取消扫描，就不重复扫描了
+                    if (userAbort == true)
+                        ScanningState = EnumScanNotifyState.Idel;
+                    else    //启动重复扫描
+                    {
+                        if (RepeatScan() == false)  //重复扫描出错了
+                            RaiseNofiyEvent(ScanningState);
+                    }
+                    break;
+                case EnumScanNotifyState.RepeateFinished:   //全部完成
+                    ScannedDatas.AddRange(scanner.GetScanedDatas());
+                    RaiseNofiyEvent(ScanningState);
+                    ScanningState = EnumScanNotifyState.Idel;
+                    break;
+                default:
+                    ErrorString = scanner.ErrorString;
+                    RaiseNofiyEvent(ScanningState);
+                    break;
+            }
+
+            if (ScanningState != EnumScanNotifyState.Scanning)
+                scanProgress.Stop();
         }
 
         /// <summary>
@@ -217,20 +232,11 @@ namespace Ai.Hong.Driver.Controls
         /// </summary>
         private void RaiseNofiyEvent(EnumScanNotifyState state)
         {
-            scanProgress.Stop();
-
             //发生消息后即刻返回，消息返回值处理由Dispatcher线程完成
             Dispatcher.BeginInvoke((Action)delegate()
             {
                 ScanNotifyArgs args = new ScanNotifyArgs(NotifyEvent, state, ErrorString);
                 RaiseEvent(args);
-
-                //如果是重复扫描，还没有到达重复扫描的次数
-                if (args.abortScan == false && args.state == EnumScanNotifyState.oneFinished)
-                {
-                    Thread.Sleep(10);   //暂停10ms等待当前扫描线程结束
-                    RepeatScan(IsBackground);   //启动新的扫描
-                }
             });
         }
 
@@ -259,7 +265,7 @@ namespace Ai.Hong.Driver.Controls
         /// <returns>FileFormat列表</returns>
         public List<FileFormat.FileFormat> GetResult()
         {
-            return scanner.GetScanedDatas();
+            return ScannedDatas;
         }
     }
 }

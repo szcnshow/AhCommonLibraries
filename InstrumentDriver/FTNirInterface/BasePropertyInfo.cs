@@ -70,13 +70,31 @@ namespace Ai.Hong.Driver
         /// 选项列表
         /// </summary>
         [XmlIgnore]
-        public List<dynamic> Selections { get; set; }
+        public Dictionary<dynamic, string> Selections { get; set; }
 
         /// <summary>
         /// 是否可以录入
         /// </summary>
         [XmlIgnore]
         public bool Inputable { get; set; }
+
+        /// <summary>
+        /// 是否为列表项
+        /// </summary>
+        [XmlIgnore]
+        public bool IsSelection { get { return Selections != null; } }
+
+        /// <summary>
+        /// 属性最小值
+        /// </summary>
+        [XmlIgnore]
+        public float MinValue { get; set; } = float.MinValue;
+
+        /// <summary>
+        /// 属性最大值
+        /// </summary>
+        [XmlIgnore]
+        public float MaxValue { get; set; } = float.MaxValue;
 
         #endregion
 
@@ -96,17 +114,16 @@ namespace Ai.Hong.Driver
         /// <param name="englishName">英文名称</param>
         /// <param name="valueType">值得类型</param>
         /// <param name="value">当前值</param>
-        /// <param name="isValid">是否有效</param>
         /// <param name="inputable">是否允许用户录入</param>
         /// <param name="selections">选项列表</param>
-        public BasePropertyInfo(string innerName, string chineseName, string englishName, Type valueType, string value = null, bool isValid = true, bool inputable = false, List<dynamic> selections = null)
+        public BasePropertyInfo(string innerName, string chineseName, string englishName, Type valueType, string value = null, bool inputable = false, Dictionary<dynamic, string> selections = null)
         {
             this.InnerName = innerName;
             this.ChineseName = chineseName;
             this.EnglishName = englishName;
             this.ValueType = valueType;
             this.Value = value;
-            this.IsValid = isValid;
+            this.IsValid = true;
             this.Inputable = inputable;
             this.Selections = selections;
         }

@@ -70,7 +70,7 @@ namespace Ai.Hong.Driver
         /// <param name="forFilename">是否作为文件名</param>
         /// <param name="autoGenerate">是否系统自动生成</param>
         public SampleFieldInfo(string innerName, string chineseName, string englishName, Type valueType, bool hasPreDefines = true, bool isValid = false, bool forFilename = false, bool autoGenerate = false) :
-            base(innerName, chineseName, englishName, valueType, null, isValid, true)
+            base(innerName, chineseName, englishName, valueType, null, true)
         {
             this.ForFilename = forFilename;
             this.HasPreDefines = hasPreDefines;

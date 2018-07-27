@@ -1299,7 +1299,7 @@
             Mertz
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.PowerSpectrum">
+        <member name="F:Ai.Hong.Driver.EnumFTPhaseCorrect.Power_Spectrum">
             <summary>
             Power Spectrum
             </summary>
@@ -1357,11 +1357,6 @@
         <member name="T:Ai.Hong.Driver.EnumFTZeroFilling">
             <summary>
             FT填零
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Driver.EnumFTZeroFilling.Filling_0">
-            <summary>
-            Filling 0
             </summary>
         </member>
         <member name="F:Ai.Hong.Driver.EnumFTZeroFilling.Filling_1">
@@ -1678,6 +1673,11 @@
         <member name="P:Ai.Hong.Driver.DeviceHardware.DeviceModel">
             <summary>
             设备型号
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.DeviceHardware.Language">
+            <summary>
+            设备使用的语言
             </summary>
         </member>
         <member name="P:Ai.Hong.Driver.DeviceHardware.PropertyInfos">
@@ -2613,6 +2613,20 @@
             <param name="max"></param>
             <param name="min"></param>
             <returns>true=找到属性</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.SetAddtionalData(System.String,System.String)">
+            <summary>
+            设置附加属性
+            </summary>
+            <param name="key">属性名称</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.ScanParameter.GetAddtionalData(System.String)">
+            <summary>
+            获取附加属性值
+            </summary>
+            <param name="key">属性名称</param>
+            <returns></returns>
         </member>
         <member name="P:Ai.Hong.Driver.ScanParameter.ScanCount">
             <summary>

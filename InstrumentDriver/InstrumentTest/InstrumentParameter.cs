@@ -1429,6 +1429,7 @@ namespace Ai.Hong.Driver.IT
             //计算半高线两边交点的间的长度
             FinalResult = Math.Sqrt( (crossPt1.X - crossPt2.X) * (crossPt1.X - crossPt2.X) + (crossPt1.Y - crossPt2.Y) * (crossPt1.Y - crossPt2.Y));
 
+            results = new List<double>() { FinalResult, peakX, peakY, basePt1X, basePt1Y, basePt2X, basePt2Y, midLine[0].X, midLine[0].Y, midLine[1].X, midLine[1].Y, crossPt1.X, crossPt1.Y, crossPt2.X, crossPt2.Y };
             return IsValidResult();
         }
     }

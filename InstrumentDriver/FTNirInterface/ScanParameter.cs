@@ -398,6 +398,32 @@ namespace Ai.Hong.Driver
                 return false;
         }
 
+        /// <summary>
+        /// 设置附加属性
+        /// </summary>
+        /// <param name="key">属性名称</param>
+        /// <param name="value">属性值</param>
+        public void SetAddtionalData(string key, string value)
+        {
+            if (AddtionalData == null)
+                AddtionalData = new Dictionary<string, string>();
+
+            if (AddtionalData.ContainsKey(key))
+                AddtionalData[key] = value;
+            else
+                AddtionalData.Add(key, value);
+        }
+
+        /// <summary>
+        /// 获取附加属性值
+        /// </summary>
+        /// <param name="key">属性名称</param>
+        /// <returns></returns>
+        public string GetAddtionalData(string key)
+        {
+            return AddtionalData == null ? null : AddtionalData[key];
+        }
+
         #endregion
 
         #region alias properties

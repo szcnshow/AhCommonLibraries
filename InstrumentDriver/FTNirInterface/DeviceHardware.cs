@@ -63,6 +63,12 @@ namespace Ai.Hong.Driver
         /// 设备型号
         /// </summary>
         public EnumDeviceModel DeviceModel { get; protected set; } = EnumDeviceModel.Unknown;
+
+        /// <summary>
+        /// 设备使用的语言
+        /// </summary>
+        public Common.EnumLanguage Language = Common.EnumLanguage.Chinese;
+
         #endregion
 
         #region Hardware functions

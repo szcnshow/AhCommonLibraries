@@ -30,7 +30,7 @@ namespace Ai.Hong.Driver
         /// 仪器厂商
         /// </summary>
         [XmlAttribute]
-        public EnumDeviceFactor Factor { get; set; }
+        public string Factor { get; set; }
 
         /// <summary>
         /// 仪器种类
@@ -48,7 +48,7 @@ namespace Ai.Hong.Driver
         /// 仪器商标
         /// </summary>
         [XmlAttribute]
-        public EnumDeviceBrand Brand { get; set; }
+        public string Brand { get; set; }
 
         /// <summary>
         /// 仪器序列号

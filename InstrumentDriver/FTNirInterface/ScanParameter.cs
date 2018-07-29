@@ -357,7 +357,7 @@ namespace Ai.Hong.Driver
         public Dictionary<dynamic, string> GetPropertySelections(string innerName)
         {
             var propInfo = FindPropertyByName(innerName);
-            return propInfo != null ? propInfo.Selections : null;
+            return propInfo?.Selections;
         }
 
         /// <summary>
@@ -421,7 +421,7 @@ namespace Ai.Hong.Driver
         /// <returns></returns>
         public string GetAddtionalData(string key)
         {
-            return AddtionalData == null ? null : AddtionalData[key];
+            return AddtionalData?[key];
         }
 
         #endregion

@@ -1214,6 +1214,11 @@
             Log Reflectance
             </summary>
         </member>
+        <member name="F:Ai.Hong.Driver.EnumResultSpectrum.Raw">
+            <summary>
+            Raw data
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Driver.EnumSaveFileType">
             <summary>
             保存的光谱文件格式
@@ -1594,17 +1599,17 @@
             扫描通知消息参数
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.state">
+        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.State">
             <summary>
             扫描状态
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.abortScan">
+        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.AbortScan">
             <summary>
             是否取消扫描
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.errorString">
+        <member name="P:Ai.Hong.Driver.ScanNotifyArgs.ErrorString">
             <summary>
             错误信息
             </summary>
@@ -2073,7 +2078,7 @@
         </member>
         <member name="M:Ai.Hong.Driver.FTDriver.SetExperimentParemter(Ai.Hong.Driver.ScanParameter)">
             <summary>
-            设置采集配置文件
+            设置采集配置参数
             </summary>
             <param name="paramter">Scan Parameters</param>
             <returns></returns>
@@ -2309,6 +2314,12 @@
             </summary>
             <param name="language">使用的语言</param>
             <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.BasePropertyInfo.CopyWithoutValue(Ai.Hong.Driver.BasePropertyInfo)">
+            <summary>
+            拷贝除值之外的全部属性
+            </summary>
+            <param name="sourceInfo"></param>
         </member>
         <member name="T:Ai.Hong.Driver.HardwarePropertyInfo">
             <summary>

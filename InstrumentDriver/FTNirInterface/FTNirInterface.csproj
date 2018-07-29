@@ -55,11 +55,11 @@
   <ItemGroup>
     <Reference Include="AHCommonControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dll Output\Release\AHCommonControls.dll</HintPath>
+      <HintPath>..\..\Dll Output\Debug\AHCommonControls.dll</HintPath>
     </Reference>
     <Reference Include="AHCommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dll Output\Release\AHCommonMethod.dll</HintPath>
+      <HintPath>..\..\Dll Output\Debug\AHCommonMethod.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

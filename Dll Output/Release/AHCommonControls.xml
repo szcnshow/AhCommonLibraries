@@ -2889,28 +2889,29 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:Ai.Hong.Controls.simpleInputWindow">
+        <member name="T:Ai.Hong.Controls.SimpleInputWindow">
             <summary>
             simpleInputWindow.xaml 的交互逻辑
             </summary>
             <summary>
-            simpleInputWindow
+            SimpleInputWindow
             </summary>
         </member>
-        <member name="M:Ai.Hong.Controls.simpleInputWindow.#ctor(System.String,System.String)">
+        <member name="M:Ai.Hong.Controls.SimpleInputWindow.#ctor(System.String,System.String,System.String)">
             <summary>
             构造函数
             </summary>
+            <param name="prompt">提示</param>
             <param name="title">窗口标题</param>
             <param name="orgText">原有字符串</param>
         </member>
-        <member name="M:Ai.Hong.Controls.simpleInputWindow.InputedText">
+        <member name="M:Ai.Hong.Controls.SimpleInputWindow.InputedText">
             <summary>
             获取录入的字符串
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Controls.simpleInputWindow.InitializeComponent">
+        <member name="M:Ai.Hong.Controls.SimpleInputWindow.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

@@ -1018,22 +1018,22 @@
         </member>
         <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YSCRF">
             <summary>
-            OPUS SCRF
+            Background single beam
             </summary>
         </member>
         <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YSCSM">
             <summary>
-            OPUS SCSM
+            Sample single beam
             </summary>
         </member>
         <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIGRF">
             <summary>
-            OPUS IGRF
+            Background interfergoram
             </summary>
         </member>
         <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIGSM">
             <summary>
-            OPUS IGSM
+            Sample interfergoram
             </summary>
         </member>
         <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YRPXL">

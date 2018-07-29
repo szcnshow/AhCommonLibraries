@@ -845,22 +845,22 @@ namespace Ai.Hong.FileFormat
             [Description("ATR")]
             YATR = 140,	/* Emission */
             /// <summary>
-            /// OPUS SCRF
+            /// Background single beam
             /// </summary>
             [Description("SCRF")]
             YSCRF = 141,	/* Emission */
             /// <summary>
-            /// OPUS SCSM
+            /// Sample single beam
             /// </summary>
             [Description("SCSM")]
             YSCSM = 142,	/* Emission */
             /// <summary>
-            /// OPUS IGRF
+            /// Background interfergoram
             /// </summary>
             [Description("IGRF")]
             YIGRF = 143,	/* Emission */
             /// <summary>
-            /// OPUS IGSM
+            /// Sample interfergoram
             /// </summary>
             [Description("IGSM")]
             YIGSM = 144,	/* Emission */

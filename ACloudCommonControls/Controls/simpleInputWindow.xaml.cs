@@ -7,22 +7,24 @@ namespace Ai.Hong.Controls
     /// <summary>
     /// simpleInputWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class simpleInputWindow : Window
+    public partial class SimpleInputWindow : Window
     {
         /// <summary>
         /// 构造函数
         /// </summary>
+        /// <param name="prompty">提示</param>
         /// <param name="title">窗口标题</param>
         /// <param name="orgText">原有字符串</param>
-        public simpleInputWindow(string title, string orgText=null)
+        public SimpleInputWindow(string prompty, string orgText = null, string title = null)
         {
             InitializeComponent();
             this.Title = title;
+            txtPrompt.Text = prompty;
             txtInput.Text = orgText;
-            this.Loaded += new RoutedEventHandler(simpleInputWindow_Loaded);
+            this.Loaded += new RoutedEventHandler(SimpleInputWindow_Loaded);
         }
 
-        void simpleInputWindow_Loaded(object sender, RoutedEventArgs e)
+        void SimpleInputWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Ai.Hong.Common.CommonMethod.HideWindowSystemButton(this);
             txtInput.Focus();

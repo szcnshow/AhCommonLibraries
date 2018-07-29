@@ -146,5 +146,21 @@ namespace Ai.Hong.Driver
         {
             return language == Common.EnumLanguage.Chinese ? ChineseName : EnglishName;
         }
+
+        /// <summary>
+        /// 拷贝除值之外的全部属性
+        /// </summary>
+        /// <param name="sourceInfo"></param>
+        public void CopyWithoutValue(BasePropertyInfo sourceInfo)
+        {
+            ValueType = sourceInfo.ValueType;
+            ChineseName = sourceInfo.ChineseName;
+            EnglishName = sourceInfo.EnglishName;
+            Selections = sourceInfo.Selections;
+            IsValid = sourceInfo.IsValid;
+            Inputable = sourceInfo.Inputable;
+            MinValue = sourceInfo.MinValue;
+            MaxValue = sourceInfo.MaxValue;
+        }
     };
 }

@@ -134,8 +134,8 @@
             <summary>
             构造函数(默认增益Gain 1, 默认相位校正Mertz，默认截趾函数Blackman_Harris_3_Term)
             </summary>
-            <param name="chineseName">中文名称</param>
-            <param name="englishName">英文名称</param>
+            <param name="ChineseName">中文名称</param>
+            <param name="EnglishName">英文名称</param>
             <param name="firstX">起始计算波数</param>
             <param name="lastX">结束计算波数</param>
             <param name="resolution">分辨率</param>
@@ -483,22 +483,22 @@
             测试组合
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.innerName">
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.InnerName">
             <summary>
             组合的内部名称
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.chineseName">
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.ChineseName">
             <summary>
             组合的中文名称
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.englishName">
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.EnglishName">
             <summary>
             组合的英文名称
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.testItems">
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.TestItems">
             <summary>
             测试的内容
             </summary>

@@ -1627,6 +1627,31 @@
             <param name="state"></param>
             <param name="errorString"></param>
         </member>
+        <member name="T:Ai.Hong.Driver.YesNoBoolConvertor">
+            <summary>
+            EnumYesNo到Bool的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.YesNoBoolConvertor.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not true ==>false
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.YesNoBoolConvertor.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not true ==> false
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
         <member name="T:Ai.Hong.Driver.DeviceCategoryProperties">
             <summary>
             设备类型和型号对应的信息

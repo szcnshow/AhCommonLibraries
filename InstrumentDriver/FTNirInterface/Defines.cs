@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Windows.Data;
 
 namespace Ai.Hong.Driver
 {
@@ -1563,5 +1564,39 @@ namespace Ai.Hong.Driver
             this.ErrorString = errorString;
         }
     }
+
+    /// <summary>
+    /// EnumYesNo到Bool的转换
+    /// </summary>
+    [ValueConversion(typeof(EnumYesNo), typeof(bool))]
+    public class YesNoBoolConvertor : IValueConverter
+    {
+        /// <summary>
+        /// Not true ==>false
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return (bool)value != true;
+        }
+
+        /// <summary>
+        /// Not true ==> false
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return (bool)value != true;
+        }
+    }
+
     #endregion
 }

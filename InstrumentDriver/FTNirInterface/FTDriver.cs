@@ -288,7 +288,7 @@ namespace Ai.Hong.Driver
         public virtual bool SetExperimentFile(string paraFile) { throw new NotImplementedException(); }
 
         /// <summary>
-        /// 设置采集配置参数
+        /// 设置采集配置文件
         /// </summary>
         /// <param name="paramter">Scan Parameters</param>
         /// <returns></returns>

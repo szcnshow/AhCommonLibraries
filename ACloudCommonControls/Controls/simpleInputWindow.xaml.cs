@@ -15,7 +15,7 @@ namespace Ai.Hong.Controls
         /// <param name="prompty">提示</param>
         /// <param name="title">窗口标题</param>
         /// <param name="orgText">原有字符串</param>
-        public SimpleInputWindow(string prompty, string orgText = null, string title = null)
+        public SimpleInputWindow(string prompty, string orgText = null, string title = "输入窗口")
         {
             InitializeComponent();
             this.Title = title;

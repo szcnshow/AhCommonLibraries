@@ -73,8 +73,7 @@ namespace Ai.Hong.Driver.IT
         /// <param name="propertyName"></param>
         protected void DoPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -374,10 +373,9 @@ namespace Ai.Hong.Driver.IT
         public double[] PickPeaks(double[] xDatas, double[] yDatas, double[] targetPeaks, bool upPeak)
         {
             double[] retPeaks = new double[targetPeaks.Length];
-            double newy;
 
             for (int i = 0; i < targetPeaks.Length; i++ )
-                retPeaks[i] = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, targetPeaks[i], 4, out newy, upPeak);
+                retPeaks[i] = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, targetPeaks[i], 4, out double newy, upPeak);
 
             return retPeaks;
         }
@@ -474,10 +472,8 @@ namespace Ai.Hong.Driver.IT
             {
                 Trace.Assert(SpectraDatas != null && SpectraDatas.Count != 0 && verifyPeaks != null && verifyPeaks.Count == 2, "Invalid SpectraDatas or verifyPeaks");
 
-                double picked;
-
                 //判断目标峰位7181.68和验证峰位7232.29, 7242.77是否在阈值0.1内
-                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out picked, false);
+                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out double picked, false);
                 var verResult0 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[0], 4, out picked, false);
                 var verResult1 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[1], 4, out picked, false);
                 results.Add(FinalResult);
@@ -551,14 +547,13 @@ namespace Ai.Hong.Driver.IT
         {
             results = new List<double>();
 
-            double minX, minY, maxX, maxY;
             foreach (var data in SpectraDatas)
             {
                 //pp峰值  取透射谱数据
                 var rangeDatas = Ai.Hong.Algorithm.CommonMethod.GetRangeData(new List<double[]>(){data.xDatas, data.yDatas}, firstX, lastX);
 
                 //标注最大最小峰位并记录
-                PickMaxMinPeak(rangeDatas[0],rangeDatas[1], out minX, out minY, out maxX, out maxY);
+                PickMaxMinPeak(rangeDatas[0],rangeDatas[1], out double minX, out double minY, out double maxX, out double maxY);
 
                 results.Add(Math.Abs(maxY - minY));
             }
@@ -672,8 +667,6 @@ namespace Ai.Hong.Driver.IT
         {
             results = new List<double>();
 
-            double minX, minY, maxX, maxY;
-
             //参考干涉图的振幅
             FileFormat.FileFormat referenceData = new FileFormat.FileFormat(calcuParameter  as string);
             if(referenceData.xDatas == null)
@@ -681,7 +674,7 @@ namespace Ai.Hong.Driver.IT
                 ErrorString = "Cannot find reference file:" + ReferenceFile;
                 return false;
             }
-            PickMaxMinPeak(referenceData.xDatas, referenceData.yDatas, out minX, out minY, out maxX, out maxY);
+            PickMaxMinPeak(referenceData.xDatas, referenceData.yDatas, out double minX, out double minY, out double maxX, out double maxY);
             var refValue = Math.Abs(maxY - minY);
 
             foreach (var data in SpectraDatas)
@@ -813,11 +806,10 @@ namespace Ai.Hong.Driver.IT
             {
                 Trace.Assert(SpectraDatas != null && SpectraDatas.Count != 0 && verifyPeaks != null && verifyPeaks.Count == 2, "Invalid SpectraDatas or verifyPeaks");
 
-                double picked;
                 double verifyThresold = 0.5;
 
                 //判断目标峰位7181.68和验证峰位7232.29, 7242.77是否在阈值0.1内
-                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out picked, false);
+                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out double picked, false);
                 var verResult0 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[0], 4, out picked, false);
                 var verResult1 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[1], 4, out picked, false);
                 if (!IsValidResult() ||
@@ -893,14 +885,12 @@ namespace Ai.Hong.Driver.IT
         {
             results = new List<double>();
 
-            double yvalue;
-
             //获得仪器温度
             //var tempstr = curInstrument.HardwareGetProperty(Driver.EnumHardware.Device, Driver.EnumHardwareProperties.Temperature);
             //float temperature = float.Parse(tempstr);
             float temperature = 35.0f;
 
-            FinalResult = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out yvalue, false);
+            FinalResult = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out double yvalue, false);
 
             //T: instrument internal temperature in degree C
             //a. Fiber system, Report Peak Position = Measured Peak Position + 0.0107*T - 0.7
@@ -1693,10 +1683,8 @@ namespace Ai.Hong.Driver.IT
 
             foreach (var data in SpectraDatas)
             {
-                double picked;
-
                 //判断目标峰位7181.68
-                var curpeak = Algorithm.CommonAlgorithm.PickPeak(data.xDatas, data.yDatas, verifyPeak, 4, out picked, false);
+                var curpeak = Algorithm.CommonAlgorithm.PickPeak(data.xDatas, data.yDatas, verifyPeak, 4, out double picked, false);
                 results.Add(curpeak);
             }
 
@@ -2118,14 +2106,13 @@ namespace Ai.Hong.Driver.IT
         private Grid GenerateOneGroupResult(SelTestGroup group, bool showName)
         {
             TextBlock titleText = null;
-            Border imageBorder = null;
 
             //计算总共有多少行(LineSlopeTestInfo需要特殊处理)
             int rowIndex = rowIndex = group.TestItems.Count * 2;
             var slope = group.TestItems.FirstOrDefault(p => p is LineSlopeTestInfo) as LineSlopeTestInfo;
             if (slope != null)
                 rowIndex += slope.slopeX.Count;
-            var rootGrid = GenerateOneGroupGrid(rowIndex, out titleText, out imageBorder);
+            var rootGrid = GenerateOneGroupGrid(rowIndex, out titleText, out Border imageBorder);
 
             //标题
             titleText.Text = group.DisplayName(language);
@@ -2207,7 +2194,7 @@ namespace Ai.Hong.Driver.IT
             AddTextBlockToGrid(contentGrid, scanner == null ? null : Common.Extenstion.EnumExtensions.GetEnumDescription(scanner.ConnectedDevice.Model, Language), 2, 3, true);
 
             AddTextBlockToGrid(contentGrid, "序列号", 2, 4, true);
-            AddTextBlockToGrid(contentGrid, scanner == null ? null : scanner.GetSerialNumber(), 2, 5, true);
+            AddTextBlockToGrid(contentGrid, scanner?.GetSerialNumber(), 2, 5, true);
 
             return contentGrid;
         }

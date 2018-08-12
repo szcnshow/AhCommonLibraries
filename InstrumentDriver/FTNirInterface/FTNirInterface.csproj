@@ -55,11 +55,23 @@
   <ItemGroup>
     <Reference Include="AHCommonControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dll Output\Release\AHCommonControls.dll</HintPath>
+      <HintPath>..\..\Common Dlls\AHCommonControls.dll</HintPath>
     </Reference>
     <Reference Include="AHCommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dll Output\Release\AHCommonMethod.dll</HintPath>
+      <HintPath>..\..\Common Dlls\AHCommonMethod.dll</HintPath>
+    </Reference>
+    <Reference Include="AHCommonResources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Common Dlls\AHCommonResources.dll</HintPath>
+    </Reference>
+    <Reference Include="AHSpectrumAlgorithm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Common Dlls\AHSpectrumAlgorithm.dll</HintPath>
+    </Reference>
+    <Reference Include="AHSpectrumFileFormat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Common Dlls\AHSpectrumFileFormat.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -131,12 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="WaitDialog\Stop.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ACloudFileFormat\SpectrumFileFormat.csproj">
-      <Project>{e01f8204-e19b-4c55-b3bd-d4270df16f1c}</Project>
-      <Name>SpectrumFileFormat</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

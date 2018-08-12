@@ -82,9 +82,9 @@ namespace Ai.Hong.Driver
             new BasePropertyInfo(nameof(ResultSpectrum), "结果谱图", "Result Spectrum", typeof(EnumResultSpectrum), ((int)EnumResultSpectrum.Absorbance).ToString(),
                 false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumResultSpectrum>(Language))),
             new BasePropertyInfo(nameof(SaveSingleBeam), "保存单通道图", "Save SingleBeam", typeof(EnumYesNo), ((int)EnumYesNo.No).ToString(),
-                false, new Dictionary<dynamic, string>(){{false, "否" }, {true, "是" } }),
+                false, new Dictionary<dynamic, string>(){{EnumYesNo.No, "否" }, { EnumYesNo.Yes, "是" } }),
             new BasePropertyInfo(nameof(SaveInterfere), "保存干涉图", "Save Interfere", typeof(EnumYesNo), ((int)EnumYesNo.No).ToString(), //, EnumToDescriptionList<EnumYesNo>(language)),
-                false, new Dictionary<dynamic, string>(){{false, "否" }, {true, "是" } }),
+                false, new Dictionary<dynamic, string>(){{ EnumYesNo.No, "否" }, { EnumYesNo.Yes, "是" } }),
             new BasePropertyInfo(nameof(BackgroundDuration), "背景有限期", "Background Duration", typeof(EnumBackgroundDuration), ((int)EnumBackgroundDuration.Duration_60).ToString(),
                 false, EnumExtensions.TypeDictionaryToDynamic(EnumExtensions.EnumTypeToDescriptionList<EnumBackgroundDuration>(Language))),
             new BasePropertyInfo(nameof(SaveFileType), "文件格式", "File Format", typeof(EnumSaveFileType), ((int)EnumSaveFileType.SPC).ToString(),
@@ -301,17 +301,30 @@ namespace Ai.Hong.Driver
             var fieldinfo = FindPropertyByName(propertyName);
             if (fieldinfo == null)
                 return default(T);
+            return ValueFromString<T>(fieldinfo.Value);
+        }
+
+        /// <summary>
+        /// 将字符串转换为数值
+        /// </summary>
+        /// <typeparam name="T">数值类型</typeparam>
+        /// <param name="strvalue">字符串的值</param>
+        /// <returns></returns>
+        private T ValueFromString<T>(string strvalue)
+        {
+            if (strvalue == null)
+                return default(T);
 
             if (typeof(T) == typeof(int) || typeof(T).IsEnum)
-                return (T)(object)(int.Parse(fieldinfo.Value));
+                return (T)(object)(int.Parse(strvalue));
             else if (typeof(T) == typeof(float))
-                return (T)(object)(float.Parse(fieldinfo.Value));
+                return (T)(object)(float.Parse(strvalue));
             else if (typeof(T) == typeof(double))
-                return (T)(object)(double.Parse(fieldinfo.Value));
+                return (T)(object)(double.Parse(strvalue));
             else if (typeof(T) == typeof(string))
-                return (T)(object)fieldinfo.Value;
+                return (T)(object)strvalue;
             else if (typeof(T) == typeof(bool))
-                return (T)(object)(fieldinfo.Value == "1");
+                return (T)(object)(strvalue == "1");
 
             return default(T);
         }
@@ -328,14 +341,27 @@ namespace Ai.Hong.Driver
             if (fieldinfo == null)
                 return;
 
-            if (typeof(T) == typeof(int) || typeof(T) == typeof(float))
-                fieldinfo.Value = propertyValue.ToString();
+            fieldinfo.Value = StringFromValue(propertyValue);
+        }
+
+        /// <summary>
+        /// 数值转换为字符串
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        private string StringFromValue<T>(T value)
+        {
+            if (typeof(T) == typeof(int) || typeof(T) == typeof(float) || typeof(T) == typeof(double))
+                return value.ToString();
             else if (typeof(T).IsEnum)
-                fieldinfo.Value = ((int)(object)propertyValue).ToString();
+                return ((int)(object)value).ToString();
             else if (typeof(T) == typeof(string))
-                fieldinfo.Value = (string)((object)propertyValue);
+                return (string)((object)value);
             else if (typeof(T) == typeof(bool))
-                fieldinfo.Value = (bool)(object)propertyValue == true ? "1" : "0";
+                return (bool)(object)value == true ? "1" : "0";
+            else
+                return null;
         }
 
         /// <summary>
@@ -357,7 +383,7 @@ namespace Ai.Hong.Driver
         public Dictionary<dynamic, string> GetPropertySelections(string innerName)
         {
             var propInfo = FindPropertyByName(innerName);
-            return propInfo != null ? propInfo.Selections : null;
+            return propInfo?.Selections;
         }
 
         /// <summary>
@@ -401,27 +427,29 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 设置附加属性
         /// </summary>
+        /// <typeparam name="T">属性的类型</typeparam>
         /// <param name="key">属性名称</param>
         /// <param name="value">属性值</param>
-        public void SetAddtionalData(string key, string value)
+        public void SetAddtionalData<T>(string key, T value)
         {
             if (AddtionalData == null)
                 AddtionalData = new Dictionary<string, string>();
 
             if (AddtionalData.ContainsKey(key))
-                AddtionalData[key] = value;
+                AddtionalData[key] = StringFromValue(value);
             else
-                AddtionalData.Add(key, value);
+                AddtionalData.Add(key, StringFromValue(value));
         }
 
         /// <summary>
         /// 获取附加属性值
         /// </summary>
+        /// <typeparam name="T">返回属性的类型</typeparam>
         /// <param name="key">属性名称</param>
         /// <returns></returns>
-        public string GetAddtionalData(string key)
+        public T GetAddtionalData<T>(string key)
         {
-            return AddtionalData == null ? null : AddtionalData[key];
+            return ValueFromString<T>(AddtionalData?[key]);
         }
 
         #endregion

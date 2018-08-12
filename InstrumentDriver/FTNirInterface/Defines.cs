@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Windows.Data;
 
 namespace Ai.Hong.Driver
 {
@@ -1116,6 +1117,11 @@ namespace Ai.Hong.Driver
         /// </summary>
         [Description("Log 反射谱,Log Reflectance")]
         Log_Reflectance = 8,
+        /// <summary>
+        /// Raw data
+        /// </summary>
+        [Description("原始数据,Raw data")]
+        Raw = 9,
     }
 
     /// <summary>
@@ -1527,22 +1533,22 @@ namespace Ai.Hong.Driver
         /// <summary>
         /// 扫描状态
         /// </summary>
-        public EnumScanNotifyState state { get; set; }
+        public EnumScanNotifyState State { get; set; }
         /// <summary>
         /// 是否取消扫描
         /// </summary>
-        public bool abortScan { get; set; }
+        public bool AbortScan { get; set; }
         /// <summary>
         /// 错误信息
         /// </summary>
-        public string errorString { get; set; }
+        public string ErrorString { get; set; }
 
         /// <summary>
         /// 构造函数
         /// </summary>
         public ScanNotifyArgs() : base()
         {
-            this.abortScan = false;
+            this.AbortScan = false;
         }
 
         /// <summary>
@@ -1553,10 +1559,44 @@ namespace Ai.Hong.Driver
         /// <param name="errorString"></param>
         public ScanNotifyArgs(System.Windows.RoutedEvent routedEvent, EnumScanNotifyState state, string errorString) : base(routedEvent)
         {
-            this.abortScan = false;
-            this.state = state;
-            this.errorString = errorString;
+            this.AbortScan = false;
+            this.State = state;
+            this.ErrorString = errorString;
         }
     }
+
+    /// <summary>
+    /// EnumYesNo到Bool的转换
+    /// </summary>
+    [ValueConversion(typeof(EnumYesNo), typeof(bool))]
+    public class YesNoBoolConvertor : IValueConverter
+    {
+        /// <summary>
+        /// Not true ==>false
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return (bool)value != true;
+        }
+
+        /// <summary>
+        /// Not true ==> false
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return (bool)value != true;
+        }
+    }
+
     #endregion
 }

@@ -73,8 +73,7 @@ namespace Ai.Hong.Driver.IT
         /// <param name="propertyName"></param>
         protected void DoPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
@@ -229,8 +228,8 @@ namespace Ai.Hong.Driver.IT
         /// <summary>
         /// 构造函数(默认增益Gain 1, 默认相位校正Mertz，默认截趾函数Blackman_Harris_3_Term)
         /// </summary>
-        /// <param name="chineseName">中文名称</param>
-        /// <param name="englishName">英文名称</param>
+        /// <param name="ChineseName">中文名称</param>
+        /// <param name="EnglishName">英文名称</param>
         /// <param name="firstX">起始计算波数</param>
         /// <param name="lastX">结束计算波数</param>
         /// <param name="resolution">分辨率</param>
@@ -242,10 +241,10 @@ namespace Ai.Hong.Driver.IT
         /// <param name="backgroundCount">背景重复次数</param>
         /// <param name="sampleCount">样品重复次数</param>
         /// <param name="ResultUnit">测量结果单位</param>
-        public BaseSelfTestInfo(string chineseName, string englishName, double firstX, double lastX, int resolution, int zeroFilling, double target, double LessThresold, double GreatThresold, int scanCount, int backgroundCount, int sampleCount, string ResultUnit)
+        public BaseSelfTestInfo(string ChineseName, string EnglishName, double firstX, double lastX, int resolution, int zeroFilling, double target, double LessThresold, double GreatThresold, int scanCount, int backgroundCount, int sampleCount, string ResultUnit)
         {
-            this._chineseName = chineseName;
-            this._englishName = englishName;
+            this._chineseName = ChineseName;
+            this._englishName = EnglishName;
             this._firstX = firstX;
             this._lastX = lastX;
             this._lessThresold = LessThresold;
@@ -374,10 +373,9 @@ namespace Ai.Hong.Driver.IT
         public double[] PickPeaks(double[] xDatas, double[] yDatas, double[] targetPeaks, bool upPeak)
         {
             double[] retPeaks = new double[targetPeaks.Length];
-            double newy;
 
             for (int i = 0; i < targetPeaks.Length; i++ )
-                retPeaks[i] = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, targetPeaks[i], 4, out newy, upPeak);
+                retPeaks[i] = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(xDatas, yDatas, targetPeaks[i], 4, out double newy, upPeak);
 
             return retPeaks;
         }
@@ -474,10 +472,8 @@ namespace Ai.Hong.Driver.IT
             {
                 Trace.Assert(SpectraDatas != null && SpectraDatas.Count != 0 && verifyPeaks != null && verifyPeaks.Count == 2, "Invalid SpectraDatas or verifyPeaks");
 
-                double picked;
-
                 //判断目标峰位7181.68和验证峰位7232.29, 7242.77是否在阈值0.1内
-                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out picked, false);
+                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out double picked, false);
                 var verResult0 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[0], 4, out picked, false);
                 var verResult1 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[1], 4, out picked, false);
                 results.Add(FinalResult);
@@ -551,14 +547,13 @@ namespace Ai.Hong.Driver.IT
         {
             results = new List<double>();
 
-            double minX, minY, maxX, maxY;
             foreach (var data in SpectraDatas)
             {
                 //pp峰值  取透射谱数据
                 var rangeDatas = Ai.Hong.Algorithm.CommonMethod.GetRangeData(new List<double[]>(){data.xDatas, data.yDatas}, firstX, lastX);
 
                 //标注最大最小峰位并记录
-                PickMaxMinPeak(rangeDatas[0],rangeDatas[1], out minX, out minY, out maxX, out maxY);
+                PickMaxMinPeak(rangeDatas[0],rangeDatas[1], out double minX, out double minY, out double maxX, out double maxY);
 
                 results.Add(Math.Abs(maxY - minY));
             }
@@ -672,8 +667,6 @@ namespace Ai.Hong.Driver.IT
         {
             results = new List<double>();
 
-            double minX, minY, maxX, maxY;
-
             //参考干涉图的振幅
             FileFormat.FileFormat referenceData = new FileFormat.FileFormat(calcuParameter  as string);
             if(referenceData.xDatas == null)
@@ -681,7 +674,7 @@ namespace Ai.Hong.Driver.IT
                 ErrorString = "Cannot find reference file:" + ReferenceFile;
                 return false;
             }
-            PickMaxMinPeak(referenceData.xDatas, referenceData.yDatas, out minX, out minY, out maxX, out maxY);
+            PickMaxMinPeak(referenceData.xDatas, referenceData.yDatas, out double minX, out double minY, out double maxX, out double maxY);
             var refValue = Math.Abs(maxY - minY);
 
             foreach (var data in SpectraDatas)
@@ -813,11 +806,10 @@ namespace Ai.Hong.Driver.IT
             {
                 Trace.Assert(SpectraDatas != null && SpectraDatas.Count != 0 && verifyPeaks != null && verifyPeaks.Count == 2, "Invalid SpectraDatas or verifyPeaks");
 
-                double picked;
                 double verifyThresold = 0.5;
 
                 //判断目标峰位7181.68和验证峰位7232.29, 7242.77是否在阈值0.1内
-                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out picked, false);
+                FinalResult = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out double picked, false);
                 var verResult0 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[0], 4, out picked, false);
                 var verResult1 = Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, verifyPeaks[1], 4, out picked, false);
                 if (!IsValidResult() ||
@@ -893,14 +885,12 @@ namespace Ai.Hong.Driver.IT
         {
             results = new List<double>();
 
-            double yvalue;
-
             //获得仪器温度
             //var tempstr = curInstrument.HardwareGetProperty(Driver.EnumHardware.Device, Driver.EnumHardwareProperties.Temperature);
             //float temperature = float.Parse(tempstr);
             float temperature = 35.0f;
 
-            FinalResult = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out yvalue, false);
+            FinalResult = Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(SpectraDatas[0].xDatas, SpectraDatas[0].yDatas, TargetResult, 4, out double yvalue, false);
 
             //T: instrument internal temperature in degree C
             //a. Fiber system, Report Peak Position = Measured Peak Position + 0.0107*T - 0.7
@@ -982,26 +972,26 @@ namespace Ai.Hong.Driver.IT
         /// 组合的内部名称
         /// </summary>
         [XmlAttribute]
-        public string innerName { get; set; }
+        public string InnerName { get; set; }
 
         /// <summary>
         /// 组合的中文名称
         /// </summary>
         [XmlAttribute]
-        public string chineseName { get; set; }
+        public string ChineseName { get; set; }
 
         /// <summary>
         /// 组合的英文名称
         /// </summary>
         [XmlAttribute]
-        public string englishName { get; set; }
+        public string EnglishName { get; set; }
 
         /// <summary>
         /// 测试的内容
         /// </summary>
-        [XmlArray("testItems")]
+        [XmlArray("TestItems")]
         [XmlArrayItem("testItem")]
-        public List<BaseSelfTestInfo> testItems { get; set; }
+        public List<BaseSelfTestInfo> TestItems { get; set; }
 
         /// <summary>
         /// 测试的显示名称
@@ -1010,7 +1000,7 @@ namespace Ai.Hong.Driver.IT
         /// <returns></returns>
         public string DisplayName(EnumLanguage language)
         {
-            return language == EnumLanguage.Chinese ? chineseName : englishName;
+            return language == EnumLanguage.Chinese ? ChineseName : EnglishName;
         }
     }
 
@@ -1081,34 +1071,34 @@ namespace Ai.Hong.Driver.IT
         {
             laserTest = new SelTestGroup()
             {
-                innerName = "laserCalibrate",
-                chineseName = "激光校准",
-                englishName = "Laser Calibrate",
-                testItems = new List<BaseSelfTestInfo>() { new LaserWavelengthTestInfo(true) }
+                InnerName = "laserCalibrate",
+                ChineseName = "激光校准",
+                EnglishName = "Laser Calibrate",
+                TestItems = new List<BaseSelfTestInfo>() { new LaserWavelengthTestInfo(true) }
             };
 
             energyTest = new SelTestGroup()
             {
-                innerName = "energyTest",
-                chineseName = "能量测试",
-                englishName = "Energy Testing",
-                testItems = new List<BaseSelfTestInfo>() { new LineNoiseTestInfo(true), new DeviationTestInfo(true), new InterferPeakTestInfo(true), new EnergyTestInfo(true) }
+                InnerName = "energyTest",
+                ChineseName = "能量测试",
+                EnglishName = "Energy Testing",
+                TestItems = new List<BaseSelfTestInfo>() { new LineNoiseTestInfo(true), new DeviationTestInfo(true), new InterferPeakTestInfo(true), new EnergyTestInfo(true) }
             };
 
             wavelengthTest = new SelTestGroup()
             {
-                innerName = "waveAccuracyTest",
-                chineseName = "波数精度测试",
-                englishName = "Wavelength Accuracy Testing",
-                testItems = new List<BaseSelfTestInfo>() { new VaporAccuracyTestInfo(true), new PolyAccuracyTestInfo(true) }
+                InnerName = "waveAccuracyTest",
+                ChineseName = "波数精度测试",
+                EnglishName = "Wavelength Accuracy Testing",
+                TestItems = new List<BaseSelfTestInfo>() { new VaporAccuracyTestInfo(true), new PolyAccuracyTestInfo(true) }
             };
 
             absorbTest = new SelTestGroup()
             {
-                innerName = "photometricTest",
-                chineseName = "光学精度测试",
-                englishName = "Photometric Accuracy Test",
-                testItems = new List<BaseSelfTestInfo>() { new PhotometricTestInfo(true)}
+                InnerName = "photometricTest",
+                ChineseName = "光学精度测试",
+                EnglishName = "Photometric Accuracy Test",
+                TestItems = new List<BaseSelfTestInfo>() { new PhotometricTestInfo(true)}
             };
         }
 
@@ -1127,8 +1117,8 @@ namespace Ai.Hong.Driver.IT
 
             //移除没有选中的测试项目
             foreach(var item in retDatas)
-                item.testItems.RemoveAll(p => p.IsSelected == false);
-            retDatas.RemoveAll(p => p.testItems.Count == 0);
+                item.TestItems.RemoveAll(p => p.IsSelected == false);
+            retDatas.RemoveAll(p => p.TestItems.Count == 0);
 
             return retDatas;
         }
@@ -1693,10 +1683,8 @@ namespace Ai.Hong.Driver.IT
 
             foreach (var data in SpectraDatas)
             {
-                double picked;
-
                 //判断目标峰位7181.68
-                var curpeak = Algorithm.CommonAlgorithm.PickPeak(data.xDatas, data.yDatas, verifyPeak, 4, out picked, false);
+                var curpeak = Algorithm.CommonAlgorithm.PickPeak(data.xDatas, data.yDatas, verifyPeak, 4, out double picked, false);
                 results.Add(curpeak);
             }
 
@@ -1786,42 +1774,42 @@ namespace Ai.Hong.Driver.IT
         {
             laserTest = new SelTestGroup()
             {
-                innerName = "laserCalibrate",
-                chineseName = "激光校准",
-                englishName = "Laser Calibrate",
-                testItems = new List<BaseSelfTestInfo>() { new LaserWavelengthTestInfo(true) }
+                InnerName = "laserCalibrate",
+                ChineseName = "激光校准",
+                EnglishName = "Laser Calibrate",
+                TestItems = new List<BaseSelfTestInfo>() { new LaserWavelengthTestInfo(true) }
             };
 
             resolutionTest = new SelTestGroup()
             {
-                innerName = "resolutionTest",
-                chineseName = "分辨率测试",
-                englishName = "Resolution Testing",
-                testItems = new List<BaseSelfTestInfo>() { new ResolutionTestInfo(true) }
+                InnerName = "resolutionTest",
+                ChineseName = "分辨率测试",
+                EnglishName = "Resolution Testing",
+                TestItems = new List<BaseSelfTestInfo>() { new ResolutionTestInfo(true) }
             };
 
             photometricTest = new SelTestGroup()
             {
-                innerName = "photometricTest",
-                chineseName = "光路稳定性测试",
-                englishName = "Photometric Accuracy Testing",
-                testItems = new List<BaseSelfTestInfo>() { new LineNoiseTestInfo(true), new LineSlopeTestInfo(true), new EnergyDistributeTestInfo(true), new TransmitReproductTestInfo(true) }
+                InnerName = "photometricTest",
+                ChineseName = "光路稳定性测试",
+                EnglishName = "Photometric Accuracy Testing",
+                TestItems = new List<BaseSelfTestInfo>() { new LineNoiseTestInfo(true), new LineSlopeTestInfo(true), new EnergyDistributeTestInfo(true), new TransmitReproductTestInfo(true) }
             };
 
             wavelengthTest = new SelTestGroup()
             {
-                innerName = "waveAccuracyTest",
-                chineseName = "波数精度测试",
-                englishName = "Wavelength Accuracy Testing",
-                testItems = new List<BaseSelfTestInfo>() { new VaporAccuracyTestInfo(true), new PolyAccuracyTestInfo(true), new WavenumberReproductTestInfo(true) }
+                InnerName = "waveAccuracyTest",
+                ChineseName = "波数精度测试",
+                EnglishName = "Wavelength Accuracy Testing",
+                TestItems = new List<BaseSelfTestInfo>() { new VaporAccuracyTestInfo(true), new PolyAccuracyTestInfo(true), new WavenumberReproductTestInfo(true) }
             };
 
             scanReferenceData = new SelTestGroup()
             {
-                innerName = "scanRefereceData",
-                chineseName = "采集和保存仪器参考谱图",
-                englishName = "Scan & Save Reference Spectra",
-                testItems = new List<BaseSelfTestInfo>() { new InterferPeakTestInfo(true), new EnergyTestInfo(true), new PhotometricTestInfo(true)}
+                InnerName = "scanRefereceData",
+                ChineseName = "采集和保存仪器参考谱图",
+                EnglishName = "Scan & Save Reference Spectra",
+                TestItems = new List<BaseSelfTestInfo>() { new InterferPeakTestInfo(true), new EnergyTestInfo(true), new PhotometricTestInfo(true)}
             };
         }
 
@@ -1840,8 +1828,8 @@ namespace Ai.Hong.Driver.IT
 
             //移除没有选中的测试项目
             foreach (var item in retDatas)
-                item.testItems.RemoveAll(p => p.IsSelected == false);
-            retDatas.RemoveAll(p => p.testItems.Count == 0);
+                item.TestItems.RemoveAll(p => p.IsSelected == false);
+            retDatas.RemoveAll(p => p.TestItems.Count == 0);
 
             return retDatas;
         }
@@ -2118,34 +2106,33 @@ namespace Ai.Hong.Driver.IT
         private Grid GenerateOneGroupResult(SelTestGroup group, bool showName)
         {
             TextBlock titleText = null;
-            Border imageBorder = null;
 
             //计算总共有多少行(LineSlopeTestInfo需要特殊处理)
-            int rowIndex = rowIndex = group.testItems.Count * 2;
-            var slope = group.testItems.FirstOrDefault(p => p is LineSlopeTestInfo) as LineSlopeTestInfo;
+            int rowIndex = rowIndex = group.TestItems.Count * 2;
+            var slope = group.TestItems.FirstOrDefault(p => p is LineSlopeTestInfo) as LineSlopeTestInfo;
             if (slope != null)
                 rowIndex += slope.slopeX.Count;
-            var rootGrid = GenerateOneGroupGrid(rowIndex, out titleText, out imageBorder);
+            var rootGrid = GenerateOneGroupGrid(rowIndex, out titleText, out Border imageBorder);
 
             //标题
             titleText.Text = group.DisplayName(language);
 
             //标题结果图标, 只要有一个没通过就算错误
-            var titleImage = CreateResultImage(group.testItems.FirstOrDefault(p => p.IsValidResult() == false) == null ? true : false);
+            var titleImage = CreateResultImage(group.TestItems.FirstOrDefault(p => p.IsValidResult() == false) == null ? true : false);
             titleImage.Width = titleImage.Height = 20;
             imageBorder.Child = titleImage;
 
             rowIndex = 1;   //跳过标题行
-            for(int i=0; i<group.testItems.Count; i++)
+            for(int i=0; i<group.TestItems.Count; i++)
             {
-                if (group.testItems[i] is LineSlopeTestInfo)  //结果有多行, 特殊处理
-                    rowIndex = AddLineSlopTestingToGrid(rootGrid, group.testItems[i] as LineSlopeTestInfo, rowIndex, showName);
+                if (group.TestItems[i] is LineSlopeTestInfo)  //结果有多行, 特殊处理
+                    rowIndex = AddLineSlopTestingToGrid(rootGrid, group.TestItems[i] as LineSlopeTestInfo, rowIndex, showName);
                 else
-                    AddOneTestingToGrid(rootGrid, group.testItems[i], rowIndex, showName);
+                    AddOneTestingToGrid(rootGrid, group.TestItems[i], rowIndex, showName);
                 rowIndex++;
 
                 //添加测试之间的分隔线
-                if (i < group.testItems.Count - 1)
+                if (i < group.TestItems.Count - 1)
                 {
                     GridSplitter sp = new GridSplitter();
                     sp.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
@@ -2207,7 +2194,7 @@ namespace Ai.Hong.Driver.IT
             AddTextBlockToGrid(contentGrid, scanner == null ? null : Common.Extenstion.EnumExtensions.GetEnumDescription(scanner.ConnectedDevice.Model, Language), 2, 3, true);
 
             AddTextBlockToGrid(contentGrid, "序列号", 2, 4, true);
-            AddTextBlockToGrid(contentGrid, scanner == null ? null : scanner.GetSerialNumber(), 2, 5, true);
+            AddTextBlockToGrid(contentGrid, scanner?.GetSerialNumber(), 2, 5, true);
 
             return contentGrid;
         }
@@ -2222,7 +2209,7 @@ namespace Ai.Hong.Driver.IT
             bool successed = true;
             foreach(var group in groups)
             {
-                foreach(var item in group.testItems)
+                foreach(var item in group.TestItems)
                 {
                     if (item.IsValidResult() == false)
                         successed = false;
@@ -2288,7 +2275,7 @@ namespace Ai.Hong.Driver.IT
             //bool totalResult = true;
             //foreach(var group in groups)
             //{
-            //    foreach (var item in group.testItems)
+            //    foreach (var item in group.TestItems)
             //    {
             //        if (item.IsValidResult() == false)
             //            totalResult = false;
@@ -2432,7 +2419,7 @@ namespace Ai.Hong.Driver.IT
             //详细报告
             foreach (var group in groups)
             {
-                foreach (var item in group.testItems)
+                foreach (var item in group.TestItems)
                 {
                     border = GenerateDetailPage(hardware, item);
                     page = Ai.Hong.Controls.Common.XPSReportTemplate.CreatePageContent(border);

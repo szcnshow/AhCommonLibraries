@@ -20,6 +20,22 @@ namespace LibTester
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
+
+            Ai.Hong.Driver.ScanParameter parameter = new Ai.Hong.Driver.ScanParameter();
+            parameter.SetAddtionalData("test1", "1");
+            parameter.SetAddtionalData("test2", "2");
+
+            Ai.Hong.Driver.SerializableDictionary<string, string> test = new Ai.Hong.Driver.SerializableDictionary<string, string>() { { "1", "1" }, { "2", "2" } };
+            System.Xml.Serialization.XmlSerializer xs = new System.Xml.Serialization.XmlSerializer(test.GetType());
+            StringWriter textWriter = new StringWriter();
+            xs.Serialize(textWriter, test);
+            var temp = textWriter.ToString();
+
+            StringReader textReader = new StringReader(temp);
+
+            xs = new System.Xml.Serialization.XmlSerializer(test.GetType());
+            var retData = xs.Deserialize(textReader);
+
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)

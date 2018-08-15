@@ -119,6 +119,10 @@
       <Project>{c31b5252-fa45-49c7-932f-6bf7e134e483}</Project>
       <Name>CommonMethod</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InstrumentDriver\FTNirInterface\FTNirInterface.csproj">
+      <Project>{c77fc9f9-7042-413a-aedc-f5666bd7aa1a}</Project>
+      <Name>FTNirInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

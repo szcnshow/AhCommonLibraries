@@ -13,7 +13,6 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\De
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csproj.CoreCompileInputs.cache
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.pdb
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csprojResolveAssemblyReference.cache
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csproj.CopyComplete
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csprojResolveAssemblyReference.cache
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csproj.CopyComplete

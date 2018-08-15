@@ -64,7 +64,7 @@
             连接的设备
             </summary>
         </member>
-        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.userAbort">
+        <member name="F:Ai.Hong.Driver.Controls.ClockScannerPanel.UserAbort">
             <summary>
             用户取消扫描
             </summary>
@@ -128,6 +128,14 @@
             <param name="curValue">当前扫描次数</param>
             <returns>True=继续扫描, False=终止扫描</returns>
         </member>
+        <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.DoScanProcessEvent(Ai.Hong.Driver.EnumScanNotifyState,System.Int32,System.Int32)">
+            <summary>
+            通知调用程序扫描进度消息
+            </summary>
+            <param name="status"></param>
+            <param name="maxValue"></param>
+            <param name="curValue"></param>
+        </member>
         <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.RaiseNofiyEvent(Ai.Hong.Driver.EnumScanNotifyState)">
             <summary>
             引发事件
@@ -143,6 +151,42 @@
             获取扫描结果（包括结果谱图，单通道普通，干涉图）
             </summary>
             <returns>FileFormat列表</returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.BackSingleBeam">
+            <summary>
+            背景单通道光谱
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.SampleSingleBeam">
+            <summary>
+            样品单通道光谱
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.BackInterferogram">
+            <summary>
+            背景干涉图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.SampleInterferogram">
+            <summary>
+            样品干涉图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.Transmission">
+            <summary>
+            样品透射图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ClockScannerPanel.Absorbance">
+            <summary>
+            样品吸收图
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.Controls.ClockScannerPanel.InitializeComponent">
             <summary>
@@ -2466,6 +2510,48 @@
             Clone this class
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.SerializableDictionary`2">
+            <summary>
+            可序列化的数据字典
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Ai.Hong.Driver.SerializableDictionary`2.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.SerializableDictionary`2.WriteXmlaaa(System.Xml.XmlWriter)">
+            <summary>
+            序列化
+            </summary>
+            <param name="write"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.SerializableDictionary`2.ReadXmlaaa(System.Xml.XmlReader)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.SerializableDictionary`2.GetSchema">
+            <summary>
+            获取架构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.SerializableDictionary`2.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.SerializableDictionary`2.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            序列化
+            </summary>
+            <param name="writer"></param>
         </member>
         <member name="T:Ai.Hong.Driver.ScanParameter">
             <summary>

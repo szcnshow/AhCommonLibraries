@@ -20,7 +20,6 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHCommonResources.xml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHCommonResources.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Debug\AHCommonResources.pdb
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\CommonResources.csprojResolveAssemblyReference.cache
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\Styles\DatagridStyle.baml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\Styles\DefaultThemeStyle.baml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Debug\VectorImageInfo.baml

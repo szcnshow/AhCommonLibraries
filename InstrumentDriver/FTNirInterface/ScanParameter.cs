@@ -5,9 +5,115 @@ using System.Text;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using Ai.Hong.Common.Extenstion;
+using System.Xml;
 
 namespace Ai.Hong.Driver
 {
+
+    /// <summary>
+    /// 可序列化的数据字典
+    /// </summary>
+    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="TValue"></typeparam>
+    [Serializable]
+    public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
+    {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public SerializableDictionary() { }
+
+        /// <summary>
+        /// 序列化
+        /// </summary>
+        /// <param name="write"></param>
+        public void WriteXmlaaa(XmlWriter write)       // Serializer
+        {
+
+            XmlSerializer KeySerializer = new XmlSerializer(typeof(TKey));
+            XmlSerializer ValueSerializer = new XmlSerializer(typeof(TValue));
+            foreach (KeyValuePair<TKey, TValue> kv in this)
+            {
+                write.WriteStartElement("SerializableDictionary");
+                write.WriteStartElement("Key");
+                KeySerializer.Serialize(write, kv.Key);
+                write.WriteEndElement();
+                write.WriteStartElement("Value");
+                ValueSerializer.Serialize(write, kv.Value);
+                write.WriteEndElement();
+                write.WriteEndElement();
+            }
+        }
+
+        /// <summary>
+        /// 反序列化
+        /// </summary>
+        /// <param name="reader"></param>
+        public void ReadXmlaaa(XmlReader reader)       // Deserializer
+        {
+            reader.Read();
+            XmlSerializer KeySerializer = new XmlSerializer(typeof(TKey));
+            XmlSerializer ValueSerializer = new XmlSerializer(typeof(TValue));
+
+            while (reader.NodeType != XmlNodeType.EndElement)
+            {
+                reader.ReadStartElement("SerializableDictionary");
+                reader.ReadStartElement("Key");
+                TKey tk = (TKey)KeySerializer.Deserialize(reader);
+                reader.ReadEndElement();
+                reader.ReadStartElement("Value");
+                TValue vl = (TValue)ValueSerializer.Deserialize(reader);
+                reader.ReadEndElement();
+                reader.ReadEndElement();
+                this.Add(tk, vl);
+                reader.MoveToContent();
+            }
+            reader.ReadEndElement();
+        }
+
+        /// <summary>
+        /// 获取架构
+        /// </summary>
+        /// <returns></returns>
+        public System.Xml.Schema.XmlSchema GetSchema()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// 反序列化
+        /// </summary>
+        /// <param name="reader"></param>
+        public void ReadXml(XmlReader reader)
+        {
+            if (reader.IsEmptyElement) { return; }
+
+            reader.Read();
+            while (reader.NodeType != XmlNodeType.EndElement)
+            {
+                object key = reader.GetAttribute("Key");
+                object value = reader.GetAttribute("Value");
+                this.Add((TKey)key, (TValue)value);
+                reader.Read();
+            }
+        }
+
+        /// <summary>
+        /// 序列化
+        /// </summary>
+        /// <param name="writer"></param>
+        public void WriteXml(XmlWriter writer)
+        {
+            foreach (var key in this.Keys)
+            {
+                writer.WriteStartElement("SerializableDictionary");
+                writer.WriteAttributeString("Key", key.ToString());
+                writer.WriteAttributeString("Value", this[key].ToString());
+                writer.WriteEndElement();
+            }
+        }
+    }
+
     /// <summary>
     /// 仪器扫描参数
     /// </summary>
@@ -156,7 +262,7 @@ namespace Ai.Hong.Driver
         /// 附加信息，由各设备自己解释
         /// </summary>
         [XmlElement]
-        public Dictionary<string,  string> AddtionalData { get; set; }
+        public SerializableDictionary<string,  string> AddtionalData { get; set; }
 
         /// <summary>
         /// 语言
@@ -241,7 +347,24 @@ namespace Ai.Hong.Driver
         /// <returns></returns>
         public ScanParameter Clone()
         {
-            return MemberwiseClone() as ScanParameter;
+            var retData = MemberwiseClone() as ScanParameter;
+
+            retData.AcquireProps = new List<BasePropertyInfo>();
+            foreach (var item in AcquireProps)
+                retData.AcquireProps.Add(item.Clone());
+
+            retData.HardwareProps = new List<BasePropertyInfo>();
+            foreach (var item in HardwareProps)
+                retData.HardwareProps.Add(item.Clone());
+
+            retData.FtTransProps = new List<BasePropertyInfo>();
+            foreach (var item in FtTransProps)
+                retData.FtTransProps.Add(item.Clone());
+
+            retData.AddtionalData = new SerializableDictionary<string, string>();
+            retData.AddtionalData.Concat(AddtionalData);
+
+            return retData;
         }
 
         /// <summary>
@@ -433,7 +556,7 @@ namespace Ai.Hong.Driver
         public void SetAddtionalData<T>(string key, T value)
         {
             if (AddtionalData == null)
-                AddtionalData = new Dictionary<string, string>();
+                AddtionalData = new SerializableDictionary<string, string>();
 
             if (AddtionalData.ContainsKey(key))
                 AddtionalData[key] = StringFromValue(value);

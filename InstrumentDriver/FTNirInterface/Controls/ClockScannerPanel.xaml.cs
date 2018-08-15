@@ -36,7 +36,7 @@ namespace Ai.Hong.Driver.Controls
         /// <summary>
         /// 用户取消扫描
         /// </summary>
-        private bool userAbort = false;
+        public bool UserAbort = false;
 
         /// <summary>
         /// 当前扫描状态
@@ -82,7 +82,7 @@ namespace Ai.Hong.Driver.Controls
         /// <param name="e"></param>
         private void scanProgress_Abort(object sender, RoutedEventArgs e)
         {
-            userAbort = true;
+            UserAbort = true;
         }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace Ai.Hong.Driver.Controls
         bool ScanCallback(EnumScanNotifyState status, int maxValue, int curValue)
         {
             //每次扫描完成都通知驱动扫描线程退出, 判断完成一次扫描还是全部扫描
-            if (userAbort)
+            if (UserAbort)
                 status = EnumScanNotifyState.UserAbort;
             else if(status == EnumScanNotifyState.OneFinished)  //一次扫描结束（扫描结束消息由驱动程序提供）
             {
@@ -190,9 +190,15 @@ namespace Ai.Hong.Driver.Controls
             //另外启动一个线程来处理扫描通知
             Dispatcher.BeginInvoke((Action)delegate { DoScanProcessEvent(status, maxValue, curValue); });
 
-            return userAbort == false && status == EnumScanNotifyState.Scanning;
+            return UserAbort == false && status == EnumScanNotifyState.Scanning;
         }
 
+        /// <summary>
+        /// 通知调用程序扫描进度消息
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="maxValue"></param>
+        /// <param name="curValue"></param>
         private void DoScanProcessEvent(EnumScanNotifyState status, int maxValue, int curValue)
         {
             scanProgress.CurrentHours = curValue;
@@ -204,7 +210,7 @@ namespace Ai.Hong.Driver.Controls
                     RaiseNofiyEvent(ScanningState);
                     
                     //有可能用户取消扫描，就不重复扫描了
-                    if (userAbort == true)
+                    if (UserAbort == true)
                         ScanningState = EnumScanNotifyState.Idel;
                     else    //启动重复扫描
                     {
@@ -267,5 +273,41 @@ namespace Ai.Hong.Driver.Controls
         {
             return ScannedDatas;
         }
+
+        /// <summary>
+        /// 背景单通道光谱
+        /// </summary>
+        /// <returns></returns>
+        public FileFormat.FileFormat BackSingleBeam { get { return ScannedDatas == null ? null : ScannedDatas.First(p => p.dataInfo.dataType == Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YSCRF); } }
+
+        /// <summary>
+        /// 样品单通道光谱
+        /// </summary>
+        /// <returns></returns>
+        public FileFormat.FileFormat SampleSingleBeam { get { return ScannedDatas == null ? null : ScannedDatas.First(p => p.dataInfo.dataType == Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YSCSM); } }
+
+        /// <summary>
+        /// 背景干涉图
+        /// </summary>
+        /// <returns></returns>
+        public FileFormat.FileFormat BackInterferogram { get { return ScannedDatas == null ? null : ScannedDatas.First(p => p.dataInfo.dataType == Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIGRF); } }
+
+        /// <summary>
+        /// 样品干涉图
+        /// </summary>
+        /// <returns></returns>
+        public FileFormat.FileFormat SampleInterferogram { get { return ScannedDatas == null ? null : ScannedDatas.First(p => p.dataInfo.dataType == Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIGSM); } }
+
+        /// <summary>
+        /// 样品透射图
+        /// </summary>
+        /// <returns></returns>
+        public FileFormat.FileFormat Transmission { get { return ScannedDatas == null ? null : ScannedDatas.First(p => p.dataInfo.dataType == Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YTRANS); } }
+
+        /// <summary>
+        /// 样品吸收图
+        /// </summary>
+        /// <returns></returns>
+        public FileFormat.FileFormat  Absorbance { get { return ScannedDatas == null ? null : ScannedDatas.First(p => p.dataInfo.dataType == Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YABSRB); } }
     }
 }

@@ -45,11 +45,6 @@
             是否选中
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.MeasurePara">
-            <summary>
-            数据采集参数
-            </summary>
-        </member>
         <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.firstX">
             <summary>
             计算的X起始值
@@ -80,16 +75,6 @@
             大于目标值的范围
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.BackgroundCount">
-            <summary>
-            背景扫描重复次数
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.SampleCount">
-            <summary>
-            样品扫描重复次数
-            </summary>
-        </member>
         <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.ReferenceFile">
             <summary>
             参考图
@@ -110,19 +95,9 @@
             测试中采集的光谱数据
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.Resolution">
+        <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.AcquireParameter">
             <summary>
-            分辨率
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.ScanCount">
-            <summary>
-            扫描次数
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.BaseSelfTestInfo.ZeroFilling">
-            <summary>
-            填零系数
+            采集参数
             </summary>
         </member>
         <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.#ctor">
@@ -130,30 +105,13 @@
             构造函数
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.#ctor(System.String,System.String,System.Double,System.Double,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.String)">
+        <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.#ctor(System.String,System.String,System.String)">
             <summary>
             构造函数(默认增益Gain 1, 默认相位校正Mertz，默认截趾函数Blackman_Harris_3_Term)
             </summary>
-            <param name="ChineseName">中文名称</param>
-            <param name="EnglishName">英文名称</param>
-            <param name="firstX">起始计算波数</param>
-            <param name="lastX">结束计算波数</param>
-            <param name="resolution">分辨率</param>
-            <param name="zeroFilling">填零系数</param>
-            <param name="target">测试目标值</param>
-            <param name="LessThresold">负偏差</param>
-            <param name="GreatThresold">正偏差</param>
-            <param name="scanCount">扫描次数</param>
-            <param name="backgroundCount">背景重复次数</param>
-            <param name="sampleCount">样品重复次数</param>
-            <param name="ResultUnit">测量结果单位</param>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
-            <summary>
-            获取扫描参数
-            </summary>
-            <param name="hardware">当前设备</param>
-            <returns></returns>
+            <param name="chineseName">中文名称</param>
+            <param name="englishName">英文名称</param>
+            <param name="resultUnit">测量结果单位</param>
         </member>
         <member name="M:Ai.Hong.Driver.IT.BaseSelfTestInfo.CalculateResult(System.Object)">
             <summary>
@@ -226,22 +184,312 @@
             <param name="maxX"></param>
             <param name="maxY"></param>
         </member>
+        <member name="T:Ai.Hong.Driver.IT.DlgLaserCorrect">
+            <summary>
+            激光波数校准
+            </summary>
+            <summary>
+            DlgLaserCorrect
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.DlgLaserCorrect.laserInfo">
+            <summary>
+            激光波数校准参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.DlgLaserCorrect.scanner">
+            <summary>
+            当前设备
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.DlgLaserCorrect.savePath">
+            <summary>
+            光谱保存路径
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DlgLaserCorrect.#ctor(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.IT.LaserWavelengthTestInfo,System.String)">
+            <summary>
+            激光波数校准构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DlgLaserCorrect.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.InstrumentTestPanel">
+            <summary>
+            仪器性能测试
+            </summary>   
+            <summary>
+            InstrumentTestPanel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.TestParameter">
+            <summary>
+            测试项目参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.scanProgress">
+            <summary>
+            扫描进度条
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.scanner">
+            <summary>
+            连接的仪器
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.language">
+            <summary>
+            使用语言
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.AbortTestMark">
+            <summary>
+            取消测试
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.Init(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.IT.PerformanceTestGroupInfo,Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            pqParas和oqParas只能选择一个
+            </summary>
+            <param name="scanner">测试仪器</param>
+            <param name="testParameter">测试项目</param>
+            <param name="language">系统语言</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.CheckReferenceFiles(System.String)">
+            <summary>
+            检查参考文件是否存在
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.CanClose">
+            <summary>
+            如果正在检测，不能关闭窗口
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.StartTest(Ai.Hong.Driver.Controls.ClockScannerPanel)">
+            <summary>
+            开始测试
+            </summary>
+            <param name="scanProgress">扫描进度条</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.AbortTest">
+            <summary>
+            取消测试
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.AddOneGroup(Ai.Hong.Driver.IT.SelTestGroup)">
+            <summary>
+            添加测试类
+            </summary>
+            <param name="testGroup"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.AddItemToGrid(System.Int32,System.String,System.Object)">
+            <summary>
+            在rootGrid中添加Image和Textblock
+            </summary>
+            <param name="beginCol">起始列</param>
+            <param name="displayName">显示名称</param>
+            <param name="item">当前项</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.SetOneGroupState(Ai.Hong.Driver.IT.SelTestGroup,System.Int32)">
+            <summary>
+            设置测试组合的状态
+            </summary>
+            <param name="group">测试组合</param>
+            <param name="state">状态</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.SetOneItemState(System.Object,System.Int32)">
+            <summary>
+            设置检测项目的状态
+            </summary>
+            <param name="target"></param>
+            <param name="state"></param>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.testingThread">
+            <summary>
+            检测线程
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.currentTestItem">
+            <summary>
+            当前检测项
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.InstrumentTestPanel.scanState">
+            <summary>
+            当前检测状态
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.ScanProgress_Notify(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            响应扫描消息
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.ScanAndWaiting(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.ScanParameter)">
+            <summary>
+            一次扫描
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.LaserWavelengthTest(Ai.Hong.Driver.IT.SelTestGroup,Ai.Hong.Driver.ScanParameter)">
+            <summary>
+            测试并校准激光波数
+            </summary>
+            <param name="group"></param>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.EnergyTest(Ai.Hong.Driver.IT.SelTestGroup,Ai.Hong.Driver.ScanParameter)">
+            <summary>
+            能量测试组合
+            </summary>
+            <param name="group">测试组合</param>
+            <param name="parameter">测试参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.WavelengthAccuracyTest(Ai.Hong.Driver.IT.SelTestGroup)">
+            <summary>
+            波数精度测试
+            </summary>
+            <param name="group"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.PhotometriAccuracyTest(Ai.Hong.Driver.IT.SelTestGroup)">
+            <summary>
+            光度精度测试
+            </summary>
+            <param name="group"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.OnlyBackgroundReferenceTest(Ai.Hong.Driver.IT.BaseSelfTestInfo)">
+            <summary>
+            仅仅测试背景参考光谱并计算
+            </summary>
+            <param name="testItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.TransmitSpectrumTest(Ai.Hong.Driver.IT.BaseSelfTestInfo,System.Boolean)">
+            <summary>
+            使用透射图的测试
+            </summary>
+            <param name="testItem"></param>
+            <param name="onlyOneBackground"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.OQphotometricTest(Ai.Hong.Driver.IT.SelTestGroup)">
+            <summary>
+            OQ光路稳定性测试
+            </summary>
+            <param name="group"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.OQWaveAccuracyTest(Ai.Hong.Driver.IT.SelTestGroup)">
+            <summary>
+            OQ波数精度测试
+            </summary>
+            <param name="group"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InstrumentTestPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.EnergyTestInfo">
+            <summary>
+            能量测试（Energy Test）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.#ctor">
+            <summary>
+            构造函数（主要用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.#ctor(System.Boolean)">
+            <summary>
+            带参数的构造函数 Thresold 《 30%
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.CalculateResult(System.Object)">
+            <summary>
+            计算结果
+            </summary>
+            <param name="calcuParameter">参考干涉图</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.EnergyDistributeTestInfo">
+            <summary>
+            能量分布测试(Energy Distribution Test)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.TargetX">
+            <summary>
+            计算比例的X位置
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.#ctor">
+            <summary>
+            构造函数（主要用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.#ctor(System.Boolean)">
+            <summary>
+            带参数的构造函数 Thresold《0.8
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.CalculateResult(System.Object)">
+            <summary>
+            计算测试结果
+            </summary>
+            <param name="calcuParameter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.InterferPeakTestInfo">
+            <summary>
+            干涉图峰位振幅测试（Long Term Stability Test, Interferogram Peak Amplitude Test）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.#ctor">
+            <summary>
+            构造函数（主要用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.#ctor(System.Boolean)">
+            <summary>
+            带参数的构造函数(TargetResult = 参考光谱=100% Thresold>70%
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.CalculateResult(System.Object)">
+            <summary>
+            计算结果
+            </summary>
+            <param name="calcuParameter">参考干涉图</param>
+            <returns></returns>
+        </member>
         <member name="T:Ai.Hong.Driver.IT.LaserWavelengthTestInfo">
             <summary>
             激光峰位校准
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.verifyPeaks">
+        <member name="P:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.VerifyPeaks">
             <summary>
             验证峰位
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.verifyPeakThreshold">
+        <member name="P:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.VerifyPeakThreshold">
             <summary>
             验证峰位阈值
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.laserLength">
+        <member name="P:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.LaserLength">
             <summary>
             设备激光波数
             </summary>
@@ -253,9 +501,9 @@
         </member>
         <member name="M:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.#ctor(System.Boolean)">
             <summary>
-            带参数的构造函数
+            创建新的测量参数
             </summary>
-            <param name="createNew">是否新建</param>
+            <param name="createNew">新建参数</param>
         </member>
         <member name="M:Ai.Hong.Driver.IT.LaserWavelengthTestInfo.CalculateResult(System.Object)">
             <summary>
@@ -268,6 +516,28 @@
             <summary>
             调整激光频率
             </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.DeviationTestInfo">
+            <summary>
+            100%线偏离测试(100% Line Deviation Test)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviationTestInfo.#ctor">
+            <summary>
+            构造函数（主要用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviationTestInfo.#ctor(System.Boolean)">
+            <summary>
+            带参数的构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviationTestInfo.CalculateResult(System.Object)">
+            <summary>
+            计算结果
+            </summary>
+            <param name="calcuParameter"></param>
+            <returns></returns>
         </member>
         <member name="T:Ai.Hong.Driver.IT.LineNoiseTestInfo">
             <summary>
@@ -291,8 +561,9 @@
         </member>
         <member name="M:Ai.Hong.Driver.IT.LineNoiseTestInfo.#ctor(System.Boolean)">
             <summary>
-            带参数的构造函数
+            创建100%线噪声测试参数
             </summary>
+            <param name="createNew"></param>
         </member>
         <member name="M:Ai.Hong.Driver.IT.LineNoiseTestInfo.CalculateResult(System.Object)">
             <summary>
@@ -301,159 +572,47 @@
             <param name="calcuParameter"></param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.LineNoiseTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
+        <member name="T:Ai.Hong.Driver.IT.LineSlopeTestInfo">
             <summary>
-            获取扫描参数
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.DeviationTestInfo">
-            <summary>
-            100%线斜率测试(100% Line Deviation Test)
+            100%线斜率测试(100% Line Slope Test)
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.DeviationTestInfo.#ctor">
+        <member name="P:Ai.Hong.Driver.IT.LineSlopeTestInfo.slopeX">
             <summary>
-            构造函数（主要用于反序列化）
+            计算的X位置
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.DeviationTestInfo.#ctor(System.Boolean)">
+        <member name="P:Ai.Hong.Driver.IT.LineSlopeTestInfo.slopeThresold">
             <summary>
-            带参数的构造函数
+            计算的阈值范围
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.DeviationTestInfo.CalculateResult(System.Object)">
+        <member name="P:Ai.Hong.Driver.IT.LineSlopeTestInfo.slopeResult">
             <summary>
-            计算结果
-            </summary>
-            <param name="calcuParameter"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.InterferPeakTestInfo">
-            <summary>
-            干涉图峰位振幅测试（Long Term Stability Test, Interferogram Peak Amplitude Test）
+            检测到的结果
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.#ctor">
+        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.#ctor">
             <summary>
             构造函数（主要用于反序列化）
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.#ctor(System.Boolean)">
+        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.#ctor(System.Boolean)">
             <summary>
-            带参数的构造函数(TargetResult = 参考光谱=100% Thresold>70%
+            带参数的构造函数 Thresold《0.8
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
-            <summary>
-            获取扫描参数
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.InterferPeakTestInfo.CalculateResult(System.Object)">
-            <summary>
-            计算结果
-            </summary>
-            <param name="calcuParameter">参考干涉图</param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.EnergyTestInfo">
-            <summary>
-            能量测试（Energy Test）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.#ctor">
-            <summary>
-            构造函数（主要用于反序列化）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.#ctor(System.Boolean)">
-            <summary>
-            带参数的构造函数 Thresold 《 30%
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
-            <summary>
-            获取扫描参数
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyTestInfo.CalculateResult(System.Object)">
-            <summary>
-            计算结果
-            </summary>
-            <param name="calcuParameter">参考干涉图</param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.VaporAccuracyTestInfo">
-            <summary>
-            水蒸气峰位精度（Wavenumber Accuracy Test）
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.verifyPeaks">
-            <summary>
-            验证峰位
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.laserLength">
-            <summary>
-            设备激光波数
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.#ctor">
-            <summary>
-            构造函数（主要用于反序列化）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.#ctor(System.Boolean)">
-            <summary>
-            带参数的构造函数Thresold ±0.1
-            </summary>
-            <param name="createNew">是否为新建</param>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.CalculateResult(System.Object)">
+        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.CalculateResult(System.Object)">
             <summary>
             计算测试结果
             </summary>
             <param name="calcuParameter"></param>
             <returns></returns>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.AdjustLaserWavelength">
+        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.IsValidResult">
             <summary>
-            调整激光频率
+            特别的结果判断
             </summary>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.PolyAccuracyTestInfo">
-            <summary>
-            聚苯乙烯峰位测试，先扫描背景光谱，然后将IVU转换到聚苯乙烯，扫描带有聚苯乙烯的背景光谱，计算聚苯乙烯的吸收谱
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.IVUFilter">
-            <summary>
-            验证轮位置
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.#ctor">
-            <summary>
-            构造函数（主要用于反序列化）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.#ctor(System.Boolean)">
-            <summary>
-            带参数的构造函数Thresold±0.5
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
-            <summary>
-            获取扫描参数
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.CalculateResult(System.Object)">
-            <summary>
-            计算测试结果
-            </summary>
-            <param name="calcuParameter"></param>
             <returns></returns>
         </member>
         <member name="T:Ai.Hong.Driver.IT.PhotometricTestInfo">
@@ -478,88 +637,31 @@
             <param name="calcuParameter">参考干涉图</param>
             <returns></returns>
         </member>
-        <member name="T:Ai.Hong.Driver.IT.SelTestGroup">
+        <member name="T:Ai.Hong.Driver.IT.PolyAccuracyTestInfo">
             <summary>
-            测试组合
+            聚苯乙烯峰位测试，先扫描背景光谱，然后将IVU转换到聚苯乙烯，扫描带有聚苯乙烯的背景光谱，计算聚苯乙烯的吸收谱
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.InnerName">
+        <member name="P:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.IVUFilter">
             <summary>
-            组合的内部名称
+            验证轮位置
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.ChineseName">
+        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.#ctor">
             <summary>
-            组合的中文名称
+            构造函数（主要用于反序列化）
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.EnglishName">
+        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.#ctor(System.Boolean)">
             <summary>
-            组合的英文名称
+            带参数的构造函数Thresold±0.5
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.TestItems">
+        <member name="M:Ai.Hong.Driver.IT.PolyAccuracyTestInfo.CalculateResult(System.Object)">
             <summary>
-            测试的内容
+            计算测试结果
             </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.SelTestGroup.DisplayName(Ai.Hong.Common.EnumLanguage)">
-            <summary>
-            测试的显示名称
-            </summary>
-            <param name="language">当前所用语言</param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.PQTestInfo">
-            <summary>
-            PQ测试参数信息
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.PQTestInfo.PQTestHours">
-            <summary>
-            需要PQ测试的时间间隔
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.PQTestInfo.lastPQTestTime">
-            <summary>
-            上一次PQ测试时间
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.PQTestInfo.laserTest">
-            <summary>
-            激光波数校准
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.PQTestInfo.energyTest">
-            <summary>
-            能量测试
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.PQTestInfo.wavelengthTest">
-            <summary>
-            波数精度测试
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.PQTestInfo.absorbTest">
-            <summary>
-            吸收重复性测试
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.PQTestInfo.#ctor">
-            <summary>
-            构造函数
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.PQTestInfo.#ctor(System.Boolean)">
-            <summary>
-            创建新的PQ测试参数
-            </summary>
-            <param name="createNew"></param>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.PQTestInfo.GetAllTestGroups">
-            <summary>
-            获取所有的测试项目
-            </summary>
+            <param name="calcuParameter"></param>
             <returns></returns>
         </member>
         <member name="T:Ai.Hong.Driver.IT.ResolutionTestInfo">
@@ -567,7 +669,7 @@
             分辨率测试
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.ResolutionTestInfo.resolutionPeak">
+        <member name="P:Ai.Hong.Driver.IT.ResolutionTestInfo.ResolutionPeak">
             <summary>
             计算分辨率的峰位
             </summary>
@@ -582,12 +684,6 @@
             带参数的构造函数
             </summary>
             <param name="createNew"></param>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
-            <summary>
-            获取扫描参数
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.IT.ResolutionTestInfo.GetLineSlopAndBias(System.Windows.Point,System.Windows.Point)">
             <summary>
@@ -634,195 +730,6 @@
             计算测试结果
             </summary>
             <param name="calcuParameter">bool, True=向上的峰，False=向下的峰</param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.EnergyDistributeTestInfo">
-            <summary>
-            能量分布测试(Energy Distribution Test)
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.targetX">
-            <summary>
-            计算比例的X位置
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.#ctor">
-            <summary>
-            构造函数（主要用于反序列化）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.#ctor(System.Boolean)">
-            <summary>
-            带参数的构造函数 Thresold《0.8
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.EnergyDistributeTestInfo.CalculateResult(System.Object)">
-            <summary>
-            计算测试结果
-            </summary>
-            <param name="calcuParameter"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.LineSlopeTestInfo">
-            <summary>
-            100%线斜率测试(100% Line Slope Test)
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.LineSlopeTestInfo.slopeX">
-            <summary>
-            计算的X位置
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.LineSlopeTestInfo.slopeThresold">
-            <summary>
-            计算的阈值范围
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.LineSlopeTestInfo.slopeResult">
-            <summary>
-            检测到的结果
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.#ctor">
-            <summary>
-            构造函数（主要用于反序列化）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.#ctor(System.Boolean)">
-            <summary>
-            带参数的构造函数 Thresold《0.8
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
-            <summary>
-            获取扫描参数
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.CalculateResult(System.Object)">
-            <summary>
-            计算测试结果
-            </summary>
-            <param name="calcuParameter"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.LineSlopeTestInfo.IsValidResult">
-            <summary>
-            特别的结果判断
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.TransmitReproductTestInfo">
-            <summary>
-            透射重复性测试(Transmittance Reproducibility)
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.#ctor">
-            <summary>
-            构造函数（主要用于反序列化）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.#ctor(System.Boolean)">
-            <summary>
-            带参数的构造函数 Thresold《0.8
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.GetScanParameter(Ai.Hong.Driver.DeviceHardware)">
-            <summary>
-            获取扫描参数
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.CalculateResult(System.Object)">
-            <summary>
-            计算测试结果
-            </summary>
-            <param name="calcuParameter"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.WavenumberReproductTestInfo">
-            <summary>
-            波数重现性测试（Wavenumber Reproducibility Test）
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.verifyPeak">
-            <summary>
-            验证峰位
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.#ctor">
-            <summary>
-            构造函数（主要用于反序列化）
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.#ctor(System.Boolean)">
-            <summary>
-            带参数的构造函数Thresold ±0.1
-            </summary>
-            <param name="createNew"></param>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.CalculateResult(System.Object)">
-            <summary>
-            计算测试结果
-            </summary>
-            <param name="calcuParameter"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Ai.Hong.Driver.IT.OQTestInfo">
-            <summary>
-            PQ测试参数信息
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.OQTestInfo.OQTestDays">
-            <summary>
-            需要OQ测试的时间间隔
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.OQTestInfo.lastOQTestTime">
-            <summary>
-            上一次PQ测试时间
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.OQTestInfo.laserTest">
-            <summary>
-            激光波数校准
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.OQTestInfo.resolutionTest">
-            <summary>
-            分辨率测试
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.OQTestInfo.photometricTest">
-            <summary>
-            光路稳定性测试
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.OQTestInfo.wavelengthTest">
-            <summary>
-            波数精度测试
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Driver.IT.OQTestInfo.scanReferenceData">
-            <summary>
-            采集仪器的参考光谱
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.OQTestInfo.#ctor">
-            <summary>
-            构造函数
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.OQTestInfo.#ctor(System.Boolean)">
-            <summary>
-            创建新的PQ测试参数
-            </summary>
-            <param name="createNew"></param>
-        </member>
-        <member name="M:Ai.Hong.Driver.IT.OQTestInfo.GetAllTestGroups">
-            <summary>
-            获取所有的测试项目
-            </summary>
             <returns></returns>
         </member>
         <member name="T:Ai.Hong.Driver.IT.XPSReport">
@@ -964,6 +871,274 @@
             <param name="filename">XPS文件名</param>
             <param name="groups">测试组合的列表</param>
             <param name="reportTitle">报告的标题</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.SelTestGroup">
+            <summary>
+            测试组合
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.InnerName">
+            <summary>
+            组合的内部名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.ChineseName">
+            <summary>
+            组合的中文名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.EnglishName">
+            <summary>
+            组合的英文名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.SelTestGroup.TestItems">
+            <summary>
+            测试的内容
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.SelTestGroup.DisplayName(Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            测试的显示名称
+            </summary>
+            <param name="language">当前所用语言</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.PerformanceTestGroupInfo">
+            <summary>
+            性能测试参数信息,每个仪器都包含PQ/OQ测试参数，需要自己定义
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.PQLaserCalibrate">
+            <summary>
+            PQ 激光波数校准
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.PQEnergyTest">
+            <summary>
+            PQ 能量测试
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.PQWaveAccuracyTest">
+            <summary>
+            PQ 波数准确度测试
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.PQPhotometricTest">
+            <summary>
+            PQ 光路精度测试
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.OQLaserCalibrate">
+            <summary>
+            OQ 激光波数校准
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.OQResolutionTest">
+            <summary>
+            OQ 分辨率测试
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.OQPhotometricTest">
+            <summary>
+            OQ 光路精度测试
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.OQWaveAccuracyTest">
+            <summary>
+            OQ 波数准确度测试
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.OQScanRefereceData">
+            <summary>
+            OQ 扫描参考光谱
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.TestDuration">
+            <summary>
+            需要测试的时间间隔（小时）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.LastTestTime">
+            <summary>
+            上一次PQ测试时间
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.TestGroups">
+            <summary>
+            测试组合
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.GetAllTestItems">
+            <summary>
+            获取所有的测试项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.PerformanceTestGroupInfo.GetTestItem``1">
+            <summary>
+            根据类型获取检测项
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.OQTestInfoaaa">
+            <summary>
+            OQ测试参数信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.OQTestInfoaaa.OQTestDays">
+            <summary>
+            需要OQ测试的时间间隔
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.OQTestInfoaaa.lastOQTestTime">
+            <summary>
+            上一次PQ测试时间
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.OQTestInfoaaa.laserTest">
+            <summary>
+            激光波数校准
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.OQTestInfoaaa.resolutionTest">
+            <summary>
+            分辨率测试
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.OQTestInfoaaa.photometricTest">
+            <summary>
+            光路稳定性测试
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.OQTestInfoaaa.wavelengthTest">
+            <summary>
+            波数精度测试
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.OQTestInfoaaa.scanReferenceData">
+            <summary>
+            采集仪器的参考光谱
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.OQTestInfoaaa.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.OQTestInfoaaa.#ctor(System.Boolean)">
+            <summary>
+            创建新的PQ测试参数
+            </summary>
+            <param name="createNew">仪器型号</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.OQTestInfoaaa.GetAllTestGroups">
+            <summary>
+            获取所有的测试项目
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.OQTestInfoaaa.GetTestItem``1">
+            <summary>
+            根据类型获取检测项
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.TransmitReproductTestInfo">
+            <summary>
+            透射重复性测试(Transmittance Reproducibility)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.#ctor">
+            <summary>
+            构造函数（主要用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.#ctor(System.Boolean)">
+            <summary>
+            带参数的构造函数 Thresold《0.8
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.TransmitReproductTestInfo.CalculateResult(System.Object)">
+            <summary>
+            计算测试结果
+            </summary>
+            <param name="calcuParameter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.VaporAccuracyTestInfo">
+            <summary>
+            水蒸气峰位精度（Wavenumber Accuracy Test）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.VerifyPeaks">
+            <summary>
+            验证峰位
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.LaserLength">
+            <summary>
+            设备激光波数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.#ctor">
+            <summary>
+            构造函数（主要用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.#ctor(System.Boolean)">
+            <summary>
+            创建新的测量参数
+            不同类型的仪器分别设置
+            </summary>
+            <param name="createNew">仪器品牌</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.CalculateResult(System.Object)">
+            <summary>
+            计算测试结果
+            </summary>
+            <param name="calcuParameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.VaporAccuracyTestInfo.AdjustLaserWavelength">
+            <summary>
+            调整激光频率
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Driver.IT.WavenumberReproductTestInfo">
+            <summary>
+            波数重现性测试（Wavenumber Reproducibility Test）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.VerifyPeak">
+            <summary>
+            验证峰位
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.#ctor">
+            <summary>
+            构造函数（主要用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.#ctor(System.Boolean)">
+            <summary>
+            带参数的构造函数Thresold ±0.1
+            </summary>
+            <param name="createNew"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.WavenumberReproductTestInfo.CalculateResult(System.Object)">
+            <summary>
+            计算测试结果
+            </summary>
+            <param name="calcuParameter"></param>
             <returns></returns>
         </member>
     </members>

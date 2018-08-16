@@ -510,7 +510,7 @@ namespace Ai.Hong.Driver.IT
             chart.SaveToBitmapFile(bmpfile, 1000, 500, System.Windows.Media.Brushes.White);
 
             System.Windows.Controls.Image spcChartImage = new Image();
-            Ai.Hong.Common.CommonMethod.SetImageSource(spcChartImage, bmpfile, null);
+            CommonMethod.SetImageSource(spcChartImage, bmpfile, null);
             //System.IO.File.Delete(bmpfile);
             Border border = rootBorder.FindName("borderGraphic") as Border;
             border.Child = spcChartImage;

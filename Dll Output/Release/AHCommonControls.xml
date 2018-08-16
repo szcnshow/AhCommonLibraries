@@ -2901,7 +2901,7 @@
             <summary>
             构造函数
             </summary>
-            <param name="prompt">提示</param>
+            <param name="prompty">提示</param>
             <param name="title">窗口标题</param>
             <param name="orgText">原有字符串</param>
         </member>

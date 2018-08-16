@@ -4,11 +4,11 @@
 library
 C#
 .cs
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Debug\
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\InstrumentDriver\InstrumentTest\obj\Release\
 Ai.Hong.Driver.IT
 none
 false
-DEBUG;TRACE
+TRACE
 
 2-1095716739
 

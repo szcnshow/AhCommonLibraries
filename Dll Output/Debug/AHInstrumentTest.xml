@@ -184,6 +184,115 @@
             <param name="maxX"></param>
             <param name="maxY"></param>
         </member>
+        <member name="T:Ai.Hong.Driver.IT.DeviceConfig">
+            <summary>
+            应用程序运行配置文件
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.Language">
+            <summary>
+            系统语言
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.UnitName">
+            <summary>
+            单位名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.MeasureConfigFile">
+            <summary>
+            当前采集参数文件名
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.MeasureParameter">
+            <summary>
+            当前采集参数属性
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.PQTestParameter">
+            <summary>
+            PQ测试参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.OQTestParameter">
+            <summary>
+            OQ测试参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.CurInstrument">
+            <summary>
+            当前连接的仪器
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.CurHardware">
+            <summary>
+            当前硬件
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.DeviceConfig.PQConfigFilename">
+            <summary>
+            PQ config filename
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.DeviceConfig.OQConfigFilename">
+            <summary>
+            OQ config filename
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.DeviceConfig.defaultMeasureName">
+            <summary>
+            measurement filename
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.IT.DeviceConfig.ConfigFilename">
+            <summary>
+            配置文件路径（反序列化后立即设置）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.ConfigFilepath">
+            <summary>
+            配置文件路径（反序列化后立即设置）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.#ctor">
+            <summary>
+            构造函数（用于反序列化）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.#ctor(Ai.Hong.Driver.FTDriver,System.String,System.String,System.String,Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            创建配置参数
+            </summary>
+            <param name="scanner">当前连接的仪器</param>
+            <param name="configFile">配置参数文件名</param>
+            <param name="userName">操作员名称</param>
+            <param name="unitName">操作单位名称</param>
+            <param name="language">使用的语言</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.Init(Ai.Hong.Driver.FTDriver)">
+            <summary>
+            初始化AppConfigInfo
+            </summary>
+            <param name="scanner">当前连接的仪器</param>
+            <returns>True=需要保存配置文件</returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.CreatePQTest">
+            <summary>
+            创建PQ测试项目（每种仪器自己创建）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.CreateOQTest">
+            <summary>
+            创建OQ测试项目（每种仪器自己创建）
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Ai.Hong.Driver.IT.DlgLaserCorrect">
             <summary>
             激光波数校准

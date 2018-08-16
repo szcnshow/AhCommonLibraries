@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseSelfTestInfo.cs" />
+    <Compile Include="DeviceConfig.cs" />
     <Compile Include="DlgLaserCorrect.xaml.cs">
       <DependentUpon>DlgLaserCorrect.xaml</DependentUpon>
     </Compile>

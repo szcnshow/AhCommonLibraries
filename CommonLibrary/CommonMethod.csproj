@@ -90,6 +90,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceOperator.cs" />
     <Compile Include="StaticConverts.cs" />
+    <Compile Include="Win32WindowsMsg.cs" />
+    <Compile Include="Win32WindowStyle.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

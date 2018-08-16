@@ -58,6 +58,12 @@ namespace Ai.Hong.Driver.IT
         public PerformanceTestGroupInfo OQTestParameter { get; set; }
 
         /// <summary>
+        /// 上一次连接的设备信息
+        /// </summary>
+        [XmlElement]
+        public DeviceInfo LastDeviceInfo { get; set; }
+
+        /// <summary>
         /// 当前连接的仪器
         /// </summary>
         [XmlIgnore]

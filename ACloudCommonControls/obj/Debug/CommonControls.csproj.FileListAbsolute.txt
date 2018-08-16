@@ -115,3 +115,4 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonC
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\CommonControls.csproj.CopyComplete
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\AHCommonControls.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\AHCommonControls.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\CommonControls.csprojResolveAssemblyReference.cache

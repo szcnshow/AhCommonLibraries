@@ -41,6 +41,92 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Ai.Hong.Driver.Controls.ConnectorPanel">
+            <summary>
+            Connector.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ConnectorPanel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ConnectorPanel.StatusChangedEvent">
+            <summary>
+            Status changed notify event
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Driver.Controls.ConnectorPanel.StatusChanged">
+            <summary>
+            Status changed notify event
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.Controls.ConnectorPanel.Status">
+            <summary>
+            Device status
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ConnectorPanel.StatusRefreshRate">
+            <summary>
+            状态刷新频率(second)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ConnectorPanel.ConnectedDevice">
+            <summary>
+            当前连接的设备
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ConnectorPanel.lastDevice">
+            <summary>
+            Last device info from config
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Driver.Controls.ConnectorPanel.refreshTimer">
+            <summary>
+            Refresh timer
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ConnectorPanel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ConnectorPanel.StartConenct(Ai.Hong.Driver.FTDriver,Ai.Hong.Driver.DeviceInfo)">
+            <summary>
+            开始连接设备
+            </summary>
+            <param name="device">当前设备类型</param>
+            <param name="lastDevice">上次连接的设备</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ConnectorPanel.ConnectThread(System.Object)">
+            <summary>
+            Check and display connect message
+            </summary>
+            <param name="ipaddress"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ConnectorPanel.UpdateStatus(System.Boolean,Ai.Hong.Driver.EnumHardwareStatus,System.String)">
+            <summary>
+            更新状态
+            </summary>
+            <param name="refreshVisible">是否显示刷新图标</param>
+            <param name="status">状态</param>
+            <param name="message">信息</param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ConnectorPanel.RefreshDeviceStatus(System.Object,System.EventArgs)">
+            <summary>
+            Refresh device health status
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ConnectorPanel.RaiseStatusEvent">
+            <summary>
+            引发事件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.Controls.ConnectorPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Driver.Controls.ClockScannerPanel">
             <summary>
             panelScanner.xaml 的交互逻辑
@@ -2045,6 +2131,11 @@
             设备包含的硬件属性操作
             </summary>
         </member>
+        <member name="F:Ai.Hong.Driver.FTDriver.EnvironmentInited">
+            <summary>
+            设备环境是否已经初始化了
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Driver.FTDriver.Dispose">
             <summary>
             </summary>
@@ -2060,6 +2151,12 @@
             <summary>
             Finalizer for the UsbDevice. Disposes all unmanaged handles.
             </summary>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.InitEnvironment">
+            <summary>
+            初始化设备连接环境
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.FTDriver.EnumerateDevices(System.Object)">
             <summary>

@@ -53,6 +53,26 @@
     <DocumentationFile>..\..\Dll Output\Release\AHDeviceDriver.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AHCommonControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll Output\Debug\AHCommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="AHCommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll Output\Debug\AHCommonMethod.dll</HintPath>
+    </Reference>
+    <Reference Include="AHCommonResources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll Output\Debug\AHCommonResources.dll</HintPath>
+    </Reference>
+    <Reference Include="AHSpectrumAlgorithm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll Output\Debug\AHSpectrumAlgorithm.dll</HintPath>
+    </Reference>
+    <Reference Include="AHSpectrumFileFormat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll Output\Debug\AHSpectrumFileFormat.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -68,6 +88,9 @@
   <ItemGroup>
     <Compile Include="Controls\CommonParaPanel.xaml.cs">
       <DependentUpon>CommonParaPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConnectorPanel.xaml.cs">
+      <DependentUpon>ConnectorPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Defines.cs" />
     <Compile Include="DeviceHardware.cs" />
@@ -116,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\ConnectorPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WaitDialog\ProcessWaitDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,28 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="WaitDialog\Stop.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ACloudCommonControls\CommonControls.csproj">
-      <Project>{5b159f57-59c6-4186-8fe3-aefaf9638b85}</Project>
-      <Name>CommonControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ACloudFileFormat\SpectrumFileFormat.csproj">
-      <Project>{e01f8204-e19b-4c55-b3bd-d4270df16f1c}</Project>
-      <Name>SpectrumFileFormat</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ACloudPLSAlgorithm\SpectrumAlgorithm.csproj">
-      <Project>{ffe0b384-d57f-415e-b93d-7e45acf7745b}</Project>
-      <Name>SpectrumAlgorithm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ACloudResources\CommonResources.csproj">
-      <Project>{897e2cde-69c1-4809-896c-f5d9e2256b0f}</Project>
-      <Name>CommonResources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\CommonLibrary\CommonMethod.csproj">
-      <Project>{c31b5252-fa45-49c7-932f-6bf7e134e483}</Project>
-      <Name>CommonMethod</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

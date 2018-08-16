@@ -224,6 +224,11 @@
             OQ测试参数
             </summary>
         </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.LastDeviceInfo">
+            <summary>
+            上一次连接的设备信息
+            </summary>
+        </member>
         <member name="P:Ai.Hong.Driver.IT.DeviceConfig.CurInstrument">
             <summary>
             当前连接的仪器

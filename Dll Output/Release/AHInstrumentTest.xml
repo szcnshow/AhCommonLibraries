@@ -224,6 +224,11 @@
             OQ测试参数
             </summary>
         </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.LastDeviceInfo">
+            <summary>
+            上一次连接的设备信息
+            </summary>
+        </member>
         <member name="P:Ai.Hong.Driver.IT.DeviceConfig.CurInstrument">
             <summary>
             当前连接的仪器
@@ -283,13 +288,13 @@
         </member>
         <member name="M:Ai.Hong.Driver.IT.DeviceConfig.CreatePQTest">
             <summary>
-            创建PQ测试项目
+            创建PQ测试项目（每种仪器自己创建）
             </summary>
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.IT.DeviceConfig.CreateOQTest">
             <summary>
-            创建OQ测试项目
+            创建OQ测试项目（每种仪器自己创建）
             </summary>
             <returns></returns>
         </member>

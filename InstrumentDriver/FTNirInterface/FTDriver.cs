@@ -150,6 +150,11 @@ namespace Ai.Hong.Driver
         /// </summary>
         public DeviceHardware deviceHardware;
 
+        /// <summary>
+        /// 设备环境是否已经初始化了
+        /// </summary>
+        protected bool EnvironmentInited = false;
+
         #region constructor & deconstructor
         /// <summary>
         /// </summary>
@@ -184,6 +189,12 @@ namespace Ai.Hong.Driver
         }
 
         #endregion
+
+        /// <summary>
+        /// 初始化设备连接环境
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool InitEnvironment() { throw new NotImplementedException(); }
 
         /// <summary>
         /// 枚举系统连接的设备

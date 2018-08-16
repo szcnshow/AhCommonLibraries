@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Ai.Hong.Driver.Controls.ConnectorPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:Ai.Hong.Controls;assembly=AHCommonControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="200">
+    <UserControl.Resources>
+        <DrawingGroup x:Key="RotateRefreshGeometry">
+            <DrawingGroup.Children>
+                <GeometryDrawing Brush="#FF272536" Geometry="M 14.9993,1.33053C 7.4047,1.33053 1.32905,7.40618 1.32905,15.0007C 1.32905,18.6081 2.6581,22.0257 5.31619,24.6838C 7.97429,27.3419 11.3918,28.6709 14.9993,28.6709L 14.9993,29.4304L 14.9993,28.6709C 22.5938,28.6709 28.6694,22.5953 28.6694,15.0007C 28.6694,11.3933 27.3404,7.97577 24.6823,5.31767C 22.0242,2.65958 18.6067,1.33053 14.9993,1.33053 Z M 14.9993,30L 14.9993,30C 11.0121,30 7.21483,28.4811 4.36687,25.6331C 1.51891,22.7852 -4.96705e-008,18.9879 -4.96705e-008,15.0007C -4.96705e-008,6.64672 6.83511,0.0014801 14.9993,0.0014801C 18.9864,0.0014801 22.7837,1.52039 25.6316,4.36835C 28.4796,7.21631 29.9986,11.0136 29.9986,15.0007C 29.9986,23.1649 23.3533,30 14.9993,30 Z "/>
+                <GeometryDrawing Brush="#FF272536" Geometry="M 8.73375,12.9122L 8.35402,12.9122C 7.97429,12.7224 7.78443,12.3426 7.97429,11.9629C 7.97429,11.773 9.68307,8.73522 12.9108,8.16563C 15.1891,7.7859 17.4675,8.73522 19.9357,10.8237C 20.1256,11.0136 20.3155,11.5832 19.9357,11.773C 19.7459,11.9629 19.1762,12.1528 18.9864,11.773C 16.8979,9.8744 14.9993,9.11495 13.1006,9.49468C 10.6324,9.8744 9.30334,12.5325 9.30334,12.5325C 9.11347,12.9122 8.92361,12.9122 8.73375,12.9122 Z "/>
+                <GeometryDrawing Brush="#FF272536" Geometry="M 21.2648,13.4818L 17.0878,13.4818C 17.0878,13.4818 16.8979,13.292 17.0878,13.292L 21.2648,9.11494C 21.4547,8.92508 21.4547,9.11494 21.4547,9.30481L 21.2648,13.4818C 21.4547,13.4818 21.2648,13.4818 21.2648,13.4818 Z "/>
+                <GeometryDrawing Brush="#FF272536" Geometry="M 16.1384,21.8358C 14.2398,21.8358 12.3412,20.8865 10.2527,18.9879C 10.0628,18.798 9.87294,18.2284 10.2527,18.0386C 10.4425,17.8487 11.0121,17.6588 11.202,18.0386C 13.2905,19.9372 15.1891,20.6966 16.8979,20.3169C 19.3661,19.9372 20.885,17.2791 20.885,17.2791C 21.0749,16.8994 21.4546,16.8994 21.8344,16.8994C 22.2141,17.0892 22.2141,17.469 22.2141,17.8487C 22.2141,18.0386 20.5053,21.0764 17.2776,21.646C 16.708,21.8358 16.5181,21.8358 16.1384,21.8358 Z "/>
+                <GeometryDrawing Brush="#FF272536" Geometry="M 8.73375,16.3298L 12.9108,16.3298C 13.1006,16.3298 13.1006,16.5196 12.9108,16.7095L 8.73375,20.8865C 8.54388,21.0764 8.54388,20.8865 8.54388,20.6967L 8.73375,16.3298C 8.73375,16.5196 8.73375,16.3298 8.73375,16.3298 Z "/>
+            </DrawingGroup.Children>
+        </DrawingGroup>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ctrl:VectorImage Name="refreshImage" VectorSource="{StaticResource RotateRefreshGeometry}" DrawColor="Brown" Visibility="Visible"
+                          Width="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid},AncestorLevel=1},Path=Height}"
+                          Height="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid},AncestorLevel=1},Path=Height}"
+                          RenderTransformOrigin="0.5, 0.5">
+            <ctrl:VectorImage.RenderTransform>
+                <RotateTransform x:Name="rotate1" Angle="0" />
+            </ctrl:VectorImage.RenderTransform>
+            <ctrl:VectorImage.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard >
+                                <DoubleAnimation Storyboard.TargetName="rotate1" RepeatBehavior="Forever" 
+                                                 Storyboard.TargetProperty="Angle" 
+                                                 From="0" To="360" Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </ctrl:VectorImage.Triggers>
+        </ctrl:VectorImage>
+        <Ellipse Name="deviceStatus" Fill="Gray" Stroke="Gray" Visibility="Collapsed" />
+        <TextBlock Name="deviceMessage" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0"/>
+    </Grid>
+</UserControl>

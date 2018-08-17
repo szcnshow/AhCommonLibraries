@@ -1268,6 +1268,13 @@
             </summary>
             <param name="fileData">光谱数据</param>
         </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.Clone(System.Boolean)">
+            <summary>
+            克隆文件数据
+            </summary>
+            <param name="withDatas">True=包含光谱, False=不包含光谱，只有文件信息</param>
+            <returns></returns>
+        </member>
         <member name="M:Ai.Hong.FileFormat.FileFormat.ReadFile(System.String)">
             <summary>
             读取光谱文件

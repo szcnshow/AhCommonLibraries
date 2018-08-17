@@ -1142,6 +1142,61 @@ namespace Ai.Hong.FileFormat
         }
 
         /// <summary>
+        /// 克隆文件数据
+        /// </summary>
+        /// <param name="withDatas">True=包含光谱, False=不包含光谱，只有文件信息</param>
+        /// <returns></returns>
+        public FileFormat Clone(bool withDatas = true)
+        {
+            var retData = this.MemberwiseClone() as FileFormat;
+
+            retData.acquisitionInfo = this.acquisitionInfo.Clone();
+            if(additionalData != null)
+            {
+                retData.additionalData = new byte[additionalData.Length];
+                Array.Copy(additionalData, retData.additionalData, additionalData.Length);
+            }
+            retData.fileInfo = retData.fileInfo.Clone();
+
+            if (dataInfoList != null)
+            {
+                retData.dataInfoList = new List<DataInfo>();
+                foreach (var item in dataInfoList)
+                {
+                    retData.dataInfoList.Add(item.Clone());
+                }
+            }
+
+            if (withDatas && xDataList != null)
+            {
+                retData.xDataList = new List<double[]>();
+                foreach (var item in xDataList)
+                {
+                    var data = new double[item.Length];
+                    Array.Copy(item, data, item.Length);
+                    retData.xDataList.Add(data);
+                }
+            }
+            else
+                retData.xDataList = new List<double[]>();
+
+            if (withDatas && yDataList != null)
+            {
+                retData.yDataList = new List<double[]>();
+                foreach (var item in yDataList)
+                {
+                    var data = new double[item.Length];
+                    Array.Copy(item, data, item.Length);
+                    retData.yDataList.Add(data);
+                }
+            }
+            else
+                retData.yDataList = new List<double[]>();
+
+            return retData;
+        }
+
+        /// <summary>
         /// 读取光谱文件
         /// </summary>
         /// <param name="filename">光谱文件名</param>

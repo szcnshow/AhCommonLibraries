@@ -2147,6 +2147,11 @@
             <param name="disposing">Indicates whether Dispose was called manually (true) or by
             the garbage collector (false) via the destructor.</param>
         </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
         <member name="M:Ai.Hong.Driver.FTDriver.Finalize">
             <summary>
             Finalizer for the UsbDevice. Disposes all unmanaged handles.
@@ -2155,6 +2160,12 @@
         <member name="M:Ai.Hong.Driver.FTDriver.InitEnvironment">
             <summary>
             初始化设备连接环境
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.ClearEnviroment">
+            <summary>
+            清理设备环境
             </summary>
             <returns></returns>
         </member>
@@ -2292,6 +2303,14 @@
             <summary>
             获取扫描数据
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Driver.FTDriver.CalculateAbs(Ai.Hong.FileFormat.FileFormat,Ai.Hong.FileFormat.FileFormat)">
+            <summary>
+            计算吸收谱
+            </summary>
+            <param name="backData">背景光谱</param>
+            <param name="sampleData">样品光谱</param>
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Driver.FTDriver.CalculateAbs(System.String,System.String)">

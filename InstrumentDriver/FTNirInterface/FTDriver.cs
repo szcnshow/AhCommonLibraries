@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using Ai.Hong.FileFormat;
 
 namespace Ai.Hong.Driver
 {
@@ -177,7 +178,16 @@ namespace Ai.Hong.Driver
             if (disposing == false)
                 Disconnect();
 
+            ClearEnviroment();
+
             _disposed = true;
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public FTDriver()
+        {
         }
 
         /// <summary>
@@ -194,7 +204,13 @@ namespace Ai.Hong.Driver
         /// 初始化设备连接环境
         /// </summary>
         /// <returns></returns>
-        public virtual bool InitEnvironment() { throw new NotImplementedException(); }
+        protected virtual bool InitEnvironment() { throw new NotImplementedException(); }
+
+        /// <summary>
+        /// 清理设备环境
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool ClearEnviroment() { throw new NotImplementedException(); }
 
         /// <summary>
         /// 枚举系统连接的设备
@@ -255,10 +271,7 @@ namespace Ai.Hong.Driver
         /// 获取当前连接设备的状态
         /// </summary>
         /// <returns></returns>
-        public EnumHardwareStatus GetDeviceStatus()
-        {
-            return (EnumHardwareStatus)GetHardwareProperty(EnumHardware.Device, EnumHardwareProperties.Status);
-        }
+        public virtual EnumHardwareStatus GetDeviceStatus() { throw new NotImplementedException(); }
 
         /// <summary>
         /// 设置设备硬件属性
@@ -267,10 +280,7 @@ namespace Ai.Hong.Driver
         /// <param name="propertyID">硬件属性</param>
         /// <param name="value">属性值</param>
         /// <returns></returns>
-        public bool SetHardwareProperty(EnumHardware hardwareID, EnumHardwareProperties propertyID, dynamic value)
-        {
-            return deviceHardware?.HardwareSetProperty(GetLowLayerDevice(), hardwareID, propertyID, value);
-        }
+        public virtual bool SetHardwareProperty(EnumHardware hardwareID, EnumHardwareProperties propertyID, dynamic value) { throw new NotImplementedException(); }
 
         /// <summary>
         /// 获取设备硬件属性
@@ -278,10 +288,7 @@ namespace Ai.Hong.Driver
         /// <param name="hardwareID">硬件类型</param>
         /// <param name="propertyID">硬件属性</param>
         /// <returns></returns>
-        public dynamic GetHardwareProperty(EnumHardware hardwareID, EnumHardwareProperties propertyID)
-        {
-            return deviceHardware?.HardwareGetProperty(GetLowLayerDevice(), hardwareID, propertyID);
-        }
+        public virtual dynamic GetHardwareProperty(EnumHardware hardwareID, EnumHardwareProperties propertyID) { throw new NotImplementedException(); }
 
         /// <summary>
         /// 发送采集命令（开始或者停止采集）
@@ -371,13 +378,36 @@ namespace Ai.Hong.Driver
             }
         }
 
+
+        /// <summary>
+        /// 计算吸收谱
+        /// </summary>
+        /// <param name="backData">背景光谱</param>
+        /// <param name="sampleData">样品光谱</param>
+        /// <returns></returns>
+        public static FileFormat.FileFormat CalculateAbs(FileFormat.FileFormat backData, FileFormat.FileFormat sampleData)
+        {
+            System.Diagnostics.Debug.Assert(backData != null && sampleData != null
+                && backData.xDatas != null && sampleData.xDatas != null &&
+                backData.xDatas.Length == sampleData.xDatas.Length);
+
+            var transData = Algorithm.CommonAlgorithm.CalculateAbsorb(backData.yDatas, sampleData.yDatas);
+            if (transData == null)
+                return null;
+
+            var retdata = backData.Clone(false);
+            retdata.AddData(backData.xDatas, transData, backData.fileInfo.specType, backData.fileInfo.xType, backData.dataInfo.dataType);
+
+            return retdata;
+        }
+
         /// <summary>
         /// 计算吸收谱
         /// </summary>
         /// <param name="backFile">背景光谱</param>
         /// <param name="sampleFile">样品光谱</param>
         /// <returns></returns>
-        public virtual string CalculateAbs(string backFile, string sampleFile)
+        public static string CalculateAbs(string backFile, string sampleFile)
         {
             //return null;
             if (!System.IO.File.Exists(backFile) || !System.IO.File.Exists(sampleFile))

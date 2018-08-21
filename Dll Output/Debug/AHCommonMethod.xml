@@ -822,6 +822,14 @@
             <param name="language">使用的语言</param>
             <returns>Key=EnumValue, Value=Description</returns>
         </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumTypeToStringDictionary``1(Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            将Enum转换为Dictionary（string, string）,Key=值，Value=显示名称
+            </summary>
+            <typeparam name="T">enum类型</typeparam>
+            <param name="language">使用的语言</param>
+            <returns>Key=EnumValue, Value=Description</returns>
+        </member>
         <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumValueList``1">
             <summary>
             获取Enum类型的值列表
@@ -1436,6 +1444,305 @@
             <param name="parameter"></param>
             <param name="culture"></param>
             <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Win32WindowsMsg">
+            <summary>
+            操作Windows 32窗口消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.WM_NCHITTEST">
+            <summary>
+            Sent to a window in order to determine what part of the window corresponds to a particular screen coordinate  
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Common.Win32WindowsMsg.HitTest">
+            <summary>  
+            Indicates the position of the cursor hot spot.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTERROR">
+            <summary>  
+            On the screen background or on a dividing line between windows (same as HTNOWHERE, except that the DefWindowProc function produces a system beep to indicate an error).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTTRANSPARENT">
+            <summary>  
+            In a window currently covered by another window in the same thread (the message will be sent to underlying windows in the same thread until one of them returns a code that is not HTTRANSPARENT).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTNOWHERE">
+            <summary>  
+            On the screen background or on a dividing line between windows.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTCLIENT">
+            <summary>  
+            In a client area.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTCAPTION">
+            <summary>  
+            In a title bar.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTSYSMENU">
+            <summary>  
+            In a window menu or in a Close button in a child window.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTGROWBOX">
+            <summary>  
+            In a size box (same as HTSIZE).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTSIZE">
+            <summary>  
+            In a size box (same as HTGROWBOX).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTMENU">
+            <summary>  
+            In a menu.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTHSCROLL">
+            <summary>  
+            In a horizontal scroll bar.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTVSCROLL">
+            <summary>  
+            In the vertical scroll bar.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTMINBUTTON">
+            <summary>  
+            In a Minimize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTREDUCE">
+            <summary>  
+            In a Minimize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTMAXBUTTON">
+            <summary>  
+            In a Maximize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTZOOM">
+            <summary>  
+            In a Maximize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTLEFT">
+            <summary>  
+            In the left border of a resizable window (the user can click the mouse to resize the window horizontally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTRIGHT">
+            <summary>  
+            In the right border of a resizable window (the user can click the mouse to resize the window horizontally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTTOP">
+            <summary>  
+            In the upper-horizontal border of a window.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTTOPLEFT">
+            <summary>  
+            In the upper-left corner of a window border.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTTOPRIGHT">
+            <summary>  
+            In the upper-right corner of a window border.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTBOTTOM">
+            <summary>  
+            In the lower-horizontal border of a resizable window (the user can click the mouse to resize the window vertically).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTBOTTOMLEFT">
+            <summary>  
+            In the lower-left corner of a border of a resizable window (the user can click the mouse to resize the window diagonally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTBOTTOMRIGHT">
+            <summary>  
+            In the lower-right corner of a border of a resizable window (the user can click the mouse to resize the window diagonally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTBORDER">
+            <summary>  
+            In the border of a window that does not have a sizing border.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTCLOSE">
+            <summary>  
+            In a Close button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.HitTest.HTHELP">
+            <summary>  
+            In a Help button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.WM_GETMINMAXINFO">
+            <summary>
+             Sent to a window when the size or position of the window is about to change  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MONITOR_DEFAULTTONEAREST">
+            <summary>
+             Retrieves a handle to the display monitor that is nearest to the window  
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Win32WindowsMsg.MonitorFromWindow(System.IntPtr,System.Int32)">
+            <summary>
+            Retrieves a handle to the display monitor  
+            </summary>
+            <param name="hwnd">窗口句柄</param>
+            <param name="dwFlags">标志</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Win32WindowsMsg.RECT">
+            <summary>
+            RECT structure, Rectangle used by MONITORINFOEX  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.RECT.Left">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.RECT.Top">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.RECT.Right">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.RECT.Bottom">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Common.Win32WindowsMsg.MONITORINFOEX">
+            <summary>
+            MONITORINFOEX structure, Monitor information used by GetMonitorInfo function  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MONITORINFOEX.cbSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MONITORINFOEX.rcMonitor">
+            <summary>
+            The display monitor rectangle  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MONITORINFOEX.rcWork">
+            <summary>
+             The working area rectangle  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MONITORINFOEX.dwFlags">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MONITORINFOEX.szDevice">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Common.Win32WindowsMsg.POINT">
+            <summary>
+             Point structure, Point information used by MINMAXINFO structure  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.POINT.x">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.POINT.y">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Win32WindowsMsg.POINT.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="T:Ai.Hong.Common.Win32WindowsMsg.MINMAXINFO">
+            <summary>
+             MINMAXINFO structure, Window's maximum size and position information  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MINMAXINFO.ptReserved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MINMAXINFO.ptMaxSize">
+            <summary>
+            The maximized size of the window  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MINMAXINFO.ptMaxPosition">
+            <summary>
+            The position of the maximized window  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MINMAXINFO.ptMinTrackSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.MINMAXINFO.ptMaxTrackSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Win32WindowsMsg.GetMonitorInfo(System.Runtime.InteropServices.HandleRef,Ai.Hong.Common.Win32WindowsMsg.MONITORINFOEX)">
+            Get the working area of the specified monitor  
+        </member>
+        <member name="F:Ai.Hong.Common.Win32WindowsMsg.WM_NCLBUTTONDOWN">
+            <summary>
+             Posted when the user presses the left mouse button while the cursor is within the nonclient area of a window  
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Win32WindowsMsg.SendMessage(System.IntPtr,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Sends the specified message to a window or windows  
+            </summary>
+            <param name="hwnd"></param>
+            <param name="wMsg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Common.Win32WindowsStyle">
+            <summary>
+            Windows窗口样式
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Common.Win32WindowsStyle.InitWindow(System.Windows.Window)">
+            <summary>
+            初始化窗口
+            </summary>
+            <param name="ws"></param>
         </member>
     </members>
 </doc>

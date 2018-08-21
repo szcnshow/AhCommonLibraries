@@ -229,14 +229,14 @@
             上一次连接的设备信息
             </summary>
         </member>
-        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.CurInstrument">
-            <summary>
-            当前连接的仪器
-            </summary>
-        </member>
         <member name="P:Ai.Hong.Driver.IT.DeviceConfig.CurHardware">
             <summary>
             当前硬件
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Driver.IT.DeviceConfig.ConnectedDevice">
+            <summary>
+            当前连接的设备（在调用程序里面设置）
             </summary>
         </member>
         <member name="F:Ai.Hong.Driver.IT.DeviceConfig.PQConfigFilename">
@@ -269,21 +269,22 @@
             构造函数（用于反序列化）
             </summary>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.#ctor(Ai.Hong.Driver.FTDriver,System.String,System.String,System.String,Ai.Hong.Common.EnumLanguage)">
+        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.#ctor(Ai.Hong.Driver.DeviceHardware,System.String,System.String,System.String,Ai.Hong.Common.EnumLanguage)">
             <summary>
             创建配置参数
             </summary>
-            <param name="scanner">当前连接的仪器</param>
+            <param name="hardware">当前连接的仪器</param>
             <param name="configFile">配置参数文件名</param>
             <param name="userName">操作员名称</param>
             <param name="unitName">操作单位名称</param>
             <param name="language">使用的语言</param>
         </member>
-        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.Init(Ai.Hong.Driver.FTDriver)">
+        <member name="M:Ai.Hong.Driver.IT.DeviceConfig.Init(System.String,Ai.Hong.Driver.DeviceHardware)">
             <summary>
-            初始化AppConfigInfo
+            反序列化后初始化ConfigInfo
             </summary>
-            <param name="scanner">当前连接的仪器</param>
+            <param name="configFile">配置参数文件名</param>
+            <param name="hardware">当前连接的仪器</param>
             <returns>True=需要保存配置文件</returns>
         </member>
         <member name="M:Ai.Hong.Driver.IT.DeviceConfig.CreatePQTest">

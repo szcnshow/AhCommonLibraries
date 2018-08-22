@@ -119,3 +119,6 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonC
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonControls.xml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonControls.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonControls.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonControls.xml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonControls.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonControls.pdb

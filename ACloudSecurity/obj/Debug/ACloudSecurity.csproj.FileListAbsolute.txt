@@ -19,3 +19,7 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\ACloudSecurity.xml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\ACloudSecurity.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\ACloudSecurity.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\ACloudSecurity.xml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\ACloudSecurity.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\ACloudSecurity.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csprojResolveAssemblyReference.cache

@@ -376,7 +376,7 @@ namespace Ai.Hong.Common.Extenstion
             return retData;
         }
 
-
+        
         /// <summary>
         /// 将Enum转换为Dictionary（string, string）,Key=值，Value=显示名称
         /// </summary>

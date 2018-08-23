@@ -376,7 +376,6 @@ namespace Ai.Hong.Common.Extenstion
             return retData;
         }
 
-        
         /// <summary>
         /// 将Enum转换为Dictionary（string, string）,Key=值，Value=显示名称
         /// </summary>
@@ -392,6 +391,28 @@ namespace Ai.Hong.Common.Extenstion
             
             Array enumValues = Enum.GetValues(typeof(T));
             foreach (var value in enumValues)
+            {
+                retData.Add((string)System.Convert.ChangeType(value, typeof(string)), GetEnumDescription<T>((T)value, language));
+            }
+
+            return retData;
+        }
+
+        /// <summary>
+        /// 将Enum值列表转换为Dictionary（string, string）,Key=值，Value=显示名称
+        /// </summary>
+        /// <typeparam name="T">enum类型</typeparam>
+        /// <param name="valueList"></param>
+        /// <param name="language">使用的语言</param>
+        /// <returns>Key=EnumValue, Value=Description</returns>
+        public static Dictionary<string, string> EnumTypeToStringDictionary<T>(List<T> valueList, EnumLanguage language) where T : struct, IConvertible
+        {
+            if (typeof(T).IsEnum == false)
+                return null;
+
+            Dictionary<string, string> retData = new Dictionary<string, string>();
+
+            foreach (var value in valueList)
             {
                 retData.Add((string)System.Convert.ChangeType(value, typeof(string)), GetEnumDescription<T>((T)value, language));
             }

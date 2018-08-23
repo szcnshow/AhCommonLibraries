@@ -830,6 +830,15 @@
             <param name="language">使用的语言</param>
             <returns>Key=EnumValue, Value=Description</returns>
         </member>
+        <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumTypeToStringDictionary``1(System.Collections.Generic.List{``0},Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            将Enum值列表转换为Dictionary（string, string）,Key=值，Value=显示名称
+            </summary>
+            <typeparam name="T">enum类型</typeparam>
+            <param name="valueList"></param>
+            <param name="language">使用的语言</param>
+            <returns>Key=EnumValue, Value=Description</returns>
+        </member>
         <member name="M:Ai.Hong.Common.Extenstion.EnumExtensions.EnumValueList``1">
             <summary>
             获取Enum类型的值列表

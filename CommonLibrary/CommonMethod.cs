@@ -488,6 +488,42 @@ namespace Ai.Hong.Common
         }
 
         /// <summary>
+        /// 是否为正确的路径名称（不包含非法字符）
+        /// </summary>
+        /// <param name="pathname"></param>
+        /// <returns></returns>
+        public static bool IsValidPathName(string pathname)
+        {
+            foreach (char st in Path.GetInvalidPathChars())
+            {
+                if (pathname.IndexOf(st) >= 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// 是否为正确的文件名称（不包含非法字符）
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        public static bool IsValidFileName(string filename)
+        {
+            foreach (char st in Path.GetInvalidFileNameChars())
+            {
+                if (filename.IndexOf(st) >= 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// 替换不能在目录和文件名中使用的非法字符
         /// </summary>
         /// <param name="str">输入字符串</param>
@@ -520,10 +556,37 @@ namespace Ai.Hong.Common
         }
 
         /// <summary>
-        /// 获取GB2312的文字编码格式
+        /// 获取唯一的文件名
         /// </summary>
-        /// <returns></returns>
-        public static Encoding GetGBCodeEncoding()
+        public static string GetUniqueFilename(string filename)
+        {
+            if (string.IsNullOrWhiteSpace(filename))
+                return null;
+
+            if (!File.Exists(filename))
+                return filename;
+
+            string ext = Path.GetExtension(filename);
+            string path = Path.GetDirectoryName(filename);
+            string file = Path.GetFileNameWithoutExtension(filename);
+
+            //如果文件名已经存在，则在后面添加-1, -2, -3等等
+            int index = 1;
+            while (File.Exists(filename))
+            {
+                filename = Path.Combine(path, file + "_" + index + ext);
+                index++;
+            }
+
+            return filename;
+        }
+    
+
+    /// <summary>
+    /// 获取GB2312的文字编码格式
+    /// </summary>
+    /// <returns></returns>
+    public static Encoding GetGBCodeEncoding()
         {
             return Encoding.GetEncoding(GBCode2312);
         }

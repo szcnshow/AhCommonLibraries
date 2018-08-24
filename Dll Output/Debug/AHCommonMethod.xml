@@ -404,12 +404,31 @@
             <param name="destionation">密码</param>
             <param name="getTemplate">True=加密, False=解密</param>
         </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.IsValidPathName(System.String)">
+            <summary>
+            是否为正确的路径名称（不包含非法字符）
+            </summary>
+            <param name="pathname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.IsValidFileName(System.String)">
+            <summary>
+            是否为正确的文件名称（不包含非法字符）
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
         <member name="M:Ai.Hong.Common.CommonMethod.ReplaceInvalidFileCharactor(System.String)">
             <summary>
             替换不能在目录和文件名中使用的非法字符
             </summary>
             <param name="str">输入字符串</param>
             <returns>替换后的字符串</returns>
+        </member>
+        <member name="M:Ai.Hong.Common.CommonMethod.GetUniqueFilename(System.String)">
+            <summary>
+            获取唯一的文件名
+            </summary>
         </member>
         <member name="M:Ai.Hong.Common.CommonMethod.GetGBCodeEncoding">
             <summary>

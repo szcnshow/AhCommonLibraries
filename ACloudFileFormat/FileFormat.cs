@@ -1150,27 +1150,42 @@ namespace Ai.Hong.FileFormat
         {
             var retData = this.MemberwiseClone() as FileFormat;
 
-            retData.acquisitionInfo = this.acquisitionInfo.Clone();
-            if(additionalData != null)
-            {
-                retData.additionalData = new byte[additionalData.Length];
-                Array.Copy(additionalData, retData.additionalData, additionalData.Length);
-            }
-            retData.fileInfo = retData.fileInfo.Clone();
+            //采集信息
+            if (this.acquisitionInfo != null)
+                retData.acquisitionInfo = this.acquisitionInfo.Clone();
+            else
+                retData.acquisitionInfo = new AcquisitionInfo();
 
-            if (dataInfoList != null)
+            //附加信息
+            if (this.additionalData != null)
+            {
+                retData.additionalData = new byte[this.additionalData.Length];
+                Array.Copy(this.additionalData, retData.additionalData, additionalData.Length);
+            }
+
+            //文件信息
+            if (this.fileInfo != null)
+                retData.fileInfo = this.fileInfo.Clone();
+            else
+                retData.fileInfo = new FileInfo();
+
+            //需要数据的时候才能Clone DataInfoList
+            if (withDatas && this.dataInfoList != null)
             {
                 retData.dataInfoList = new List<DataInfo>();
-                foreach (var item in dataInfoList)
+                foreach (var item in this.dataInfoList)
                 {
                     retData.dataInfoList.Add(item.Clone());
                 }
             }
+            else
+                retData.dataInfoList = new List<DataInfo>();
 
-            if (withDatas && xDataList != null)
+            //X轴数据
+            if (withDatas && this.xDataList != null)
             {
                 retData.xDataList = new List<double[]>();
-                foreach (var item in xDataList)
+                foreach (var item in this.xDataList)
                 {
                     var data = new double[item.Length];
                     Array.Copy(item, data, item.Length);
@@ -1180,10 +1195,11 @@ namespace Ai.Hong.FileFormat
             else
                 retData.xDataList = new List<double[]>();
 
-            if (withDatas && yDataList != null)
+            //Y轴数据
+            if (withDatas && this.yDataList != null)
             {
                 retData.yDataList = new List<double[]>();
-                foreach (var item in yDataList)
+                foreach (var item in this.yDataList)
                 {
                     var data = new double[item.Length];
                     Array.Copy(item, data, item.Length);

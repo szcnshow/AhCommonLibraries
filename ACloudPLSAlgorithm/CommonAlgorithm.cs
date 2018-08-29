@@ -67,15 +67,16 @@ namespace Ai.Hong.Algorithm
         }
 
         /// <summary>
-        /// 计算光谱积分，积分方式与OPUS B 类型相同
+        /// 计算光谱积分
         /// </summary>
         /// <param name="xData">X轴数据</param>
         /// <param name="yData">Y轴数据</param>
         /// <param name="freqStart">积分起始X值</param>
         /// <param name="freqEnd">积分结束X值</param>
         /// <param name="IsUpPeak">True=向上峰位，False=向下峰位</param>
+        /// <param name="integrateType">0: OPUS A类型，不扣除基线, 1:OPUS B类型，扣除基线</param>
         /// <returns>积分结果，错误范围NAN</returns>
-        public static double Integrate(double[] xData, double[] yData, double freqStart, double freqEnd, bool IsUpPeak=true)
+        public static double Integrate(double[] xData, double[] yData, double freqStart, double freqEnd, bool IsUpPeak=true, int integrateType=1)
         {
             int beginIndex = FindNearestPosition(xData, 0, xData.Length - 1, freqStart);
             int endIndex = FindNearestPosition(xData, 0, xData.Length - 1, freqEnd);
@@ -105,12 +106,18 @@ namespace Ai.Hong.Algorithm
 
             double value = alglib.spline1dintegrate(c, x[x.Length - 1]);
 
-            //计算基线下面的面积
-            double beginyvalue = alglib.spline1dcalc(c, freqStart);
-            double endyvalue = alglib.spline1dcalc(c, freqEnd);
-            double basevalue = Math.Abs((freqEnd - freqStart) * (endyvalue + beginyvalue) / 2);
+            if (integrateType == 0)
+                return value;
+            else if (integrateType == 1) //扣除基线下面的面积
+            {
+                double beginyvalue = alglib.spline1dcalc(c, freqStart);
+                double endyvalue = alglib.spline1dcalc(c, freqEnd);
+                double basevalue = Math.Abs((freqEnd - freqStart) * (endyvalue + beginyvalue) / 2);
 
-            return value - basevalue;
+                return value - basevalue;
+            }
+            else
+                return double.NaN;
         }
 
         /// <summary>

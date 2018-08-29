@@ -369,6 +369,20 @@ namespace Ai.Hong.Algorithm
         }
 
         /// <summary>
+        /// 确保开始和结束数值在数组取值范围内
+        /// </summary>
+        /// <param name="datas">数组取值</param>
+        /// <param name="firstX">开始数据</param>
+        /// <param name="lastX">结束数据</param>
+        public static void FillIntoDataRange(double[] datas, ref double firstX, ref double lastX)
+        {
+            if (firstX < datas[0])
+                firstX = datas[0];
+            if (lastX > datas[datas.Length - 1])
+                lastX = datas[datas.Length - 1];
+        }
+
+        /// <summary>
         /// 获取指定区间内的数据
         /// </summary>
         /// <param name="datas">相同长度的数据列表</param>

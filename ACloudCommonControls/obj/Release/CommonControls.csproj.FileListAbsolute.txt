@@ -157,3 +157,6 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonC
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\ClockWaiting.g.cs
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\ComboxWithDeleteButton.g.cs
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Release\Controls\ComboxWithDeleteButton.baml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonControls.xml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonControls.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonControls.pdb

@@ -66,3 +66,6 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\LibTester.exe.config
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\LibTester.exe
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\LibTester.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Bin\LibTester.exe.config
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Bin\LibTester.exe
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Bin\LibTester.pdb

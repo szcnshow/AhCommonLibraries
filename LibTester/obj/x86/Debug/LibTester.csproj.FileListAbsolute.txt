@@ -46,3 +46,6 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\LibTester\obj
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\LibTester\obj\x86\Debug\LibTester.csproj.CopyComplete
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\LibTester\obj\x86\Debug\LibTester.exe
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\LibTester\obj\x86\Debug\LibTester.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Bin\LibTester.exe.config
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Bin\LibTester.exe
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Bin\LibTester.pdb

@@ -35,24 +35,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Dll Output\Debug\</OutputPath>
+    <OutputPath>..\..\Dll Output\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\..\Dll Output\Debug\AHSpectrumAlgorithm.xml</DocumentationFile>
+    <DocumentationFile>..\..\Dll Output\AHSpectrumAlgorithm.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Dll Output\Release\</OutputPath>
+    <OutputPath>..\..\Dll Output\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\..\Dll Output\Release\AHSpectrumAlgorithm.xml</DocumentationFile>
+    <DocumentationFile>..\..\Dll Output\AHSpectrumAlgorithm.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -100,7 +100,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="alglibnet2">
-      <HintPath>..\Dll Output\Release\alglibnet2.dll</HintPath>
+      <HintPath>..\..\Dll Output\alglibnet2.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\Dll Output\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -17,6 +17,6 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\CommonLibrary
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonMethod.xml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonMethod.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonMethod.pdb
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonMethod.xml
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonMethod.dll
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\Debug\AHCommonMethod.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonMethod.xml
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonMethod.dll
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonMethod.pdb

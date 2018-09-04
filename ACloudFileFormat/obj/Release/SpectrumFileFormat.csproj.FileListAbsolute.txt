@@ -27,3 +27,6 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.xml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.pdb
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.xml
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.dll
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.pdb

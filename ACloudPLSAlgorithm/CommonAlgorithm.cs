@@ -101,8 +101,7 @@ namespace Ai.Hong.Algorithm
                 y[i - beginIndex] = yData[i] * sign;
             }
 
-            alglib.spline1dinterpolant c;
-            alglib.spline1dbuildcubic(x, y, out c);
+            alglib.spline1dbuildcubic(x, y, out alglib.spline1dinterpolant c);
 
             double value = alglib.spline1dintegrate(c, x[x.Length - 1]);
 
@@ -215,12 +214,9 @@ namespace Ai.Hong.Algorithm
                 y[i - beginIndex] = yData[i];
             }
 
-            int info;
-            alglib.spline1dinterpolant s;
-            alglib.spline1dfitreport rep;
             double rho = 5;
 
-            alglib.spline1dfitpenalized(x, y, 50, rho, out info, out s, out rep);
+            alglib.spline1dfitpenalized(x, y, 50, rho, out int info, out alglib.spline1dinterpolant s, out alglib.spline1dfitreport rep);
 
             //计算平均值
             double argY = 0;
@@ -347,8 +343,7 @@ namespace Ai.Hong.Algorithm
                     y[i - leftpos] = yData[i];
                 }
 
-                alglib.spline1dinterpolant c;
-                alglib.spline1dbuildcubic(x, y, out c);
+                alglib.spline1dbuildcubic(x, y, out alglib.spline1dinterpolant c);
 
                 //计算拟合后的Y值
                 for (int i = 0; i < x.Length; i++)
@@ -444,8 +439,7 @@ namespace Ai.Hong.Algorithm
                     y[i - leftpos] = yData[i];
                 }
 
-                alglib.spline1dinterpolant c;
-                alglib.spline1dbuildcubic(x, y, out c);
+                alglib.spline1dbuildcubic(x, y, out alglib.spline1dinterpolant c);
 
                 //计算拟合后的Y值
                 for (int i = 0; i < x.Length; i++)

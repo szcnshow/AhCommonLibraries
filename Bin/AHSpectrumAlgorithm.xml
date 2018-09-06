@@ -1,0 +1,2234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AHSpectrumAlgorithm</name>
+    </assembly>
+    <members>
+        <member name="T:Ai.Hong.Algorithm.AdvancedIdentify">
+            <summary>
+            相关系数定性分析（拉曼）
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod">
+            <summary>
+            基线校正方法
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod.None">
+            <summary>
+            不进行校正
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod.Offset">
+            <summary>
+            偏移校正
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod.Linear">
+            <summary>
+            线性校正
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod.Curve">
+            <summary>
+            曲线校正
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.AdvancedIdentify.DerivativeMethod">
+            <summary>
+            导数方法
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.DerivativeMethod.None">
+            <summary>
+            不处理
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.DerivativeMethod.Smooth">
+            <summary>
+            平滑
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.DerivativeMethod.First">
+            <summary>
+            一阶导数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.DerivativeMethod.Second">
+            <summary>
+            二阶导数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.DerivativeMethod.Third">
+            <summary>
+            三阶导数
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod">
+            <summary>
+            计算系数的方法
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod.Normal">
+            <summary>
+            无权重 ones()
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod.Weight">
+            <summary>
+            强度 abs(dest)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod.SquareWeight">
+            <summary>
+            强度平方square(dest)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod.Distance">
+            <summary>
+            距离 (dest.t() * src) / (dest.t() * dest)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod.SquareDistance">
+            <summary>
+            距离平方 square(src - dest)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.AdvancedIdentify.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.HasAuthority32">
+            <summary>
+            是否有AdvancedIdentify算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.ADBaselineCorrect32(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            光谱基线校正
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="polyDegree">基线校正多项式阶数, 0=offset, 1=linear, 2=curve...</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.ADCoefficient32(System.Double[],System.Double[],System.Int32,System.Int32)">
+            <summary>
+            光谱相似系数
+            </summary>
+            <param name="srcYDatas">光谱的Y轴数据</param>
+            <param name="destYDatas">光谱的Y轴数据</param>
+            <param name="specCols">数据的列数</param>
+            <param name="coefMethod">0=无权重, 1=强度, 2=强度平方, 3=|secondYDatas|/(specCols+1), 4=(first - second)的平方</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.ADIdendify32(System.Double[],System.Double[],System.Double[],System.Int32,System.Double[],System.Int32,System.Int32)">
+            <summary>
+            AdvancedIdentify定性分析
+            </summary>
+            <param name="srcApiDatas">API原始光谱(未做基线或导数处理），一列X轴，一列Y轴</param>
+            <param name="apiDatas">API光谱处理后，一列X轴，一列Y轴</param>
+            <param name="inferDatas">干扰组分光谱处理后，一列X轴，多列Y轴</param>
+            <param name="inferRows">干扰组分数据行数（包括X轴）</param>
+            <param name="sampleDatas">待分析物光谱处理后，一列X轴，一列Y轴</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="coefMethod">相关方法，0=无权重, 1=强度, 2=强度平方, 3=|secondYDatas|/(specCols+1), 4=(first - second)的平方</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.HasAuthority64">
+            <summary>
+            是否有AdvancedIdentify算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.ADBaselineCorrect64(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            光谱基线校正
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="polyDegree">基线校正多项式阶数, 0=offset, 1=linear, 2=curve...</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.ADCoefficient64(System.Double[],System.Double[],System.Int32,System.Int32)">
+            <summary>
+            光谱相似系数
+            </summary>
+            <param name="srcYDatas">光谱的Y轴数据</param>
+            <param name="destYDatas">光谱的Y轴数据</param>
+            <param name="specCols">数据的列数</param>
+            <param name="coefMethod">0=无权重, 1=强度, 2=强度平方, 3=|secondYDatas|/(specCols+1), 4=(first - second)的平方</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.ADIdendify64(System.Double[],System.Double[],System.Double[],System.Int32,System.Double[],System.Int32,System.Int32)">
+            <summary>
+            AdvancedIdentify定性分析
+            </summary>
+            <param name="srcApiDatas">API原始光谱(未做基线或导数处理），一列X轴，一列Y轴</param>
+            <param name="apiDatas">API光谱处理后，一列X轴，一列Y轴</param>
+            <param name="inferDatas">干扰组分光谱处理后，一列X轴，多列Y轴</param>
+            <param name="inferRows">干扰组分数据行数（包括X轴）</param>
+            <param name="sampleDatas">待分析物光谱处理后，一列X轴，一列Y轴</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="coefMethod">相关方法，0=无权重, 1=强度, 2=强度平方, 3=|secondYDatas|/(specCols+1), 4=(first - second)的平方</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.HasAuthority">
+            <summary>
+            是否有PLS算法的授权
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.BaselineCorrect(System.Double[],System.Int32,System.Int32,Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod)">
+            <summary>
+            光谱基线校正
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="method">基线校正方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.Coefficient(System.Double[],System.Double[],Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod)">
+            <summary>
+            光谱相似系数
+            </summary>
+            <param name="srcYDatas">光谱的Y轴数据</param>
+            <param name="destYDatas">光谱的Y轴数据</param>
+            <param name="coefMethod">系数计算方法</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.Identify(System.Double[],System.Double[],System.Double[],System.Int32,System.Double[],Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod)">
+            <summary>
+            AdvancedIdentify定性分析(光谱的数据点数量必须相同, X轴也必须相同)
+            </summary>
+            <param name="srcApiDatas">API原始光谱(未做基线或导数处理），一列X轴，一列Y轴</param>
+            <param name="apiDatas">API原始光谱插值后，一列X轴，一列Y轴</param>
+            <param name="inferDatas">干扰组分原始光谱插值后，一列X轴，多列Y轴</param>
+            <param name="inferRows">干扰组分数据行数（包括X轴）</param>
+            <param name="sampleDatas">待分析物原始光谱插值后，一列X轴，一列Y轴</param>
+            <param name="coefMethod">相关系数计算方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.BaselineCorrect(System.Collections.Generic.List{System.Double[]},Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod)">
+            <summary>
+            光谱基线校正
+            </summary>
+            <param name="xyDataList">第一项是X，后面是Y</param>
+            <param name="method">基线校正方法.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.AdvancedIdentify.Identify(System.Collections.Generic.List{System.Double[]},System.Collections.Generic.List{System.Double[]},System.Collections.Generic.List{System.Double[]},Ai.Hong.Algorithm.AdvancedIdentify.CoefficientMethod,Ai.Hong.Algorithm.AdvancedIdentify.BaseLineMethod,Ai.Hong.Algorithm.AdvancedIdentify.DerivativeMethod,System.Int32,System.Int32,System.Double,System.Double)">
+            <summary>
+            AdvancedIdentify定性分析(光谱的数据点数量必须相同, X轴也必须相同)
+            </summary>
+            <param name="apiList">API原始光谱插值后，一列X轴，一列Y轴</param>
+            <param name="inferList">干扰组分原光谱插值后，一列X轴，多列Y轴</param>
+            <param name="sampleList">待分析物原始光谱插值后，一列X轴，一列Y轴</param>
+            <param name="coefMethod">相关方法，0为标准，1为增强</param>
+            <param name="baseline">基线校正方法</param>
+            <param name="derivatives">导数平滑方法(有基线校正，忽略导数平滑)</param>
+            <param name="smoothPoints">平滑窗口大小(5-99)</param>
+            <param name="polyDegree">导数的阶数,2,3,4</param>
+            <param name="firstX">起始计算X轴，-1表示使用API光谱的firstX</param>
+            <param name="lastX">结束计算X轴，-1表示使用API光谱的lastX</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.CommonMethod">
+            <summary>
+            通用函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.GetErrorMessage32">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.GetErrorMessage64">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.CommonMethod.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.CopyStringFromIntptrAndFree(System.IntPtr@,System.Text.Encoding)">
+            <summary>
+            从内存中拷贝字符串，并释放内存
+            </summary>
+            <param name="ptrData">内存指针</param>
+            <param name="encode">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.GetDLLErrorMessage">
+            <summary>
+            获取DLL错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.CombineSpectrumDatas(System.Collections.Generic.IList{System.Double[]})">
+            <summary>
+            合并光谱列表中的Y轴数据
+            </summary>
+            <param name="fileDatas">Y轴数据列表</param>
+            <returns>合并Y轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.SplitSpectrumDatas``1(``0[],System.Int32)">
+            <summary>
+            从组合的数据中分离为单条数据的列表
+            </summary>
+            <param name="combinedDatas">组合数据</param>
+            <param name="specRows">数据行数</param>
+            <returns>分离后的列表数据</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.CopyDataArrayFromIntptrAndFree``1(System.IntPtr@,System.Int32)">
+            <summary>
+            从内存中拷贝float数据，并且释放内存
+            </summary>
+            <param name="ptrData">内存数据</param>
+            <param name="dataSize">数据大小(float)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.Is64BitVersion">
+            <summary>
+            判断是否为64为版本调用
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.IsSameDouble(System.Double,System.Double,System.Double)">
+            <summary>
+            比较两个double是否相同
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="maximum">最大偏差</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.IsSameXDatas(System.Double[],System.Double[])">
+            <summary>
+            判断两个X轴数据格式是否相同
+            </summary>
+            <param name="firstData">X值1</param>
+            <param name="lastData">X值2</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.IsSameXDatas(System.Double[],System.Double,System.Double,System.Int32)">
+            <summary>
+            判断X轴数据格式是否与标准参数相同
+            </summary>
+            <param name="specData">X数据</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCount">数据点数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.IsSameXDatas(System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            判断X轴数据格式是否与标准参数相同
+            </summary>
+            <param name="specFirstX">光谱X轴起始</param>
+            <param name="specLastX">光谱X轴结束</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCount">数据点数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.ValueInside(System.Double,System.Double,System.Double)">
+            <summary>
+            是否在区间内
+            </summary>
+            <param name="value">要查找的值</param>
+            <param name="startValue">区间起始值</param>
+            <param name="endValue">区间结束值</param>
+            <returns>是否在区间内</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.SortInOrder(System.Int32@,System.Int32@)">
+            <summary>
+            比较大小，如果begin>end，交换
+            </summary>
+            <param name="beginvalue">小的索引</param>
+            <param name="endvalue">大的索引</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.FindNearestPosition(System.Double[],System.Int32,System.Int32,System.Double)">
+            <summary>
+            查找valueToFind在X轴数据中的位置
+            </summary>
+            <param name="xData">X轴数据</param>
+            <param name="beginx">查找起始点</param>
+            <param name="endx">查找结束点</param>
+            <param name="valueToFind">要查找的值</param>
+            <returns>返回valueToFind的位置</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.FillIntoDataRange(System.Double[],System.Double@,System.Double@)">
+            <summary>
+            确保开始和结束数值在数组取值范围内
+            </summary>
+            <param name="datas">数组取值</param>
+            <param name="firstX">开始数据</param>
+            <param name="lastX">结束数据</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.GetRangeData(System.Collections.Generic.List{System.Double[]},System.Int32,System.Int32)">
+            <summary>
+            获取指定区间内的数据
+            </summary>
+            <param name="datas">相同长度的数据列表</param>
+            <param name="beginIndex">起始区间</param>
+            <param name="count">区间长度</param>
+            <returns>数据列表</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.GetRangeData(System.Collections.Generic.List{System.Double[]},System.Double,System.Double)">
+            <summary>
+            获取指定区间内的数据
+            </summary>
+            <param name="xyDatas">相同长度的数据列表，第一行是X轴，后面是Y轴(可以多个)</param>
+            <param name="firstX">起始区间</param>
+            <param name="lastX">结束区间</param>
+            <returns>数据列表</returns>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.CommonAlgorithm">
+            <summary>
+            通用光谱算法
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.CommonAlgorithm.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.ValueInside(System.Double,System.Double,System.Double)">
+            <summary>
+            是否在区间内
+            </summary>
+            <param name="value">要查找的值</param>
+            <param name="startValue">区间起始值</param>
+            <param name="endValue">区间结束值</param>
+            <returns>是否在区间内</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.SortInOrder(System.Int32@,System.Int32@)">
+            <summary>
+            比较大小，如果begin>end，交换
+            </summary>
+            <param name="beginvalue">起始数据</param>
+            <param name="endvalue">结束数据</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.LinearInterpolation(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            线性插值
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.Integrate(System.Double[],System.Double[],System.Double,System.Double,System.Boolean,System.Int32)">
+            <summary>
+            计算光谱积分
+            </summary>
+            <param name="xData">X轴数据</param>
+            <param name="yData">Y轴数据</param>
+            <param name="freqStart">积分起始X值</param>
+            <param name="freqEnd">积分结束X值</param>
+            <param name="IsUpPeak">True=向上峰位，False=向下峰位</param>
+            <param name="integrateType">0: OPUS A类型，不扣除基线, 1:OPUS B类型，扣除基线</param>
+            <returns>积分结果，错误范围NAN</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.FindNearestPosition(System.Double[],System.Int32,System.Int32,System.Double)">
+            <summary>
+            查找valueToFind在X轴数据中的位置
+            </summary>
+            <param name="xData">X轴数据</param>
+            <param name="beginx">查找起始点</param>
+            <param name="endx">查找结束点</param>
+            <param name="valueToFind">要查找的值</param>
+            <returns>返回valueToFind的位置</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.CalculateRMS(System.Double[],System.Double[],System.Double,System.Double)">
+            <summary>
+            计算光谱的RMS
+            </summary>
+            <param name="xData">X轴数据</param>
+            <param name="yData">Y轴数据</param>
+            <param name="freqStart">RMS起始X值</param>
+            <param name="freqEnd">RMS结束X值</param>
+            <returns>RMS值</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.CalulateSNR(System.Double[],System.Double[],System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            计算光谱文件的信噪比SNR
+            </summary>
+            <param name="xDatas">X轴数据</param>
+            <param name="yDatas">Y轴数据</param>
+            <param name="signalStart">信号区间起始波数</param>
+            <param name="signalEnd">信号区间结束波数</param>
+            <param name="noiseStart">噪声区间起始波数</param>
+            <param name="noiseEnd">噪声区间结束波数</param>
+            <param name="signalInteValue">信号积分值</param>
+            <param name="noiseInteValue">噪声积分值</param>
+            <returns>信噪比SNR值, 如果返回NAN，表示出错了</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.PickPeak(System.Double[],System.Double[],System.Double,System.Int32,System.Double@,System.Boolean)">
+            <summary>
+            标定峰位
+            </summary>
+            <param name="xData">X轴数据</param>
+            <param name="yData">Y轴数据</param>
+            <param name="peakValue">要标定的峰位</param>
+            <param name="pointsToCal">计算的点</param>
+            <param name="newyvalue">返回峰位的峰高</param>
+            <param name="isUpPeak">是否向上的峰</param>
+            <returns>找到的峰位</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.XAxisPrecision(System.Collections.Generic.List{System.Double[]})">
+            <summary>
+            获取波数精确度
+            </summary>
+            <param name="pickedPeaks">测量得到的峰位</param>
+            <returns>波数精确度</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.XAxisAccuracy(System.Double[],System.Collections.Generic.List{System.Double[]})">
+            <summary>
+            波数准确度
+            </summary>
+            <param name="standardPeaks">标准峰位</param>
+            <param name="pickedPeaks">测量得到的峰位</param>
+            <returns>波数准确度</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.GetRelativeIntensity(System.Double[],System.Double[],System.Tuple{System.Double,System.Double},System.Collections.Generic.List{System.Tuple{System.Double,System.Double}})">
+            <summary>
+            计算相对强度(测量区间积分 / 基础区间积分)
+            </summary>
+            <param name="xDatas">X轴数据</param>
+            <param name="yDatas">Y轴数据</param>
+            <param name="baseRegion">基础区间</param>
+            <param name="intensityRegion">测量区间</param>
+            <returns>相对强度</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.CalculateRMSECV(System.Double[],System.Double[])">
+            <summary>
+            计算参考值和预测值之间的RMSECV
+            </summary>
+            <param name="predictValues">预测值</param>
+            <param name="referenceValues">参考值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.GetAverageSpectrum(System.Double[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            获取平均光谱
+            </summary>
+            <param name="specDatas">光谱数据（Y轴）</param>
+            <param name="specRows">光谱的行数</param>
+            <param name="specCols">每行光谱的数据点数</param>
+            <param name="withXDatas">是否包含X轴数据（如果包含，需要跳过）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.GetAverageValue(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            计算光谱的平均值
+            </summary>
+            <param name="datas">光谱数据</param>
+            <param name="start">开始位置</param>
+            <param name="count">数据数量</param>
+            <returns>光谱平均值</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.GetVariance(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            计算标准方差
+            </summary>
+            <param name="datas">光谱数据</param>
+            <param name="start">开始位置</param>
+            <param name="count">数据数量</param>
+            <returns>标准方差</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.GetCovariance(System.Double[],System.Int32,System.Double[],System.Int32,System.Int32)">
+            <summary>
+            计算协方差
+            </summary>
+            <param name="data1">光谱数据1</param>
+            <param name="start1">开始位置1</param>
+            <param name="data2">光谱数据2</param>
+            <param name="start2">开始位置2</param>
+            <param name="count">数据数量</param>
+            <returns>协方差</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.CorrelationCoefficient(System.Double[],System.Int32,System.Double[],System.Int32,System.Int32)">
+            <summary>
+            计算光谱间的相关系数
+            </summary>
+            <param name="data1">光谱数据1</param>
+            <param name="start1">开始位置1</param>
+            <param name="data2">光谱数据2</param>
+            <param name="start2">开始位置2</param>
+            <param name="count">数据数量</param>
+            <returns>相关系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.EuclideanDistance(System.Double[],System.Int32,System.Double[],System.Int32,System.Int32)">
+            <summary>
+            计算光谱间的欧氏距离
+            </summary>
+            <param name="data1">光谱数据1</param>
+            <param name="start1">开始位置1</param>
+            <param name="data2">光谱数据2</param>
+            <param name="start2">开始位置2</param>
+            <param name="count">数据数量</param>
+            <returns>欧氏距离</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.CalculteRMSEP(System.Double[],System.Double[])">
+            <summary>
+            计算RMSEP
+            </summary>
+            <param name="refDatas">参考值</param>
+            <param name="predictDatas">预测值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.CalculateAbsorb(System.Double[],System.Double[])">
+            <summary>
+            使用样品单通道谱和背景单通道谱计算样品吸收谱
+            </summary>
+            <param name="bkYDatas">背景单通道谱</param>
+            <param name="sampleYDatas">样品单通道谱</param>
+            <returns>吸收谱</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.CommonAlgorithm.CalculateTransimit(System.Double[],System.Double[])">
+            <summary>
+            创建透射光谱
+            </summary>
+            <param name="bkYDatas">背景单通道谱</param>
+            <param name="sampleYDatas">样品单通道谱</param>
+            <returns>透射光谱</returns>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.PLSResult">
+            <summary>
+            PLS分析结果
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.PLSResult.concentration">
+            <summary>
+            预测浓度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.PLSResult.mahDistance">
+            <summary>
+            马氏距离
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.PLSResult.residual">
+            <summary>
+            光谱残差
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.PLSResult.fValue">
+            <summary>
+            F Value
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.PLSResult.fProb">
+            <summary>
+            F Probability
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.PLSResult.rank">
+            <summary>
+            当前组分的维数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.PLSResult.spectrumCount">
+            <summary>
+            当前组分建模光谱数量
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.PLS">
+            <summary>
+            PLS算法类
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.PLS.PLSCoefParameter">
+            <summary>
+            PLS模型系数的参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.filemark">
+            <summary>
+            文件标志
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.datatype">
+            <summary>
+            数据类型（预测模型，建模模型）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.datasize">
+            <summary>
+            数据大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.maxRank">
+            <summary>
+            rank维数(int)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.specRows">
+            <summary>
+            行数(建模光谱数量)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.specCols">
+            <summary>
+            列数(建模光谱数据点数)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.mahaDistance">
+            <summary>
+            模型的最大马氏距离
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.predictCoefOffset">
+            <summary>
+            预测系数的Offset(predictCoef)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.predictCoefSize">
+            <summary>
+            预测系数的大小(predictCoef)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xweightOffset">
+            <summary>
+            x权重的Offset(xweight)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xweightSize">
+            <summary>
+            x权重的大小(xweight)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xdefloadingOffset">
+            <summary>
+            xdefloading的Offset
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xdefloadingSize">
+            <summary>
+            xdefloading的大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xscoreOffset">
+            <summary>
+            xscore的Offset
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xscoreSize">
+            <summary>
+            xscore的大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.yloadingOffset">
+            <summary>
+            yloading的Offset
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.yloadingSize">
+            <summary>
+            yloading的大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xdirloadingOffset">
+            <summary>
+            xdirloading的Offset
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.xdirloadingSize">
+            <summary>
+            xdirloading的大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.avgSpectrumOffset">
+            <summary>
+            平均光谱Offset
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.avgSpectrumSize">
+            <summary>
+            平均光谱大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.version">
+            <summary>
+            数据版本号
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.firstX">
+            <summary>
+            起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.lastX">
+            <summary>
+            结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.resolution">
+            <summary>
+            分辨率
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.mscAvgSpecOffset">
+            <summary>
+            原始平均光谱的Offse
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.mscAvgSpecSize">
+            <summary>
+            原始平均光谱的大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PLS.PLSCoefParameter.undefined">
+            <summary>
+            备用字段
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSHasAuthority32">
+            <summary>
+            是否有PLS算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSCreateCoef32(System.Double[],System.Int32,System.Int32,System.Double[],System.Int32,System.Int32,System.Int32@,System.Double,System.Double,System.Double,System.Double[],System.Int32)">
+            <summary>
+            创建单组分的PLS系数
+            </summary>
+            <param name="specDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每个光谱的数据点数量</param>
+            <param name="conDatas">浓度数据，数量必须与cols相等</param>
+            <param name="conSize">浓度数据数量</param>
+            <param name="maxrank">计算的维数</param>
+            <param name="outDataSize">返回的数据大小(BYTE)</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="resolution">分辨率</param>
+            <param name="fullRangeAvgSpecDatas">全谱区建模光谱平均光谱，可以为NULL</param>
+            <param name="fullRangeDataCols">全谱区建模光谱平均光谱数据点数</param>
+            <returns>组合后的PLS系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSSavePredictCoef32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            保存预测模型
+            </summary>
+            <param name="oneCompAllCoef">一个组分的全部维PLS系数</param>
+            <param name="useRank">使用维数</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSPredict32(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            用单组分的计算维系数预测光谱
+            </summary>
+            <param name="oneCompAllCoef">单组分多维系数</param>
+            <param name="specDatas">光谱数据（一条光谱一行）</param>
+            <param name="specRows">光谱的数量（行）</param>
+            <param name="specCols">每条光谱的数据量（列）</param>
+            <param name="rank">使用的维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>返回预测结果(double)，数量等于specRows</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetCoefMahaDistance32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取建模光谱的马氏距离
+            </summary>
+            <param name="oneCompAllCoef">建模系数</param>
+            <param name="rank">计算维数</param>
+            <param name="outDataSize">返回数据数量(double)，等于建模光谱的数量</param>
+            <returns>马氏距离列表</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetSpectrumMahaDistance32(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            获取一条样品光谱到建模光谱间的马氏距离
+            </summary>
+            <param name="oneCompAllCoef">建模系数</param>
+            <param name="sampleDatas">样品光谱，一行一条光谱</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">光谱数据点数</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>马氏距离，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetSpectrumResidual32(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            获取光谱的残差
+            </summary>
+            <param name="oneCompCoefDatas">建模系数</param>
+            <param name="sampleDatas">光谱数据（一条光谱一行）</param>
+            <param name="specRows">光谱的数量（行）</param>
+            <param name="specCols">每条光谱的数据量（列）</param>
+            <param name="rank">使用的维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>返回光谱残差(double)，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetFValue32(System.Double[],System.Int32)">
+            <summary>
+            通过残差计算FValue
+            </summary>
+            <param name="residuals">残差</param>
+            <param name="datasize">残差的数量</param>
+            <returns>FValue(double)，数量=datasize</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetSpectrumFValue32(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            通过光谱数据计算的F Value
+            </summary>
+            <param name="oneCompCoefDatas">建模系数</param>
+            <param name="sampleDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetOneFcdf32(System.Double,System.Double,System.Double)">
+            <summary>
+            计算一个fcdf，与matlab相同
+            </summary>
+            <param name="x">计算对象</param>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetMultiFcdf32(System.Double[],System.Int32,System.Double,System.Double)">
+            <summary>
+            计算一组fcdf，与matlab相同
+            </summary>
+            <param name="x">计算对象</param>
+            <param name="datasize">数据数量</param>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns>fcdf，数量与datasize相同(double)</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetResidualFValueAndFProb32(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            一次性获取光谱残差, F值和F分布
+            </summary>
+            <param name="oneCompCoefDatas">建模系数</param>
+            <param name="sampleDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>第一行：光谱残差, 第二行:FValue，第三行：FProbability，数量等于specRows*3或者(specRows-1)*3</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSPCA32(System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            PCA分析
+            </summary>
+            <param name="sampleDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>前面为xloading,大小=rank*specCols, 后面为xscores，，数量等于rank*specRows或者rank*(specRows-1)</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetAverageSpectrumData32(System.Byte[],System.Int32@)">
+            <summary>
+            获取建模光谱的平均光谱（double）
+            </summary>
+            <param name="oneCompCoefDatas">模型系数</param>
+            <param name="outDataSize">返回数据数量（double）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetMSCAverageSpectrumData32(System.Byte[],System.Int32@)">
+            <summary>
+            获取原始全区间光谱的平均光谱（double）
+            </summary>
+            <param name="oneCompCoefDatas">模型系数</param>
+            <param name="outDataSize">返回数据数量（double）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSHasAuthority64">
+            <summary>
+            是否有PLS算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSCreateCoef64(System.Double[],System.Int32,System.Int32,System.Double[],System.Int32,System.Int32,System.Int32@,System.Double,System.Double,System.Double,System.Double[],System.Int32)">
+            <summary>
+            创建单组分的PLS系数
+            </summary>
+            <param name="specDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每个光谱的数据点数量</param>
+            <param name="conDatas">浓度数据，数量必须与cols相等</param>
+            <param name="conSize">浓度数据数量</param>
+            <param name="maxrank">计算的维数</param>
+            <param name="outDataSize">返回的数据大小(BYTE)</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="resolution">分辨率</param>
+            <param name="fullRangeAvgSpecDatas">全谱区建模光谱平均光谱，可以为NULL</param>
+            <param name="fullRangeDataCols">全谱区建模光谱平均光谱数据点数</param>
+            <returns>组合后的PLS系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSSavePredictCoef64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            保存预测模型
+            </summary>
+            <param name="oneCompAllCoef">一个组分的全部维PLS系数</param>
+            <param name="useRank">使用维数</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSPredict64(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            用单组分的计算维系数预测光谱
+            </summary>
+            <param name="oneCompAllCoef">单组分多维系数</param>
+            <param name="specDatas">光谱数据（一条光谱一行）</param>
+            <param name="specRows">光谱的数量（行）</param>
+            <param name="specCols">每条光谱的数据量（列）</param>
+            <param name="rank">使用的维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>返回预测结果(double)，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetCoefMahaDistance64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取建模光谱的马氏距离
+            </summary>
+            <param name="oneCompAllCoef">建模系数</param>
+            <param name="rank">计算维数</param>
+            <param name="outDataSize">返回数据数量(double)，等于建模光谱的数量</param>
+            <returns>马氏距离列表</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetSpectrumMahaDistance64(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            获取一条样品光谱到建模光谱间的马氏距离
+            </summary>
+            <param name="oneCompAllCoef">建模系数</param>
+            <param name="sampleDatas">样品光谱，一行一条光谱</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">光谱数据点数</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>马氏距离，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetSpectrumResidual64(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            获取光谱的残差
+            </summary>
+            <param name="oneCompCoefDatas">建模系数</param>
+            <param name="sampleDatas">光谱数据（一条光谱一行）</param>
+            <param name="specRows">光谱的数量（行）</param>
+            <param name="specCols">每条光谱的数据量（列）</param>
+            <param name="rank">使用的维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>返回光谱残差(double),数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetFValue64(System.Double[],System.Int32)">
+            <summary>
+            通过残差计算FValue
+            </summary>
+            <param name="residuals">残差</param>
+            <param name="datasize">残差的数量</param>
+            <returns>FValue(double)，数量=datasize</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetSpectrumFValue64(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            通过光谱数据计算的F Value
+            </summary>
+            <param name="oneCompCoefDatas">建模系数</param>
+            <param name="sampleDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>FValue，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetOneFcdf64(System.Double,System.Double,System.Double)">
+            <summary>
+            计算一个fcdf，与matlab相同
+            </summary>
+            <param name="x">计算对象</param>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetMultiFcdf64(System.Double[],System.Int32,System.Double,System.Double)">
+            <summary>
+            计算一组fcdf，与matlab相同
+            </summary>
+            <param name="x">计算对象</param>
+            <param name="datasize">数据数量</param>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns>fcdf，数量与datasize相同(double)</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetResidualFValueAndFProb64(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            一次性获取光谱残差, F值和F分布
+            </summary>
+            <param name="oneCompCoefDatas">建模系数</param>
+            <param name="sampleDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>第一行：光谱残差, 第二行:FValue，第三行：FProbability，返回数据数量 = specRows * 3或者3*(specRows-1)</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSPCA64(System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            PCA分析
+            </summary>
+            <param name="sampleDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas第一行是否为X轴数据</param>
+            <returns>前面为xloading,大小=rank*specCols, 后面为xscores，大小=rank*specRows或者rank*(specRows-1)</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetAverageSpectrumData64(System.Byte[],System.Int32@)">
+            <summary>
+            获取建模光谱的平均光谱（double）
+            </summary>
+            <param name="oneCompCoefDatas">模型系数</param>
+            <param name="outDataSize">返回数据数量（double）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSGetMSCAverageSpectrumData64(System.Byte[],System.Int32@)">
+            <summary>
+            获取原始全区间光谱的平均光谱（double）
+            </summary>
+            <param name="oneCompCoefDatas">模型系数</param>
+            <param name="outDataSize">返回数据数量（double）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.IsValidCoefAndSpecData(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            判断PLS系数和光谱是否匹配
+            </summary>
+            <param name="plsCoef">PLS系数</param>
+            <param name="specDatas">光谱数据（一条光谱一行）</param>
+            <param name="specRows">数据行数</param>
+            <param name="specCols">数据列数</param>
+            <param name="rank">使用的维数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.HasAuthority">
+            <summary>
+            是否有PLS算法的授权
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.CreatePLSCoef(System.Collections.Generic.IList{System.Double[]},System.Double[],System.Int32,System.Double,System.Double,System.Double,System.Double[])">
+            <summary>
+            创建单组分的PLS系数
+            </summary>
+            <param name="specYDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="conDatas">浓度数据，数量必须与cols相等</param>
+            <param name="maxrank">计算的维数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="resolution">光谱分辨率</param>
+            <param name="fullRangeAvgDatas">全部区间的平均光谱</param>
+            <returns>组合后的PLS系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.CreatePLSCoef(System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Double[])">
+            <summary>
+            创建单组分的PLS系数
+            </summary>
+            <param name="specYDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="conDatas">浓度数据，数量必须与cols相等</param>
+            <param name="specRows">光谱的行数</param>
+            <param name="specCols">每条光谱的数据点数</param>
+            <param name="maxrank">计算的维数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="resolution">光谱分辨率</param>
+            <param name="fullRangeAvgDatas">全部区间的平均光谱</param>
+            <returns>组合后的PLS系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.CreatePredictOnlyCoef(System.Byte[],System.Int32)">
+            <summary>
+            保存PLS预测模型
+            </summary>
+            <param name="plsCoef">PLS系数</param>
+            <param name="useRank">使用的维数</param>
+            <returns>返回预测结果(double)，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.Predict(System.Byte[],System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            用PLS系数同时预测多条光谱的一个组分
+            </summary>
+            <param name="plsCoef">PLS系数</param>
+            <param name="specYDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="rank">使用的维数</param>
+            <returns>返回预测结果(double)，数量等于specRows</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.Predict(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            用PLS系数同时预测多条光谱的一个组分
+            </summary>
+            <param name="plsCoef">PLS系数</param>
+            <param name="specDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="specRows">数据的行</param>
+            <param name="specCols">每条光谱的数据点数量</param>
+            <param name="rank">使用的维数</param>
+            <param name="withXDatas">specDatas是否包含X轴数据</param>
+            <returns>返回预测结果(double)，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.Predict(System.Byte[],System.Double[],System.Int32)">
+            <summary>
+            用PLS系数预测单条光谱的一个组分
+            </summary>
+            <param name="plsCoef">PLS系数</param>
+            <param name="specYDatas">光谱Y轴数据</param>
+            <param name="rank">使用的维数</param>
+            <returns>返回预测结果</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetCoefMahaDistance(System.Byte[],System.Int32)">
+            <summary>
+            获取建模光谱的马氏距离
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="rank">计算维数</param>
+            <returns>马氏距离列表，数量=建模光谱数量，顺序与建模光谱顺序相同</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetSpectrumMahaDistance(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            获取多条样品光谱到建模光谱间的马氏距离
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specDatas">样品光谱，一行一条光谱</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱数据点数</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas是否包含X轴数据</param>
+            <returns>马氏距离(double)，数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetSpectrumMahaDistance(System.Byte[],System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            获取多条样品光谱到建模光谱间的马氏距离
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specYDatas">光谱数据（一条光谱一行）</param>
+            <param name="rank">使用的维数</param>
+            <returns>马氏距离(double)，数量=specYdatas的大小</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetSpectrumResidual(System.Byte[],System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            一次获取多条光谱的残差
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specYDatas">光谱数据（一条光谱一行）</param>
+            <param name="rank">使用的维数</param>
+            <returns>返回光谱残差，数量=specYdatas的大小</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetSpectrumResidual(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            一次获取多条光谱的残差
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specDatas">光谱数据（一条光谱一行）</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱数据点数</param>
+            <param name="withXDatas">specDatas是否包含X轴数据</param>
+            <param name="rank">使用的维数</param>
+            <returns>返回光谱残差,数量等于specRows或者specRows-1</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetFValue(System.Double[])">
+            <summary>
+            通过残差计算FValue
+            </summary>
+            <param name="residuals">残差</param>
+            <returns>FValue(double)，数量=residuals的大小</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetSpectrumFValue(System.Byte[],System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            计算光谱的F Value
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specYDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="rank">计算维数</param>
+            <returns>FValue</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetSpectrumFValue(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            计算光谱的F Value
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱数据点数</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas是否包含X轴数据</param>
+            <returns>FValue</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetOneFcdf(System.Double,System.Double,System.Double)">
+            <summary>
+            计算一个fcdf，与matlab相同
+            </summary>
+            <param name="x">计算对象</param>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetMultiFcdf(System.Double[],System.Double,System.Double)">
+            <summary>
+            计算一组fcdf，与matlab相同
+            </summary>
+            <param name="x">计算对象</param>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns>fcdf，数量与x大小相同(double)</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetResidualFValueAndFProb(System.Byte[],System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            一次性获取光谱残差, F值和F分布
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specYDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="rank">计算维数</param>
+            <returns>第一行：光谱残差, 第二行:FValue，第三行：FProbability，返回数据数量 = specRows * 3</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetResidualFValueAndFProb(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            一次性获取光谱残差, F值和F分布
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas是否包含X轴数据</param>
+            <returns>第一行：光谱残差, 第二行:FValue，第三行：FProbability，返回数据数量 = specRows * 3或者(specRows-1)*3</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PCA(System.Collections.Generic.IList{System.Double[]},System.Int32,System.Collections.Generic.List{System.Double[]}@)">
+            <summary>
+            PCA分析
+            </summary>
+            <param name="specYDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="rank">使用的维数</param>
+            <param name="xScores">返回xscores，大小=rank*specRows</param>
+            <returns>xloading,大小=rank*specCols</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PCA(System.Double[],System.Int32,System.Int32,System.Int32,System.Collections.Generic.List{System.Double[]}@,System.Boolean)">
+            <summary>
+            PCA分析
+            </summary>
+            <param name="specDatas">光谱Y轴数据（一条光谱一行）</param>
+            <param name="specRows">光谱数据的数量</param>
+            <param name="specCols">每条光谱的数据点数量</param>
+            <param name="rank">使用的维数</param>
+            <param name="xScores">返回xscores，大小=rank*specRows</param>
+            <param name="withXDatas">specDatas是否包含X轴数据</param>
+            <returns>xloading,大小=rank*specCols</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.IsValidPLSCoef(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            判断PLS系数是否与当前光谱和维数相匹配
+            </summary>
+            <param name="plsCoefs">PLS系数</param>
+            <param name="specCols">一条光谱的数据点数</param>
+            <param name="rank">计算维数</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PLSParameter(System.Byte[])">
+            <summary>
+            获取PLS模型系数的参数
+            </summary>
+            <param name="plsCoefs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PredictWithAllResult(System.Byte[],System.Double[],System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            分析多条光谱，获取浓度，马氏距离，残差，FValue，FProb
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="specRows">光谱的行数（光谱数量）</param>
+            <param name="specCols">光谱的数据点数量</param>
+            <param name="rank">计算维数</param>
+            <param name="withXDatas">specDatas是否包含X轴数据</param>
+            <returns>返回浓度，马氏距离，残差，FValue，FProb</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.PredictWithAllResult(System.Byte[],System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            一次性获取光谱残差, F值和F分布
+            </summary>
+            <param name="plsCoef">建模系数</param>
+            <param name="specYDatas">光谱Y值列表，行=光谱数量, 列=光谱数据点数</param>
+            <param name="rank">计算维数</param>
+            <returns>第一行：光谱残差, 第二行:FValue，第三行：FProbability，返回数据数量 = specRows * 3</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetAverageSpectrum(System.Byte[])">
+            <summary>
+            获取建模光谱的平均光谱（double）
+            </summary>
+            <param name="plsCoef">模型系数</param>
+            <returns>平均光谱</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PLS.GetMSCAverageSpectrum(System.Byte[])">
+            <summary>
+            获取全谱区光谱的平均光谱，主要用于MSC预处理（double）
+            </summary>
+            <param name="plsCoef">模型系数</param>
+            <returns>平均光谱</returns>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.PreProcessor">
+            <summary>
+            预处理方法类
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.PreProcessor.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPHasAuthority32">
+            <summary>
+            是否有预处理算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSplineCubicInterpolation32(System.Double[],System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Int32@)">
+            <summary>
+            三次样条曲线插值(使用步长)
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="stepX">波数间隔</param>
+            <param name="outColsSize">返回的光谱数据点数</param>
+            <returns>返回处理后的数据(需要自己释放), 第一行是X轴，其余行为Y轴, 大小= specRows * outColsSize;</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPInterpolationUseDataCount32(System.Double[],System.Int32,System.Int32,System.Double,System.Double,System.Int32)">
+            <summary>
+            三次样条曲线插值(使用数据点数量)
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCount">数据点数量</param>
+            <returns>返回处理后的数据(需要自己释放), 第一行是X轴，其余行为Y轴, 大小= specRows * outColsSize;</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPVectorNormalize32(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            矢量归一化（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPMaxminNormalize32(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            最大最小归一化（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSubtractStraightLine32(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            减去一条直线(自动基线校正)（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSubtractConstantOffset32(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            消除常量偏移（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSNVNormalDistribution32(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            SNV标准正态变换（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPMutiScatterCorrection32(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            MSC多元散射校正（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPMutiScatterCorrectionOnPredict32(System.Double[],System.Double[],System.Int32,System.Int32)">
+            <summary>
+            预测时的MSC多元散射校正（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="averageYDatas">建模平均光谱</param>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSGSmoothAndDerivative32(System.Double[],System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Savitzky–Golay平滑和求导数（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="windowSize">平滑点数</param>
+            <param name="polyDegree">多项式阶数</param>
+            <param name="derDegree">导数阶数, 0=平滑</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPHasAuthority64">
+            <summary>
+            是否有预处理算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSplineCubicInterpolation64(System.Double[],System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Int32@)">
+            <summary>
+            三次样条曲线插值
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="stepX">波数间隔</param>
+            <param name="outColsSize">返回的光谱数据点数</param>
+            <returns>返回处理后的数据(需要自己释放), 大小= specRows * outColsSize;</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPInterpolationUseDataCount64(System.Double[],System.Int32,System.Int32,System.Double,System.Double,System.Int32)">
+            <summary>
+            三次样条曲线插值(使用数据点数量)
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCount">光谱数据点数</param>
+            <returns>返回处理后的数据(需要自己释放), 第一行是X轴，其余行为Y轴, 大小= specRows * outColsSize;</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPVectorNormalize64(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            矢量归一化（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPMaxminNormalize64(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            最大最小归一化（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSubtractStraightLine64(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            减去一条直线(自动基线校正)（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSubtractConstantOffset64(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            消除常量偏移（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSNVNormalDistribution64(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            SNV标准正态变换（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPMutiScatterCorrection64(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            MSC多元散射校正（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPMutiScatterCorrectionOnPredict64(System.Double[],System.Double[],System.Int32,System.Int32)">
+            <summary>
+            预测时的MSC多元散射校正（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="averageYDatas">建模平均光谱</param>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.PPSGSmoothAndDerivative64(System.Double[],System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Savitzky–Golay平滑和求导数（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="windowSize">平滑点数</param>
+            <param name="polyDegree">多项式阶数</param>
+            <param name="derDegree">导数阶数, 0=平滑</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.HasAuthority">
+            <summary>
+            是否有预处理算法授权
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SplineCubicInterpolation(System.Collections.Generic.IList{System.Double[]},System.Double,System.Double,System.Double)">
+            <summary>
+            三次样条曲线插值（使用X轴步长）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="stepX">波数间隔</param>
+            <returns>返回处理后的数据,第一行是X轴，其余行为Y轴;</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SplineCubicInterpolation(System.Double[],System.Int32,System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+            三次样条曲线插值（使用X轴步长）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="stepX">波数间隔</param>
+            <returns>返回处理后的数据, 第一行是X轴，其余行为Y轴</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SplineCubicInterpolation(System.Collections.Generic.IList{System.Double[]},System.Double,System.Double,System.Int32)">
+            <summary>
+            三次样条曲线插值（使用数据点数量）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCout">光谱数据点数</param>
+            <returns>返回处理后的数据,第一行是X轴，其余行为Y轴;</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SplineCubicInterpolation(System.Double[],System.Int32,System.Int32,System.Double,System.Double,System.Int32)">
+            <summary>
+            三次样条曲线插值（使用数据点数量）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCount">数据点数量</param>
+            <returns>返回处理后的数据, 第一行是X轴，其余行为Y轴</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SplineCubicInterpolation(System.Double[],System.Int32,System.Int32,System.Double,System.Double,System.Int32,System.Boolean)">
+            <summary>
+            三次样条曲线插值（使用数据点数量,直接返回数组）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCount">数据点数量</param>
+            <param name="returnArray">直接返回数组</param>
+            <returns>返回处理后的数据, 第一行是X轴，其余行为Y轴</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.VectorNormalize(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            矢量归一化（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.MaxminNormalize(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            最大最小归一化（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SubtractStraightLine(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            减去一条直线(自动基线校正)（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SubtractConstantOffset(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            消除常量偏移（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SNVNormalDistribution(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            SNV标准正态变换（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="spectrumDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.MutiScatterCorrection(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            MSC多元散射校正（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.MutiScatterCorrectionOnPredict(System.Double[],System.Double[],System.Int32,System.Int32)">
+            <summary>
+            预测时的MSC多元散射校正（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="averageData">建模平均光谱（从PLS Coefficient获取）</param>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.PreProcessor.SGSmoothAndDerivative(System.Double[],System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Savitzky–Golay平滑和求导数（处理后的数据在spectrumDatas返回）
+            </summary>
+            <param name="specDatas">第一行为X数据，后面几行为Y数据</param>
+            <param name="specRows">数据的行数</param>
+            <param name="specCols">数据的列数</param>
+            <param name="windowSize">平滑点数</param>
+            <param name="polyDegree">多项式阶数</param>
+            <param name="derDegree">导数阶数, 0=平滑</param>
+            <returns>正确或错误</returns>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.RamanAlgorithm">
+            <summary>
+            拉曼算法
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter">
+            <summary>
+            Pixel to raman convert parameter
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter.ramanFirstX">
+            <summary>
+            raman first x
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter.ramanLastX">
+            <summary>
+            raman last x
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter.ramanDataCount">
+            <summary>
+            raman data count
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter.ramanXStep">
+            <summary>
+            x step
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter.convertCoefs">
+            <summary>
+            pixel 2 raman coefficients(length=4)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.RamanAlgorithm.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.RamanAlgorithm.PiexToRaman(Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter,System.Int32,System.Double[],System.Double[]@)">
+            <summary>
+            Convert pixel data to raman shift data use convert coefficient with interpolation
+            </summary>
+            <param name="para">Destination raman spectrum format</param>
+            <param name="pixelFirstX">Pixel first X</param>
+            <param name="pixelYDatas">Pixel y datas</param>
+            <param name="outRamanXDatas">OUT: Raman x datas</param>
+            <returns>Raman y datas</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.RamanAlgorithm.GetIntensityCalData(Ai.Hong.Algorithm.RamanAlgorithm.ConvertParameter,System.Double[],System.Int32,System.Double[],System.Double[])">
+            <summary>
+            Create intensity calibrate data(raman shift format)
+            </summary>
+            <param name="para">raman convert coefficient</param>
+            <param name="standardCalCoefs">2241 standard coefs</param>
+            <param name="pixelFirstX">First x of calibration spectrum</param>
+            <param name="pixelYDatas">Calibratoin sepctrum y datas</param>
+            <param name="userCalCoefs">User calibrate coefs</param>
+            <returns>Intensity calibration datas</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.RamanAlgorithm.IntensityOffsetCalibrate(System.Double[],System.Double[],System.Double)">
+            <summary>
+            Intensity and offset calibrate
+            </summary>
+            <param name="sourceYDatas">source raman y datas (same length to intensityCalDatas)</param>
+            <param name="intensityCalDatas">intensity calibrate y datas(from CorrectIntensityCalData)</param>
+            <param name="offsetCalData">offset calibrate coefficient</param>
+            <returns>Calibrated Y datas </returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.RamanAlgorithm.PolynomialResult(System.Double[]@,System.Double[])">
+            <summary>
+            多项式计算(自变量为inData)
+            </summary>
+            <param name="inData">自变量输入值, 同时也是输出值</param>
+            <param name="coefs">多项式系数</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.RamanAlgorithm.PolynomialResult(System.Double[],System.Double,System.Double,System.Int32)">
+            <summary>
+            多项式计算
+            </summary>
+            <param name="coefs">多项式系数</param>
+            <param name="firstX">起始X值</param>
+            <param name="stepx">X步长</param>
+            <param name="xcount">X的数量</param>
+            <returns>拟合后的Y值</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.RamanAlgorithm.GetPixel2RamanConvertCoefs(System.Double[],System.Double[])">
+            <summary>
+            获取像素谱转拉曼谱的系数
+            </summary>
+            <param name="standardRamanPeaks">校准物质的拉曼峰位</param>
+            <param name="pickedPixelPeaks">校准物质测量的像素峰位</param>
+            <returns>转换系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.RamanAlgorithm.GetOffsetCalCoefs(System.Double[])">
+            <summary>
+            获取暗电流像素光谱的偏移（用于Offset校准）
+            </summary>
+            <param name="darkPixelYDatas">暗电流像素光谱</param>
+            <returns>光谱偏移量</returns>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.SDStandardizing">
+            <summary>
+            仪器标准化类
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.SDFileFilter">
+            <summary>
+            系数文件Filter
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.SDStandardizing.enumAlgorithmType">
+            <summary>
+            仪器校准算法
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.enumAlgorithmType.PDS">
+            <summary>
+            PDS
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.enumAlgorithmType.PLS">
+            <summary>
+            PLS
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.enumAlgorithmType.SST">
+            <summary>
+            SST
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter">
+            <summary>
+            仪器标准化系数的参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.datatype">
+            <summary>
+            数据标志
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.algorithm">
+            <summary>
+            算法种类(PDS, PLS, SST)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.datasize">
+            <summary>
+            数据大小(BYTE,不包含CalCoefParameter)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.firstX">
+            <summary>
+            起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.lastX">
+            <summary>
+            结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.specCols">
+            <summary>
+            光谱的数据点数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.parasize">
+            <summary>
+            算法参数大小（BYTE）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.paraoffset">
+            <summary>
+            算法参数偏移量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.coefSize">
+            <summary>
+            标准化系数大小(BYTE)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Algorithm.SDStandardizing.StandardizingCoefParameter.coefOffset">
+            <summary>
+            主系数的Offset
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SDHasAuthority32">
+            <summary>
+            是否有STANDARDIZING算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.PDSCoefficient32(System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Boolean,System.Int32@)">
+            <summary>
+            创建从机与主机的光谱校正系数
+            </summary>
+            <param name="masterData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="slaveData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="windowSize">校正窗口大小</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <param name="datasize">返回的数据大小(BYTE)</param>
+            <returns>校正系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.PLSCoefficient32(System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Boolean,System.Int32@)">
+            <summary>
+            创建校正系数(PLS)
+            </summary>        
+            <param name="masterData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="slaveData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="windowSize">校正窗口大小</param>
+            <param name="tolerance">偏差</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <param name="datasize">返回的数据大小(BYTE)</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SSTCoefficient32(System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Boolean,System.Int32@)">
+            <summary>
+            创建校正系数(SST)
+            </summary>        
+            <param name="masterData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="slaveData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="rank">维数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <param name="datasize">返回的数据大小(BYTE)</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SDApplyCoefficient32(System.Byte[],System.Double[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            使用光谱校正系数，校正光谱
+            </summary>
+            <param name="coefData">光谱校正系数(BYTE)</param>
+            <param name="spectrumData">光谱数据(double)，一行一条光谱,第一行是X轴数据，后面是Y轴数据</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SDSelectStandardSpectrum32(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            从主机光谱中选择用于仪器校准的光谱
+            </summary>
+            <param name="masterData">主机光谱，一行一条光谱,第一行是X轴数据，后面是Y轴数据</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱的数据点数</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.KSEuclideanSelectSample32(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            通过欧式距离，使用KS算法选择有效光谱
+            </summary>
+            <param name="spectrumYDatas">主机光谱，一行一条Y轴数据</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱的数据点数</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.GetErrorMessage32">
+            <summary>
+            获取错误信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SDHasAuthority64">
+            <summary>
+            是否有STANDARDIZING算法授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.PDSCoefficient64(System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Boolean,System.Int32@)">
+            <summary>
+            创建从机与主机的光谱校正系数
+            </summary>
+            <param name="masterData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="slaveData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="windowSize">校正窗口大小</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <param name="datasize">返回的数据大小(BYTE)</param>
+            <returns>校正系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.PLSCoefficient64(System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Boolean,System.Int32@)">
+            <summary>
+            创建校正系数(PLS)
+            </summary>        
+            <param name="masterData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="slaveData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="windowSize">维数</param>
+            <param name="tolerance">偏差</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <param name="datasize">返回的数据大小(BYTE)</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SSTCoefficient64(System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Boolean,System.Int32@)">
+            <summary>
+            创建校正系数(SST)
+            </summary>        
+            <param name="masterData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="slaveData">光谱数据(double)（一条光谱一行,第一行是X轴数据，后面是Y轴数据）</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="rank">维数</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <param name="datasize">返回的数据大小(BYTE)</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SDApplyCoefficient64(System.Byte[],System.Double[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            使用光谱校正系数，校正光谱
+            </summary>
+            <param name="coefData">光谱校正系数(BYTE)</param>
+            <param name="spectrumData">光谱数据(double)，一行一条光谱,第一行是X轴数据，后面是Y轴数据</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SDSelectStandardSpectrum64(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            从主机光谱中选择用于仪器校准的光谱
+            </summary>
+            <param name="masterData">主机光谱，一行一条光谱,第一行是X轴数据，后面是Y轴数据</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱的数据点数</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.KSEuclideanSelectSample64(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            通过欧式距离，使用KS算法选择有效光谱
+            </summary>
+            <param name="spectrumYDatas">主机光谱，一行一条Y轴数据</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱的数据点数</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.GetErrorMessage64">
+            <summary>
+            获取错误信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.HasAuthority">
+            <summary>
+            是否有STANDARDIZING算法授权
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.GetErrorMessage">
+            <summary>
+            获取C++ DLL返回的错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.GetCoefficient(Ai.Hong.Algorithm.SDStandardizing.enumAlgorithmType,System.Collections.Generic.IList{System.Double[]},System.Collections.Generic.IList{System.Double[]},System.Int32,System.Double,System.Double,System.Double,System.Boolean)">
+            <summary>
+            根据主机光谱创建辅机的校准系数(数据不包含X轴)
+            </summary>
+            <param name="algorithmType">校准算法</param>
+            <param name="masterData">主机数据（一条光谱一行Y轴数据）</param>
+            <param name="slaveData">辅机数据（一条光谱一行Y轴数据）</param>
+            <param name="windowSize">校准窗口大小</param>
+            <param name="tolerance">校准偏差（PLS）</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">True=masterData和slaveData第一行包含X轴数据</param>
+            <returns>校准系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.GetCoefficient(Ai.Hong.Algorithm.SDStandardizing.enumAlgorithmType,System.Double[],System.Double[],System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Boolean)">
+            <summary>
+            根据主机光谱创建辅机的校准系数
+            </summary>
+            <param name="algorithmType">校准算法</param>
+            <param name="masterData">主机数据（一条光谱一行Y轴数据）</param>
+            <param name="slaveData">辅机数据（一条光谱一行Y轴数据）</param>
+            <param name="specRows">光谱的行数</param>
+            <param name="specCols">每条光谱的数据点数量</param>
+            <param name="windowSize">校准窗口大小(PDS), RANK(SST)</param>
+            <param name="tolerance">校准偏差（PLS）</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <returns>校准系数</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.ApplyCoefficient(System.Byte[],System.Collections.Generic.IList{System.Double[]})">
+            <summary>
+            使用光谱校正系数，校正光谱（不包含X轴数据）
+            </summary>
+            <param name="coefData">光谱校正系数(BYTE)</param>
+            <param name="slaveData">光谱数据</param>
+            <returns>校正后的光谱Y轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.ApplyCoefficientWithXData(System.Byte[],System.Collections.Generic.IList{System.Double[]})">
+            <summary>
+            使用光谱校正系数，校正光谱，包含插值（包含X轴数据）
+            </summary>
+            <param name="coefData">光谱校正系数(BYTE)</param>
+            <param name="slaveData">光谱数据</param>
+            <returns>校正后的光谱Y轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.ApplyCoefficient(System.Byte[],System.Double[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            使用光谱校正系数，校正光谱
+            </summary>
+            <param name="coefData">光谱校正系数(BYTE)</param>
+            <param name="slaveData">光谱数据</param>
+            <param name="specRows">光谱的数量</param>
+            <param name="specCols">每条光谱数据数量</param>
+            <param name="withXDatas">是否包含X轴数据</param>
+            <returns>校正后的光谱,与slaveData大小相同</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SelectStandardSpectrum(System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            从主机光谱中选择用于仪器校准的光谱
+            </summary>
+            <param name="masterData">主机光谱，一行一条光谱,第一行是X轴数据，后面是Y轴数据</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.SelectStandardSpectrum(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            从主机光谱中选择用于仪器校准的光谱
+            </summary>
+            <param name="masterData">主机光谱，一行一条光谱,第一行是X轴数据，后面是Y轴数据</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱的数据点数</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.KSEuclideanSelectSample(System.Collections.Generic.IList{System.Double[]},System.Int32)">
+            <summary>
+            通过欧式距离，使用KS算法选择有效光谱
+            </summary>
+            <param name="spectrumYDatas">主机光谱，一行一条Y轴数据</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.KSEuclideanSelectSample(System.Double[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            通过欧式距离，使用KS算法选择有效光谱
+            </summary>
+            <param name="spectrumYDatas">主机光谱，一行一条Y轴数据</param>
+            <param name="specRows">光谱数量</param>
+            <param name="specCols">每条光谱的数据点数</param>
+            <param name="selectNumber">需要选择多少条光谱</param>
+            <returns>选中光谱的序号(int)，大小=selectNumber</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.GetStandardizingCoefParameter(System.Byte[])">
+            <summary>
+            获取校准系数的参数
+            </summary>
+            <param name="calCoefData">校准系数</param>
+            <returns>校准系数的参数（dataSize=0表示错误）</returns>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.IsValidCoef(System.Byte[],System.Int32)">
+            <summary>
+            判断是否为有效的校准参数
+            </summary>
+            <param name="calCoefData">校准参数</param>
+            <param name="specCols">光谱数据点数</param>
+        </member>
+        <member name="M:Ai.Hong.Algorithm.SDStandardizing.IsStandardCoefData(System.Byte[])">
+            <summary>
+            判断是否为校准系数
+            </summary>
+            <param name="calCoefData">校准参数</param>
+        </member>
+    </members>
+</doc>

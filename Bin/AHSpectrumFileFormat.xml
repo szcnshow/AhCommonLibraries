@@ -1,0 +1,3548 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AHSpectrumFileFormat</name>
+    </assembly>
+    <members>
+        <member name="T:Ai.Hong.FileFormat.CommonMethod">
+            <summary>
+            通用操作函数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.CommonMethod.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.GetErrorMessage32">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.GetErrorMessage64">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.GetDLLErrorMessage">
+            <summary>
+            获取DLL错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CombineSpectrumDatas(System.Collections.Generic.IList{System.Double[]})">
+            <summary>
+            合并光谱列表中的Y轴数据
+            </summary>
+            <param name="fileDatas">Y轴数据列表</param>
+            <returns>合并Y轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyDataArrayFromIntptrAndFree``1(System.IntPtr@,System.Int32)">
+            <summary>
+            从内存中拷贝float数据，并且释放内存
+            </summary>
+            <param name="ptrData">内存数据</param>
+            <param name="dataSize">数据大小(float)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyFloatFromIntptrAndFree(System.IntPtr@,System.Int32)">
+            <summary>
+            从内存中拷贝float数据，并且释放内存
+            </summary>
+            <param name="ptrData">内存数据</param>
+            <param name="dataSize">数据大小(float)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyDoubleFromIntptrAndFree(System.IntPtr@,System.Int32)">
+            <summary>
+            从内存中拷贝double数据，并且释放内存
+            </summary>
+            <param name="ptrData">内存数据</param>
+            <param name="dataSize">数据大小(double)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyByteFromIntptrAndFree(System.IntPtr@,System.Int32)">
+            <summary>
+            从内存中拷贝Byte数据，并且释放内存
+            </summary>
+            <param name="ptrData">内存数据</param>
+            <param name="dataSize">数据大小(byte)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyIntFromIntptrAndFree(System.IntPtr@,System.Int32)">
+            <summary>
+            从内存中拷贝Int数据，并且释放内存
+            </summary>
+            <param name="ptrData">内存数据</param>
+            <param name="dataSize">数据大小(byte)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.Is64BitVersion">
+            <summary>
+            判断是否为64为版本调用
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.ConvertFixedByteToString(System.Byte*,System.Int32)">
+            <summary>
+            把byte*转换为string
+            </summary>
+            <param name="data">byte*数据</param>
+            <param name="size">数据大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.ConvertStringToFixedByte(System.String,System.Byte*,System.Int32)">
+            <summary>
+            把string转换为byte*
+            </summary>
+            <param name="str">字符串</param>
+            <param name="data">byte*数据</param>
+            <param name="size">数据大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.ConvertStringToByteArray(System.String,System.Byte[],System.Int32,System.Text.Encoding)">
+            <summary>
+            把string转换到byte[]
+            </summary>
+            <param name="str">要转换的String</param>
+            <param name="byteBuffer">byte数组</param>
+            <param name="size">byte Buffer的大小</param>
+            <param name="encoding">编码</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CovertByteArrayToString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            将字节数组转换为String
+            </summary>
+            <param name="byteBuffer">字节数组</param>
+            <param name="encoding">编码方式</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.ConvertFixedByteToByteArrayaaa(System.Byte*,System.Int32)">
+            <summary>
+            把byte*转换为byte[]
+            </summary>
+            <param name="fixeddata">byte*数据</param>
+            <param name="size">数据大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.ConvertByteArrayToFixedByte(System.Byte[],System.Byte*,System.Int32)">
+            <summary>
+            把byte[]转换为byte*
+            </summary>
+            <param name="data">需要转换的数组</param>
+            <param name="fixeddata">byte[]数据</param>
+            <param name="size">数据大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.ReadBinaryFile(System.String)">
+            <summary>
+            读取全部文件内容
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>文件内容</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.SaveBinaryFile(System.String,System.Byte[])">
+            <summary>
+            将数据写入文件
+            </summary>
+            <param name="filename">写入文件名</param>
+            <param name="fileData">文件内容</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyStructureFromIntptrAndFree``1(System.IntPtr@,System.Boolean@)">
+            <summary>
+            将内存复制到struct中,并释放
+            </summary>
+            <typeparam name="T">Struct类型</typeparam>
+            <param name="dataPtr">数据的PTR</param>
+            <param name="retOK">是否正确转换</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyStructureListFromIntptrAndFree``1(System.IntPtr@,System.Int32)">
+            <summary>
+            将内存复制到struct中,并释放
+            </summary>
+            <typeparam name="T">Struct类型</typeparam>
+            <param name="dataPtr">数据的PTR</param>
+            <param name="count">数据数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.DWordToDateTime(System.UInt32)">
+            <summary>
+            把DWORD转换到DateTime
+            </summary>
+            <param name="dtime">DWORD存储的日期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.DataTimeToDWord(System.DateTime)">
+            <summary>
+            日期时间转换到DWORD
+            </summary>
+            <param name="time">日期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyDataArrayFromFixedPtr``1(System.Void*,System.Int32)">
+            <summary>
+            将固定的指针的内容拷贝到数组中
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="fixedPtr">固定指针</param>
+            <param name="ptrSize">数据数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyDataArrayToFixedPtr``1(System.Void*,System.Int32,``0[])">
+            <summary>
+            将数组拷贝到固定指针中
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="fixedPtr">固定指针</param>
+            <param name="ptrSize">数据大小</param>
+            <param name="datas">要拷贝的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.CopyStringFromIntptrAndFree(System.IntPtr@,System.Text.Encoding)">
+            <summary>
+            从内存中拷贝字符串，并释放内存
+            </summary>
+            <param name="ptrData">内存指针</param>
+            <param name="encode">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.StringToByte(System.String,System.Text.Encoding)">
+            <summary>
+            字符串转数组
+            </summary>
+            <param name="str">字符串</param>
+            <param name="encode">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.FloatArrayToDouble(System.Single[])">
+            <summary>
+            将Float数组转换为Double数组
+            </summary>
+            <param name="datas">Float数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.DoubleArrayToFloat(System.Double[])">
+            <summary>
+            将Double数组转换为Float数组
+            </summary>
+            <param name="datas">Double数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.IsSameDouble(System.Double,System.Double,System.Double)">
+            <summary>
+            比较两个double是否相同
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="maximum">最大偏差</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.IsSameXDatas(System.Double[],System.Double[])">
+            <summary>
+            判断两个X轴数据格式是否相同
+            </summary>
+            <param name="firstData">X值1</param>
+            <param name="lastData">X值2</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.CommonMethod.IsSameXDatas(System.Double[],System.Double,System.Double,System.Int32)">
+            <summary>
+            判断X轴数据格式是否与标准参数相同
+            </summary>
+            <param name="specData">X数据</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="dataCount">数据点数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat">
+            <summary>
+            光谱文件格式
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetErrorMessage32">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetErrorMessage64">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetDLLErrorMessage">
+            <summary>
+            获取DLL错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPCFilter">
+            <summary>
+            SPCFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPAFilter">
+            <summary>
+            SPAFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.OPUSFilter">
+            <summary>
+            OPUSFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.DXFilter">
+            <summary>
+            DXFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.FOSSFilter">
+            <summary>
+            FOSSFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.MATLABFilter">
+            <summary>
+            MATLABFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EXCELFilter">
+            <summary>
+            EXCELFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.CSVFilter">
+            <summary>
+            CSVFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.TXTFilter">
+            <summary>
+            TXTFilter
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.allFilters">
+            <summary>
+            所有光谱格式
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.EnumFileType">
+            <summary>
+            OPUS:Bruker格式，SPC:EssentialIR格式，JCAMP:JCAMP-DX格式, DPT:Data Table格式, SPA:Thermo格式，SP:PE格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.SPC">
+            <summary>
+            SPC格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.OPUS">
+            <summary>
+            OPUS格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.SPA">
+            <summary>
+            SPA格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.SP">
+            <summary>
+            SP格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.JCAMP">
+            <summary>
+            JCAMP DX格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.FOSS">
+            <summary>
+            Matlab格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.MAT">
+            <summary>
+            Matlab格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.EXCEL">
+            <summary>
+            EXCEL格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.CSV">
+            <summary>
+            CSV格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.TXT">
+            <summary>
+            TXT格式
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.EnumFileType.UNKNOWN">
+            <summary>
+            未知格式
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.FileInfo">
+            <summary>
+            文件信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.filename">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.fileType">
+            <summary>
+            原始文件类型(SPC, OPUS, DX, SPA, MAT...)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.createTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.resolution">
+            <summary>
+            分辨率
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.xType">
+            <summary>
+            X轴坐标类型(1/CM...)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.specType">
+            <summary>
+            光谱类型（近红外、中红外、拉曼...)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.dataCount">
+            <summary>
+            光谱点数量
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.fileMemo">
+            <summary>
+            文件描述
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.instDescription">
+            <summary>
+            仪器描述
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.modifyFlag">
+            <summary>
+            文件修改标志
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.zType">
+            <summary>
+            Z轴类型
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.fzinc">
+            <summary>
+            Z轴步长
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.FileInfo.fspare">
+            <summary>
+            光谱处理参数（主要用于Raman Shift系数）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.FileInfo.Clone">
+            <summary>
+            克隆FileInfo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.DataInfo">
+            <summary>
+            数据信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.DataInfo.firstX">
+            <summary>
+            开始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.DataInfo.lastX">
+            <summary>
+            结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.DataInfo.maxYValue">
+            <summary>
+            最大Y值
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.DataInfo.minYValue">
+            <summary>
+            最小Y值
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.DataInfo.dataType">
+            <summary>
+            数据类型(吸收谱, 干涉图...)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.DataInfo.dataTitle">
+            <summary>
+            数据名称
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.DataInfo.Clone">
+            <summary>
+            克隆DataInfo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo">
+            <summary>
+            采集信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.SCANS">
+            <summary>
+            Number of co-added scans
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.SCANSBG">
+            <summary>
+            Number of co-added scans in background file
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.NAMEBG">
+            <summary>
+            Background spectrum filename
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.GAIN">
+            <summary>
+            Detector Gain Factor
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.SPEED">
+            <summary>
+            Scan Speed or Velocity text
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.VELOCITY">
+            <summary>
+             Scan Speed or Velocity number
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.LWN">
+            <summary>
+            Laser Wavenumber
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.RAMANFREQ">
+            <summary>
+            Raman Laser Frequency
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.RAMANPWR">
+            <summary>
+            Raman Laser Power
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.JSTOP">
+            <summary>
+            J-Stop aperture width
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.BSTOP">
+            <summary>
+            B-Stop aperture width
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.DET">
+            <summary>
+            Detector type name
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.SRC">
+            <summary>
+            Source type name
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.BSPLITTER">
+            <summary>
+            Beam Splitter name
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.PURGE">
+            <summary>
+            Purge Delay before scanning
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.ZFF">
+            <summary>
+            Zero Filling Factor
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.IRMODE">
+            <summary>
+            FTIR Laser Sampling Frequency and Raman Mode 2 = Mid-IR mode 1 = Near-IR mode -2 = Raman-shift
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.APOD">
+            <summary>
+            Apodization function type name， "None" (boxcar apodization) "Triangular" "Weak" Norton-Beer "Medium" Norton-Beer "Strong" Norton-Beer "Happ-Genzel" "Bessel" "Cosine" "Filler" "Kaiser" Bessel "Gaussian" "Tradezoidal"
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.PHASE">
+            <summary>
+            Phase correction type name，"Self" "Magnitude" "Background" "Stored Phase" "None"
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.PHASEPTS">
+            <summary>
+            Number of interferogram points used for phase correction
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.IGRAMSIDE">
+            <summary>
+            nterferogram mode name: "Double" sided "Single" sided "Left" single sided "Right" single sided
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.IGRAMDIR">
+            <summary>
+            Interferogram collection direction name: "Bi" interferometer scans in both direction "Uni" interferometer scans in one direction "Forward" uni-directional "Reverse" uni-directional
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.POLARIZER">
+            <summary>
+            Polarizer Angle
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.LOWPASS">
+            <summary>
+            Low Pass Filter Cutoff
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.HIGHPASS">
+            <summary>
+            High Pass Filter Cutoff
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.FILTER">
+            <summary>
+            Optical Filter Name
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.SMOOTH">
+            <summary>
+            Number of averaged readings per data point
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.BEAM">
+            <summary>
+            Single beam mode name: "Sample" (Does not replace existing background). “Background" for future ratioing with sample.
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.AVGTIME">
+            <summary>
+            Time for A/D averaging of each point reading (msec). If the A/D has a fixed time and point readings are averaged, then this time should be divided by the approximate A/D time to get the number of readings.
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.BDELAY">
+            <summary>
+            Begin delay in seconds
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.SDELAY">
+            <summary>
+            Scan delay in seconds
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.CHANNEL">
+            <summary>
+            Detector or beam path channel used for acquisition
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.FromSPCLogData(System.String)">
+            <summary>
+            从SPC 注释中读取采集参数
+            </summary>
+            <param name="logData">注释</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.AcquisitionInfo.ToSPCLogData">
+            <summary>
+            生成Acquisition Log Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.enumIRMODE">
+            <summary>
+            光谱类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.enumIRMODE.NearIR">
+            <summary>
+            近红外
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.enumIRMODE.MidIR">
+            <summary>
+            中红外
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.enumIRMODE.RamanShift">
+            <summary>
+            拉曼
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.SPECTYPE">
+            <summary>
+            fexper 光谱类型(红外，近红外，拉曼...)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCGEN">
+            <summary>
+            General SPC
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCGC">
+            <summary>
+            气相色谱图
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCCGM">
+            <summary>
+            通用色谱图
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCHPLC">
+            <summary>
+            HPLC色谱图
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCFTIR">
+            <summary>
+            傅立叶变换中红外，近红外，拉曼FT-IR, FT-NIR, FT-Raman
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCNIR">
+            <summary>
+            近红外 NIR Spectrum
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCUV">
+            <summary>
+            UV-VIS Spectrum
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCXRY">
+            <summary>
+            X-射线
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCMS">
+            <summary>
+            多种光谱 Mass Spectrum
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCNMR">
+            <summary>
+            核磁
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCRMN">
+            <summary>
+            拉曼谱 Raman Spectrum
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCFLR">
+            <summary>
+            荧光 Fluorescence Spectrum
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCATM">
+            <summary>
+            原子 Atomic Spectrum
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCDAD">
+            <summary>
+            色谱 Chromatography
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.SPECTYPE.SPCMIR">
+            <summary>
+            中红外谱
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.XAXISTYPE">
+            <summary>
+            fxtype X坐标类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XARB">
+            <summary>
+            Arbitrary
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XWAVEN">
+            <summary>
+            Wavenumber
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XUMETR">
+            <summary>
+            Micrometers
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XNMETR">
+            <summary>
+            Nanometers
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XSECS">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XMINUTS">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XHERTZ">
+            <summary>
+            Hertz
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XKHERTZ">
+            <summary>
+            Kilohertz
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XMHERTZ">
+            <summary>
+            Megahertz
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XMUNITS">
+            <summary>
+            Mass
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XPPM">
+            <summary>
+            PPM
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XDAYS">
+            <summary>
+            Days
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XYEARS">
+            <summary>
+            Years
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.XAXISTYPE.XRAMANS">
+            <summary>
+            Raman Shift
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.YAXISTYPE">
+            <summary>
+            fytype Y坐标类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YARB">
+            <summary>
+            Arbitrary Intensity
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIGRAM">
+            <summary>
+            Interferogram
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YABSRB">
+            <summary>
+            Absorbance
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YKMONK">
+            <summary>
+            Kubelka-Monk
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YCOUNT">
+            <summary>
+            Counts
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YVOLTS">
+            <summary>
+            Volts
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YDEGRS">
+            <summary>
+            Degrees
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YAMPS">
+            <summary>
+            Milliamps
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YMETERS">
+            <summary>
+            Millimeters
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YMVOLTS">
+            <summary>
+            Millivolts
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YLOGDR">
+            <summary>
+            Log(1/R)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YPERCNT">
+            <summary>
+            Percent
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YINTENS">
+            <summary>
+            Intensity
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YRELINT">
+            <summary>
+            Relative Intensity
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YENERGY">
+            <summary>
+            Energy
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YDECBL">
+            <summary>
+            Decibel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YDEGRF">
+            <summary>
+            Temperature (F)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YDEGRC">
+            <summary>
+            Temperature (C)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YDEGRK">
+            <summary>
+            Temperature (K)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YINDRF">
+            <summary>
+            Index of Refraction [N]
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YEXTCF">
+            <summary>
+            Extinction Coeff. [K]
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YREAL">
+            <summary>
+            Real
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIMAG">
+            <summary>
+            Imaginary
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YCMPLX">
+            <summary>
+            Complex
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YTRANS">
+            <summary>
+            Transmission
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YREFLEC">
+            <summary>
+            Reflectance
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YVALLEY">
+            <summary>
+            Single Beam with Valley Peaks
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YEMISN">
+            <summary>
+            Emission
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YATR">
+            <summary>
+            OPUS ATR
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YSCRF">
+            <summary>
+            Background single beam
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YSCSM">
+            <summary>
+            Sample single beam
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIGRF">
+            <summary>
+            Background interfergoram
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YIGSM">
+            <summary>
+            Sample interfergoram
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.YAXISTYPE.YRPXL">
+            <summary>
+            RAMAN PIXEL
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE">
+            <summary>
+            Z坐标类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XARB">
+            <summary>
+            Arbitrary
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XWAVEN">
+            <summary>
+            Wavenumber
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XUMETR">
+            <summary>
+            Micrometers
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XNMETR">
+            <summary>
+            Nanometers
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XSECS">
+            <summary>
+            Seconds
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XMINUTS">
+            <summary>
+            Minutes
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XHERTZ">
+            <summary>
+            Hertz
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XKHERTZ">
+            <summary>
+            Kilohertz
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XMHERTZ">
+            <summary>
+            Megahertz
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XMUNITS">
+            <summary>
+            Mass
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XPPM">
+            <summary>
+            PPM
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XDAYS">
+            <summary>
+            Days
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XYEARS">
+            <summary>
+            Years
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XRAMANS">
+            <summary>
+            Raman Shift
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XEV">
+            <summary>
+            eV
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.ZTEXTL">
+            <summary>
+            XYZ text
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XDIODE">
+            <summary>
+            Diode Number
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XCHANL">
+            <summary>
+            Channel
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XDEGRS">
+            <summary>
+            Degrees
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XDEGRF">
+            <summary>
+            Temperature (F)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XDEGRC">
+            <summary>
+            Temperature (C)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XDEGRK">
+            <summary>
+            Temperature (K)
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XPOINT">
+            <summary>
+            Data Points
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XMSEC">
+            <summary>
+            Milliseconds
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XUSEC">
+            <summary>
+            Microseconds
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XNSEC">
+            <summary>
+            Nanoseconds
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XGHERTZ">
+            <summary>
+            Gigahertz
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XCM">
+            <summary>
+            Centimeters
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XMETERS">
+            <summary>
+            Meters
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XMMETR">
+            <summary>
+            Millimeters
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XHOURS">
+            <summary>
+            Hours
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FileFormat.ZAXISTYPE.XDBLIGM">
+            <summary>
+            Double interferogram
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.dataInfoList">
+            <summary>
+            数据参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.dataInfo">
+            <summary>
+            缺省的光谱数据信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.fileInfo">
+            <summary>
+            文件参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.acquisitionInfo">
+            <summary>
+            采集参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.xDataList">
+            <summary>
+            X轴数据,如果xDataList.Count > 1，那么必须=yDataList.Count
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.xDatas">
+            <summary>
+            缺省的X轴数据
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.yDataList">
+            <summary>
+            Y轴数据，如果xDataList.count==1，那么所有yDatas的数据点数量必须相同
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.yDatas">
+            <summary>
+            缺省的Y轴数据
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.FileFormat.additionalData">
+            <summary>
+            文件附加数据，比如样品信息，结果信息，由调用程序来解析
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="filename">光谱文件名</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.#ctor(System.Byte[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileData">光谱数据</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.Clone(System.Boolean)">
+            <summary>
+            克隆文件数据
+            </summary>
+            <param name="withDatas">True=包含光谱, False=不包含光谱，只有文件信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.ReadFile(System.String)">
+            <summary>
+            读取光谱文件
+            </summary>
+            <param name="filename">光谱文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.ReadFile(System.Byte[])">
+            <summary>
+            读取光谱文件
+            </summary>
+            <param name="fileData">光谱文件数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.SaveFile(System.String,Ai.Hong.FileFormat.FileFormat.EnumFileType)">
+            <summary>
+            将FileFormat保存到文件
+            </summary>
+            <param name="filename">需要保存的文件名</param>
+            <param name="filetype">光谱文件格式(缺省SPC)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.SaveFile(Ai.Hong.FileFormat.FileFormat.EnumFileType)">
+            <summary>
+            将FileFormat保存到数组
+            </summary>
+            <param name="filetype">光谱文件格式(缺省SPC)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.SaveFileWithAddtional(System.Object[],Ai.Hong.FileFormat.FileFormat.EnumFileType)">
+            <summary>
+            将FileFormat连通附加信息保存到数组
+            Foss的附加信息=（仪器编号,组分名称数组,组分数组,文件时间数组）
+            </summary>
+            <param name="appendDatas">附加信息</param>
+            <param name="filetype">光谱文件格式(缺省SPC)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.AddData(System.Double[],System.Double[],Ai.Hong.FileFormat.FileFormat.SPECTYPE,Ai.Hong.FileFormat.FileFormat.XAXISTYPE,Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            添加X轴和Y轴数据
+            </summary>
+            <param name="newXDatas">X轴数据</param>
+            <param name="newYDatas">Y轴数据</param>
+            <param name="specType">光谱文件格式</param>
+            <param name="xType">X轴数据类型</param>
+            <param name="dataType">Y轴数据类型</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.AddData(System.Double[],Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            添加统一格式的Y轴数据（已经添加了其它数据）
+            </summary>
+            <param name="newYDatas">Y轴数据</param>
+            <param name="dataType">Y轴数据类型</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.AddData(System.Double,System.Double,System.Double[],Ai.Hong.FileFormat.FileFormat.SPECTYPE,Ai.Hong.FileFormat.FileFormat.XAXISTYPE,Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            添加均匀X轴的Y轴数据（没有添加了其它数据）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.SaveFile(System.Double,System.Double,System.Double,System.Double[],Ai.Hong.FileFormat.FileFormat.EnumFileType,Ai.Hong.FileFormat.FileFormat.SPECTYPE,Ai.Hong.FileFormat.FileFormat.YAXISTYPE,Ai.Hong.FileFormat.FileFormat.XAXISTYPE)">
+            <summary>
+            简单创建光谱文件
+            </summary>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="resolution">分辨率</param>
+            <param name="yDatas">Y值</param>
+            <param name="filetype">文件格式</param>
+            <param name="spectype">光谱类型</param>
+            <param name="ytype">Y轴类型</param>
+            <param name="xtype">X轴类型</param>
+            <returns>创建的文件数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetSupportFormatFilter">
+            <summary>
+            获取支持文件的OpenFileDialog Filter
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.FileNameToSpecType(System.String)">
+            <summary>
+            返回文件名对应的光谱格式类型
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>文件类型</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.SpecTypeToFileExtension(Ai.Hong.FileFormat.FileFormat.EnumFileType)">
+            <summary>
+            返回光谱格式对应的文件后缀
+            </summary>
+            <param name="sepcType">光谱格式</param>
+            <returns>文件后缀</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetAuthorityFormats">
+            <summary>
+            获取授权光谱格式列表
+            </summary>
+            <returns>授权光谱格式列表</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetSpecTypeName(Ai.Hong.FileFormat.FileFormat.SPECTYPE,System.Boolean)">
+            <summary>
+            获取光谱类型(红外，近红外，拉曼...)名称
+            </summary>
+            <param name="specType">光谱类型</param>
+            <param name="chineseName">True：中文，False：英文</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetXAxisTypeName(Ai.Hong.FileFormat.FileFormat.XAXISTYPE,System.Boolean)">
+            <summary>
+            获取X坐标名称
+            </summary>
+            <param name="xAxisType">X轴类型</param>
+            <param name="chineseName">True：中文，False：英文</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetYAxisTypeName(Ai.Hong.FileFormat.FileFormat.YAXISTYPE,System.Boolean)">
+            <summary>
+            获取X坐标名称
+            </summary>
+            <param name="yAxisType">X轴类型</param>
+            <param name="chineseName">True：中文，False：英文</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GeIrModeName(Ai.Hong.FileFormat.FileFormat.enumIRMODE,System.Boolean)">
+            <summary>
+            获取红外光谱的名称
+            </summary>
+            <param name="irMode">光谱类型</param>
+            <param name="chineseName">True：中文，False：英文</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetComponentName(System.Byte[])">
+            <summary>
+            读取文件中组分列表
+            <param name="fileData">文件内容</param>
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetComponentData(System.Byte[],System.Int32)">
+            <summary>
+            读取浓度数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="specIndex">光谱序号</param>
+            <returns>返回光谱浓度数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetDataTypeIndex(Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            获取指定Y轴格式的数据索引（吸收谱，干涉谱...)
+            </summary>
+            <param name="dataType">Y轴数据类型（吸收谱，干涉谱...)</param>
+            <returns>在dataInfoList中的索引，找不到返回-1</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetXDatasByType(Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            获取指定格式的X轴数据（吸收谱，干涉谱...)
+            </summary>
+            <param name="dataType">数据类型（吸收谱，干涉谱...)</param>
+            <returns>X轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetYDatasByType(Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            获取指定格式的Y轴数据（吸收谱，干涉谱...)
+            </summary>
+            <param name="dataType">数据类型（吸收谱，干涉谱...)</param>
+            <returns>Y轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.GetDataInfoByType(Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            获取指定格式的数据信息（吸收谱，干涉谱...)
+            </summary>
+            <param name="dataType">数据类型（吸收谱，干涉谱...)</param>
+            <returns>数据信息</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FileFormat.OnlyKeepData(Ai.Hong.FileFormat.FileFormat.YAXISTYPE)">
+            <summary>
+            仅仅保留某个类型的Y轴数据
+            </summary>
+            <param name="dataType">Y轴数据类型</param>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.QuantModelFormat">
+            <summary>
+            定量模型文件信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.VSpecFilter">
+            <summary>
+            Vspec模型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.ThermoFilter">
+            <summary>
+            Thermo模型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.BRUKERFilter">
+            <summary>
+            Bruker模型
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.GetErrorMessage32">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.GetErrorMessage64">
+            <summary>
+            获取错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.GetDLLErrorMessage">
+            <summary>
+            获取DLL错误消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter">
+            <summary>
+            模型参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.allFileCount">
+            <summary>
+            全部光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.calFileCount">
+            <summary>
+            建模光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.innerTestFileCount">
+            <summary>
+            内部验证光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.outerTestFileCount">
+            <summary>
+            外部验证光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.fileFirstX">
+            <summary>
+            光谱文件X轴起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.fileLastX">
+            <summary>
+            光谱文件X轴结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.fileSpecCols">
+            <summary>
+            光谱文件数据点数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.fileXStep">
+            <summary>
+            光谱文件X轴数据间隔
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.modelFirstX">
+            <summary>
+            模型X轴起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.modelLastX">
+            <summary>
+            模型X轴结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.modelSpecCols">
+             <summary>
+            模型数据点数量
+             </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantModelParameter.modelStepX">
+            <summary>
+            模型X轴数据间隔
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.QuantModelFormat.QuantComponentInfo">
+            <summary>
+            组分信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantComponentInfo.name">
+            <summary>
+            组分名称
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantComponentInfo.unit">
+            <summary>
+            组分单位
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantComponentInfo.mahalDistance">
+            <summary>
+            平均马氏距离
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantComponentInfo.lowestConcentration">
+            <summary>
+            最小浓度
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.QuantModelFormat.QuantComponentInfo.highestConcentration">
+            <summary>
+            最大浓度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.QuantModelFormat.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.QuantModelFormat.modelParameter">
+            <summary>
+            模型参数
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.FileFormat.QuantModelFormat.modelComponents">
+            <summary>
+            模型组分列表
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.#ctor(System.Byte[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileData">模型数据</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="filename">模型文件名</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.GetModelInfo(System.Byte[])">
+            <summary>
+            获取模型参数和组分列表
+            </summary>
+            <param name="fileData">模型数据</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.GetModelParameter(System.Byte[])">
+            <summary>
+            获取模型参数
+            </summary>
+            <param name="fileData">模型数据</param>
+            <returns>模型参数信息</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.QuantModelFormat.GetComponentList(System.Byte[])">
+            <summary>
+            获取模型组分列表
+            </summary>
+            <param name="fileData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.JCAMPFileFormat.FillParameter(Ai.Hong.FileFormat.FileFormat.DataInfo,System.String[])">
+            <summary>
+            填充数据格式
+            </summary>
+            <param name="Para">数据格式</param>
+            <param name="property">内容</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.JCAMPFileFormat.ReadXYData(System.IO.StreamReader,System.String,System.Int32,System.Double,System.Double[]@)">
+            <summary>
+            读取Y轴数据
+            </summary>
+            <param name="reader">文件流</param>
+            <param name="xyType">数据格式</param>
+            <param name="dataCount">数量数量</param>
+            <param name="yScale">Y轴放大系数</param>
+            <param name="yDatas">out Y轴值</param>
+            <returns>返回最后读取的字符串(##END=)，错误返回null</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.JCAMPFileFormat.ReadOneBlock(System.IO.StreamReader,Ai.Hong.FileFormat.FileFormat,Ai.Hong.FileFormat.FileFormat.DataInfo@,System.Double[]@)">
+            <summary>
+            读取一个数据节
+            </summary>
+            <param name="dxFile">文件流</param>
+            <param name="fileData">光谱格式数据</param>
+            <param name="dataInfo">out 数据信息</param>
+            <param name="yDatas">out Y轴数据</param>
+            <returns>返回最后一个字符串，错误返回null</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.JCAMPFileFormat.IsSameDouble(System.Double,System.Double)">
+            <summary>
+            比较两个double是否相同
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.JCAMPFileFormat.CreateStepXDatas(System.Double,System.Double,System.Int32)">
+            <summary>
+            创建等距离的X轴数据
+            </summary>
+            <param name="firstX">起始X</param>
+            <param name="lastX">结束X</param>
+            <param name="dataCount">数据数量</param>
+            <returns>X轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.JCAMPFileFormat.WriteOneBlock(System.IO.StreamWriter,Ai.Hong.FileFormat.FileFormat.FileInfo,Ai.Hong.FileFormat.FileFormat.DataInfo,System.Double[],System.Double[])">
+            <summary>
+            写入一个数据BLock
+            </summary>
+            <param name="writer">写入流</param>
+            <param name="fileInfo">文件信息</param>
+            <param name="dataInfo">数据块信息</param>
+            <param name="xDatas">X数据</param>
+            <param name="yDatas">Y数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.JCAMPFileFormat.IsJCAMPFile(System.Byte[])">
+            <summary>
+            是否是JCAMP文件
+            </summary>
+            <param name="fileData">文件内容</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.MatlabFileFormat">
+            <summary>
+            Matlab文件读写类
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.ACloudSpectrumDataName">
+            <summary>
+            固定的光谱数据块名称
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.ACloudConcentrationDataName">
+            <summary>
+            固定的浓度数据块名称
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo">
+            <summary>
+            Matlab变量信息结构
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.entryType">
+            <summary>
+            变量数据类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.entrySize">
+            <summary>
+            变量数据大小（字节）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.entryOffset">
+            <summary>
+            数据在文件中的偏移量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.flag">
+            <summary>
+            数据标志（complex, global, logical）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.arrayType">
+            <summary>
+            数组数据类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.realDataType">
+            <summary>
+            实际的数据类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.realDataOffset">
+            <summary>
+            实际数据在Entry中的偏移
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.realDataSize">
+            <summary>
+            实际数据大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.imageDataType">
+            <summary>
+            虚数的数据类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.imageDataOffset">
+            <summary>
+            虚数在Entry中的偏移
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.imageDataSize">
+            <summary>
+            虚数数据大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.dimensions">
+            <summary>
+            维数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.dimension">
+            <summary>
+            各维的大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo.name">
+            <summary>
+            变量名称
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType">
+            <summary>
+            变量数据类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miINT8">
+            <summary>
+            8 bit, signed
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miUINT8">
+            <summary>
+            8 bit, unsigned
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miINT16">
+            <summary>
+            16 - bit, signed
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miUINT16">
+            <summary>
+            16 - bit, unsigned
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miINT32">
+            <summary>
+            32 - bit, signed
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miUINT32">
+            <summary>
+            32 - bit, unsigned
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miSINGLE">
+            <summary>
+            IEEE® 754 single format
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miDOUBLE">
+            <summary>
+            IEEE 754 double format
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miINT64">
+            <summary>
+            64 - bit, signed
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miUINT64">
+            <summary>
+            64 - bit, unsigned
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miMATRIX">
+            <summary>
+            MATLAB array
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miCOMPRESSED">
+            <summary>
+            Compressed Data
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miUTF8">
+            <summary>
+            Unicode UTF - 8 Encoded Character Data
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miUTF16">
+            <summary>
+            Unicode UTF - 16 Encoded Character Data
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatDataType.miUTF32">
+            <summary>
+            Unicode UTF - 32 Encoded Character Data
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType">
+            <summary>
+            数组数据类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxCELL_CLASS">
+            <summary>
+            Cell array
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxSTRUCT_CLASS">
+            <summary>
+            Structure
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxOBJECT_CLASS">
+            <summary>
+            Object
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxCHAR_CLASS">
+            <summary>
+            Character array 4
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxSPARSE_CLASS">
+            <summary>
+            Sparse array
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxDOUBLE_CLASS">
+            <summary>
+            Double precision array
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxSINGLE_CLASS">
+            <summary>
+            Single precision array
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxINT8_CLASS">
+            <summary>
+            8 - bit, signed integer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxUINT8_CLASS">
+            <summary>
+            8 - bit, unsigned integer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxINT16_CLASS">
+            <summary>
+            16 - bit, signed integer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxUINT16_CLASS">
+            <summary>
+            16 - bit, unsigned integer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxINT32_CLASS">
+            <summary>
+            32 - bit, signed integer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxUINT32_CLASS">
+            <summary>
+            32 - bit, unsigned integer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxINT64_CLASS">
+            <summary>
+            64 - bit, signed integer
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.MatlabFileFormat.enumMatArrayDataType.mxUINT64_CLASS">
+            <summary>
+            64 - bit, unsigned integer
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATHasAuthority32">
+            <summary>
+            是否授权Matlab文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATIsMATFile32(System.Byte[],System.Int32)">
+            <summary>
+            是否为Matlab文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATGetVariableList32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取Mat文件变量列表
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="entryCount">变量数量</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATGetVariableData32(System.Byte[],System.Int32,Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo@,System.Int32@)">
+            <summary>
+            获取Mat变量数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="variableInfo">变量信息</param>
+            <param name="outDataSize">数据大小(BYTE)</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATCreateFileHeader32(System.String,System.Int32@)">
+            <summary>
+            创建MATLAB文件头
+            </summary>
+            <param name="description">文件描述</param>
+            <param name="retDataCount">返回数据大小(BYTE)</param>
+            <returns>返回BYTE[]</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATCreateDoubleEntry32(System.Double[],System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            创建double类型的数据块（不压缩格式）
+            </summary>
+            <param name="fileData">需要写入的内容(double)</param>
+            <param name="dataSize">内容大小(double)</param>
+            <param name="entryName">数据块名称</param>
+            <param name="dataRows">数据行数</param>
+            <param name="dataCols">每行数据点数</param>
+            <param name="retDataCount">返回数据大小(BYTE)</param>
+            <returns>Matlab格式数据块</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATFileInitialize32(System.Byte[],System.Int32)">
+            <summary>
+            初始化MAT文件，创建matVariables信息，必须调用End
+            </summary>
+            <param name="fileData">文件内容</param>
+            <param name="fileSize">文件大小</param>
+            <returns>初始化结果</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATFileTerminate32">
+            <summary>
+            清除MAT文件信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATGetDoubleArrayData32(System.Byte[],System.Int32,System.String,System.Int32@,System.Int32@)">
+            <summary>
+            从MATLab中读取数据块(double)
+            </summary>
+            <param name="fileData">文件内容</param>
+            <param name="fileSize">文件大小</param>
+            <param name="entryName">数据块名称</param>
+            <param name="dataRows">out:数据块行数 </param>
+            <param name="dataCols">out:数据块列数</param>
+            <returns>double数组,大小=dataRows*dataCols</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATHasAuthority64">
+            <summary>
+            是否授权Matlab文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATIsMATFile64(System.Byte[],System.Int32)">
+            <summary>
+            是否为Matlab文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATGetVariableList64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取Mat文件变量列表
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="entryCount">变量数量</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATGetVariableData64(System.Byte[],System.Int32,Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo@,System.Int32@)">
+            <summary>
+            获取Mat变量数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="variableInfo">变量信息</param>
+            <param name="outDataSize">数据大小(BYTE)</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATCreateFileHeader64(System.String,System.Int32@)">
+            <summary>
+            创建MATLAB文件头
+            </summary>
+            <param name="description">文件描述</param>
+            <param name="retDataCount">返回数据大小(BYTE)</param>
+            <returns>返回BYTE[]</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATCreateDoubleEntry64(System.Double[],System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            创建double类型的数据块（不压缩格式）
+            </summary>
+            <param name="fileData">需要写入的内容(double)</param>
+            <param name="dataSize">内容大小(double)</param>
+            <param name="entryName">数据块名称</param>
+            <param name="dataRows">数据行数</param>
+            <param name="dataCols">每行数据点数</param>
+            <param name="retDataCount">返回数据大小(BYTE)</param>
+            <returns>Matlab格式数据块</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATFileInitialize64(System.Byte[],System.Int32)">
+            <summary>
+            初始化MAT文件，创建matVariables信息，必须调用MATFileTerminate
+            </summary>
+            <param name="fileData">文件内容</param>
+            <param name="fileSize">文件大小</param>
+            <returns>初始化结果</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATFileTerminate64">
+            <summary>
+            清除MAT文件信息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MATGetDoubleArrayData64(System.Byte[],System.Int32,System.String,System.Int32@,System.Int32@)">
+            <summary>
+            从MATLab中读取数据块(double)
+            </summary>
+            <param name="fileData">文件内容</param>
+            <param name="fileSize">文件大小</param>
+            <param name="entryName">数据块名称</param>
+            <param name="dataRows">out:数据块行数 </param>
+            <param name="dataCols">out:数据块列数</param>
+            <returns>double数组,大小=dataRows*dataCols</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.CreateFileHeader(System.String)">
+            <summary>
+            创建MATLAB文件头
+            </summary>
+            <param name="description">文件描述</param>
+            <returns>返回BYTE[]</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.CreateDoubleEntry(System.Double[],System.Int32,System.String)">
+            <summary>
+            创建double类型的数据块（不压缩格式）
+            </summary>
+            <param name="fileData">数据</param>
+            <param name="dataRows">数据行数</param>
+            <param name="entryName">数据块名称</param>
+            <returns>Matlab数据块</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.CreateDoubleEntry(System.Collections.Generic.List{System.Double[]},System.String)">
+            <summary>
+            创建double类型的数据块（不压缩格式）
+            </summary>
+            <param name="fileDatas">数据列表（列表中所有数据大小相同）</param>
+            <param name="entryName">数据块名称</param>
+            <returns>Matlab数据块</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MatlabFileOpen(System.Byte[])">
+            <summary>
+            打开Matlab文件(必须调用MatlabFileClose)
+            </summary>
+            <param name="fileData">文件内容</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.MatlabFileClose">
+            <summary>
+            关闭已经打开的Matlab文件
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.ReadDoubleArrayData(System.Byte[],System.Int32@,System.String)">
+            <summary>
+            加载double数组类型的数据块
+            </summary>
+            <param name="fileData">文件内容</param>
+            <param name="dataCols">数组的列数</param>
+            <param name="entryName">数据块名称</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.ReadDoubleArrayData(System.Byte[],System.String)">
+            <summary>
+            加载double数组类型的数据块
+            </summary>
+            <param name="fileData">文件内容</param>
+            <param name="entryName">数据块名称</param>
+            <returns>按行分割的数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.HasAuthority">
+            <summary>
+            是否授权为MAT文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.IsMATFile(System.Byte[])">
+            <summary>
+            是否为MAT文件
+            </summary>
+            <param name="fileData">文件数据</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.GetVariableList(System.Byte[])">
+            <summary>
+            读取MAT文件的变量信息列表
+            </summary>
+            <param name="fileData">文件数据</param>
+            <returns>MAT变量信息结构列表</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.MatlabFileFormat.GetVariableData``1(System.Byte[],Ai.Hong.FileFormat.MatlabFileFormat.MatVariableInfo)">
+            <summary>
+            读取变量的数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="variableInfo">需要读取的变量信息</param>
+            <returns>变量的数据</returns>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo">
+            <summary>
+            Quant2模型参数信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.fileListSize">
+            <summary>
+            光谱文件列表的大小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.spectrumCount">
+            <summary>
+            全部光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.modelSpecCols">
+            <summary>
+            建模的数据点数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.fileStepX">
+            <summary>
+            光谱文件X轴数据间隔
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.modelStepX">
+            <summary>
+            模型X轴数据间隔
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.specFirstX">
+            <summary>
+            原始光谱X轴起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.specLastX">
+            <summary>
+            原始光谱X轴结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.modelFirstX">
+            <summary>
+            建模X轴起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.modelLastX">
+            <summary>
+            建模X轴结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantModelInfo.dataSplit">
+            <summary>
+            建模数据点的间隔
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantComponentInfo.name">
+            <summary>
+            组分名称
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.OPUSFileFormat.QuantComponentInfo.unit">
+            <summary>
+            组分单位
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSHasAuthority32">
+            <summary>
+            是否授权SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSIsOPUSFile32(System.Byte[],System.Int32)">
+            <summary>
+            是否为OPUS文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetAcquisitionParameter32(System.Byte[],System.Int32)">
+            <summary>
+            获取采集参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>AcquisitionPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetInstrumentParameter32(System.Byte[],System.Int32)">
+            <summary>
+            获取仪器参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>InstrumentPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetFTParameter32(System.Byte[],System.Int32)">
+            <summary>
+            获取仪器参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>FTPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetSpectrumCount32(System.Byte[],System.Int32)">
+            <summary>
+            获取光谱数量
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>光谱数量</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetDataParameter32(System.Byte[],System.Int32,System.UInt32)">
+            <summary>
+            获取数据参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="dataType">光谱类型(AB, SmSc, RfSc, IgSm, IgRf..)</param>
+            <returns>DataPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetYDatas32(System.Byte[],System.Int32,System.UInt32,System.Int32,System.Double,System.Int32@)">
+            <summary>
+            获取光谱数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="dataType">光谱类型(AB, SmSc, RfSc, IgSm, IgRf..)</param>
+            <param name="outDataSize">返回数据的数量(double)</param>
+            <param name="valueType">值的类型(1=float, 2=int)</param>
+            <param name="yFactor">Y轴放大系数</param>
+            <returns>double[]</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSCreateFile32(Ai.Hong.FileFormat.OPUSFileFormat.InstrumentPara@,Ai.Hong.FileFormat.OPUSFileFormat.AcquisitionPara@,Ai.Hong.FileFormat.OPUSFileFormat.FTPara@,System.Int32,System.Byte[],System.Double[],System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            创建OPUS文件
+            </summary>
+            <param name="instPara">仪器参数</param>
+            <param name="acquPara">采集参数</param>
+            <param name="ftPara">FT变换参数</param>
+            <param name="specCount">光谱数量</param>
+            <param name="dataPara">光谱参数(与specCount相等，里面包括每条光谱的参数类型和光谱类型)</param>
+            <param name="yDatas">(一个或多个)Y轴数据，每组数据数量与对应的dataPara->NPT相等</param>
+            <param name="logBinary">私有信息</param>
+            <param name="logBinarySize">私有信息大小</param>
+            <param name="outDataSize">返回数据大小（BYTE）</param>
+            <returns>OPUS格式数据BYTE</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetQuantModelInfo32(System.Byte[],System.Int32)">
+            <summary>
+            获取模型信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>QuantModelInfo</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetQuantComponentInfo32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取模型组分信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="componentCount">组分数量</param>
+            <returns>多个QuantComponentInfo</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSHasAuthority64">
+            <summary>
+            是否授权SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSIsOPUSFile64(System.Byte[],System.Int32)">
+            <summary>
+            是否为OPUS文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetAcquisitionParameter64(System.Byte[],System.Int32)">
+            <summary>
+            获取采集参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>AcquisitionPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetInstrumentParameter64(System.Byte[],System.Int32)">
+            <summary>
+            获取仪器参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>InstrumentPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetFTParameter64(System.Byte[],System.Int32)">
+            <summary>
+            获取仪器参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>FTPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetSpectrumCount64(System.Byte[],System.Int32)">
+            <summary>
+            获取光谱数量
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>光谱数量</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetDataParameter64(System.Byte[],System.Int32,System.UInt32)">
+            <summary>
+            获取数据参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="dataType">光谱类型(AB, SmSc, RfSc, IgSm, IgRf..)</param>
+            <returns>DataPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetYDatas64(System.Byte[],System.Int32,System.UInt32,System.Int32,System.Double,System.Int32@)">
+            <summary>
+            获取光谱数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="dataType">光谱类型(AB, SmSc, RfSc, IgSm, IgRf..)</param>
+            <param name="outDataSize">返回数据的数量(double)</param>
+            <param name="valueType">Y轴数据类型</param>
+            <param name="yFactor">Y轴放大系数</param>
+            <returns>double[]</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSCreateFile64(Ai.Hong.FileFormat.OPUSFileFormat.InstrumentPara@,Ai.Hong.FileFormat.OPUSFileFormat.AcquisitionPara@,Ai.Hong.FileFormat.OPUSFileFormat.FTPara@,System.Int32,System.Byte[],System.Double[],System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            创建OPUS文件
+            </summary>
+            <param name="instPara">仪器参数</param>
+            <param name="acquPara">采集参数</param>
+            <param name="ftPara">FT变换参数</param>
+            <param name="specCount">光谱数量</param>
+            <param name="dataPara">光谱参数(与specCount相等，里面包括每条光谱的参数类型和光谱类型)</param>
+            <param name="yDatas">(一个或多个)Y轴数据，每组数据数量与对应的dataPara->NPT相等</param>
+            <param name="logBinary">私有信息</param>
+            <param name="logBinarySize">私有信息大小</param>
+            <param name="outDataSize">返回数据大小（BYTE）</param>
+            <returns>OPUS格式数据BYTE</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetQuantModelInfo64(System.Byte[],System.Int32)">
+            <summary>
+            获取模型信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>QuantModelInfo</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.OPUSGetQuantComponentInfo64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取模型组分信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="componentCount">组分数量</param>
+            <returns>多个QuantComponentInfo</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.HasAuthority">
+            <summary>
+            是否授权为SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.IsOPUSFile(System.Byte[],System.Int32)">
+            <summary>
+            是否为OPUS文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetAcquisitionParameter(System.Byte[],System.Int32)">
+            <summary>
+            获取采集参数(DLY=int.MaxValue; 表示错误数据)
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>AcquisitionPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetInstrumentParameter(System.Byte[],System.Int32)">
+            <summary>
+            获取仪器参数（RSN = int.MaxValue 表示错误数据）
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>InstrumentPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetFTParameter(System.Byte[],System.Int32)">
+            <summary>
+            获取FT参数（PIP = int.MaxValue表示错误）
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>FTPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetSpectrumCount(System.Byte[],System.Int32)">
+            <summary>
+            获取光谱数量
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetDataParameter(System.Byte[],System.Int32,System.UInt32)">
+            <summary>
+            获取光谱参数(NPT = int.MaxValue表示数据错误)
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="dataType">光谱类型</param>
+            <returns>DataPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetYDatas(System.Byte[],System.Int32,System.UInt32,System.Int32,System.Double)">
+            <summary>
+            获取光谱参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="dataType">光谱类型</param>
+            <param name="valueType">值的类型(1=float, 2=int)</param>
+            <param name="yFactor">Y轴放大系数</param>
+            <returns>DataPara</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetQuantModelInfo(System.Byte[])">
+            <summary>
+            获取采集参数(DLY=int.MaxValue; 表示错误数据)
+            </summary>
+            <param name="fileData">文件数据</param>
+            <returns>OPUSQuantModelInfo,fileListSize = int.MaxValue表示错误</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetQuantComponentInfo(System.Byte[])">
+            <summary>
+            获取采集参数(DLY=int.MaxValue; 表示错误数据)
+            </summary>
+            <param name="fileData">文件数据</param>
+            <returns>OPUSQuantModelInfo,fileListSize = int.MaxValue表示错误</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GenerateXDatas(System.Double,System.Double,System.Int32)">
+            <summary>
+            通过firstX和lastX构建xDatas
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetModelParameter(System.Byte[])">
+            <summary>
+            获取模型的参数信息
+            </summary>
+            <param name="fileData">模型文件数据</param>
+            <returns>模型参数</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.OPUSFileFormat.GetComponentList(System.Byte[])">
+            <summary>
+            获取模型的组分信息
+            </summary>
+            <param name="fileData">模型文件数据</param>
+            <returns>组分信息列表</returns>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.CompNameLength">
+            <summary>
+            组分名称长度
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.instSerialSeprator">
+            <summary>
+            仪器和序列号分隔符
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.MAIN_TITLE">
+            <summary>
+            文件描述
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.MAIN_INSTRUMENT">
+            <summary>
+            仪器描述
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.MAIN_SERIALNO">
+            <summary>
+            仪器序列号
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.MAIN_COMPONENT">
+            <summary>
+            组分名称
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.SAMPLECODELEN">
+            <summary>
+            样品编号长度
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.FossFileFormat.SAMPLEIDLEN">
+            <summary>
+            样品信息长度
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FossFileFormat.MainHeader">
+            <summary>
+            FOSS CAL文件头
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.FossFileFormat.FileHeader">
+            <summary>
+            光谱头结构
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossHasAuthority32">
+            <summary>
+            是否授权Foss文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossIsFossFile32(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPA文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetMainHeader32(System.Byte[],System.Int32)">
+            <summary>
+            读取文件头信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>XHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetFileHeader32(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            读取光谱头信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="index">光谱文件索引</param>
+            <returns>Title（字符串）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetSpectrumData32(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取光谱数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="index">光谱文件索引</param>
+            <param name="outDataSize">返回数据大小(double)</param>
+            <returns>Y轴数据（double）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetComponentData32(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取浓度数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="index">光谱文件索引</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>仪器序列号（string）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossCreateFileData32(System.Byte[],System.UInt16,System.UInt32,System.Double[],System.UInt32,System.Double[],System.UInt32,System.Byte[],System.Int32@)">
+            <summary>
+            创建一条光谱数据
+            </summary>
+            <param name="sampleCode">样品编号(字节,长度=SAMPLECODELEN)</param>
+            <param name="index">光谱序号</param>
+            <param name="fileTime">创建时间</param>
+            <param name="yDatas">光谱数据</param>
+            <param name="yDataCount">光谱数据数量</param>
+            <param name="compDatas">浓度数据</param>
+            <param name="compDataCount">浓度数据数量</param>
+            <param name="sampleID">样品信息</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossCreateIndexData32(System.String[],System.UInt32,System.Int32@)">
+            <summary>
+            创建光谱文件索引数据
+            </summary>
+            <param name="sampleNo">样品编号列表</param>
+            <param name="sampleCount">样品编号列表数量</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossCreateMainHeader32(System.UInt32,System.UInt32,System.UInt32,System.Double,System.Double,System.Int32,System.Int32@)">
+            <summary>
+            创建文件头
+            </summary>
+            <param name="fileCount">光谱文件数量</param>
+            <param name="specCols">光谱数据点数量</param>
+            <param name="fileTime">光谱文件日期</param>
+            <param name="firstX"></param>
+            <param name="lastX"></param>
+            <param name="compCount">组分数量</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossAddMainHeaderInfo32(System.Byte[],System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            在主文件头中添加附加信息
+            </summary>
+            <param name="headerData">主文件头数据</param>
+            <param name="infoType">信息类型</param>
+            <param name="infoData">信息内容</param>
+            <param name="infoSize">信息长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetSaveSize32(System.Int32,System.Int32)">
+            <summary>
+            获取保存后文件大小
+            </summary>
+            <param name="fileCount">光谱文件数量</param>
+            <param name="specCols">光谱数据点数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossHasAuthority64">
+            <summary>
+            是否授权Foss文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossIsFossFile64(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPA文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetMainHeader64(System.Byte[],System.Int32)">
+            <summary>
+            读取文件头信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>XHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetFileHeader64(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            读取光谱头信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="index">光谱文件索引</param>
+            <returns>Title（字符串）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetSpectrumData64(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取光谱数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="index">光谱文件索引</param>
+            <param name="outDataSize">返回数据大小(double)</param>
+            <returns>Y轴数据（double）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetComponentData64(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取浓度数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="index">光谱文件索引</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>仪器序列号（string）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossCreateFileData64(System.Byte[],System.UInt16,System.UInt32,System.Double[],System.UInt32,System.Double[],System.UInt32,System.Byte[],System.Int32@)">
+            <summary>
+            创建一条光谱数据
+            </summary>
+            <param name="sampleCode">样品编号(字节,长度=SAMPLECODELEN)</param>
+            <param name="index">光谱序号</param>
+            <param name="fileTime">创建时间</param>
+            <param name="yDatas">光谱数据</param>
+            <param name="yDataCount">光谱数据数量</param>
+            <param name="compDatas">浓度数据</param>
+            <param name="compDataCount">浓度数据数量</param>
+            <param name="sampleID">样品信息</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossCreateIndexData64(System.String[],System.UInt32,System.Int32@)">
+            <summary>
+            创建光谱文件索引数据
+            </summary>
+            <param name="sampleNo">样品编号列表</param>
+            <param name="sampleCount">样品编号列表数量</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossCreateMainHeader64(System.UInt32,System.UInt32,System.UInt32,System.Double,System.Double,System.Int32,System.Int32@)">
+            <summary>
+            创建文件头
+            </summary>
+            <param name="fileCount">光谱文件数量</param>
+            <param name="specCols">光谱数据点数量</param>
+            <param name="fileTime">光谱文件时间</param>
+            <param name="firstX"></param>
+            <param name="lastX"></param>
+            <param name="compCount">组分数量</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossAddMainHeaderInfo64(System.Byte[],System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            在主文件头中添加附加信息
+            </summary>
+            <param name="headerData">主文件头数据</param>
+            <param name="infoType">信息类型</param>
+            <param name="infoData">信息内容</param>
+            <param name="infoSize">信息长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.FossGetSaveSize64(System.Int32,System.Int32)">
+            <summary>
+            获取保存后文件大小
+            </summary>
+            <param name="fileCount">光谱文件数量</param>
+            <param name="specCols">光谱数据点数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.HasAuthority">
+            <summary>
+            是否授权为SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.IsFossFile(System.Byte[])">
+            <summary>
+            是否为SPC文件
+            </summary>
+            <param name="fileData">文件数据</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.GetMainHeader(System.Byte[])">
+            <summary>
+            读取SPC文件头
+            </summary>
+            <param name="fileData">文件数据</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.GetFileHeader(System.Byte[],System.Int32)">
+            <summary>
+            获取光谱头信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="index">光谱序号</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.GetSpectrumData(System.Byte[],System.Int32)">
+            <summary>
+            获取光谱Y轴数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="index">光谱序号</param>
+            <returns>返回光谱Y轴数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.GetComponentData(System.Byte[],System.Int32)">
+            <summary>
+            读取浓度数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="index">光谱序号</param>
+            <returns>返回光谱浓度数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.StringToBytesArray(System.String,System.Int32)">
+            <summary>
+            将str转换为固定大小的数组，数组大小为maxLen
+            </summary>
+            <param name="str">字符串</param>
+            <param name="arrayLen">固定数组大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.CreateFileDateTime(System.DateTime)">
+            <summary>
+            将DateTime转换为1970-1-1开始的秒数
+            </summary>
+            <param name="datetime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.CreateFileDateTime(System.UInt32)">
+            <summary>
+            将DateTime转换为Date和Time两部分
+            </summary>
+            <param name="time">32位的日期和时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.AddMainHeaderInfo(System.Byte[],System.Int32,System.Byte[])">
+            <summary>
+            向主结构中添加信息
+            </summary>
+            <param name="headerData">文件头数据</param>
+            <param name="infoType">信息类型</param>
+            <param name="infoData">信息数据</param>
+            <returns>返回是否成功</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.CreateMainHeader(System.Int32,System.DateTime,System.Int32,System.Double,System.Double,System.String[],System.String,System.String,System.String)">
+            <summary>
+            创建光谱文件块
+            </summary>
+            <param name="fileCount">文件数量</param>
+            <param name="fileTime">光谱创建时间</param>
+            <param name="specCols">光谱数据点数量</param>
+            <param name="firstX">起始波数</param>
+            <param name="lastX">结束波数</param>
+            <param name="compNames">组分名称</param>
+            <param name="title">文件描述</param>
+            <param name="instrument">仪器名称</param>
+            <param name="serialNo">仪器序列号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.CreateFileData(System.String,System.Int32,System.DateTime,System.Double[],System.Double[])">
+            <summary>
+            创建光谱文件块
+            </summary>
+            <param name="sampleCode">样品编号</param>
+            <param name="index">光谱序号</param>
+            <param name="fileTime">光谱创建时间</param>
+            <param name="yDatas">y轴数据</param>
+            <param name="compDatas">浓度数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.CreateIndexData(System.String[])">
+            <summary>
+            创建光谱文件索引
+            </summary>
+            <param name="sampleNo">样品编号列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.GetFileSaveSize(System.Int32,System.Int32)">
+            <summary>
+            获取保存后文件大小
+            </summary>
+            <param name="fileCount">光谱文件数量</param>
+            <param name="specCols">光谱数据点数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.ReadFile(System.Byte[],Ai.Hong.FileFormat.FileFormat)">
+            <summary>
+            读取光谱文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.GetComponentName(System.Byte[])">
+            <summary>
+            读取文件中组分列表
+            <param name="fileData">文件内容</param>
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.SaveFile(Ai.Hong.FileFormat.FileFormat)">
+            <summary>
+            保存光谱
+            </summary>
+            <param name="fileFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.FossFileFormat.SaveFile(Ai.Hong.FileFormat.FileFormat,System.String,System.String[],System.Double[],System.DateTime[])">
+            <summary>
+            保存光谱
+            </summary>
+            <param name="fileFormat">光谱数据</param>
+            <param name="serialNo">仪器序列号</param>
+            <param name="compNames">组分名称</param>
+            <param name="compDatas">组分浓度</param>
+            <param name="fileTimes">文件时间</param>
+            <returns></returns>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.InstrumentHeader.ADBits">
+            <summary>
+            数字化位数:  24
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.InstrumentHeader.highFilter">
+            <summary>
+            高通滤波:  200.0000
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.InstrumentHeader.lowFilter">
+            <summary>
+            低通滤波:  20000.0000
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.InstrumentHeader.sampleGrain">
+            <summary>
+            样品增益1.0
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.InstrumentHeader.speed">
+            <summary>
+            动镜速度:  1.2659
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter">
+            <summary>
+            模型参数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.allFileCount">
+            <summary>
+            全部光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.calFileCount">
+            <summary>
+            建模光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.innerTestFileCount">
+            <summary>
+            内部验证光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.outerTestFileCount">
+            <summary>
+            外部验证光谱数量
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.fileFirstX">
+            <summary>
+            光谱文件X轴起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.fileLastX">
+            <summary>
+            光谱文件X轴结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.fileSpecCols">
+             <summary>
+            光谱数据点数量
+             </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.fileXStep">
+            <summary>
+            光谱文件X轴数据间隔
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.modelFirstX">
+            <summary>
+            模型X轴起始波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.modelLastX">
+            <summary>
+            模型X轴结束波数
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.modelSpecCols">
+             <summary>
+            模型数据点数量
+             </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ModelParameter.modelStepX">
+            <summary>
+            模型X轴数据间隔
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.FileFormat.SPAFileFormat.ComponentInfo">
+            <summary>
+            组分信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ComponentInfo.name">
+            <summary>
+            组分名称
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ComponentInfo.unit">
+            <summary>
+            组分单位
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ComponentInfo.mahalDistance">
+            <summary>
+            平均马氏距离
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ComponentInfo.lowestConcentration">
+            <summary>
+            最小浓度
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.FileFormat.SPAFileFormat.ComponentInfo.highestConcentration">
+            <summary>
+            最大浓度
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAHasAuthority32">
+            <summary>
+            是否授权SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAIsSPAFile32(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPA文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetXHeader32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取SPA X轴信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>XHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetFileTitle32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取SPA文件Title
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>Title（字符串）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetYDatas32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取Y轴数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(double)</param>
+            <returns>Y轴数据（double）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetInstSN32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取光谱创建仪器序列号
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>仪器序列号（string）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetInstrumentHeader32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取仪器信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>仪器信息</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPACreateFile32(Ai.Hong.FileFormat.SPAFileFormat.SPAHeader@,Ai.Hong.FileFormat.SPAFileFormat.InstrumentHeader@,System.Double[],System.Byte[],System.Int32,System.String,System.Int32@)">
+            <summary>
+            创建SPA光谱文件
+            </summary>
+            <param name="xDataPara">X轴数据参数</param>
+            <param name="instPara">仪器信息</param>
+            <param name="yDatas">Y轴数据</param>
+            <param name="fileTitle">文件描述</param>
+            <param name="titleSize">文件描述大小(BYTE)</param>
+            <param name="instSN">仪器序列号</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>返回SPA格式数据(BYTE)</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetModelParameter32(System.Byte[],System.Int32)">
+            <summary>
+            获取模型参数信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetComponents32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取模型组分信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="compCount">组分数量</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAHasAuthority64">
+            <summary>
+            是否授权SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAIsSPAFile64(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPA文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetXHeader64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取SPA X轴信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>XHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetFileTitle64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取SPA文件Title
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>Title（字符串）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetYDatas64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取Y轴数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(double)</param>
+            <returns>Y轴数据（double）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetInstSN64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取光谱创建仪器序列号
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>仪器序列号（string）</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetInstrumentHeader64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取仪器信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>仪器信息</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPACreateFile64(Ai.Hong.FileFormat.SPAFileFormat.SPAHeader@,Ai.Hong.FileFormat.SPAFileFormat.InstrumentHeader@,System.Double[],System.Byte[],System.Int32,System.String,System.Int32@)">
+            <summary>
+            创建SPA光谱文件
+            </summary>
+            <param name="xDataPara">X轴数据参数</param>
+            <param name="instPara">仪器信息</param>
+            <param name="yDatas">Y轴数据</param>
+            <param name="fileTitle">文件描述</param>
+            <param name="titleSize">文件描述大小(BYTE)</param>
+            <param name="instSN">仪器序列号</param>
+            <param name="outDataSize">返回数据大小(BYTE)</param>
+            <returns>返回SPA格式数据(BYTE)</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetModelParameter64(System.Byte[],System.Int32)">
+            <summary>
+            获取模型参数信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.SPAGetComponents64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取模型组分信息
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="compCount">组分数量</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.HasAuthority">
+            <summary>
+            是否授权为SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.IsSPAFile(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPC文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.GetXHeader(System.Byte[],System.Int32)">
+            <summary>
+            读取SPC文件头
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.GetFileTitle(System.Byte[],System.Int32)">
+            <summary>
+            获取文件的Title
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.GetInstSN(System.Byte[],System.Int32)">
+            <summary>
+            获取文件的仪器序列号
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.GetYData(System.Byte[],System.Int32)">
+            <summary>
+            读取Y轴数据
+            </summary>
+            <param name="fileData"></param>
+            <param name="fileSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.GetInstrumentHeader(System.Byte[],System.Int32)">
+            <summary>
+            读取仪器硬件参数
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.QuantGetModelParameter(System.Byte[])">
+            <summary>
+            获取模型参数信息
+            </summary>
+            <param name="fileData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.QuantGetComponentInfo(System.Byte[])">
+            <summary>
+            获取组分信息
+            </summary>
+            <param name="fileData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.ReadFile(System.Byte[],System.Int32,Ai.Hong.FileFormat.FileFormat)">
+            <summary>
+            读取光谱文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.GetModelParameter(System.Byte[])">
+            <summary>
+            获取模型的参数信息
+            </summary>
+            <param name="fileData">模型文件数据</param>
+            <returns>模型参数</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPAFileFormat.GetComponentList(System.Byte[])">
+            <summary>
+            获取模型的组分信息
+            </summary>
+            <param name="fileData">模型文件数据</param>
+            <returns>组分信息列表</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCHasAuthority32">
+            <summary>
+            是否授权SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCIsSPCFile32(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPC文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetMainHeader32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取SPC文件头
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetSubHeader32(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取SPC子数据结构
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="subIndex">子数据序号</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetYDatas32(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取Y轴数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="subIndex">子数据序号</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetXDatas32(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取X轴数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="subIndex">子数据序号</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetLogText32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取SPC的文本Log数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>Log数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetLogBinary32(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取SPC的Binary Log数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>Log数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCCreateFile32(Ai.Hong.FileFormat.SPCFileFormat.SPCHeader@,System.Byte[],System.Int32[],System.Single[],System.Single[],System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            创建SPC格式数据，包含一个或多个subFile，X轴间距不等，由所有Y轴共享
+            </summary>
+            <param name="mainHeader">SPC文件头</param>
+            <param name="subTypes">子数据类型（一个或者多个）</param>
+            <param name="dataPoints">子数据的数据点数列表，长度等于mainHeader->fnsub，可以为NULL</param>
+            <param name="xDatas">X轴数据，可以为NULL</param>
+            <param name="yDatas">子数据（一个或者多个Y轴数据，每条数据长度=文件头的数据点数）</param>
+            <param name="logBinary">附加数据</param>
+            <param name="logBinarySize">附加数据长度</param>
+            <param name="logText">光谱采集参数</param>
+            <param name="logTextSize">采集参数长度</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPC格式数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCHasAuthority64">
+            <summary>
+            是否授权SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCIsSPCFile64(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPC文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetMainHeader64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            读取SPC文件头
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetSubHeader64(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取SPC子数据结构
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="subIndex">子数据序号</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetYDatas64(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取Y轴数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="subIndex">子数据序号</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetXDatas64(System.Byte[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            读取X轴数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="subIndex">子数据序号</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetLogText64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取SPC的文本Log数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>Log数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCGetLogBinary64(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            获取SPC的Binary Log数据
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>Log数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.SPCCreateFile64(Ai.Hong.FileFormat.SPCFileFormat.SPCHeader@,System.Byte[],System.Int32[],System.Single[],System.Single[],System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            创建SPC格式数据，包含一个或多个subFile，X轴间距不等，由所有Y轴共享
+            </summary>
+            <param name="mainHeader">SPC文件头</param>
+            <param name="subTypes">子数据类型（一个或者多个）</param>
+            <param name="dataPoints">每个光谱的数据点数量</param>
+            <param name="xDatas">X轴数据，可以为NULL</param>
+            <param name="yDatas">子数据（一个或者多个Y轴数据，每条数据长度=文件头的数据点数）</param>
+            <param name="logBinary">附加数据</param>
+            <param name="logBinarySize">附加数据长度</param>
+            <param name="logText">光谱采集参数</param>
+            <param name="logTextSize">采集参数长度</param>
+            <param name="outDataSize">返回数据大小</param>
+            <returns>SPC格式数据</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.HasAuthority">
+            <summary>
+            是否授权为SPC文件
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.IsSPCFile(System.Byte[],System.Int32)">
+            <summary>
+            是否为SPC文件
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.GetMainHeader(System.Byte[],System.Int32)">
+            <summary>
+            读取SPC文件头
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <returns>SPCHeader结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.GetSubHeader(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            读取子数据的结构
+            </summary>
+            <param name="fileData">文件数据</param>
+            <param name="fileSize">文件大小</param>
+            <param name="subIndex">需要获取子结构的序号</param>
+            <returns>子数据的结构</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.GetYData(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            读取Y轴数据
+            </summary>
+            <param name="fileData"></param>
+            <param name="fileSize"></param>
+            <param name="subIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.GetXData(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            读取X轴数据
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.GetLogText(System.Byte[],System.Int32)">
+            <summary>
+            读取文本的LOG数据
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.GetLogBinary(System.Byte[],System.Int32)">
+            <summary>
+            读取二进制的LOG数据
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.CreateCommonXFile(Ai.Hong.FileFormat.SPCFileFormat.SPCHeader,System.Byte[],System.Int32[],System.Single[],System.Single[],System.Byte[],System.Byte[])">
+            <summary>
+            创建SPC文件
+            </summary>
+            <param name="mainHeader">文件结构</param>
+            <param name="subTypes">子数据类型</param>
+            <param name="dataPoints">各数据的数量</param>
+            <param name="xDatas">X轴数据，可以为NULL</param>
+            <param name="yDatas">Y轴数据，一条或者多条，列=mainHeader->fnpts, 行=subTypes.Length</param>
+            <param name="logText">光谱采集参数</param>
+            <param name="logBinary">私有数据</param>
+            <returns>SPC内容</returns>
+        </member>
+        <member name="M:Ai.Hong.FileFormat.SPCFileFormat.ToSPCLogData(Ai.Hong.FileFormat.FileFormat.AcquisitionInfo)">
+            <summary>
+            生成Acquisition Log Data
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

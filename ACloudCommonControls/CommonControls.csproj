@@ -94,11 +94,11 @@
   <ItemGroup>
     <Reference Include="AHCommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dll Output\Release\AHCommonMethod.dll</HintPath>
+      <HintPath>..\..\Dll Output\AHCommonMethod.dll</HintPath>
     </Reference>
     <Reference Include="AHCommonResources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dll Output\Release\AHCommonResources.dll</HintPath>
+      <HintPath>..\..\Dll Output\AHCommonResources.dll</HintPath>
     </Reference>
     <Reference Include="OxyPlot">
       <HintPath>..\CommDllFiles\OxyPlot.dll</HintPath>
@@ -345,6 +345,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACloudFileFormat\SpectrumFileFormat.csproj">
+      <Project>{e01f8204-e19b-4c55-b3bd-d4270df16f1c}</Project>
+      <Name>SpectrumFileFormat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACloudPLSAlgorithm\SpectrumAlgorithm.csproj">
+      <Project>{ffe0b384-d57f-415e-b93d-7e45acf7745b}</Project>
+      <Name>SpectrumAlgorithm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

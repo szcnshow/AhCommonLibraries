@@ -1,0 +1,525 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AHCommonResources</name>
+    </assembly>
+    <members>
+        <member name="T:Ai.Hong.CommonResources.AllVectoryViewer">
+            <summary>
+            AllVectoryViewer.xaml 的交互逻辑
+            </summary>
+            <summary>
+            AllVectoryViewer
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.AllVectoryViewer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.AllVectoryViewer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.win32">
+            <summary>
+            Win32 class for Windows Style
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.WM_NCHITTEST">
+            <summary>
+            Sent to a window in order to determine what part of the window corresponds to a particular screen coordinate  
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.win32.HitTest">
+            <summary>  
+            Indicates the position of the cursor hot spot.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTERROR">
+            <summary>  
+            On the screen background or on a dividing line between windows (same as HTNOWHERE, except that the DefWindowProc function produces a system beep to indicate an error).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTTRANSPARENT">
+            <summary>  
+            In a window currently covered by another window in the same thread (the message will be sent to underlying windows in the same thread until one of them returns a code that is not HTTRANSPARENT).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTNOWHERE">
+            <summary>  
+            On the screen background or on a dividing line between windows.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTCLIENT">
+            <summary>  
+            In a client area.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTCAPTION">
+            <summary>  
+            In a title bar.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTSYSMENU">
+            <summary>  
+            In a window menu or in a Close button in a child window.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTGROWBOX">
+            <summary>  
+            In a size box (same as HTSIZE).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTSIZE">
+            <summary>  
+            In a size box (same as HTGROWBOX).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTMENU">
+            <summary>  
+            In a menu.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTHSCROLL">
+            <summary>  
+            In a horizontal scroll bar.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTVSCROLL">
+            <summary>  
+            In the vertical scroll bar.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTMINBUTTON">
+            <summary>  
+            In a Minimize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTREDUCE">
+            <summary>  
+            In a Minimize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTMAXBUTTON">
+            <summary>  
+            In a Maximize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTZOOM">
+            <summary>  
+            In a Maximize button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTLEFT">
+            <summary>  
+            In the left border of a resizable window (the user can click the mouse to resize the window horizontally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTRIGHT">
+            <summary>  
+            In the right border of a resizable window (the user can click the mouse to resize the window horizontally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTTOP">
+            <summary>  
+            In the upper-horizontal border of a window.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTTOPLEFT">
+            <summary>  
+            In the upper-left corner of a window border.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTTOPRIGHT">
+            <summary>  
+            In the upper-right corner of a window border.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTBOTTOM">
+            <summary>  
+            In the lower-horizontal border of a resizable window (the user can click the mouse to resize the window vertically).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTBOTTOMLEFT">
+            <summary>  
+            In the lower-left corner of a border of a resizable window (the user can click the mouse to resize the window diagonally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTBOTTOMRIGHT">
+            <summary>  
+            In the lower-right corner of a border of a resizable window (the user can click the mouse to resize the window diagonally).  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTBORDER">
+            <summary>  
+            In the border of a window that does not have a sizing border.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTCLOSE">
+            <summary>  
+            In a Close button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.HitTest.HTHELP">
+            <summary>  
+            In a Help button.  
+            </summary>  
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.WM_GETMINMAXINFO">
+            <summary>
+            Sent to a window when the size or position of the window is about to change  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MONITOR_DEFAULTTONEAREST">
+            <summary>
+             Retrieves a handle to the display monitor that is nearest to the window  
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.win32.MonitorFromWindow(System.IntPtr,System.Int32)">
+            <summary>
+            Retrieves a handle to the display monitor  
+            </summary>
+            <param name="hwnd">Window's Handle</param>
+            <param name="dwFlags">Drag flag</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.win32.RECT">
+            <summary>
+             RECT structure, Rectangle used by MONITORINFOEX  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.RECT.Left">
+            <summary>
+            Left
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.RECT.Top">
+            <summary>
+            Top
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.RECT.Right">
+            <summary>
+            Right
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.RECT.Bottom">
+            <summary>
+            Bottom
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.win32.MONITORINFOEX">
+            <summary>
+             MONITORINFOEX structure, Monitor information used by GetMonitorInfo function  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MONITORINFOEX.cbSize">
+            <summary>
+            Structure's size
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MONITORINFOEX.rcMonitor">
+            <summary>
+            The display monitor rectangle  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MONITORINFOEX.rcWork">
+            <summary>
+             The working area rectangle  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MONITORINFOEX.dwFlags">
+            <summary>
+            flags
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MONITORINFOEX.szDevice">
+            <summary>
+            device
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.win32.POINT">
+            <summary>
+            Point structure, Point information used by MINMAXINFO structure
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.POINT.x">
+            <summary>
+            x
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.POINT.y">
+            <summary>
+            y
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.win32.POINT.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.win32.MINMAXINFO">
+            <summary>
+             MINMAXINFO structure, Window's maximum size and position information 
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MINMAXINFO.ptReserved">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MINMAXINFO.ptMaxSize">
+            <summary>
+            The maximized size of the window  
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MINMAXINFO.ptMaxPosition">
+            <summary>
+            The position of the maximized window  
+            </summary> 
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MINMAXINFO.ptMinTrackSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.MINMAXINFO.ptMaxTrackSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.win32.GetMonitorInfo(System.Runtime.InteropServices.HandleRef,Ai.Hong.CommonResources.Styles.win32.MONITORINFOEX)">
+            <summary>
+            Get the working area of the specified monitor  
+            </summary>
+            <param name="hmonitor"></param>
+            <param name="monitorInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.win32.WM_NCLBUTTONDOWN">
+            <summary>
+             Posted when the user presses the left mouse button while the cursor is within the nonclient area of a window  
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.win32.SendMessage(System.IntPtr,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Sends the specified message to a window or windows 
+            </summary>
+            <param name="hwnd"></param>
+            <param name="wMsg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.WindowStyle">
+            <summary>
+            WindowStyle.xaml 的交互逻辑
+            </summary>
+            <summary>
+            WindowStyle
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton">
+            <summary>
+            System buttons on the window's title
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton.Close">
+            <summary>
+            Close Button
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton.Minimize">
+            <summary>
+            Minimize Button
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton.Maximize">
+            <summary>
+            Maximize Button
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton.Normal">
+            <summary>
+            Normal Button
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton.SystemSetup">
+            <summary>
+            SystemSetup Button
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton.SkinSetup">
+            <summary>
+            SkinSetup Button
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.Close_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            关闭窗口
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.Minimized_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            最小化窗口
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.Maximized_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            最大化窗口
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.Normal_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            还原窗口
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.Grid_MouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            拖拽标题栏还原窗口大小
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.Grid_PreviewMouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            左键点击窗口标题栏时，优先记录一下窗口当前状态
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.HideCommandButton(System.Windows.Window,Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton)">
+            <summary>
+            Hide one system Button
+            </summary>
+            <param name="wnd"></param>
+            <param name="windowButton"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.EnableCommandButton(System.Windows.Window,Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton,System.Boolean)">
+            <summary>
+            Enable or disable window's button
+            </summary>
+            <param name="wnd"></param>
+            <param name="windowButton"></param>
+            <param name="enabled"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.GetCommandButton(System.Windows.Window,Ai.Hong.CommonResources.Styles.WindowStyle.enumWindowButton)">
+            <summary>
+            Get system button
+            </summary>
+            <param name="wnd"></param>
+            <param name="windowButton"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.GetButtonWrapPanel(System.Windows.Window)">
+            <summary>
+            获取按钮的面板
+            </summary>
+            <param name="wnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.VisibleResizeThumbGrid(System.Windows.Window,System.Boolean)">
+            <summary>
+            ThumbGrid is used for resize the window by mouse drag, hide it means this window cannot resize by customer
+            </summary>
+            <param name="wnd"></param>
+            <param name="visible"></param>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WindowStyle.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.BrushToColorConverter">
+            <summary>
+            颜色和画笔之间的转换
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.BrushToColorConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.BrushToColorConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.Styles.WinStyle">
+            <summary>
+            Window's style
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.Styles.WinStyle.InitWindow(System.Windows.Window)">
+            <summary>
+            Init window's style
+            </summary>
+            <param name="ws"></param>
+        </member>
+        <member name="T:Ai.Hong.CommonResources.VectorImageInfo">
+            <summary>
+            VectorImageInfo.xaml 的交互逻辑
+            </summary>
+            <summary>
+            VectorImageInfo
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.CommonResources.VectorImageInfo.VectorSource">
+            <summary>
+            矢量图形（DrawingGroup）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.VectorImageInfo.VectorSourceProperty">
+            <summary>
+            矢量图形（DrawingGroup）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.CommonResources.VectorImageInfo.VectorText">
+            <summary>
+            矢量图形名称
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.CommonResources.VectorImageInfo.VectorTextProperty">
+            <summary>
+            矢量图形名称
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.VectorImageInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.CommonResources.VectorImageInfo.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

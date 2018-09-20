@@ -4,7 +4,7 @@
 library
 C#
 .cs
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\
+D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudResources\obj\Release\
 Ai.Hong.CommonResources
 none
 false
@@ -12,9 +12,9 @@ TRACE
 
 51047688466
 
-7-1270363076
+61299906719
 121654848548
 AllVectoryViewer.xaml;Styles\DatagridStyle.xaml;Styles\DefaultThemeStyle.xaml;Styles\WindowStyle.xaml;VectorImageInfo.xaml;
 
-True
+False
 

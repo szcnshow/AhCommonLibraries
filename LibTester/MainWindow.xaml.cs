@@ -28,8 +28,6 @@ namespace LibTester
             fileList.SetGraphicChart(graphicCtrl);
             graphicCtrl.SetGraphicOperatePanel(panelOperate);
             
-            Ai.Hong.FileFormat.FileFormat fmt = new Ai.Hong.FileFormat.FileFormat(@"D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\LongLight_New\tempData\IntegrateError.SPC");
-            var temp = Ai.Hong.Algorithm.CommonAlgorithm.Integrate(fmt.xDatas, fmt.yDatas, 4000, 9999.8374771240724, true, 0);
         }
 
         System.Collections.ObjectModel.ObservableCollection<Ai.Hong.Controls.Common.ColorChartDisplayInfo> allFiles = new System.Collections.ObjectModel.ObservableCollection<Ai.Hong.Controls.Common.ColorChartDisplayInfo>();

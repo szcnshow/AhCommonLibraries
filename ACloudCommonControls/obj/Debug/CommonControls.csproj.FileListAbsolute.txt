@@ -59,7 +59,6 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonC
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\CommonControls.csproj.CopyComplete
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\AHCommonControls.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\AHCommonControls.pdb
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\CommonControls.csprojResolveAssemblyReference.cache
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonControls.xml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonControls.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHCommonControls.pdb
@@ -122,3 +121,6 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\CommonControls.csproj.CopyComplete
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\AHCommonControls.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\AHCommonControls.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\CommonControls.csprojAssemblyReference.cache
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\Controls\TxtDataBrowser.g.cs
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudCommonControls\obj\Debug\Controls\TxtDataBrowser.baml

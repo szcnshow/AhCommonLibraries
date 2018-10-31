@@ -11,7 +11,6 @@ D:\艾宏文件\软件开发\深度学习\AhCommonLibraries\ACloudFileFormat\obj
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHSpectrumFileFormat.xml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHSpectrumFileFormat.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHSpectrumFileFormat.pdb
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Release\SpectrumFileFormat.csprojResolveAssemblyReference.cache
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Release\AHSpectrumFileFormat.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Release\AHSpectrumFileFormat.pdb
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\Dll Output\Release\AHSpectrumFileFormat.xml
@@ -30,3 +29,4 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.xml
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\AHSpectrumFileFormat.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudFileFormat\obj\Release\SpectrumFileFormat.csprojAssemblyReference.cache

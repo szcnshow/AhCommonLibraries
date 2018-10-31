@@ -39,10 +39,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AHCommonControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dll Output\AHCommonControls.dll</HintPath>
-    </Reference>
     <Reference Include="AHCommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Dll Output\AHCommonMethod.dll</HintPath>
@@ -74,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TestControl.xaml.cs">
+      <DependentUpon>TestControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="TestControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +121,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ACloudCommonControls\CommonControls.csproj">
+      <Project>{5b159f57-59c6-4186-8fe3-aefaf9638b85}</Project>
+      <Name>CommonControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ACloudFileFormat\SpectrumFileFormat.csproj">
       <Project>{e01f8204-e19b-4c55-b3bd-d4270df16f1c}</Project>
       <Name>SpectrumFileFormat</Name>

@@ -11,7 +11,6 @@ F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurit
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.pdb
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csproj.CopyComplete
-F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csprojResolveAssemblyReference.cache
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\ACloudSecurity.xml
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\ACloudSecurity.dll
 F:\软件开发\EVISTAR\天大傅里叶光谱仪\Dll Output\ACloudSecurity.pdb
@@ -22,3 +21,4 @@ D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csproj.CopyComplete
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.dll
 D:\艾宏文件\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.pdb
+F:\软件开发\EVISTAR\天大傅里叶光谱仪\AhCommonLibraries\ACloudSecurity\obj\Debug\ACloudSecurity.csprojAssemblyReference.cache

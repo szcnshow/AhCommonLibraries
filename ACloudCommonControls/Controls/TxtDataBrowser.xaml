@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Ai.Hong.Controls.TxtDataBrowser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ai.Hong.Controls"
+             xmlns:TaCtrl="clr-namespace:TAlex.WPF.Controls;assembly=TAlex.WPF.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Separator:" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+        <ComboBox Name="listSeparator" Grid.Column="1" Margin="4" MinWidth="50" SelectedIndex="0" SelectionChanged="listSeparator_SelectionChanged">
+            <ComboBoxItem>Comma</ComboBoxItem>
+            <ComboBoxItem>Spcace</ComboBoxItem>
+            <ComboBoxItem>Tab</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Text="First Data Row:"  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TaCtrl:NumericUpDown  Name="numFirstRow" Grid.Column="3" Margin="4" MinWidth="50" ValueChanged="numFirstRow_ValueChanged" Value="0"/>
+        <TextBlock Name="labelFirstCol" Text="First Data Col:" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+        <TaCtrl:NumericUpDown  Name="numFirstCol" Grid.Column="5" Margin="4" MinWidth="50"  ValueChanged="numFirstCol_ValueChanged" Value="0"/>
+
+        <TextBlock Text="X Axis Unit:" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <ComboBox Name="XAxisUnit" Grid.Row="1" Grid.Column="1" Margin="4" MinWidth="50" SelectedIndex="0">
+            <ComboBoxItem>cm-1</ComboBoxItem>
+            <ComboBoxItem>nm</ComboBoxItem>
+            <ComboBoxItem>count</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Text="Y Axis Unit:" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+        <ComboBox  Name="YAxisUnit" Grid.Row="1" Grid.Column="3" Margin="4" MinWidth="50" SelectedIndex="0">
+            <ComboBoxItem>Intensity</ComboBoxItem>
+            <ComboBoxItem>Absorbance</ComboBoxItem>
+            <ComboBoxItem>Transmission</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Name="labelYCols" Text="Y Data Columns:" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+        <TaCtrl:NumericUpDown  Name="numYCols" Grid.Row="1" Grid.Column="5" Margin="4" MinWidth="50" Value="1" ValueChanged="numYCols_ValueChanged" Minimum="1"/>
+
+        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="6"  Height="100">
+            <TextBox AcceptsReturn="True"  Name="textDataViewer" IsReadOnly="True" />
+        </ScrollViewer>
+        <DataGrid Name="textDataList" Grid.Row="3" Grid.ColumnSpan="6" IsReadOnly="True" AutoGenerateColumns="False">
+        </DataGrid>
+    </Grid>
+</UserControl>

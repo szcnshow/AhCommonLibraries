@@ -2961,6 +2961,67 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Ai.Hong.Controls.TxtDataBrowser">
+            <summary>
+            浏览Text/CSV文件结构
+            </summary>
+            <summary>
+            TxtDataBrowser
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.TxtDataBrowser.ErrorString">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.TxtDataBrowser.DecodedDatas">
+            <summary>
+            解析到数据
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.TxtDataBrowser.BindedDatas">
+            <summary>
+            绑定的数据
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Controls.TxtDataBrowser.FirstNumberRow">
+            <summary>
+            数字开始的行
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TxtDataBrowser.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TxtDataBrowser.SetTextFile(System.String)">
+            <summary>
+            设置Text/CSV文件
+            </summary>
+            <param name="filename"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.TxtDataBrowser.listSeparator_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            分隔符号变化，需要重新解析
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Ai.Hong.Controls.TxtDataBrowser.DecodeTextData">
+            <summary>
+            解析文件中的数据（加载文件或者改变分隔符号才解析）
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TxtDataBrowser.BindToDatagrid">
+            <summary>
+            绑定数据到Datagrid中，需要将数据设置为统一的列数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TxtDataBrowser.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Controls.VectorImage">
             <summary>
             矢量图形

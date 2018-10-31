@@ -121,6 +121,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TAlex.WPF.Controls">
+      <HintPath>..\..\..\..\小工具\WPFControls-2.0.0\TAlex.WPF.Controls\bin\Release\TAlex.WPF.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -191,6 +194,9 @@
     </Compile>
     <Compile Include="Chart\TredentDotChart.xaml.cs">
       <DependentUpon>TredentDotChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TxtDataBrowser.xaml.cs">
+      <DependentUpon>TxtDataBrowser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\VectorImage.cs" />
     <Compile Include="Controls\VectorButton.xaml.cs">
@@ -289,6 +295,10 @@
     <Page Include="Chart\TredentDotChart.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TxtDataBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\VectorButton.xaml">
       <Generator>MSBuild:Compile</Generator>

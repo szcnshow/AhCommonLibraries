@@ -470,6 +470,35 @@ namespace Ai.Hong.Algorithm
             return GetRangeData(xyDatas, beginIndex, endIndex - beginIndex + 1);
         }
 
+        /// <summary>
+        /// 将原始数组拷贝到目标数组的后面
+        /// </summary>
+        /// <typeparam name="T">数据格式</typeparam>
+        /// <param name="SrcArray">原始数组</param>
+        /// <param name="SrcOffset">原始数组起始位置</param>
+        /// <param name="SrcLength">原始数组长度</param>
+        /// <param name="DstArray">目标数组</param>
+        /// <param name="DstOffset">目标数组起始位置</param>
+        /// <returns>-1：目标数组的空间不够，else：拷贝后目标数组有效数据长度</returns>
+        public static int CombineArrayAtTail<T>(T[] SrcArray, int SrcOffset, int SrcLength, T[] DstArray, int DstOffset)
+        {
+            //目标Array空间不够
+            if (SrcLength > DstArray.Length)
+                return -1;
+
+            int copyOffset = DstOffset;
+
+            //空间不够，把DstArray的数据向前移，在最后留出SrcLength空间
+            if(DstOffset+SrcLength > DstArray.Length)
+            {
+                int moveout = DstOffset + SrcLength - DstArray.Length;
+                Array.Copy(DstArray, moveout, DstArray, 0, DstOffset - moveout);
+                copyOffset = DstArray.Length - SrcLength;
+            }
+            Array.Copy(SrcArray, SrcOffset, DstArray, copyOffset, SrcLength);
+
+            return copyOffset + SrcLength;
+        }
     }
     
 }

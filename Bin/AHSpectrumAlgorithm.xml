@@ -390,6 +390,18 @@
             <param name="lastX">结束区间</param>
             <returns>数据列表</returns>
         </member>
+        <member name="M:Ai.Hong.Algorithm.CommonMethod.CombineArrayAtTail``1(``0[],System.Int32,System.Int32,``0[],System.Int32)">
+            <summary>
+            将原始数组拷贝到目标数组的后面
+            </summary>
+            <typeparam name="T">数据格式</typeparam>
+            <param name="SrcArray">原始数组</param>
+            <param name="SrcOffset">原始数组起始位置</param>
+            <param name="SrcLength">原始数组长度</param>
+            <param name="DstArray">目标数组</param>
+            <param name="DstOffset">目标数组起始位置</param>
+            <returns>-1：目标数组的空间不够，else：拷贝后目标数组有效数据长度</returns>
+        </member>
         <member name="T:Ai.Hong.Algorithm.CommonAlgorithm">
             <summary>
             通用光谱算法

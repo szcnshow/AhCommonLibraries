@@ -2969,6 +2969,36 @@
             TxtDataBrowser
             </summary>
         </member>
+        <member name="T:Ai.Hong.Controls.TxtDataBrowser.DecodedDataInfo">
+            <summary>
+            Text/CSV decoded datas
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.TxtDataBrowser.DecodedDataInfo.XData">
+            <summary>
+            X Data
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.TxtDataBrowser.DecodedDataInfo.YDatas">
+            <summary>
+            Y Data
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.TxtDataBrowser.Seperator">
+            <summary>
+            分割符（Comma，Spcace，Tab）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.TxtDataBrowser.XUnit">
+            <summary>
+            X轴单位（cm-1，nm，count）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Controls.TxtDataBrowser.YUnit">
+            <summary>
+            Y轴单位（Intensity，Absorbance，Transmission）
+            </summary>
+        </member>
         <member name="F:Ai.Hong.Controls.TxtDataBrowser.ErrorString">
             <summary>
             错误信息
@@ -3016,6 +3046,12 @@
             <summary>
             绑定数据到Datagrid中，需要将数据设置为统一的列数
             </summary>
+        </member>
+        <member name="M:Ai.Hong.Controls.TxtDataBrowser.GetDecodedDatas">
+            <summary>
+            获取解码后的数据
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Ai.Hong.Controls.TxtDataBrowser.InitializeComponent">
             <summary>

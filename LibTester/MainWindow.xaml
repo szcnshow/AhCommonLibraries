@@ -23,7 +23,7 @@
             <ctrl:GraphicOperatePanel Grid.Column="1" Orientation="Horizontal"  Grid.Row="0" x:Name="panelOperate" ButtonSize="24" Foreground="Black"  MouseOnColor="Aqua" CheckedColor="Bisque"/>
         </Grid>
         <btn:SelectColorList x:Name="fileList" Grid.Row="1" Grid.Column="0" />
-        <ctrl:SpectrumChart Grid.Row="1" Grid.Column="1" x:Name="graphicCtrl"/>
+        <ctrl:SpectrumChart Grid.Row="1" Grid.Column="1" x:Name="graphicCtrl" RevertXAxis="False" ChartLanguage="English" selectSensitiy="3"/>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Height="30" Margin="10,5">
             <Button Content="load" Name="btnLoad" Click="btnLoad_Click" Width="60"/>
             <Button Content="remove" Name="btnRemove" Click="btnRemove_Click" Width="60" Margin="20,0,0,0"/>

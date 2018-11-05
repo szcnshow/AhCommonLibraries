@@ -16,90 +16,9 @@ namespace Ai.Hong.Charts
     public partial class SpectrumChart : UserControl
     {
         /// <summary>
-        /// 图形属性
-        /// </summary>
-        private class GraphicInfo
-        {
-            /// <summary>
-            /// 光谱图形
-            /// </summary>
-            public OxyPlot.Series.LineSeries chart;
-
-            /// <summary>
-            /// 光谱ID
-            /// </summary>
-            public Guid key;
-
-            /// <summary>
-            /// 图形颜色
-            /// </summary>
-            public SolidColorBrush chartColor { get; set; }
-
-            /// <summary>
-            /// 文件名
-            /// </summary>
-            public string name { get; set; }
-
-            /// <summary>
-            /// 图形显示位移（Y轴)
-            /// </summary>
-            public double offset { get; set; }
-
-            public GraphicInfo()
-            {
-            }
-
-            /// <summary>
-            /// 创建Chart图像
-            /// </summary>
-            /// <param name="xDatas">x轴数据</param>
-            /// <param name="yDatas">y轴数据</param>
-            /// <param name="color">颜色</param>
-            /// <param name="lineWidth">线宽</param>
-            /// <param name="labelFormat">数据显示格式</param>
-            /// <returns></returns>
-            private OxyPlot.Series.LineSeries CreateChart(double[]xDatas, double[] yDatas, SolidColorBrush color, double lineWidth, string labelFormat)
-            {
-                if (xDatas == null || yDatas == null || xDatas.Length == 0 || xDatas.Length != yDatas.Length)
-                    return null;
-
-                OxyPlot.Series.LineSeries newchart = new OxyPlot.Series.LineSeries();
-                for (int i = 0; i < xDatas.Length; i++)
-                    newchart.Points.Add(new DataPoint(xDatas[i], yDatas[i]));
-
-                newchart.LineStyle = LineStyle.Solid;
-                newchart.SelectionMode = OxyPlot.SelectionMode.Multiple;
-                newchart.Selectable = true;
-                newchart.StrokeThickness = lineWidth;
-                newchart.Color = OxyColor.FromArgb(color.Color.A, color.Color.R, color.Color.G, color.Color.B);
-                if (!string.IsNullOrWhiteSpace(name))
-                    newchart.TrackerFormatString = System.IO.Path.GetFileNameWithoutExtension(name) + Environment.NewLine + "{1}: {2:" + labelFormat + "} , {3}: {4:" + labelFormat + "}";
-
-                return newchart;
-            }
-
-            /// <summary>
-            /// 构造函数
-            /// </summary>
-            /// <param name="xDatas">X轴数据</param>
-            /// <param name="yDatas">Y轴数据</param>
-            /// <param name="color">显示颜色</param>
-            /// <param name="lineWidth">图形线宽</param>
-            /// <param name="key">Key</param>
-            /// <param name="labelName">图形名称</param>
-            /// <param name="labelFormat">数据显示格式</param>
-            public GraphicInfo(double[] xDatas, double[] yDatas, SolidColorBrush color, double lineWidth, Guid key, string labelName = null, string labelFormat="F2")
-            {
-                this.name = labelName;
-                this.key = key;
-                chart = CreateChart(xDatas, yDatas, color, lineWidth,labelFormat);
-            }
-        }
-
-        /// <summary>
         /// 颜色改变消息参数
         /// </summary>
-        public class ColorChangedArg:RoutedEventArgs
+        public class ColorChangedArg : RoutedEventArgs
         {
             /// <summary>
             /// 当前显示的颜色
@@ -113,79 +32,12 @@ namespace Ai.Hong.Charts
         }
 
         /// <summary>
-        /// 弹出菜单项
-        /// </summary>
-        public enum chartMenuItems
-        {
-            /// <summary>
-            /// 选择
-            /// </summary>
-            Select,     //选择
-            /// <summary>
-            /// 缩放的主菜单
-            /// </summary>
-            Zoom,       //缩放的主菜单
-            /// <summary>
-            /// 放大
-            /// </summary>
-            zoomIn,     //放大
-            /// <summary>
-            /// 缩小
-            /// </summary>
-            zoomOut,    //缩小
-            /// <summary>
-            /// 重置XY
-            /// </summary>
-            resetXY,    //重置XY
-            /// <summary>
-            /// 重置Y
-            /// </summary>
-            resetY,     //重置Y
-            /// <summary>
-            /// 移动
-            /// </summary>
-            Pan,        //移动
-            /// <summary>
-            /// 显示的主菜单
-            /// </summary>
-            Display,        //显示的主菜单
-            /// <summary>
-            /// 修改颜色
-            /// </summary>
-            Colors,         //修改颜色
-            /// <summary>
-            /// 隐藏图形
-            /// </summary>
-            Hide,           //隐藏图形
-            /// <summary>
-            /// 显示网格
-            /// </summary>
-            showGridLine,   //显示网格
-            /// <summary>
-            /// 显示信息
-            /// </summary>
-            showInformation,    //显示信息
-            /// <summary>
-            /// 标志峰位的主菜单
-            /// </summary>
-            peakPick,       //标志峰位的主菜单
-            /// <summary>
-            /// 向上的峰位
-            /// </summary>
-            upPeakPick,     //向上的峰位
-            /// <summary>
-            /// 向下的峰位
-            /// </summary>
-            downPeakPick    //向下的峰位 
-        }
-
-        /// <summary>
         /// 绘图区域的颜色
         /// </summary>
         public SolidColorBrush PlotAreaBackground
         {
-            get { return ConvertToSolidBrush(spectrumChart.Model.PlotAreaBackground); }
-            set { spectrumChart.Model.PlotAreaBackground = ConvertOxyColor(value); }
+            get { return ChartCommonMethod.ToSolidColor(spectrumChart.Model.PlotAreaBackground); }
+            set { spectrumChart.Model.PlotAreaBackground = ChartCommonMethod.ToOxyColor(value); }
         }
 
         /// <summary>
@@ -193,8 +45,8 @@ namespace Ai.Hong.Charts
         /// </summary>
         public SolidColorBrush ModelBackground
         {
-            get { return ConvertToSolidBrush(spectrumChart.Model.Background); }
-            set { spectrumChart.Model.Background = ConvertOxyColor(value); }
+            get { return ChartCommonMethod.ToSolidColor(spectrumChart.Model.Background); }
+            set { spectrumChart.Model.Background = ChartCommonMethod.ToOxyColor(value); }
         }
 
         #region Propertyies
@@ -228,7 +80,7 @@ namespace Ai.Hong.Charts
         /// <summary>
         /// 所有操作按钮
         /// </summary>
-        Dictionary<chartMenuItems, System.Windows.Controls.Primitives.ButtonBase> operateButtons = new Dictionary<chartMenuItems, System.Windows.Controls.Primitives.ButtonBase>();
+        Dictionary<ChartMenuItems, System.Windows.Controls.Primitives.ButtonBase> operateButtons = new Dictionary<ChartMenuItems, System.Windows.Controls.Primitives.ButtonBase>();
 
         /// <summary>
         /// 列表选择消息
@@ -314,14 +166,13 @@ namespace Ai.Hong.Charts
                 //SetValue(SelectedItemsProperty, value);
 
                 //如果当前选择项没有在选择列表中
-                if(selectedFiles.Count == 0 || selectedFiles.FirstOrDefault(p=>p.key == SelectedItem) == null)
+                if (selectedFiles.Count == 0 || selectedFiles.FirstOrDefault(p => p.key == SelectedItem) == null)
                 {
                     SetValue(SelectedItemProperty, Guid.Empty);
                 }
 
                 if (needrefresh)
                     Refresh();
-
             }
         }
         // Using a DependencyProperty as the backing store for SelectedItem.  This enables animation, styling, binding, etc...
@@ -368,7 +219,7 @@ namespace Ai.Hong.Charts
         public double selectSensitiy
         {
             get { return (double)GetValue(selectSensitiyProperty); }
-            set { if(value>=1.0) SetValue(selectSensitiyProperty, value); }
+            set { if (value >= 1.0) SetValue(selectSensitiyProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for selectSensitiy.  This enables animation, styling, binding, etc...
@@ -378,18 +229,36 @@ namespace Ai.Hong.Charts
         public static readonly DependencyProperty selectSensitiyProperty =
             DependencyProperty.Register("selectSensitiy", typeof(double), typeof(SpectrumChart), new PropertyMetadata(2.0));
 
-        
         /// <summary>
-        /// 预定义的颜色（More为自定义)
+        /// 反转X轴（显示波数图用）
         /// </summary>
-        private static string[] strColors =
-            {
-                "Black", "Red", "Blue", "Gold", "Brown", "DarkGreen", "Navy", "LawnGreen", 
-                "DimGray", "DeepPink", "OrangeRed", "Olive",  "Teal", "SlateGray", "Gray", "MidnightBlue", 
-                "Orange", "YellowGreen", "SeaGreen", "Aqua", "LightBlue", "Violet", "DarkGray",
-                "Pink", "Yellow", "Lime", "Turquoise", "SkyBlue", "Plum", "LightGray", "Indigo",
-                "LightPink", "Tan", "LightCoral", "More"
-            };
+        public bool RevertXAxis
+        {
+            get { return (bool)GetValue(RevertXAxisProperty); }
+            set { SetValue(RevertXAxisProperty, value); }
+        }
+
+        /// <summary>
+        /// 反转X轴（显示波数图用）
+        /// </summary>
+        public static readonly DependencyProperty RevertXAxisProperty =
+            DependencyProperty.Register("RevertXAxis", typeof(bool), typeof(SpectrumChart), new PropertyMetadata(true));
+
+
+        /// <summary>
+        /// 图表使用的语言
+        /// </summary>
+        public Ai.Hong.Common.EnumLanguage ChartLanguage
+        {
+            get { return (Ai.Hong.Common.EnumLanguage)GetValue(ChartLanguageProperty); }
+            set { SetValue(ChartLanguageProperty, value); }
+        }
+
+        /// <summary>
+        /// 图表使用的语言
+        /// </summary>
+        public static readonly DependencyProperty ChartLanguageProperty =
+            DependencyProperty.Register("ChartLanguage", typeof(Ai.Hong.Common.EnumLanguage), typeof(SpectrumChart), new PropertyMetadata(Common.EnumLanguage.Chinese));
 
         System.Windows.Input.Cursor currentCursor = System.Windows.Input.Cursors.Arrow;
 
@@ -408,7 +277,6 @@ namespace Ai.Hong.Charts
         public static readonly DependencyProperty ChartBackgroundProperty =
             DependencyProperty.Register("ChartBackground", typeof(SolidColorBrush), typeof(SpectrumChart), new PropertyMetadata(Brushes.White));
 
-        
         #endregion
 
         /// <summary>
@@ -418,14 +286,33 @@ namespace Ai.Hong.Charts
         {
             InitializeComponent();
             InitChart();
-            InitContextMenu();
-
-            //默认峰位标注按钮隐藏
-            SetMenuItemVisible(chartMenuItems.upPeakPick, false);
-            SetMenuItemVisible(chartMenuItems.downPeakPick, false);
-            SetMenuItemVisible(chartMenuItems.peakPick, false);
-
         }
+
+        /// <summary>
+        /// 属性变化消息
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+        {
+            if (e.Property == RevertXAxisProperty)
+            {
+                if ((bool)e.NewValue == true)
+                    spectrumChart.ActualModel.Axes.Add(xAxs);
+                else
+                    spectrumChart.ActualModel.Axes.Remove(xAxs);
+            }
+            else if (e.Property == ChartLanguageProperty)
+            {
+                InitContextMenu();
+                //默认峰位标注按钮隐藏
+                SetMenuItemVisible(ChartMenuItems.upPeakPick, false);
+                SetMenuItemVisible(ChartMenuItems.downPeakPick, false);
+                SetMenuItemVisible(ChartMenuItems.peakPick, false);
+            }
+
+            base.OnPropertyChanged(e);
+        }
+
 
         /// <summary>
         /// 初始化菜单
@@ -433,108 +320,9 @@ namespace Ai.Hong.Charts
         private void InitContextMenu()
         {
             spectrumChart.ContextMenu = new ContextMenu();
-            MenuItem item = new MenuItem();
-            item.Name = chartMenuItems.Select.ToString();
-            item.Header = "选择";
-            item.Click += ContextMenu_Click;
-            spectrumChart.ContextMenu.Items.Add(item);
 
-            item = new MenuItem();
-            item.Name = chartMenuItems.Pan.ToString();
-            item.Header = "移动";
-            item.Click += ContextMenu_Click;
-            spectrumChart.ContextMenu.Items.Add(item);
-
-            item = new MenuItem();
-            item.Name = chartMenuItems.Zoom.ToString();
-            item.Header = "缩放";
-            spectrumChart.ContextMenu.Items.Add(item);
-
-            MenuItem subitem = new MenuItem();
-            subitem.Name = chartMenuItems.zoomIn.ToString();
-            subitem.Header = "放大";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.zoomOut.ToString();
-            subitem.Header = "缩小";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.resetXY.ToString();
-            subitem.Header = "重置XY轴";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.resetY.ToString();
-            subitem.Header = "重置Y轴";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            //显示主菜单
-            item = new MenuItem();
-            item.Name = chartMenuItems.Display.ToString();
-            item.Header = "显示";
-            item.Click += ContextMenu_Click;
-            spectrumChart.ContextMenu.Items.Add(item);
-
-            //颜色菜单
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.Colors.ToString();
-            subitem.Header = "更换颜色";
-            subitem.Click += ContextMenu_Click;
-            subitem.ItemsPanel = this.Resources["ItemsPanelTemplate1"] as ItemsPanelTemplate;
-            foreach(var color in strColors)
-            {
-                AddSubColorMenu(subitem, color);
-            }
-            item.Items.Add(subitem);
-
-            //显示信息菜单
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.showInformation.ToString();
-            subitem.Header = "光谱信息";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            //隐藏光谱菜单
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.Hide.ToString();
-            subitem.Header = "隐藏光谱";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            //网格菜单
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.showGridLine.ToString();
-            subitem.Header = "显示网格线";
-            subitem.IsCheckable = false;
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            //标注峰位主菜单
-            item = new MenuItem();
-            item.Name = chartMenuItems.peakPick.ToString();
-            item.Header = "标注峰位";
-            item.Click += ContextMenu_Click;
-            spectrumChart.ContextMenu.Items.Add(item);
-
-            //向上峰位
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.upPeakPick.ToString();
-            subitem.Header = "吸收谱峰位";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
-
-            //向下峰位菜单
-            subitem = new MenuItem();
-            subitem.Name = chartMenuItems.downPeakPick.ToString();
-            subitem.Header = "透过谱峰位";
-            subitem.Click += ContextMenu_Click;
-            item.Items.Add(subitem);
+            CommonMenuFunction.InitChartPopupMenu(spectrumChart.ContextMenu, ContextMenu_Click, ChartLanguage,
+                this.Resources["ItemsPanelTemplate1"] as ItemsPanelTemplate, this.Resources["SubmenuItemTemplateKey"] as ControlTemplate);
 
             spectrumChart.ContextMenu.Opened += ContextMenu_Opened;
         }
@@ -546,9 +334,9 @@ namespace Ai.Hong.Charts
         {
             //如果没有选择，某些菜单不能操作
             bool hasSelItems = selectedFiles != null && selectedFiles.Count > 0;
-            SetMenuItemEnable(chartMenuItems.Colors, hasSelItems);
-            SetMenuItemEnable(chartMenuItems.Hide, hasSelItems);
-            SetMenuItemEnable(chartMenuItems.peakPick, hasSelItems);
+            SetMenuItemEnable(ChartMenuItems.Colors, hasSelItems);
+            SetMenuItemEnable(ChartMenuItems.Hide, hasSelItems);
+            SetMenuItemEnable(ChartMenuItems.peakPick, hasSelItems);
         }
 
         /// <summary>
@@ -595,8 +383,7 @@ namespace Ai.Hong.Charts
         /// <returns></returns>
         public static SolidColorBrush GetDisplayColor(int index)
         {
-            //-1：最后一个为More，特殊用法
-            return (SolidColorBrush)typeof(System.Windows.Media.Brushes).GetProperty(strColors[index % (strColors.Length-1)]).GetValue(null, null);
+            return ChartCommonMethod.PredefineColors(index);
         }
 
         /// <summary>
@@ -612,16 +399,16 @@ namespace Ai.Hong.Charts
             if (menu.Name.IndexOf("Color_") == 0)
             {
                 string color = menu.Name.Replace("Color_", "");
-                if(color == "More")     //More菜单，需要弹出颜色选择框
+                if (color == "More")     //More菜单，需要弹出颜色选择框
                 {
-                    
+
                 }
-                else if(selectedFiles.Count > 0)
+                else if (selectedFiles.Count > 0)
                 {
                     SolidColorBrush curColor = (SolidColorBrush)typeof(Brushes).GetProperty(color).GetValue(null, null);
-                    foreach(var item in selectedFiles)
+                    foreach (var item in selectedFiles)
                     {
-                        item.chart.Color = ConvertOxyColor(curColor);
+                        item.LineColor = curColor;
                     }
                     Refresh();
 
@@ -633,47 +420,47 @@ namespace Ai.Hong.Charts
             }
             else
             {
-                chartMenuItems curmenu = (chartMenuItems)Enum.Parse(typeof(chartMenuItems), menu.Name);
+                ChartMenuItems curmenu = (ChartMenuItems)Enum.Parse(typeof(ChartMenuItems), menu.Name);
                 switch (curmenu)
                 {
-                    case chartMenuItems.Select:     //选择
+                    case ChartMenuItems.Select:     //选择
                         myController.UnbindMouseDown(OxyMouseButton.Left);
                         currentCursor = System.Windows.Input.Cursors.Arrow;
                         currentSelectedMenu = curmenu;
                         break;
-                    case chartMenuItems.Pan:        //移动
+                    case ChartMenuItems.Pan:        //移动
                         myController.BindMouseDown(OxyMouseButton.Left, PlotCommands.PanAt);
                         currentCursor = System.Windows.Input.Cursors.Hand;
                         currentSelectedMenu = curmenu;
                         break;
-                    case chartMenuItems.zoomIn:     //放大
+                    case ChartMenuItems.zoomIn:     //放大
                         myController.BindMouseDown(OxyMouseButton.Left, PlotCommands.ZoomRectangle);
                         currentCursor = System.Windows.Input.Cursors.Cross;
                         currentSelectedMenu = curmenu;
                         break;
-                    case chartMenuItems.zoomOut:    //缩小
+                    case ChartMenuItems.zoomOut:    //缩小
                         spectrumChart.Model.ZoomAllAxes(0.5);
                         Refresh();
                         break;
-                    case chartMenuItems.resetXY:    //重置XY
+                    case ChartMenuItems.resetXY:    //重置XY
                         spectrumChart.ResetAllAxes();
                         break;
-                    case chartMenuItems.resetY:     //重置Y
+                    case ChartMenuItems.resetY:     //重置Y
                         Point pt = System.Windows.Input.Mouse.GetPosition(spectrumChart);
                         ScreenPoint srcpt = new ScreenPoint(pt.X, pt.Y);
                         OxyPlot.Axes.Axis xaxis, yaxis;
                         spectrumChart.Model.GetAxesFromPoint(srcpt, out xaxis, out yaxis);
                         List<double> alldatas = new List<double>();
-                        if(xaxis == null || yaxis == null)  //从按钮过来的操作，鼠标没有在图形上,取图形中间位置
+                        if (xaxis == null || yaxis == null)  //从按钮过来的操作，鼠标没有在图形上,取图形中间位置
                         {
                             srcpt = new ScreenPoint(spectrumChart.ActualWidth / 2, spectrumChart.ActualHeight / 2);
                             spectrumChart.Model.GetAxesFromPoint(srcpt, out xaxis, out yaxis);
-                        }                        
+                        }
                         if (xaxis != null && yaxis != null)
                         {
                             foreach (var item in graphicFiles)
                             {
-                                List<double> curdatas = (from p in item.chart.Points where p.X >= xaxis.ActualMinimum && p.X <= xaxis.ActualMaximum select p.Y).ToList();
+                                List<double> curdatas = (from p in item.Points where p.X >= xaxis.ActualMinimum && p.X <= xaxis.ActualMaximum select p.Y).ToList();
                                 alldatas.AddRange(curdatas);
                             }
                         }
@@ -684,7 +471,7 @@ namespace Ai.Hong.Charts
                         }
 
                         break;
-                    case chartMenuItems.showGridLine:   //显示关闭网格
+                    case ChartMenuItems.showGridLine:   //显示关闭网格
                         foreach (var item in spectrumChart.Model.Axes)
                         {
                             if (item.MajorGridlineStyle == LineStyle.None)
@@ -699,17 +486,21 @@ namespace Ai.Hong.Charts
                         Refresh();
 
                         break;
-                    case chartMenuItems.showInformation:    //显示信息
+                    case ChartMenuItems.showInformation:    //显示信息
                         currentCursor = LoadCustomCursor("Ai.Hong.Controls.Images.SelectInformation.cur");
                         myController.BindMouseDown(OxyMouseButton.Left, PlotCommands.HoverSnapTrack);
                         currentSelectedMenu = curmenu;
                         break;
-                    case chartMenuItems.Hide:               //隐藏选中的光谱
+                    case ChartMenuItems.Hide:               //隐藏选中的光谱
                         //从图形中隐藏
-                        foreach(var item in selectedFiles)
+                        foreach (var item in selectedFiles)
                         {
-                            spectrumChart.ActualModel.Series.Remove(item.chart);
+                            spectrumChart.ActualModel.Series.Remove(item.Chart);
                             graphicFiles.Remove(item);
+
+                            //移除本图形的标注
+                            foreach (var ann in item.Annotations)
+                                spectrumChart.ActualModel.Annotations.Remove(ann.AnnChart);
                         }
 
                         //发送图形隐藏消息
@@ -720,11 +511,11 @@ namespace Ai.Hong.Charts
                         selectedFiles.Clear();
                         Refresh();
                         break;
-                    case chartMenuItems.upPeakPick:     //标上峰位
+                    case ChartMenuItems.upPeakPick:     //标上峰位
                         currentCursor = LoadCustomCursor("CommonLibrary.Images.UpArrowCursor.cur");
                         currentSelectedMenu = curmenu;
                         break;
-                    case chartMenuItems.downPeakPick:   //标下峰位
+                    case ChartMenuItems.downPeakPick:   //标下峰位
                         currentCursor = LoadCustomCursor("CommonLibrary.Images.DownArrowCursor.cur");
                         currentSelectedMenu = curmenu;
                         break;
@@ -755,10 +546,9 @@ namespace Ai.Hong.Charts
         {
             spectrumChart.Model = new PlotModel();
 
-            //x轴倒叙
+            //x轴设置倒序（RevertXAxis==True）
             xAxs = new OxyPlot.Axes.LinearAxis() { Position = OxyPlot.Axes.AxisPosition.Bottom, StartPosition = 1, EndPosition = 0 };
-            spectrumChart.ActualModel.Axes.Add(xAxs);
-         
+
             spectrumChart.Model.SelectionColor = OxyColor.FromArgb(255, 0, 0, 0);
 
             spectrumChart.MouseDoubleClick += spectrumChart_MouseDoubleClick;
@@ -789,13 +579,13 @@ namespace Ai.Hong.Charts
         private double oldx, oldy, newx, newy;
         private bool zoomRectangleVisible = false;
 
-        private chartMenuItems currentSelectedMenu = chartMenuItems.Select;
+        private ChartMenuItems currentSelectedMenu = ChartMenuItems.Select;
 
         private void InitMouseDownEvent()
         {
             spectrumChart.Model.MouseDown += (s, e) =>
             {
-                if (e.ChangedButton == OxyMouseButton.Left && currentSelectedMenu == chartMenuItems.Select)
+                if (e.ChangedButton == OxyMouseButton.Left && currentSelectedMenu == ChartMenuItems.Select)
                 {
                     leftButtonDown = true;
                     oldx = e.Position.X;
@@ -805,7 +595,7 @@ namespace Ai.Hong.Charts
             };
             spectrumChart.Model.MouseMove += (s, e) =>
             {
-                if (leftButtonDown && currentSelectedMenu == chartMenuItems.Select)
+                if (leftButtonDown && currentSelectedMenu == ChartMenuItems.Select)
                 {
                     //鼠标有移动才显示选择框
                     if (Math.Abs(e.Position.X - oldx) > 2 || Math.Abs(e.Position.Y - oldy) > 2)
@@ -826,10 +616,10 @@ namespace Ai.Hong.Charts
 
             spectrumChart.Model.MouseUp += (s, e) =>
             {
-                if (leftButtonDown && currentSelectedMenu == chartMenuItems.Select)
+                if (leftButtonDown && currentSelectedMenu == ChartMenuItems.Select)
                 {
                     //按住Control, Shift多选
-                    bool needClear = (e.ModifierKeys & OxyPlot.OxyModifierKeys.Shift) == 0 && 
+                    bool needClear = (e.ModifierKeys & OxyPlot.OxyModifierKeys.Shift) == 0 &&
                         (e.ModifierKeys & OxyPlot.OxyModifierKeys.Control) == 0;
 
                     bool needRefresh = false;
@@ -840,7 +630,7 @@ namespace Ai.Hong.Charts
                     {
                         spectrumChart.HideZoomRectangle();
                         var selSeries = SeriesInRectangle(oldx, oldy, newx, newy);
-                        var ids = (from p in graphicFiles where selSeries.Contains(p.chart) select p.key).ToList();
+                        var ids = (from p in graphicFiles where selSeries.Contains(p.Chart) select p.key).ToList();
                         needRefresh = AddNewSelectedItems(ids, needClear);
                     }
                     else
@@ -848,8 +638,8 @@ namespace Ai.Hong.Charts
                         var selSr = spectrumChart.Model.GetSeriesFromPoint(e.Position, selectSensitiy);
                         if (selSr != null)
                         {
-                            var ids = (from p in graphicFiles where p.chart == selSr select p.key ).ToList();
-                            needRefresh = AddNewSelectedItems(ids, needClear);                   
+                            var ids = (from p in graphicFiles where p.Chart == selSr select p.key).ToList();
+                            needRefresh = AddNewSelectedItems(ids, needClear);
                         }
                     }
                     if (needRefresh)
@@ -857,8 +647,8 @@ namespace Ai.Hong.Charts
                         Refresh();
                         List<Guid> addedItems = (from p in selectedFiles select p.key).ToList();
                         List<Guid> removedItems = new List<Guid>();
-                        if(addedItems.Count > 0)
-                            SetValue(SelectedItemProperty, addedItems[addedItems.Count-1]);
+                        if (addedItems.Count > 0)
+                            SetValue(SelectedItemProperty, addedItems[addedItems.Count - 1]);
                         else
                             SetValue(SelectedItemProperty, Guid.Empty);
 
@@ -874,48 +664,42 @@ namespace Ai.Hong.Charts
         /// <summary>
         /// 获取矩形选择框内的图形
         /// </summary>
-        private List<OxyPlot.Series.LineSeries> SeriesInRectangle(double x0, double y0, double x1, double y1)
+        private List<Series> SeriesInRectangle(double x0, double y0, double x1, double y1)
         {
             ScreenPoint screenBegin = new ScreenPoint(x0, y0);
             ScreenPoint screenEnd = new ScreenPoint(x1, y1);
 
-            List<LineSeries> selSeries = new List<LineSeries>();
-
-            foreach(var item in spectrumChart.Model.Series)
+            List<Series> selSeries = new List<Series>();
+            foreach (var item in spectrumChart.Model.Series)
             {
-                LineSeries linesr = item as LineSeries;
+                var info = graphicFiles.FirstOrDefault(p => p.Chart == item);
+                if (info == null)
+                    continue;
 
-                if (linesr != null && linesr.Points != null && linesr.Points.Count > 0)
-                {
-                    var begin = linesr.InverseTransform(screenBegin);
-                    var end = linesr.InverseTransform(screenEnd);
+                if (info.InSelectionRectangle(x0, y0, x1, y1))
+                    selSeries.Add(item);
+            }
 
-                    if (begin.X > end.X)
-                    {
-                        double tempx = begin.X;
-                        begin.X = end.X;
-                        end.X = tempx;
-                    }
-                    if (begin.Y > end.Y)
-                    {
-                        double tempy = begin.Y;
-                        begin.Y = end.Y;
-                        end.Y = tempy;
-                    }
+            return selSeries;
+        }
 
-                    Rect selrc = new Rect(begin.X, begin.Y, end.X - begin.X, end.Y - begin.Y);
-                    Rect allrc = new Rect(linesr.MinX, linesr.MinY, linesr.MaxX - linesr.MinX, linesr.MaxY - linesr.MinY);
-                    //if (linesr.MinX <= end.X && linesr.MaxX >= end.X && linesr.MinY <= begin.Y && linesr.MaxY >= end.Y)
-                    if(selrc.IntersectsWith(allrc))
-                    {
-                        //int index = linesr.Points.FindIndex(p=> p.X>=begin.X && p.X<=end.X && p.Y >=begin.Y && p.Y <=end.Y);
-                        int index = linesr.Points.FindIndex(p => selrc.Contains(p.X, p.Y));
-                        if(index >=0)
-                        {
-                            selSeries.Add(linesr);
-                        }
-                    }
-                }
+        /// <summary>
+        /// 获取矩形选择框内的图形
+        /// </summary>
+        private List<AnnotationInfo> AnnotationInRectangle(double x0, double y0, double x1, double y1)
+        {
+            ScreenPoint screenBegin = new ScreenPoint(x0, y0);
+            ScreenPoint screenEnd = new ScreenPoint(x1, y1);
+
+            List<AnnotationInfo> selSeries = new List<AnnotationInfo>();
+            foreach (var item in spectrumChart.ActualModel.Annotations)
+            {
+                var info = graphicFiles.FirstOrDefault(p => p.Chart == item);
+                if (info == null)
+                    continue;
+
+                if (info.InSelectionRectangle(x0, y0, x1, y1))
+                    selSeries.Add(item);
             }
 
             return selSeries;
@@ -929,26 +713,26 @@ namespace Ai.Hong.Charts
             Point mousept = e.GetPosition(spectrumChart);
             ScreenPoint pt = new ScreenPoint(mousept.X, mousept.Y);
 
-            HitTestArguments args = new HitTestArguments(pt, 2);
+            HitTestArguments args = new HitTestArguments(pt, selectSensitiy);
             bool needrefresh = false;
-            LineSeries selSeries = spectrumChart.Model.GetSeriesFromPoint(pt, 2) as LineSeries;
+            Series selSeries = spectrumChart.Model.GetSeriesFromPoint(pt, selectSensitiy) as Series;
 
             //找到图形对应的类
-            GraphicInfo info = graphicFiles.FirstOrDefault(p=>p.chart == selSeries);
+            GraphicInfo info = graphicFiles.FirstOrDefault(p => p.Chart == selSeries);
             //按下了Ctrl键，多选
 
             List<Guid> addedItems = new List<Guid>();
             List<Guid> removedItems = new List<Guid>();
             System.Windows.Controls.SelectionChangedEventArgs selArgs = new SelectionChangedEventArgs(ItemSelectedEvent, removedItems, addedItems);
 
-            
+
             if ((System.Windows.Input.Keyboard.GetKeyStates(System.Windows.Input.Key.LeftShift) & System.Windows.Input.KeyStates.Down) > 0 ||
                 (System.Windows.Input.Keyboard.GetKeyStates(System.Windows.Input.Key.RightShift) & System.Windows.Input.KeyStates.Down) > 0)
             {
                 //有刚刚选中的图形，如果没在selectedFiles中，添加
-                if (selSeries != null && selectedFiles.FirstOrDefault(p => p.chart == selSeries) == null && info != null)
+                if (selSeries != null && selectedFiles.FirstOrDefault(p => p.Chart == selSeries) == null && info != null)
                 {
-                    selSeries.StrokeThickness = SelectedLineWidth;
+                    info.LineWidth = SelectedLineWidth;
                     selectedFiles.Add(info);
                     addedItems.Add(info.key);   //选择项
                     needrefresh = true;
@@ -962,12 +746,12 @@ namespace Ai.Hong.Charts
                     //清除以前选中的图形
                     foreach (var item in selectedFiles)
                     {
-                        item.chart.StrokeThickness = LineWidth;
+                        item.LineWidth = LineWidth;
 
                         //移除项
                         removedItems.Add(item.key);
                     }
-                    if(selectedFiles.Count > 0)
+                    if (selectedFiles.Count > 0)
                     {
                         selectedFiles.Clear();
                         needrefresh = true;
@@ -976,14 +760,14 @@ namespace Ai.Hong.Charts
                 else  //只保留当前选中的图形
                 {
                     //如果selectedFiles还有其它图形
-                    selSeries.StrokeThickness = SelectedLineWidth;
-                    if (selectedFiles.FirstOrDefault(p => p.chart != selSeries) != null)
+                    info.LineWidth = SelectedLineWidth;
+                    if (selectedFiles.FirstOrDefault(p => p.Chart != selSeries) != null)
                     {
-                        foreach(var item in selectedFiles)
+                        foreach (var item in selectedFiles)
                         {
-                            if (item.chart != selSeries)
+                            if (item.Chart != selSeries)
                             {
-                                item.chart.StrokeThickness = LineWidth;
+                                item.LineWidth = LineWidth;
 
                                 //移除项
                                 removedItems.Add(item.key);
@@ -991,12 +775,12 @@ namespace Ai.Hong.Charts
                         }
 
                         //移除其它图形
-                        selectedFiles.RemoveAll(p => p.chart != selSeries);
+                        selectedFiles.RemoveAll(p => p.Chart != selSeries);
                         needrefresh = true;
                     }
 
                     //如果没在selectedFiles，添加
-                    if (selectedFiles.FirstOrDefault(p => p.chart == selSeries) == null)
+                    if (selectedFiles.FirstOrDefault(p => p.Chart == selSeries) == null)
                     {
                         selectedFiles.Add(info);
 
@@ -1022,7 +806,7 @@ namespace Ai.Hong.Charts
         private void SetChartLineWidth(List<GraphicInfo> items, double linewidth)
         {
             foreach (var item in items)
-                item.chart.StrokeThickness = linewidth;
+                item.LineWidth = linewidth;
         }
 
         /// <summary>
@@ -1033,16 +817,16 @@ namespace Ai.Hong.Charts
         /// <returns>是否需要刷新</returns>
         private bool AddNewSelectedItems(List<Guid> selItems, bool clear)
         {
-            if(selItems == null)
+            if (selItems == null)
                 return false;
 
             bool needrefresh = false;
             selItems = selItems.Distinct().ToList();
             //只添加当前显示列表中有的图形
-            List<GraphicInfo> selInfos = (from p in graphicFiles where selItems.FirstOrDefault(k => k== p.key) != Guid.Empty select p).ToList();
+            List<GraphicInfo> selInfos = (from p in graphicFiles where selItems.FirstOrDefault(k => k == p.key) != Guid.Empty select p).ToList();
 
             //需要清除原有选择项
-            if(clear)
+            if (clear)
             {
                 //没有新选择项
                 if (selInfos.Count == 0)
@@ -1055,7 +839,7 @@ namespace Ai.Hong.Charts
                 {
                     //新列表和原有列表数量相同
                     if (selectedFiles.Count == selInfos.Count)
-                    {                        
+                    {
                         //如果在当前列表没有找到新增项，需要刷新
                         foreach (var item in selInfos)
                         {
@@ -1098,15 +882,23 @@ namespace Ai.Hong.Charts
         /// </summary>
         private bool RealAddToChart(GraphicInfo info)
         {
-            if (info.chart == null)
+            if (info.Chart == null)
                 return false;
 
             graphicFiles.Add(info);
-            spectrumChart.ActualModel.Series.Add(info.chart);
-
+            spectrumChart.ActualModel.Series.Add(info.Chart);
             AdjustAxisValue();
 
             return true;
+        }
+
+        /// <summary>
+        /// 添加到图形的标注集合中
+        /// </summary>
+        /// <param name="info"></param>
+        private void RealAddToAnnotations(AnnotationInfo info)
+        {
+            spectrumChart.ActualModel.Annotations.Add(info.AnnChart);
         }
 
         /// <summary>
@@ -1142,10 +934,10 @@ namespace Ai.Hong.Charts
         /// </summary>
         /// <param name="item">菜单项</param>
         /// <param name="caption">菜单名称</param>
-        public void SetMenuItemCaption(chartMenuItems item, string caption)
+        public void SetMenuItemCaption(ChartMenuItems item, string caption)
         {
             string menuName = item.ToString();
-            MenuItem menu = FindChildByName(spectrumChart.ContextMenu,menuName) as MenuItem;
+            MenuItem menu = FindChildByName(spectrumChart.ContextMenu, menuName) as MenuItem;
             if (menu != null)
             {
                 menu.Header = caption;
@@ -1159,7 +951,7 @@ namespace Ai.Hong.Charts
         /// </summary>
         /// <param name="item">菜单项</param>
         /// <param name="visible">True=显示, False=隐藏</param>
-        public void SetMenuItemVisible(chartMenuItems item, bool visible)
+        public void SetMenuItemVisible(ChartMenuItems item, bool visible)
         {
             string menuName = item.ToString();
             MenuItem menu = FindChildByName(spectrumChart.ContextMenu, menuName) as MenuItem;
@@ -1176,7 +968,7 @@ namespace Ai.Hong.Charts
         /// </summary>
         /// <param name="item">菜单项</param>
         /// <param name="enable">Tru, False</param>
-        public void SetMenuItemEnable(chartMenuItems item, bool enable)
+        public void SetMenuItemEnable(ChartMenuItems item, bool enable)
         {
             string menuName = item.ToString();
             MenuItem menu = FindChildByName(spectrumChart.ContextMenu, menuName) as MenuItem;
@@ -1189,7 +981,7 @@ namespace Ai.Hong.Charts
         }
 
         /// <summary>
-        /// 添加图形
+        /// 添加折线图形
         /// </summary>
         /// <param name="xDatas">x轴数据</param>
         /// <param name="yDatas">y轴数据</param>
@@ -1197,28 +989,133 @@ namespace Ai.Hong.Charts
         /// <param name="key">文件标识</param>
         /// <param name="label">图形名称</param>
         /// <param name="labelFormat">数据显示格式</param>
-        public bool AddChart(double[] xDatas, double[] yDatas, SolidColorBrush color, Guid key, string label = null, string labelFormat="F2")
+        public bool AddChart(double[] xDatas, double[] yDatas, SolidColorBrush color, Guid key, string label = null, string labelFormat = "F2")
         {
             //已经添加了
             if (graphicFiles.Find(item => item.key == key) != null)
                 return true;
-            return RealAddToChart(new GraphicInfo(xDatas, yDatas, color, LineWidth, key, label, labelFormat));
-        }
 
-        private OxyColor ConvertOxyColor(SolidColorBrush color)
-        {
-            return OxyColor.FromArgb(color.Color.A, color.Color.R, color.Color.G,color.Color.B);
+            if (color == null)
+                color = Brushes.Black;
+
+            var chart = GraphicInfo.CreateLineSeries(xDatas, yDatas, color, LineWidth);
+
+            return RealAddToChart(new GraphicInfo(key, chart, EnumChartType.ScatterSeries, null, labelFormat));
         }
 
         /// <summary>
-        /// Convert Oxy to solid brush
+        /// 创建ScatterSeries图像
         /// </summary>
-        /// <param name="color"></param>
+        /// <param name="chartID">图形ID</param>
+        /// <param name="chartName">图形名称</param>
+        /// <param name="xDatas">x轴数据</param>
+        /// <param name="yDatas">y轴数据</param>
+        /// <param name="markerType">数据点形状，Default=Circle</param>
+        /// <param name="markerSize">数据点大小,Default=10.0</param>
+        /// <param name="borderColor">边框颜色，Default=Blue</param>
+        /// <param name="fillColor">填充颜色，Default=Transparent</param>
+        /// <param name="lineWidth">边框线宽，Default=1.0</param>
+        /// <param name="labelFormat">数据显示格式, Default=F2</param>
         /// <returns></returns>
-        private SolidColorBrush ConvertToSolidBrush(OxyColor color)
+        public void AddScatterChart(Guid chartID, string chartName, double[] xDatas, double[] yDatas, EnumMarkerType markerType = EnumMarkerType.Circle, double markerSize = 5.0, SolidColorBrush borderColor = null, SolidColorBrush fillColor = null, double lineWidth = 1.0, string labelFormat = "F2")
         {
-            var cl = new Color() { A = color.A, R = color.R, G = color.G, B = color.B };
-            return new SolidColorBrush(cl);
+            if (borderColor == null)
+                borderColor = Brushes.Black;
+            if (fillColor == null)
+                fillColor = Brushes.Transparent;
+
+            var chart = GraphicInfo.CreateScatterSeries(xDatas, yDatas, markerType, markerSize, borderColor, fillColor, lineWidth);
+
+            RealAddToChart(new GraphicInfo(chartID, chart, EnumChartType.ScatterSeries, chartName, labelFormat));
+        }
+
+        /// <summary>
+        /// 创建EllipseSeries图像
+        /// x = a * cost * cosθ - b * sint * sinθ + X,
+        /// y = a * cost * sinθ + b * sint * cosθ + Y.
+        /// </summary>
+        /// <param name="chartID">图形ID</param>
+        /// <param name="chartName">图形名称</param>
+        /// <param name="x">椭圆中心坐标</param>
+        /// <param name="y">椭圆中心坐标</param>
+        /// <param name="a">椭圆长轴</param>
+        /// <param name="b">椭圆短轴</param>
+        /// <param name="angle">倾斜角度</param>
+        /// <param name="step">步长(0 - 2π)</param>
+        /// <param name="borderColor">边框颜色</param>
+        /// <param name="fillColor">填充颜色</param>
+        /// <param name="lineWidth">边框线宽</param>
+        /// <param name="labelFormat">数据显示格式</param>
+        /// <returns></returns>
+        public void AddEllipseChart(Guid chartID, string chartName, double x, double y, double a, double b, double angle, double step,
+            SolidColorBrush borderColor = null, SolidColorBrush fillColor = null, double lineWidth = 1.0, string labelFormat = "F2")
+        {
+            if (borderColor == null)
+                borderColor = Brushes.Black;
+            if (fillColor == null)
+                fillColor = Brushes.Transparent;
+
+            var chart = GraphicInfo.CreateEllipseSeries(x, y, a, b, angle, step, borderColor, fillColor, lineWidth);
+
+            RealAddToChart(new GraphicInfo(chartID, chart, EnumChartType.LineSeries, chartName, labelFormat));
+        }
+
+        /// <summary>
+        /// 创建PointAnnotation图像
+        /// </summary>
+        /// <param name="chartID">需要添加标注的图形ID</param>
+        /// <param name="annID">标志的ID</param>
+        /// <param name="markText">标注文字</param>
+        /// <param name="centerX">标注的中心坐标</param>
+        /// <param name="centerY">标注的中心坐标</param>
+        /// <param name="markerSize">标注的大小</param>
+        /// <param name="borderColor">边框颜色</param>
+        /// <param name="fillColor">填充颜色</param>
+        /// <param name="lineWidth">线宽</param>
+        /// <param name="annName">标注的名称</param>
+        /// <param name="fontSize">标注文字大小</param>
+        /// <returns></returns>
+        public void AddPointAnnotation(Guid chartID, Guid annID, string markText, double centerX, double centerY, double markerSize = 5.0, 
+            SolidColorBrush borderColor = null, SolidColorBrush fillColor = null, double lineWidth = 1.0, string annName=null, double fontSize=10.0)
+        {
+            var info = graphicFiles.FirstOrDefault(p => p.key == chartID);
+            if (info == null)
+                return;
+
+            var ann = AnnotationInfo.CreatePointAnnotation(markText, centerX, centerY, markerSize, borderColor, fillColor, lineWidth);
+            var annInfo = new AnnotationInfo(annID, ann, EnumAnnotationType.Point, annName, fontSize);
+            info.Annotations.Add(annInfo);
+            RealAddToAnnotations(annInfo);
+        }
+
+        /// <summary>
+        /// 创建RectangleAnnotation图像,NaN表示值由显示的高度或宽度决定
+        /// </summary>
+        /// <param name="chartID">需要添加标注的图形ID</param>
+        /// <param name="annID">标志的ID</param>
+        /// <param name="markText">标注文字</param>
+        /// <param name="minX">起始X</param>
+        /// <param name="minY">起始Y</param>
+        /// <param name="maxX">结束X</param>
+        /// <param name="maxY">结束Y</param>
+        /// <param name="markerSize">标注的大小</param>
+        /// <param name="borderColor">边框颜色</param>
+        /// <param name="fillColor">填充颜色</param>
+        /// <param name="lineWidth">线宽</param>
+        /// <param name="annName">标注的名称</param>
+        /// <param name="fontSize">标注文字大小</param>
+        /// <returns></returns>
+        public void AddRectangleAnnotation(Guid chartID, Guid annID, string markText, double minX = double.NaN, double maxX = double.NaN, double minY = double.NaN, double maxY = double.NaN, double markerSize = 5.0, 
+            SolidColorBrush borderColor = null, SolidColorBrush fillColor = null, double lineWidth = 1.0, string annName = null, double fontSize = 10.0)
+        {
+            var info = graphicFiles.FirstOrDefault(p => p.key == chartID);
+            if (info == null)
+                return;
+
+            var ann = AnnotationInfo.CreateRectangleAnnotation(markText, minX, maxX, minY, maxY, markerSize, borderColor, fillColor, lineWidth);
+            var annInfo = new AnnotationInfo(annID, ann, EnumAnnotationType.Point, annName, fontSize);
+            info.Annotations.Add(annInfo);
+            RealAddToAnnotations(annInfo);
         }
 
         /// <summary>
@@ -1254,8 +1151,12 @@ namespace Ai.Hong.Charts
             GraphicInfo info =  graphicFiles.Find(item => item.key == key);
             if (info != null)
             {
-                spectrumChart.ActualModel.Series.Remove(info.chart);
+                spectrumChart.ActualModel.Series.Remove(info.Chart);
                 graphicFiles.Remove(info);
+
+                //移除本图形的标注
+                foreach (var ann in info.Annotations)
+                    spectrumChart.ActualModel.Annotations.Remove(ann.AnnChart);
 
                 //是否需要发送选择变动消息
                 bool needEvent = selectedFiles.FirstOrDefault(p => p.key == key) != null;
@@ -1291,8 +1192,12 @@ namespace Ai.Hong.Charts
                 if (info != null)
                 {
                     //从图形中移除
-                    spectrumChart.ActualModel.Series.Remove(info.chart);
+                    spectrumChart.ActualModel.Series.Remove(info.Chart);
                     graphicFiles.Remove(info);
+
+                    //移除本图形的标注
+                    foreach (var ann in info.Annotations)
+                        spectrumChart.ActualModel.Annotations.Remove(ann.AnnChart);
 
                     //是否需要发送选择变动消息
                     if (selectedFiles.FirstOrDefault(p => p.key == key) != null)
@@ -1328,6 +1233,7 @@ namespace Ai.Hong.Charts
                 return;
 
             spectrumChart.ActualModel.Series.Clear();
+            spectrumChart.ActualModel.Annotations.Clear();
             graphicFiles.Clear();
 
             //清除选择项
@@ -1351,7 +1257,7 @@ namespace Ai.Hong.Charts
             GraphicInfo info = graphicFiles.Find(item => item.key == key);
             if (info != null)
             {
-                info.chart.Color = OxyColor.FromArgb(newcolor.Color.A, newcolor.Color.R, newcolor.Color.G, newcolor.Color.B);
+                info.LineColor = newcolor;
                 Refresh();
             }
         }
@@ -1371,7 +1277,7 @@ namespace Ai.Hong.Charts
                 GraphicInfo info = graphicFiles.Find(item => item.key == key);
                 if (info != null)
                 {
-                    info.chart.Color = OxyColor.FromArgb(newcolor.Color.A, newcolor.Color.R, newcolor.Color.G, newcolor.Color.B);
+                    info.LineColor = newcolor;
                 }
             }
             Refresh();
@@ -1384,9 +1290,9 @@ namespace Ai.Hong.Charts
         {
             //如果没有选择，某些菜单不能操作
             bool hasSelItems = selectedFiles != null && selectedFiles.Count > 0;
-            SetMenuItemEnable(chartMenuItems.Colors, hasSelItems);
-            SetMenuItemEnable(chartMenuItems.Hide, hasSelItems);
-            SetMenuItemEnable(chartMenuItems.peakPick, hasSelItems);
+            SetMenuItemEnable(ChartMenuItems.Colors, hasSelItems);
+            SetMenuItemEnable(ChartMenuItems.Hide, hasSelItems);
+            SetMenuItemEnable(ChartMenuItems.peakPick, hasSelItems);
 
             spectrumChart.InvalidatePlot();
         }
@@ -1406,17 +1312,14 @@ namespace Ai.Hong.Charts
             if (item == null)
                 return;
 
-            item.chart.Points.Clear();
-            for(int i=0; i<xDatas.Length; i++)
-            {
-                item.chart.Points.Add(new DataPoint(xDatas[i], yDatas[i]));
-            }
+            item.ResetDataPoint(xDatas, yDatas);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             RenderOptions.SetEdgeMode(this, EdgeMode.Aliased);      //清晰显示
         }
+
 
         /// <summary>
         /// 设置图形操作按钮面板
@@ -1426,41 +1329,72 @@ namespace Ai.Hong.Charts
         {
             operatePanel = panel;
 
+            if (panel != null)
+            {
+                //创建操作按钮和菜单的对应关系
+                operateButtons = CommonMenuFunction.BindMenuWithOperatePanel(spectrumChart.ContextMenu, panel);
+
+                panel.ButtonChecked += operatePanel_ButtonChecked;
+                panel.ButtonClicked += operatePanel_ButtonClicked;
+
+                //刷新菜单状态
+                bool hasSelItems = selectedFiles != null && selectedFiles.Count > 0;
+                CommonMenuFunction.EnableMenuCommands(spectrumChart.ContextMenu, 
+                    new List<ChartMenuItems> {
+                        ChartMenuItems.Colors,
+                        ChartMenuItems.Hide,
+                        ChartMenuItems.peakPick },
+                    hasSelItems);
+
+                operatePanel.ColorChanged += OperatePanelChartColor_Changed;
+            }
+            else
+                operateButtons = new Dictionary<ChartMenuItems, System.Windows.Controls.Primitives.ButtonBase>();
+        }
+
+        /// <summary>
+        /// 设置图形操作按钮面板
+        /// </summary>
+        /// <param name="panel">图形操作按钮面板</param>
+        public void SetGraphicOperatePanelTemp(GraphicOperatePanel panel)
+        {
+            operatePanel = panel;
+
             if(panel != null)
             {
                 panel.ButtonChecked += operatePanel_ButtonChecked;
                 panel.ButtonClicked += operatePanel_ButtonClicked;
 
                 //创建操作按钮和菜单的对应关系
-                operateButtons = new Dictionary<chartMenuItems, System.Windows.Controls.Primitives.ButtonBase>();
+                operateButtons = new Dictionary<ChartMenuItems, System.Windows.Controls.Primitives.ButtonBase>();
                 var allbuttons = panel.GetAllButtons();
                 foreach (var btn in allbuttons)
                 {
-                    chartMenuItems menuItem = chartMenuItems.Display;
+                    ChartMenuItems menuItem = ChartMenuItems.Display;
                     if (btn == panel.btnSelect)
-                        menuItem = chartMenuItems.Select;
+                        menuItem = ChartMenuItems.Select;
                     else if (btn == panel.btnMove)
-                        menuItem = chartMenuItems.Pan;
+                        menuItem = ChartMenuItems.Pan;
                     else if (btn == panel.btnZoomIn)
-                        menuItem = chartMenuItems.zoomIn;
+                        menuItem = ChartMenuItems.zoomIn;
                     else if (btn == panel.btnZoomOut)
-                        menuItem = chartMenuItems.zoomOut;
+                        menuItem = ChartMenuItems.zoomOut;
                     else if (btn == panel.btnInformation)
-                        menuItem = chartMenuItems.showInformation;
+                        menuItem = ChartMenuItems.showInformation;
                     else if (btn == panel.btnUpPeakPick)
-                        menuItem = chartMenuItems.upPeakPick;
+                        menuItem = ChartMenuItems.upPeakPick;
                     else if (btn == panel.btnDownPeakPick)
-                        menuItem = chartMenuItems.downPeakPick;
+                        menuItem = ChartMenuItems.downPeakPick;
                     else if (btn == panel.btnSizeAll)
-                        menuItem = chartMenuItems.resetXY;
+                        menuItem = ChartMenuItems.resetXY;
                     else if (btn == panel.btnSizeYAxis)
-                        menuItem = chartMenuItems.resetY;
+                        menuItem = ChartMenuItems.resetY;
                     else if (btn == panel.btnColor)
-                        menuItem = chartMenuItems.Colors;
+                        menuItem = ChartMenuItems.Colors;
                     else if (btn == panel.btnHide)
-                        menuItem = chartMenuItems.Hide;
+                        menuItem = ChartMenuItems.Hide;
                     else if (btn == panel.btnGridShow)
-                        menuItem = chartMenuItems.showGridLine;
+                        menuItem = ChartMenuItems.showGridLine;
                     else
                         continue;
 
@@ -1469,9 +1403,9 @@ namespace Ai.Hong.Charts
 
                 //刷新菜单状态
                 bool hasSelItems = selectedFiles != null && selectedFiles.Count > 0;
-                SetMenuItemEnable(chartMenuItems.Colors, hasSelItems);
-                SetMenuItemEnable(chartMenuItems.Hide, hasSelItems);
-                SetMenuItemEnable(chartMenuItems.peakPick, hasSelItems);
+                SetMenuItemEnable(ChartMenuItems.Colors, hasSelItems);
+                SetMenuItemEnable(ChartMenuItems.Hide, hasSelItems);
+                SetMenuItemEnable(ChartMenuItems.peakPick, hasSelItems);
 
                 //按钮和菜单间的属性绑定
                 foreach (var item in operateButtons)
@@ -1518,7 +1452,7 @@ namespace Ai.Hong.Charts
                 operatePanel.ColorChanged += OperatePanelChartColor_Changed;
             }
             else
-                operateButtons = new Dictionary<chartMenuItems, System.Windows.Controls.Primitives.ButtonBase>();
+                operateButtons = new Dictionary<ChartMenuItems, System.Windows.Controls.Primitives.ButtonBase>();
         }
 
         /// <summary>
@@ -1533,7 +1467,7 @@ namespace Ai.Hong.Charts
 
             foreach (var item in selectedFiles)
             {
-                item.chart.Color = ConvertOxyColor(e.NewValue);
+                item.LineColor = e.NewValue;
             }
             Refresh();
 
@@ -1555,7 +1489,7 @@ namespace Ai.Hong.Charts
                 return;
             if (!operateButtons.ContainsValue(btn))
                 return;
-            chartMenuItems menutype = operateButtons.First(p => p.Value == btn).Key;
+            ChartMenuItems menutype = operateButtons.First(p => p.Value == btn).Key;
             MenuItem menu = FindChildByName(spectrumChart.ContextMenu, menutype.ToString()) as MenuItem;
             if (menu != null)
             {
@@ -1575,7 +1509,7 @@ namespace Ai.Hong.Charts
                 return;
             if(!operateButtons.ContainsValue(btn))
                 return;
-            chartMenuItems menutype = operateButtons.First(p=>p.Value == btn).Key;
+            ChartMenuItems menutype = operateButtons.First(p=>p.Value == btn).Key;
             MenuItem menu = FindChildByName(spectrumChart.ContextMenu, menutype.ToString()) as MenuItem;
             if (menu != null && btn.IsChecked == true)
             {
@@ -1610,7 +1544,7 @@ namespace Ai.Hong.Charts
         /// <param name="backgroundColor">背景颜色</param>
         public void SaveToBitmapFile(string filename, int width, int height, SolidColorBrush backgroundColor)
         {
-            spectrumChart.SaveBitmap(filename, width, height, ConvertOxyColor(backgroundColor));
+            spectrumChart.SaveBitmap(filename, width, height, ChartCommonMethod.ToOxyColor(backgroundColor));
         }
 
     }

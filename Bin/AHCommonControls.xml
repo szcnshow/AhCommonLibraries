@@ -156,6 +156,677 @@
             <param name="shape">图形形状</param>
             <returns></returns>
         </member>
+        <member name="T:Ai.Hong.Charts.ChartCommonMethod">
+            <summary>
+            图形通用属性
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartCommonMethod.strColors">
+            <summary>
+            预定义的颜色（More为自定义)
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.ChartCommonMethod.PredefineColors(System.Int32)">
+            <summary>
+            获取序号对应的颜色
+            </summary>
+            <param name="index">序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.ChartCommonMethod.ToOxyColor(System.Windows.Media.SolidColorBrush)">
+            <summary>
+            SolidColorBrush转换为OxyColor
+            </summary>
+            <param name="color">SolidColorBrush</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.ChartCommonMethod.ToSolidColor(OxyPlot.OxyColor)">
+            <summary>
+            OxyColor转换为SolidColorBrush
+            </summary>
+            <param name="color">OxyColor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Charts.CommonMenuFunction">
+            <summary>
+            通用的图表菜单函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.FindChildByName(System.Windows.Controls.ItemsControl,System.String)">
+            <summary>
+            通过名称查找ItemsControl包含的子节点
+            </summary>
+            <param name="currentNode">当前结点</param>
+            <param name="name">查找的名称</param>
+            <returns>找到的节点</returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.BindMenuWithOperatePanel(System.Windows.Controls.ContextMenu,Ai.Hong.Charts.GraphicOperatePanel)">
+            <summary>
+            绑定弹出菜单和操作工具条
+            </summary>
+            <param name="contextMenu">弹出菜单</param>
+            <param name="panel">图形操作按钮面板</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.AddOneItem``1(Ai.Hong.Charts.ChartMenuItems,``0,System.Windows.RoutedEventHandler,Ai.Hong.Common.EnumLanguage)">
+            <summary>
+            在父菜单下添加一个菜单项
+            </summary>
+            <typeparam name="T">ContextMenu或者MenuItem</typeparam>
+            <param name="commandItem">菜单项</param>
+            <param name="parentMenu">父菜单</param>
+            <param name="action">菜单消息处理过程</param>
+            <param name="language">使用的语言</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.InitChartPopupMenu``1(``0,System.Windows.RoutedEventHandler,Ai.Hong.Common.EnumLanguage,System.Windows.Controls.ItemsPanelTemplate,System.Windows.Controls.ControlTemplate)">
+            <summary>
+            初始化图形上的所有系统菜单
+            </summary>
+            <param name="contextMenu">弹出菜单或者菜单项</param>
+            <param name="action">菜单消息处理过程</param>
+            <param name="language">使用的语言</param>
+            <param name="colorPanelTemplate">颜色菜单项template</param>
+            <param name="colorControlTemplate">颜色菜单显示Template</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.AddSubColorMenu(System.Windows.Controls.MenuItem,System.String,System.Windows.RoutedEventHandler,System.Windows.Controls.ControlTemplate)">
+            <summary>
+            添加颜色菜单
+            </summary>
+            <param name="parentMenu">父菜单</param>
+            <param name="color">演示名称</param>
+            <param name="action">消息处理过程</param>
+            <param name="colorControlTemplate">菜单控件Template</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.GetMenuItems(System.Windows.Controls.ContextMenu,System.Collections.Generic.List{Ai.Hong.Charts.ChartMenuItems})">
+            <summary>
+            查找菜单列表
+            </summary>
+            <param name="contextMenu">弹出菜单</param>
+            <param name="menuCommands">菜单项目</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.VisibleMenuCommands(System.Windows.Controls.ContextMenu,System.Collections.Generic.List{Ai.Hong.Charts.ChartMenuItems},System.Boolean)">
+            <summary>
+            显示或者隐藏菜单列表
+            </summary>
+            <param name="contextMenu"></param>
+            <param name="menuCommands"></param>
+            <param name="visible"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.CommonMenuFunction.EnableMenuCommands(System.Windows.Controls.ContextMenu,System.Collections.Generic.List{Ai.Hong.Charts.ChartMenuItems},System.Boolean)">
+            <summary>
+            激活或者失效菜单列表
+            </summary>
+            <param name="contextMenu"></param>
+            <param name="menuCommands"></param>
+            <param name="visible"></param>
+        </member>
+        <member name="T:Ai.Hong.Charts.EnumChartType">
+            <summary>
+            图形类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.AreaSeries">
+            <summary>
+            AreaSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.BarSeries">
+            <summary>
+            BarSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.BoxPlotSeries">
+            <summary>
+            BoxPlotSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.CandleStickSeries">
+            <summary>
+            CandleStickSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.ColumnSeries">
+            <summary>
+            ColumnSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.FunctionSeries">
+            <summary>
+            FunctionSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.HeatMapSeries">
+            <summary>
+            HeatMapSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.LineSeries">
+            <summary>
+            LineSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.PieSeries">
+            <summary>
+            PieSeries
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumChartType.ScatterSeries">
+            <summary>
+            ScatterSeries
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.EnumMarkerType">
+            <summary>
+            散点图形状
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumMarkerType.Circle">
+            <summary>
+            Circle
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumMarkerType.Cross">
+            <summary>
+            Cross
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumMarkerType.Diamond">
+            <summary>
+            Diamond
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumMarkerType.Plus">
+            <summary>
+            Plus
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumMarkerType.Square">
+            <summary>
+            Square
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumMarkerType.Star">
+            <summary>
+            Star
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumMarkerType.Triangle">
+            <summary>
+            Triangle
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.ChartMenuItems">
+            <summary>
+            弹出菜单项
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.Select">
+            <summary>
+            选择
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.Zoom">
+            <summary>
+            缩放的主菜单
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.zoomIn">
+            <summary>
+            放大
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.zoomOut">
+            <summary>
+            缩小
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.resetXY">
+            <summary>
+            重置XY
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.resetY">
+            <summary>
+            重置Y
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.Pan">
+            <summary>
+            移动
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.Display">
+            <summary>
+            显示的主菜单
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.Colors">
+            <summary>
+            修改颜色
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.Hide">
+            <summary>
+            隐藏图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.showGridLine">
+            <summary>
+            显示网格
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.showInformation">
+            <summary>
+            显示信息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.peakPick">
+            <summary>
+            标志峰位的主菜单
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.upPeakPick">
+            <summary>
+            向上的峰位
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ChartMenuItems.downPeakPick">
+            <summary>
+            向下的峰位
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.EnumAnnotationType">
+            <summary>
+            图形标注的类型
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Arrow">
+            <summary>
+            Arrow
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Ellipse">
+            <summary>
+            Ellipse
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Line">
+            <summary>
+            Line
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Point">
+            <summary>
+            Point
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Polygon">
+            <summary>
+            Polygon
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Polyline">
+            <summary>
+            Polyline
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Rectangle">
+            <summary>
+            Rectangle
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.EnumAnnotationType.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="T:Ai.Hong.Charts.AnnotationInfo">
+            <summary>
+            标注属性
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.AnnotationInfo.AnnChart">
+            <summary>
+            标注图形（根据EnumAnnotationType对应具体的图形类型）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.AnnotationInfo.key">
+            <summary>
+            光谱ID
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.AnnotationInfo.AnnName">
+            <summary>
+            标注名称
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.AnnotationInfo.AnnText">
+            <summary>
+            标注的文字
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.AnnotationInfo.Points">
+            <summary>
+            图形的数据点
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.AnnotationInfo.LineColor">
+            <summary>
+            线条的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.AnnotationInfo.FillColor">
+            <summary>
+            填充的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.AnnotationInfo.LineWidth">
+            <summary>
+            线条宽度
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.CreatePointAnnotation(System.String,System.Double,System.Double,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double,OxyPlot.MarkerType)">
+            <summary>
+            创建PointAnnotation图像
+            </summary>
+            <param name="markText">标注文字</param>
+            <param name="centerX">标注的中心坐标</param>
+            <param name="centerY">标注的中心坐标</param>
+            <param name="markerSize">标注的大小</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="fillColor">填充颜色</param>
+            <param name="lineWidth">线宽</param>
+            <param name="markerType">标记形状</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.CreateRectangleAnnotation(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double)">
+            <summary>
+            创建RectangleAnnotation图像,NaN表示值由显示的高度或宽度决定
+            </summary>
+            <param name="markText">标注文字</param>
+            <param name="minX">起始X</param>
+            <param name="minY">起始Y</param>
+            <param name="maxX">结束X</param>
+            <param name="maxY">结束Y</param>
+            <param name="markerSize">标注的大小</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="fillColor">填充颜色</param>
+            <param name="lineWidth">线宽</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.#ctor(System.Guid,OxyPlot.Annotations.Annotation,Ai.Hong.Charts.EnumAnnotationType,System.String,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="annID">图形ID</param>
+            <param name="annotation">显示的标注</param>
+            <param name="annName">图形名称</param>
+            <param name="annType">图形类型</param>
+            <param name="fontSize">图形字体大小</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.GetBorderColor">
+            <summary>
+            获取图形线条颜色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.SetBorderColor(System.Windows.Media.SolidColorBrush)">
+            <summary>
+            获取图形线条颜色
+            </summary>
+            <param name="color">线条颜色</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.GetFillColor">
+            <summary>
+            获取图形填充颜色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.SetFillColor(System.Windows.Media.SolidColorBrush)">
+            <summary>
+            获取图形填充颜色
+            </summary>
+            <param name="color">线条颜色</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.GetLineWidth">
+            <summary>
+            获取图形线条宽度
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.SetLineWidth(System.Double)">
+            <summary>
+            设置图形线条宽度
+            </summary>
+            <param name="lineWidth"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.GetDataPoints">
+            <summary>
+            获取图形数据
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.SetDataPoint(System.Double[],System.Double[])">
+            <summary>
+            重置图像数据
+            </summary>
+            <param name="xDatas"></param>
+            <param name="yDatas"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.SeriesInRectangle(OxyPlot.DataPoint,OxyPlot.DataPoint,System.Collections.Generic.List{OxyPlot.DataPoint},System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            判断图像是否在矩形框中
+            </summary>
+            <param name="begin">矩形框起点</param>
+            <param name="end">矩形框终点</param>
+            <param name="dataPoints">图形数据</param>
+            <param name="minX">数据最小X</param>
+            <param name="minY">数据最小Y</param>
+            <param name="maxX">数据最大X</param>
+            <param name="maxY">数据最大Y</param>
+            <returns>True=在矩形框中</returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.LineSeriesSelected(OxyPlot.ScreenPoint,OxyPlot.ScreenPoint)">
+            <summary>
+            折线图形是否选中
+            </summary>
+            <param name="screenBegin">矩形框屏幕坐标起点</param>
+            <param name="screenEnd">矩形框屏幕坐标终点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.ScatterSeriesSelected(OxyPlot.ScreenPoint,OxyPlot.ScreenPoint)">
+            <summary>
+            散点图形是否选中
+            </summary>
+            <param name="screenBegin">矩形框屏幕坐标起点</param>
+            <param name="screenEnd">矩形框屏幕坐标终点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.AnnotationInfo.InSelectionRectangle(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            本图形是否被选中
+            </summary>
+            <param name="x0">屏幕矩形框X0</param>
+            <param name="y0">屏幕矩形框Y0</param>
+            <param name="x1">屏幕矩形框X1</param>
+            <param name="y1">屏幕矩形框Y1</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ai.Hong.Charts.GraphicInfo">
+            <summary>
+            图形属性
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicInfo.Chart">
+            <summary>
+            图形（根据ChartType对应具体的图形类型）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.GraphicInfo.key">
+            <summary>
+            光谱ID
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicInfo.chartColor">
+            <summary>
+            图形颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicInfo.name">
+            <summary>
+            图形名
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicInfo.Points">
+            <summary>
+            图形的数据点
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicInfo.LineColor">
+            <summary>
+            线条的颜色
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicInfo.LineWidth">
+            <summary>
+            线条宽度
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicInfo.offset">
+            <summary>
+            图形显示位移（Y轴)
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.GraphicInfo.Annotations">
+            <summary>
+            图形的标注
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.CreateLineSeries(System.Double[],System.Double[],System.Windows.Media.SolidColorBrush,System.Double)">
+            <summary>
+            创建LineSeries Chart图像
+            </summary>
+            <param name="xDatas">x轴数据</param>
+            <param name="yDatas">y轴数据</param>
+            <param name="color">颜色</param>
+            <param name="lineWidth">线宽</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.CreateScatterSeries(System.Double[],System.Double[],Ai.Hong.Charts.EnumMarkerType,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double)">
+            <summary>
+            创建ScatterSeries图像
+            </summary>
+            <param name="xDatas">x轴数据</param>
+            <param name="yDatas">y轴数据</param>
+            <param name="markerType">数据点形状</param>
+            <param name="markerSize">数据点大小</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="fillColor">填充颜色</param>
+            <param name="lineWidth">边框线宽</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.CreateEllipseSeries(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double)">
+            <summary>
+            创建EllipseSeries图像
+            x = a * cost * cosθ - b * sint * sinθ + X,
+            y = a * cost * sinθ + b * sint * cosθ + Y.
+            </summary>
+            <param name="x">椭圆中心坐标</param>
+            <param name="y">椭圆中心坐标</param>
+            <param name="a">椭圆长轴</param>
+            <param name="b">椭圆短轴</param>
+            <param name="angle">倾斜角度</param>
+            <param name="step">步长(0 - 2π)</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="fillColor">填充颜色</param>
+            <param name="lineWidth">边框线宽</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.#ctor(System.Guid,OxyPlot.Series.Series,Ai.Hong.Charts.EnumChartType,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="chartID">图形ID</param>
+            <param name="chart">显示的图形</param>
+            <param name="chartName">图形名称</param>
+            <param name="chartType">图形类型</param>
+            <param name="labelFormat">数据显示格式</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.GetLineColor">
+            <summary>
+            获取图形线条颜色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.SetLineColor(System.Windows.Media.SolidColorBrush)">
+            <summary>
+            设置图形线条颜色
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.GetLineWidth">
+            <summary>
+            获取图形线条宽度
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.SetLineWidth(System.Double)">
+            <summary>
+            设置图形线条宽度
+            </summary>
+            <param name="lineWidth"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.GetDataPoints">
+            <summary>
+            获取图形数据
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.ResetDataPoint(System.Double[],System.Double[])">
+            <summary>
+            重置图像数据
+            </summary>
+            <param name="xDatas"></param>
+            <param name="yDatas"></param>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.SeriesInRectangle(OxyPlot.DataPoint,OxyPlot.DataPoint,System.Collections.Generic.List{OxyPlot.DataPoint},System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            判断图像是否在矩形框中
+            </summary>
+            <param name="begin">矩形框起点</param>
+            <param name="end">矩形框终点</param>
+            <param name="dataPoints">图形数据</param>
+            <param name="minX">数据最小X</param>
+            <param name="minY">数据最小Y</param>
+            <param name="maxX">数据最大X</param>
+            <param name="maxY">数据最大Y</param>
+            <returns>True=在矩形框中</returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.LineSeriesSelected(OxyPlot.ScreenPoint,OxyPlot.ScreenPoint)">
+            <summary>
+            折线图形是否选中
+            </summary>
+            <param name="screenBegin">矩形框屏幕坐标起点</param>
+            <param name="screenEnd">矩形框屏幕坐标终点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.ScatterSeriesSelected(OxyPlot.ScreenPoint,OxyPlot.ScreenPoint)">
+            <summary>
+            散点图形是否选中
+            </summary>
+            <param name="screenBegin">矩形框屏幕坐标起点</param>
+            <param name="screenEnd">矩形框屏幕坐标终点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.GraphicInfo.InSelectionRectangle(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            本图形是否被选中
+            </summary>
+            <param name="x0">屏幕矩形框X0</param>
+            <param name="y0">屏幕矩形框Y0</param>
+            <param name="x1">屏幕矩形框X1</param>
+            <param name="y1">屏幕矩形框Y1</param>
+            <returns></returns>
+        </member>
         <member name="T:Ai.Hong.Charts.GraphicOperatePanel">
             <summary>
             GraphicOperatePanel.xaml 的交互逻辑
@@ -423,6 +1094,100 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Ai.Hong.Charts.ScatterChart">
+            <summary>
+            散点图，也包括折线，线段等
+            </summary>
+            <summary>
+            ScatterChart
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ScatterChart.graphicFiles">
+            <summary>
+            所有图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ScatterChart.selectedFiles">
+            <summary>
+            选中的图形
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ScatterChart.myController">
+            <summary>
+            图形控制器
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ScatterChart.xAxs">
+            <summary>
+            自定义的X轴
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ScatterChart.operateButtons">
+            <summary>
+            所有操作按钮
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ScatterChart.ItemSelectedEvent">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.ScatterChart.ItemSelected">
+            <summary>
+            列表选择消息
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.ScatterChart.ColorChangedEvent">
+            <summary>
+            颜色改变消息
+            </summary>
+        </member>
+        <member name="E:Ai.Hong.Charts.ScatterChart.ColorChanged">
+            <summary>
+            颜色改变消息
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.ScatterChart.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.ScatterChart.InitChart">
+            <summary>
+            设置显示坐标
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.ScatterChart.AddScatterChart(System.Guid,System.String,System.Double[],System.Double[],Ai.Hong.Charts.EnumMarkerType,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double,System.String)">
+            <summary>
+            创建ScatterSeries图像
+            </summary>
+            <param name="chartID">图形ID</param>
+            <param name="chartName">图形名称</param>
+            <param name="xDatas">x轴数据</param>
+            <param name="yDatas">y轴数据</param>
+            <param name="markerType">数据点形状，Default=Circle</param>
+            <param name="markerSize">数据点大小,Default=10.0</param>
+            <param name="borderColor">边框颜色，Default=Blue</param>
+            <param name="fillColor">填充颜色，Default=Transparent</param>
+            <param name="lineWidth">边框线宽，Default=1.0</param>
+            <param name="labelFormat">数据显示格式, Default=F2</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.ScatterChart.RealAddToChart(Ai.Hong.Charts.GraphicInfo)">
+            <summary>
+            实际添加光谱图形到Chart
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.ScatterChart.Refresh">
+            <summary>
+            刷新图像
+            </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.ScatterChart.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Ai.Hong.Charts.SpectrumChart">
             <summary>
             UserControl1.xaml 的交互逻辑
@@ -430,59 +1195,6 @@
             <summary>
             SpectrumChart
             </summary>
-        </member>
-        <member name="T:Ai.Hong.Charts.SpectrumChart.GraphicInfo">
-            <summary>
-            图形属性
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.GraphicInfo.chart">
-            <summary>
-            光谱图形
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.GraphicInfo.key">
-            <summary>
-            光谱ID
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Charts.SpectrumChart.GraphicInfo.chartColor">
-            <summary>
-            图形颜色
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Charts.SpectrumChart.GraphicInfo.name">
-            <summary>
-            文件名
-            </summary>
-        </member>
-        <member name="P:Ai.Hong.Charts.SpectrumChart.GraphicInfo.offset">
-            <summary>
-            图形显示位移（Y轴)
-            </summary>
-        </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.GraphicInfo.CreateChart(System.Double[],System.Double[],System.Windows.Media.SolidColorBrush,System.Double,System.String)">
-            <summary>
-            创建Chart图像
-            </summary>
-            <param name="xDatas">x轴数据</param>
-            <param name="yDatas">y轴数据</param>
-            <param name="color">颜色</param>
-            <param name="lineWidth">线宽</param>
-            <param name="labelFormat">数据显示格式</param>
-            <returns></returns>
-        </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.GraphicInfo.#ctor(System.Double[],System.Double[],System.Windows.Media.SolidColorBrush,System.Double,System.Guid,System.String,System.String)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="xDatas">X轴数据</param>
-            <param name="yDatas">Y轴数据</param>
-            <param name="color">显示颜色</param>
-            <param name="lineWidth">图形线宽</param>
-            <param name="key">Key</param>
-            <param name="labelName">图形名称</param>
-            <param name="labelFormat">数据显示格式</param>
         </member>
         <member name="T:Ai.Hong.Charts.SpectrumChart.ColorChangedArg">
             <summary>
@@ -497,86 +1209,6 @@
         <member name="P:Ai.Hong.Charts.SpectrumChart.ColorChangedArg.items">
             <summary>
             选中的图形
-            </summary>
-        </member>
-        <member name="T:Ai.Hong.Charts.SpectrumChart.chartMenuItems">
-            <summary>
-            弹出菜单项
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Select">
-            <summary>
-            选择
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Zoom">
-            <summary>
-            缩放的主菜单
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.zoomIn">
-            <summary>
-            放大
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.zoomOut">
-            <summary>
-            缩小
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.resetXY">
-            <summary>
-            重置XY
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.resetY">
-            <summary>
-            重置Y
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Pan">
-            <summary>
-            移动
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Display">
-            <summary>
-            显示的主菜单
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Colors">
-            <summary>
-            修改颜色
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.Hide">
-            <summary>
-            隐藏图形
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.showGridLine">
-            <summary>
-            显示网格
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.showInformation">
-            <summary>
-            显示信息
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.peakPick">
-            <summary>
-            标志峰位的主菜单
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.upPeakPick">
-            <summary>
-            向上的峰位
-            </summary>
-        </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.chartMenuItems.downPeakPick">
-            <summary>
-            向下的峰位
             </summary>
         </member>
         <member name="P:Ai.Hong.Charts.SpectrumChart.PlotAreaBackground">
@@ -699,9 +1331,24 @@
             图像选择的敏感度
             </summary>
         </member>
-        <member name="F:Ai.Hong.Charts.SpectrumChart.strColors">
+        <member name="P:Ai.Hong.Charts.SpectrumChart.RevertXAxis">
             <summary>
-            预定义的颜色（More为自定义)
+            反转X轴（显示波数图用）
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.RevertXAxisProperty">
+            <summary>
+            反转X轴（显示波数图用）
+            </summary>
+        </member>
+        <member name="P:Ai.Hong.Charts.SpectrumChart.ChartLanguage">
+            <summary>
+            图表使用的语言
+            </summary>
+        </member>
+        <member name="F:Ai.Hong.Charts.SpectrumChart.ChartLanguageProperty">
+            <summary>
+            图表使用的语言
             </summary>
         </member>
         <member name="P:Ai.Hong.Charts.SpectrumChart.ChartBackground">
@@ -718,6 +1365,12 @@
             <summary>
             构造函数
             </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.OnPropertyChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            属性变化消息
+            </summary>
+            <param name="e"></param>
         </member>
         <member name="M:Ai.Hong.Charts.SpectrumChart.InitContextMenu">
             <summary>
@@ -775,7 +1428,7 @@
             鼠标双击消息
             </summary>
         </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.SetChartLineWidth(System.Collections.Generic.List{Ai.Hong.Charts.SpectrumChart.GraphicInfo},System.Double)">
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetChartLineWidth(System.Collections.Generic.List{Ai.Hong.Charts.GraphicInfo},System.Double)">
             <summary>
             设置图形线宽
             </summary>
@@ -790,10 +1443,16 @@
             <param name="clear">清除以前的图形</param>
             <returns>是否需要刷新</returns>
         </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.RealAddToChart(Ai.Hong.Charts.SpectrumChart.GraphicInfo)">
+        <member name="M:Ai.Hong.Charts.SpectrumChart.RealAddToChart(Ai.Hong.Charts.GraphicInfo)">
             <summary>
             实际添加光谱图形到Chart
             </summary>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.RealAddToAnnotations(Ai.Hong.Charts.AnnotationInfo)">
+            <summary>
+            添加到图形的标注集合中
+            </summary>
+            <param name="info"></param>
         </member>
         <member name="M:Ai.Hong.Charts.SpectrumChart.FindChildByName(System.Windows.Controls.ItemsControl,System.String)">
             <summary>
@@ -803,21 +1462,21 @@
             <param name="name">查找的名称</param>
             <returns>找到的节点</returns>
         </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemCaption(Ai.Hong.Charts.SpectrumChart.chartMenuItems,System.String)">
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemCaption(Ai.Hong.Charts.ChartMenuItems,System.String)">
             <summary>
             修改弹出菜单的名称
             </summary>
             <param name="item">菜单项</param>
             <param name="caption">菜单名称</param>
         </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemVisible(Ai.Hong.Charts.SpectrumChart.chartMenuItems,System.Boolean)">
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemVisible(Ai.Hong.Charts.ChartMenuItems,System.Boolean)">
             <summary>
             隐藏或者显示弹出菜单
             </summary>
             <param name="item">菜单项</param>
             <param name="visible">True=显示, False=隐藏</param>
         </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemEnable(Ai.Hong.Charts.SpectrumChart.chartMenuItems,System.Boolean)">
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetMenuItemEnable(Ai.Hong.Charts.ChartMenuItems,System.Boolean)">
             <summary>
             Enable弹出菜单
             </summary>
@@ -826,7 +1485,7 @@
         </member>
         <member name="M:Ai.Hong.Charts.SpectrumChart.AddChart(System.Double[],System.Double[],System.Windows.Media.SolidColorBrush,System.Guid,System.String,System.String)">
             <summary>
-            添加图形
+            添加折线图形
             </summary>
             <param name="xDatas">x轴数据</param>
             <param name="yDatas">y轴数据</param>
@@ -835,11 +1494,76 @@
             <param name="label">图形名称</param>
             <param name="labelFormat">数据显示格式</param>
         </member>
-        <member name="M:Ai.Hong.Charts.SpectrumChart.ConvertToSolidBrush(OxyPlot.OxyColor)">
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AddScatterChart(System.Guid,System.String,System.Double[],System.Double[],Ai.Hong.Charts.EnumMarkerType,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double,System.String)">
             <summary>
-            Convert Oxy to solid brush
+            创建ScatterSeries图像
             </summary>
-            <param name="color"></param>
+            <param name="chartID">图形ID</param>
+            <param name="chartName">图形名称</param>
+            <param name="xDatas">x轴数据</param>
+            <param name="yDatas">y轴数据</param>
+            <param name="markerType">数据点形状，Default=Circle</param>
+            <param name="markerSize">数据点大小,Default=10.0</param>
+            <param name="borderColor">边框颜色，Default=Blue</param>
+            <param name="fillColor">填充颜色，Default=Transparent</param>
+            <param name="lineWidth">边框线宽，Default=1.0</param>
+            <param name="labelFormat">数据显示格式, Default=F2</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AddEllipseChart(System.Guid,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double,System.String)">
+            <summary>
+            创建EllipseSeries图像
+            x = a * cost * cosθ - b * sint * sinθ + X,
+            y = a * cost * sinθ + b * sint * cosθ + Y.
+            </summary>
+            <param name="chartID">图形ID</param>
+            <param name="chartName">图形名称</param>
+            <param name="x">椭圆中心坐标</param>
+            <param name="y">椭圆中心坐标</param>
+            <param name="a">椭圆长轴</param>
+            <param name="b">椭圆短轴</param>
+            <param name="angle">倾斜角度</param>
+            <param name="step">步长(0 - 2π)</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="fillColor">填充颜色</param>
+            <param name="lineWidth">边框线宽</param>
+            <param name="labelFormat">数据显示格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AddPointAnnotation(System.Guid,System.Guid,System.String,System.Double,System.Double,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double,System.String,System.Double)">
+            <summary>
+            创建PointAnnotation图像
+            </summary>
+            <param name="chartID">需要添加标注的图形ID</param>
+            <param name="annID">标志的ID</param>
+            <param name="markText">标注文字</param>
+            <param name="centerX">标注的中心坐标</param>
+            <param name="centerY">标注的中心坐标</param>
+            <param name="markerSize">标注的大小</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="fillColor">填充颜色</param>
+            <param name="lineWidth">线宽</param>
+            <param name="annName">标注的名称</param>
+            <param name="fontSize">标注文字大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.AddRectangleAnnotation(System.Guid,System.Guid,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.SolidColorBrush,System.Windows.Media.SolidColorBrush,System.Double,System.String,System.Double)">
+            <summary>
+            创建RectangleAnnotation图像,NaN表示值由显示的高度或宽度决定
+            </summary>
+            <param name="chartID">需要添加标注的图形ID</param>
+            <param name="annID">标志的ID</param>
+            <param name="markText">标注文字</param>
+            <param name="minX">起始X</param>
+            <param name="minY">起始Y</param>
+            <param name="maxX">结束X</param>
+            <param name="maxY">结束Y</param>
+            <param name="markerSize">标注的大小</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="fillColor">填充颜色</param>
+            <param name="lineWidth">线宽</param>
+            <param name="annName">标注的名称</param>
+            <param name="fontSize">标注文字大小</param>
             <returns></returns>
         </member>
         <member name="M:Ai.Hong.Charts.SpectrumChart.AdjustAxisValue">
@@ -892,6 +1616,12 @@
             <param name="yDatas"></param>
         </member>
         <member name="M:Ai.Hong.Charts.SpectrumChart.SetGraphicOperatePanel(Ai.Hong.Charts.GraphicOperatePanel)">
+            <summary>
+            设置图形操作按钮面板
+            </summary>
+            <param name="panel">图形操作按钮面板</param>
+        </member>
+        <member name="M:Ai.Hong.Charts.SpectrumChart.SetGraphicOperatePanelTemp(Ai.Hong.Charts.GraphicOperatePanel)">
             <summary>
             设置图形操作按钮面板
             </summary>

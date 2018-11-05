@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Media;
 
 namespace Ai.Hong.Charts
 {
@@ -157,11 +158,11 @@ namespace Ai.Hong.Charts
         /// <param name="solid">是否填充</param>
         /// <param name="shape">图形形状</param>
         /// <returns></returns>
-        public static List<PointData> CreatePointDatas(double[] xAxis, double[] yAxis, double size=1, 
-            System.Windows.Media.SolidColorBrush color=null, 
-            string[] names = null, double[] zAxis=null, bool solid = false, PointSharp shape = PointSharp.Pyramid)
+        public static List<PointData> CreatePointDatas(double[] xAxis, double[] yAxis, double size = 1,
+            System.Windows.Media.SolidColorBrush color = null,
+            string[] names = null, double[] zAxis = null, bool solid = false, PointSharp shape = PointSharp.Pyramid)
         {
-            if (xAxis == null || yAxis == null ||yAxis.Length != xAxis.Length)
+            if (xAxis == null || yAxis == null || yAxis.Length != xAxis.Length)
                 return null;
 
             if (color == null)
@@ -180,11 +181,60 @@ namespace Ai.Hong.Charts
                 string name = names == null ? null : names[i];
                 double zvalue = zAxis == null ? 1 : zAxis[i];
 
-                retDatas.Add(new PointData(name, xAxis[i], yAxis[i], zvalue, size, color,solid, shape));
+                retDatas.Add(new PointData(name, xAxis[i], yAxis[i], zvalue, size, color, solid, shape));
             }
 
             return retDatas;
         }
     }
 
+    /// <summary>
+    /// 图形通用属性
+    /// </summary>
+    public class ChartCommonMethod
+    {
+        /// <summary>
+        /// 预定义的颜色（More为自定义)
+        /// </summary>
+        public static string[] strColors =
+            {
+                "Black", "Red", "Blue", "Gold", "Brown", "DarkGreen", "Navy", "LawnGreen",
+                "DimGray", "DeepPink", "OrangeRed", "Olive",  "Teal", "SlateGray", "Gray", "MidnightBlue",
+                "Orange", "YellowGreen", "SeaGreen", "Aqua", "LightBlue", "Violet", "DarkGray",
+                "Pink", "Yellow", "Lime", "Turquoise", "SkyBlue", "Plum", "LightGray", "Indigo",
+                "LightPink", "Tan", "LightCoral", "More"
+            };
+
+        /// <summary>
+        /// 获取序号对应的颜色
+        /// </summary>
+        /// <param name="index">序号</param>
+        /// <returns></returns>
+        public static SolidColorBrush PredefineColors(int index)
+        {
+            //-1：最后一个为More，特殊用法
+            return (SolidColorBrush)typeof(System.Windows.Media.Brushes).GetProperty(strColors[index % (strColors.Length - 1)]).GetValue(null, null);
+        }
+
+        /// <summary>
+        /// SolidColorBrush转换为OxyColor
+        /// </summary>
+        /// <param name="color">SolidColorBrush</param>
+        /// <returns></returns>
+        public static OxyPlot.OxyColor ToOxyColor(SolidColorBrush color)
+        {
+            return OxyPlot.OxyColor.FromArgb(color.Color.A, color.Color.R, color.Color.G, color.Color.B);
+        }
+
+        /// <summary>
+        /// OxyColor转换为SolidColorBrush
+        /// </summary>
+        /// <param name="color">OxyColor</param>
+        /// <returns></returns>
+        public static SolidColorBrush ToSolidColor(OxyPlot.OxyColor color)
+        {
+            var cl = new Color() { A = color.A, R = color.R, G = color.G, B = color.B };
+            return new SolidColorBrush(cl);
+        }
+    }
 }

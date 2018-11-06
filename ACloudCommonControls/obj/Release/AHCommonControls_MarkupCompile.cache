@@ -10,11 +10,11 @@ none
 false
 TRACE
 
-261490770357
+27997985334
 
-38234345569
-25-485750270
-Chart\GraphicOperatePanel.xaml;Chart\Point2DChart.xaml;Chart\SpectrumChart.xaml;Controls\ClockWaiting.xaml;Controls\ColorPicker.xaml;Controls\CheckboxNameColorList.xaml;Controls\ComboxWithDeleteButton.xaml;Controls\DateTimeInputor.xaml;Controls\EnumTextList.xaml;Controls\FlattenFileOperatePanel.xaml;Controls\FlattenSelectColorList.xaml;Controls\PorcessWaitWindow.xaml;Controls\dlgPorcessWaiting.xaml;Controls\FileOperatePanel.xaml;Controls\OkCancelPanel.xaml;Controls\SelectColorList.xaml;Controls\simpleInputWindow.xaml;Controls\TextBoxAndButton.xaml;Chart\TredentDotChart.xaml;Controls\TxtDataBrowser.xaml;Controls\VectorButton.xaml;Controls\VectorImageButton.xaml;Styles\DatagridStyle.xaml;Styles\DefaultThemeStyle.xaml;Styles\TreeViewStyle.xaml;TestControl.xaml;
+42-1406982356
+251520468883
+Chart\GraphicOperatePanel.xaml;Chart\Point2DChart.xaml;Chart\ScatterChart.xaml;Chart\SpectrumChart.xaml;Controls\ClockWaiting.xaml;Controls\ColorPicker.xaml;Controls\CheckboxNameColorList.xaml;Controls\ComboxWithDeleteButton.xaml;Controls\DateTimeInputor.xaml;Controls\EnumTextList.xaml;Controls\FlattenFileOperatePanel.xaml;Controls\FlattenSelectColorList.xaml;Controls\PorcessWaitWindow.xaml;Controls\dlgPorcessWaiting.xaml;Controls\FileOperatePanel.xaml;Controls\OkCancelPanel.xaml;Controls\SelectColorList.xaml;Controls\simpleInputWindow.xaml;Controls\TextBoxAndButton.xaml;Chart\TredentDotChart.xaml;Controls\TxtDataBrowser.xaml;Controls\VectorButton.xaml;Controls\VectorImageButton.xaml;Styles\DatagridStyle.xaml;Styles\DefaultThemeStyle.xaml;Styles\TreeViewStyle.xaml;TestControl.xaml;
 
 False
 

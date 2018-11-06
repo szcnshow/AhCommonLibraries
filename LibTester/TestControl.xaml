@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibTester"
         xmlns:ctrl="clr-namespace:Ai.Hong.Controls;assembly=AHCommonControls"
+        xmlns:chart="clr-namespace:Ai.Hong.Charts;assembly=AHCommonControls"
         mc:Ignorable="d"
         Title="TestControl" Height="450" Width="800">
     <Grid>
-        <ctrl:TxtDataBrowser Name="txtBowser"/>
+        <chart:SpectrumChart Name="testchart"/>
     </Grid>
 </Window>

@@ -121,8 +121,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TAlex.WPF.Controls">
-      <HintPath>..\..\..\..\小工具\WPFControls-2.0.0\TAlex.WPF.Controls\bin\Release\TAlex.WPF.Controls.dll</HintPath>
+    <Reference Include="TAlex.WPF.Controls, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll Output\TAlex.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
@@ -132,6 +133,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Chart\ChartTracker.cs" />
+    <Compile Include="Chart\CommonMenuFunction.cs" />
+    <Compile Include="Chart\Defines.cs" />
+    <Compile Include="Chart\AnnotationInfo.cs" />
+    <Compile Include="Chart\GraphicInfo.cs" />
     <Compile Include="Chart\GraphicOperatePanel.xaml.cs">
       <DependentUpon>GraphicOperatePanel.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -139,6 +144,9 @@
     <Compile Include="Chart\Point2DChart.xaml.cs">
       <DependentUpon>Point2DChart.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Chart\ScatterChart.xaml.cs">
+      <DependentUpon>ScatterChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Chart\SpectrumChart.xaml.cs">
       <DependentUpon>SpectrumChart.xaml</DependentUpon>
@@ -225,6 +233,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Chart\Point2DChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Chart\ScatterChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
